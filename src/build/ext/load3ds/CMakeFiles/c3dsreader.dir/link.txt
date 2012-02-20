@@ -1,0 +1,2 @@
+/usr/bin/ar cr libc3dsreader.a  CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o
+/usr/bin/ranlib libc3dsreader.a

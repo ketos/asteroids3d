@@ -1,0 +1,2 @@
+/home/twiemann/software/viewer_blatt14/build/ext/load3ds/CMakeFiles/c3dsreader.dir
+/home/twiemann/software/viewer_blatt14/build/CMakeFiles/viewer.dir
