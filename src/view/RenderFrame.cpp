@@ -4,7 +4,7 @@
 
 #include <QKeyEvent>
 #include <QMouseEvent>
-
+#include "../rendering/Fighter.hpp"
 #include "rendering/TexturedMesh.hpp"
 #include "io/Read3DS.hpp"
 
@@ -37,10 +37,10 @@ void RenderFrame::loadModel(string filename)
 	}
 
 	// Load new model
-	m_mesh = new TexturedMesh;
+	m_mesh = new Fighter;
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
-
+	
 }
 
 
@@ -144,8 +144,13 @@ void RenderFrame::paintGL()
 	if(m_mesh)
 	{
 		m_mesh->render();
+		//render bullet and planets
+	        (static_cast<Fighter*>(m_mesh))->render_bullets();
 	}
 
+	
+	
+	
 	glFinish();
 
 	// Call back buffer
@@ -231,6 +236,10 @@ void RenderFrame::moveCurrentMesh()
     	{
     		m_mesh->move(ACCEL, -5);
     	}
+    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
+	{
+		(static_cast<Fighter*>(m_mesh))->shoot();
+	}
     }
 }
 
@@ -253,7 +262,7 @@ void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
 		moveCamHead(dx, dy);
 	}
 
-	if(event->buttons() == Qt::MiddleButton)
+	if(event->buttons() == Qt::MidButton)
 	{
 		moveCamZ(dy);
 	}
