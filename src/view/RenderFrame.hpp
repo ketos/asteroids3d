@@ -16,6 +16,12 @@
 #include "rendering/Skybox.hpp"
 #include "math/Global.hpp"
 
+#include <QBrush>
+#include <QFont>
+#include <QImage>
+#include <QPen>
+#include <QGLWidget>
+#include <QTimer>
 
 class RenderFrame : public QGLWidget
 {
@@ -38,8 +44,9 @@ public:
      * 			Is a model is already present, it is replaced
      * 			with the new one.
      */
-    void loadModel(string modelName);
-
+   void loadModel(string modelName);
+   void drawInstructions(QPainter *painter);
+   void setupViewport(int width, int height);
 protected:
 	
     /// The set of currently pressed keys

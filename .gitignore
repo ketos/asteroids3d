@@ -5,6 +5,7 @@
 *~
 *.o
 *.s
+*.a
 *CMake*
 *.cmake
 *.bin
