@@ -14,11 +14,10 @@
 #include "view/Camera.hpp"
 #include "rendering/TriangleMesh.hpp"
 #include "rendering/Skybox.hpp"
+#include "rendering/Asteorid.hpp"
 #include "math/Global.hpp"
+#include "Galaxis.hpp"
 
-#include "view/HUD.hpp"
-#include <QGLWidget>
-#include <QTimer>
 
 class RenderFrame : public QGLWidget
 {
@@ -41,12 +40,8 @@ public:
      * 			Is a model is already present, it is replaced
      * 			with the new one.
      */
-   void loadModel(string modelName);
-  
-   /**
-   *
-   */
-   void setupViewport(int width, int height);
+    void loadModel(string modelName);
+
 protected:
 	
     /// The set of currently pressed keys
@@ -131,6 +126,10 @@ protected:
 	TriangleMesh*	m_mesh;
 
 	/**
+	 * @brief the current loaded Galaxis
+	 */
+	Galaxis* galaxis;
+	/**
 	 * @brief A skybox for the scene
 	 */
 	Skybox* m_skybox;
@@ -145,8 +144,9 @@ protected:
 	 */
 	int	m_mouseY;
 	
-	HUD* hins;
-	
+	QTimer* m_timer;
+
+
 
 };
 

@@ -46,8 +46,8 @@ FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(GLUT REQUIRED)
 
 if(OpenGL_FOUND)
-    link_directories(${OpenGL_LIBRARY_DIRS})
-    include_directories(${OpenGL_INCLUDE_DIRS})
+    link_directories(${OpenGL_INCLUDE_DIRS})
+    include_directories(${OpenGL_LIBRARY_DIRS})
 endif(OpenGL_FOUND)
 
 set( QT_USE_QTOPENGL TRUE )
@@ -83,15 +83,16 @@ set(VIEWER_SOURCES
 	io/TriangleMeshFactory.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
+    view/Galaxis.cpp
 	view/RenderFrame.cpp
-	view/HUD.cpp
     rendering/TriangleMesh.cpp
 	rendering/Texture.cpp 
 	rendering/Skybox.cpp
 	rendering/Transformable.cpp
 	rendering/TexturedMesh.cpp
-	rendering/Fighter.cpp
-	rendering/Bullet.cpp
+    rendering/Asteorid.cpp
+    rendering/Fighter.cpp
+    rendering/Bullet.cpp
     Main.cpp
 )
 

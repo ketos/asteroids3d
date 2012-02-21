@@ -121,7 +121,7 @@ public:
 
 	void applyRotationOnly();
 
-private:
+public:
 
 	///The current orientation of the x-axis
 	glVector<float> m_baseX;

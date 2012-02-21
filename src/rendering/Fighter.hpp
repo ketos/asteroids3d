@@ -30,10 +30,8 @@ public:
      */
    	void render();
 	
-    /**
-     * @brief renders all bullets that belong to the fighter
-     */
-        void render_bullets();
+	vector<Bullet*> get_Bullets();
+
 
 private:
     // A vector with the bullets this fighter has shot.

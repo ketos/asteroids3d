@@ -7,17 +7,18 @@
 #ifndef BULLET_HPP_
 #define BULLET_HPP_
 
-#include "TriangleMesh.hpp"
+#include "TexturedMesh.hpp"
 // We use common cpp threads for this class: 
-// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B
-#include <QThread>   
+// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B 
 #include <GL/glu.h>
 #include <GL/glut.h>
+#include <QThread>
+
 
 /**
  * @brief Renders a Bullet
  */
-class Bullet: public TriangleMesh, public QThread
+class Bullet: public TexturedMesh, public QThread
 {
 
 public:
@@ -36,10 +37,7 @@ public:
      */
 	void run();
     
-    /**
-     * @brief Renders the bullet/glutSolidSphere.
-     */
-	void render();
+    
 
     /**
      * @brief Returns the status of this bullet.

@@ -17,16 +17,16 @@ CMakeFiles/viewer.dir/Main.cpp.o
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
- /home/tim/Projects/asteroids3D/src/Main.cpp
- /home/tim/Projects/asteroids3D/src/io/MeshIO.hpp
- /home/tim/Projects/asteroids3D/src/io/Read3DS.hpp
- /home/tim/Projects/asteroids3D/src/io/TextureFactory.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids3D/src/view/MainWindow.hpp
- /home/tim/Projects/asteroids3D/src/view/RenderFrame.hpp
+ /home/twiemann/software/viewer_blatt14/Main.cpp
+ /home/twiemann/software/viewer_blatt14/io/MeshIO.hpp
+ /home/twiemann/software/viewer_blatt14/io/Read3DS.hpp
+ /home/twiemann/software/viewer_blatt14/io/TextureFactory.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Materials.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Texture.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.hpp
+ /home/twiemann/software/viewer_blatt14/view/MainWindow.hpp
+ /home/twiemann/software/viewer_blatt14/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -149,8 +149,8 @@ CMakeFiles/viewer.dir/Main.cpp.o
  /usr/include/qt4/QtOpenGL/qgl.h
  /usr/include/qt4/QtOpenGL/qglcolormap.h
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o
- /home/tim/Projects/asteroids3D/src/io/PLYTraits.cpp
- /home/tim/Projects/asteroids3D/src/io/PLYTraits.hpp
+ /home/twiemann/software/viewer_blatt14/io/PLYTraits.cpp
+ /home/twiemann/software/viewer_blatt14/io/PLYTraits.hpp
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o
  ../ext/load3ds/C3DSFormat.h
  ../ext/load3ds/C3DSMaterialReader.h
@@ -183,10 +183,10 @@ CMakeFiles/viewer.dir/io/Read3DS.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids3D/src/io/MeshIO.hpp
- /home/tim/Projects/asteroids3D/src/io/Read3DS.cpp
- /home/tim/Projects/asteroids3D/src/io/Read3DS.hpp
- /home/tim/Projects/asteroids3D/src/io/TextureFactory.hpp
+ /home/twiemann/software/viewer_blatt14/io/MeshIO.hpp
+ /home/twiemann/software/viewer_blatt14/io/Read3DS.cpp
+ /home/twiemann/software/viewer_blatt14/io/Read3DS.hpp
+ /home/twiemann/software/viewer_blatt14/io/TextureFactory.hpp
  /usr/include/SDL/SDL.h
  /usr/include/SDL/SDL_active.h
  /usr/include/SDL/SDL_audio.h
@@ -226,23 +226,23 @@ CMakeFiles/viewer.dir/io/ReadPLY.cpp.o
  ../rendering/Renderable.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids3D/src/io/PLYElement.hpp
- /home/tim/Projects/asteroids3D/src/io/PLYProperty.hpp
- /home/tim/Projects/asteroids3D/src/io/PLYTraits.hpp
- /home/tim/Projects/asteroids3D/src/io/ReadPLY.cpp
- /home/tim/Projects/asteroids3D/src/io/ReadPLY.hpp
+ /home/twiemann/software/viewer_blatt14/io/PLYElement.hpp
+ /home/twiemann/software/viewer_blatt14/io/PLYProperty.hpp
+ /home/twiemann/software/viewer_blatt14/io/PLYTraits.hpp
+ /home/twiemann/software/viewer_blatt14/io/ReadPLY.cpp
+ /home/twiemann/software/viewer_blatt14/io/ReadPLY.hpp
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o
- /home/tim/Projects/asteroids3D/src/io/ReadPPM.cpp
- /home/tim/Projects/asteroids3D/src/io/ReadPPM.hpp
+ /home/twiemann/software/viewer_blatt14/io/ReadPPM.cpp
+ /home/twiemann/software/viewer_blatt14/io/ReadPPM.hpp
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o
- /home/tim/Projects/asteroids3D/src/io/ReadTGA.cpp
- /home/tim/Projects/asteroids3D/src/io/ReadTGA.hpp
+ /home/twiemann/software/viewer_blatt14/io/ReadTGA.cpp
+ /home/twiemann/software/viewer_blatt14/io/ReadTGA.hpp
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o
  ../rendering/Texture.hpp
- /home/tim/Projects/asteroids3D/src/io/ReadPPM.hpp
- /home/tim/Projects/asteroids3D/src/io/ReadTGA.hpp
- /home/tim/Projects/asteroids3D/src/io/TextureFactory.cpp
- /home/tim/Projects/asteroids3D/src/io/TextureFactory.hpp
+ /home/twiemann/software/viewer_blatt14/io/ReadPPM.hpp
+ /home/twiemann/software/viewer_blatt14/io/ReadTGA.hpp
+ /home/twiemann/software/viewer_blatt14/io/TextureFactory.cpp
+ /home/twiemann/software/viewer_blatt14/io/TextureFactory.hpp
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o
  ../io/MeshIO.hpp
  ../io/PLYElement.hpp
@@ -264,8 +264,8 @@ CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids3D/src/io/TriangleMeshFactory.cpp
- /home/tim/Projects/asteroids3D/src/io/TriangleMeshFactory.hpp
+ /home/twiemann/software/viewer_blatt14/io/TriangleMeshFactory.cpp
+ /home/twiemann/software/viewer_blatt14/io/TriangleMeshFactory.hpp
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -281,9 +281,9 @@ CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
- /home/tim/Projects/asteroids3D/src/build/../view/MainWindow.hpp
- /home/tim/Projects/asteroids3D/src/build/../view/RenderFrame.hpp
- /home/tim/Projects/asteroids3D/src/build/moc_MainWindow.cxx
+ /home/twiemann/software/viewer_blatt14/build/../view/MainWindow.hpp
+ /home/twiemann/software/viewer_blatt14/build/../view/RenderFrame.hpp
+ /home/twiemann/software/viewer_blatt14/build/moc_MainWindow.cxx
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -412,8 +412,8 @@ CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
- /home/tim/Projects/asteroids3D/src/build/../view/RenderFrame.hpp
- /home/tim/Projects/asteroids3D/src/build/moc_RenderFrame.cxx
+ /home/twiemann/software/viewer_blatt14/build/../view/RenderFrame.hpp
+ /home/twiemann/software/viewer_blatt14/build/moc_RenderFrame.cxx
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -534,11 +534,11 @@ CMakeFiles/viewer.dir/rendering/Skybox.cpp.o
  ../view/Camera.hpp
  ../view/MainWindow.hpp
  ../view/RenderFrame.hpp
- /home/tim/Projects/asteroids3D/src/rendering/FixedObject.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Skybox.cpp
- /home/tim/Projects/asteroids3D/src/rendering/Skybox.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Texture.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/FixedObject.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Renderable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Skybox.cpp
+ /home/twiemann/software/viewer_blatt14/rendering/Skybox.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Texture.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -653,8 +653,8 @@ CMakeFiles/viewer.dir/rendering/Skybox.cpp.o
  /usr/include/qt4/QtOpenGL/qgl.h
  /usr/include/qt4/QtOpenGL/qglcolormap.h
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o
- /home/tim/Projects/asteroids3D/src/rendering/Texture.cpp
- /home/tim/Projects/asteroids3D/src/rendering/Texture.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Texture.cpp
+ /home/twiemann/software/viewer_blatt14/rendering/Texture.hpp
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -663,13 +663,13 @@ CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids3D/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.cpp
- /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Materials.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Renderable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Texture.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.cpp
+ /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Transformable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.hpp
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -678,9 +678,9 @@ CMakeFiles/viewer.dir/rendering/Transformable.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids3D/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Transformable.cpp
- /home/tim/Projects/asteroids3D/src/rendering/Transformable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Renderable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Transformable.cpp
+ /home/twiemann/software/viewer_blatt14/rendering/Transformable.hpp
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -689,10 +689,10 @@ CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids3D/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.cpp
- /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Renderable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/Transformable.hpp
+ /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.cpp
+ /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.hpp
 CMakeFiles/viewer.dir/view/Camera.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -701,8 +701,8 @@ CMakeFiles/viewer.dir/view/Camera.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids3D/src/view/Camera.cpp
- /home/tim/Projects/asteroids3D/src/view/Camera.hpp
+ /home/twiemann/software/viewer_blatt14/view/Camera.cpp
+ /home/twiemann/software/viewer_blatt14/view/Camera.hpp
 CMakeFiles/viewer.dir/view/MainWindow.cpp.o
  ../io/MeshIO.hpp
  ../io/Read3DS.hpp
@@ -724,9 +724,9 @@ CMakeFiles/viewer.dir/view/MainWindow.cpp.o
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
- /home/tim/Projects/asteroids3D/src/view/MainWindow.cpp
- /home/tim/Projects/asteroids3D/src/view/MainWindow.hpp
- /home/tim/Projects/asteroids3D/src/view/RenderFrame.hpp
+ /home/twiemann/software/viewer_blatt14/view/MainWindow.cpp
+ /home/twiemann/software/viewer_blatt14/view/MainWindow.hpp
+ /home/twiemann/software/viewer_blatt14/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QDate
@@ -897,18 +897,15 @@ CMakeFiles/viewer.dir/view/MainWindow.cpp.o
  /usr/include/qt4/QtCore/qvector.h
  /usr/include/qt4/QtCore/qwaitcondition.h
  /usr/include/qt4/QtCore/qxmlstream.h
- /usr/include/qt4/QtGui/QBrush
  /usr/include/qt4/QtGui/QCleanlooksStyle
  /usr/include/qt4/QtGui/QCommonStyle
  /usr/include/qt4/QtGui/QFileDialog
  /usr/include/qt4/QtGui/QFont
- /usr/include/qt4/QtGui/QImage
  /usr/include/qt4/QtGui/QLayout
  /usr/include/qt4/QtGui/QMainWindow
  /usr/include/qt4/QtGui/QMatrix4x4
  /usr/include/qt4/QtGui/QMenuBar
  /usr/include/qt4/QtGui/QPalette
- /usr/include/qt4/QtGui/QPen
  /usr/include/qt4/QtGui/QPrinter
  /usr/include/qt4/QtGui/QTransform
  /usr/include/qt4/QtGui/QVector3D
@@ -1164,16 +1161,12 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
- /home/tim/Projects/asteroids3D/src/view/../rendering/Bullet.hpp
- /home/tim/Projects/asteroids3D/src/view/../rendering/Fighter.hpp
- /home/tim/Projects/asteroids3D/src/view/../rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids3D/src/view/RenderFrame.cpp
- /home/tim/Projects/asteroids3D/src/view/RenderFrame.hpp
+ /home/twiemann/software/viewer_blatt14/view/RenderFrame.cpp
+ /home/twiemann/software/viewer_blatt14/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
  /usr/include/qt4/QtCore/QPointF
- /usr/include/qt4/QtCore/QThread
  /usr/include/qt4/QtCore/QTimer
  /usr/include/qt4/QtCore/qalgorithms.h
  /usr/include/qt4/QtCore/qatomic.h
@@ -1237,7 +1230,6 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o
  /usr/include/qt4/QtCore/qstringlist.h
  /usr/include/qt4/QtCore/qstringmatcher.h
  /usr/include/qt4/QtCore/qt_windows.h
- /usr/include/qt4/QtCore/qthread.h
  /usr/include/qt4/QtCore/qtimer.h
  /usr/include/qt4/QtCore/qvariant.h
  /usr/include/qt4/QtCore/qvector.h

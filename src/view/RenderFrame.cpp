@@ -4,19 +4,25 @@
 
 #include <QKeyEvent>
 #include <QMouseEvent>
-#include "../rendering/Fighter.hpp"
+
 #include "rendering/TexturedMesh.hpp"
+#include "rendering/Fighter.hpp"
+#include "math/glVector.hpp"
 #include "io/Read3DS.hpp"
+#include "rendering/Asteorid.hpp"
+#include <stdio.h>
+
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
     // set up animation timer
-//    m_timer = new QTimer();
-//    m_timer->setInterval(25);
-//    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
-//    m_timer->start();
-     setAutoFillBackground(false);
-	m_mesh = 0;
+   m_timer = new QTimer();
+   m_timer->setInterval(25);
+   connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
+   m_timer->start();
+    
+	m_mesh  = 0;
+	galaxis = 0;
 	show();
 }
 
@@ -37,9 +43,19 @@ void RenderFrame::loadModel(string filename)
 
 	// Load new model
 	m_mesh = new Fighter;
+	//Hier Aenderung!! --> m_mesh = new TexturedMesh;
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
-	
+	std::cout << "Fighter erstellt und vor der Erstellung der Galaxy" << std::endl;
+	// load the glaxis width all planets 
+	galaxis = new Galaxis();
+	//Vectors
+	glVector<float> v1(m_cam.m_px, m_cam.m_py, m_cam.m_pz-1000);
+	glVector<float> v2(0.0, 0.0, 0.0);
+	Asteorid *a1 = new Asteorid(v2, v1);
+	galaxis->addAsteorid(v1,v2);
+	std::cout << "Galaxy erstellt und so" << std::endl;
+
 }
 
 
@@ -58,7 +74,7 @@ void RenderFrame::initializeGL()
 	m_skybox = new Skybox(2048, names, m_cam);
     
 	glMatrixMode(GL_MODELVIEW);
-	//glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+	glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
 
 	// Setup two light sources
 	float light0_position[4];
@@ -96,12 +112,8 @@ void RenderFrame::initializeGL()
 
 	// Enable z buffer and gouroud shading
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_MULTISAMPLE);
 	glDepthFunc(GL_LESS);
 	glShadeModel (GL_SMOOTH);
-	
-	hins = new HUD();
-	
 }
  
 void RenderFrame::resizeGL(int w, int h)
@@ -147,27 +159,14 @@ void RenderFrame::paintGL()
 	if(m_mesh)
 	{
 		m_mesh->render();
-		//render bullet and planets
-	        (static_cast<Fighter*>(m_mesh))->render_bullets();
+	}
+	if(galaxis)
+	{
+		galaxis->render();
 	}
 
-    
-     glMatrixMode(GL_PROJECTION);
-     glPushMatrix();
-     glPushAttrib(GL_ALL_ATTRIB_BITS);
-     glLoadIdentity();
-     QPainter painter(this);
-    // painter.setRenderHint(QPainter::Antialiasing);
-     hins->draw(&painter,width(),height(),font());
-     
-     painter.end();
-    // glPopMatrix();
-    // glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
-    glPopAttrib();
-    glMatrixMode(GL_MODELVIEW);
-    
-     glFinish();
+	glFinish();
+
 	// Call back buffer
 	swapBuffers();
 }
@@ -184,6 +183,7 @@ void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
 	// State of key is unpressed
 	m_pressedKeys.erase(event->key());
+	paintGL();
 } 
 
 void RenderFrame::moveCurrentMesh()
@@ -251,10 +251,11 @@ void RenderFrame::moveCurrentMesh()
     	{
     		m_mesh->move(ACCEL, -5);
     	}
-    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
-	{
-		(static_cast<Fighter*>(m_mesh))->shoot();
-	}
+    	// Schießen !!
+    	    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
+    	{
+    		(static_cast<Fighter*>(m_mesh))->shoot();
+    	}
     }
 }
 
@@ -368,10 +369,3 @@ void RenderFrame::moveCamHead(int dx, int dy)
 		}
 	}
 }
-
-void RenderFrame::setupViewport(int width, int height)
-{
-     int side = qMin(width, height);
-     glViewport((width - side) / 2, (height - side) / 2, side, side);
-}
-
