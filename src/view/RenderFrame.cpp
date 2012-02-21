@@ -15,7 +15,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 //    m_timer->setInterval(25);
 //    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
 //    m_timer->start();
-    
+     setAutoFillBackground(false);
 	m_mesh = 0;
 	
 	show();
@@ -59,7 +59,7 @@ void RenderFrame::initializeGL()
 	m_skybox = new Skybox(2048, names, m_cam);
     
 	glMatrixMode(GL_MODELVIEW);
-	glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+	//glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
 
 	// Setup two light sources
 	float light0_position[4];
@@ -97,6 +97,7 @@ void RenderFrame::initializeGL()
 
 	// Enable z buffer and gouroud shading
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_MULTISAMPLE);
 	glDepthFunc(GL_LESS);
 	glShadeModel (GL_SMOOTH);
 }
@@ -148,11 +149,23 @@ void RenderFrame::paintGL()
 	        (static_cast<Fighter*>(m_mesh))->render_bullets();
 	}
 
-	
-	
-	
-	glFinish();
+    
+     glMatrixMode(GL_PROJECTION);
+     glPushMatrix();
+     glPushAttrib(GL_ALL_ATTRIB_BITS);
+     glLoadIdentity();
+     QPainter painter(this);
+    // painter.setRenderHint(QPainter::Antialiasing);
 
+     drawInstructions(&painter);
+     painter.end();
+    // glPopMatrix();
+    // glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+    glPopAttrib();
+    glMatrixMode(GL_MODELVIEW);
+    
+     glFinish();
 	// Call back buffer
 	swapBuffers();
 }
@@ -353,3 +366,40 @@ void RenderFrame::moveCamHead(int dx, int dy)
 		}
 	}
 }
+void RenderFrame::drawInstructions(QPainter *painter)
+{
+     //std::string dmg = "Schaden "+m_fighter.getDamage()+"%";
+     //std::string points = "Punkte "+m_fighter.getPoints();
+     string dmg = "Schaden 0%";
+     QString damage = QString::fromStdString(dmg);
+     QFontMetrics metrics = QFontMetrics(font());
+     int border = qMax(4, metrics.leading());
+
+     QRect rect = metrics.boundingRect(0, 0, width() - 2*border, int(height()*0.125),
+                                       Qt::AlignCenter | Qt::TextWordWrap, damage);
+     painter->setRenderHint(QPainter::TextAntialiasing);
+     painter->fillRect(QRect(0, height()-50, 100, 50),
+                      QColor(255, 0, 0, 127));
+     painter->setPen(Qt::white);
+     painter->fillRect(QRect(0,height()-50, 100 ,50),
+                       QColor(0, 0, 0, 127));
+     painter->drawText(20, height()-30,
+                       rect.width(), rect.height(),
+                       Qt::AlignCenter | Qt::TextWordWrap, damage);
+     painter->drawLine(width()/2, height()-10, width()/2, height()-110);
+     painter->drawLine((width()/2)-50, height()-60, (width()/2)+50, height()-60);
+     painter->drawLine((width()/2)-25, height()-30, (width()/2)+25, height()-90);
+   //QPoint point = QPoint(width()/2,height()-236);
+   //QImage myImage =QImage("radar.gif");
+   // myImage.load("mb.png");
+   //painter->drawImage(point, myImage);
+}
+
+void RenderFrame::setupViewport(int width, int height)
+{
+     int side = qMin(width, height);
+     glViewport((width - side) / 2, (height - side) / 2, side, side);
+
+   
+}
+

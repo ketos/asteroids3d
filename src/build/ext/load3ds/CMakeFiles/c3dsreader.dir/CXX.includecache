@@ -78,35 +78,35 @@ vec_decl.h
 
 ../ext/load3ds/math3d++/vec_decl.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSFormat.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSFormat.h
 SDL_types.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/SDL_types.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/SDL_types.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSLightReader.cpp
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSLightReader.cpp
 C3DSLightReader.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSLightReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSLightReader.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSLightReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSLightReader.h
 C3DSReaderBase.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.h
 math3d++.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/math3d++.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/math3d++.h
 vector
 -
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMaterialReader.cpp
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMaterialReader.cpp
 C3DSMaterialReader.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMaterialReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMaterialReader.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMaterialReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMaterialReader.h
 C3DSReaderBase.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.h
 vector
 -
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshNormalCalculator.cpp
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshNormalCalculator.cpp
 C3DSMeshNormalCalculator.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshNormalCalculator.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshNormalCalculator.h
 algorithm
 -
 map
@@ -116,33 +116,33 @@ set
 iterator
 -
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshNormalCalculator.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshNormalCalculator.h
 C3DSMeshReader.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshReader.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshReader.cpp
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshReader.cpp
 C3DSMeshReader.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshReader.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSMeshReader.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSMeshReader.h
 C3DSReaderBase.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.h
 math3d++.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/math3d++.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/math3d++.h
 string
 -
 vector
 -
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.cpp
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.cpp
 C3DSReaderBase.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.h
 
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSReaderBase.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSReaderBase.h
 C3DSFormat.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/C3DSFormat.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/C3DSFormat.h
 SDL_rwops.h
-/home/twiemann/software/viewer_blatt14/ext/load3ds/SDL_rwops.h
+/home/tim/Projects/asteroids3D/src/ext/load3ds/SDL_rwops.h
 string
 -
 

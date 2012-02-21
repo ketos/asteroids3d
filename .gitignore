@@ -3,4 +3,10 @@
 
 # Use wildcards as well
 *~
+*.o
+*.s
+*CMake*
+*.cmake
+*.bin
 
+src/build/

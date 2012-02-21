@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/twiemann/software/viewer_blatt14
+CMAKE_SOURCE_DIR = /home/tim/Projects/asteroids3D/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/twiemann/software/viewer_blatt14/build
+CMAKE_BINARY_DIR = /home/tim/Projects/asteroids3D/src/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/viewer.dir/depend.make
@@ -51,17 +48,17 @@ include CMakeFiles/viewer.dir/flags.make
 
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o: ../io/Read3DS.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/Read3DS.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/Read3DS.cpp.o -c /home/twiemann/software/viewer_blatt14/io/Read3DS.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/Read3DS.cpp.o -c /home/tim/Projects/asteroids3D/src/io/Read3DS.cpp
 
 CMakeFiles/viewer.dir/io/Read3DS.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/Read3DS.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/Read3DS.cpp > CMakeFiles/viewer.dir/io/Read3DS.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/Read3DS.cpp > CMakeFiles/viewer.dir/io/Read3DS.cpp.i
 
 CMakeFiles/viewer.dir/io/Read3DS.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/Read3DS.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/Read3DS.cpp -o CMakeFiles/viewer.dir/io/Read3DS.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/Read3DS.cpp -o CMakeFiles/viewer.dir/io/Read3DS.cpp.s
 
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/Read3DS.cpp.o.requires
@@ -71,21 +68,20 @@ CMakeFiles/viewer.dir/io/Read3DS.cpp.o.provides: CMakeFiles/viewer.dir/io/Read3D
 .PHONY : CMakeFiles/viewer.dir/io/Read3DS.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o.provides.build: CMakeFiles/viewer.dir/io/Read3DS.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/Read3DS.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.o: ../io/ReadPLY.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/ReadPLY.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadPLY.cpp.o -c /home/twiemann/software/viewer_blatt14/io/ReadPLY.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadPLY.cpp.o -c /home/tim/Projects/asteroids3D/src/io/ReadPLY.cpp
 
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/ReadPLY.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/ReadPLY.cpp > CMakeFiles/viewer.dir/io/ReadPLY.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/ReadPLY.cpp > CMakeFiles/viewer.dir/io/ReadPLY.cpp.i
 
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/ReadPLY.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/ReadPLY.cpp -o CMakeFiles/viewer.dir/io/ReadPLY.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/ReadPLY.cpp -o CMakeFiles/viewer.dir/io/ReadPLY.cpp.s
 
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.requires
@@ -95,21 +91,20 @@ CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.provides: CMakeFiles/viewer.dir/io/ReadPL
 .PHONY : CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.provides.build: CMakeFiles/viewer.dir/io/ReadPLY.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/ReadPLY.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o: ../io/ReadPPM.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/ReadPPM.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadPPM.cpp.o -c /home/twiemann/software/viewer_blatt14/io/ReadPPM.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadPPM.cpp.o -c /home/tim/Projects/asteroids3D/src/io/ReadPPM.cpp
 
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/ReadPPM.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/ReadPPM.cpp > CMakeFiles/viewer.dir/io/ReadPPM.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/ReadPPM.cpp > CMakeFiles/viewer.dir/io/ReadPPM.cpp.i
 
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/ReadPPM.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/ReadPPM.cpp -o CMakeFiles/viewer.dir/io/ReadPPM.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/ReadPPM.cpp -o CMakeFiles/viewer.dir/io/ReadPPM.cpp.s
 
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.requires
@@ -119,21 +114,20 @@ CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.provides: CMakeFiles/viewer.dir/io/ReadPP
 .PHONY : CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.provides.build: CMakeFiles/viewer.dir/io/ReadPPM.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/ReadPPM.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o: ../io/ReadTGA.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/ReadTGA.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadTGA.cpp.o -c /home/twiemann/software/viewer_blatt14/io/ReadTGA.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/ReadTGA.cpp.o -c /home/tim/Projects/asteroids3D/src/io/ReadTGA.cpp
 
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/ReadTGA.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/ReadTGA.cpp > CMakeFiles/viewer.dir/io/ReadTGA.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/ReadTGA.cpp > CMakeFiles/viewer.dir/io/ReadTGA.cpp.i
 
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/ReadTGA.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/ReadTGA.cpp -o CMakeFiles/viewer.dir/io/ReadTGA.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/ReadTGA.cpp -o CMakeFiles/viewer.dir/io/ReadTGA.cpp.s
 
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.requires
@@ -143,21 +137,20 @@ CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.provides: CMakeFiles/viewer.dir/io/ReadTG
 .PHONY : CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.provides.build: CMakeFiles/viewer.dir/io/ReadTGA.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/ReadTGA.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o: ../io/PLYTraits.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/PLYTraits.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/PLYTraits.cpp.o -c /home/twiemann/software/viewer_blatt14/io/PLYTraits.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/PLYTraits.cpp.o -c /home/tim/Projects/asteroids3D/src/io/PLYTraits.cpp
 
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/PLYTraits.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/PLYTraits.cpp > CMakeFiles/viewer.dir/io/PLYTraits.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/PLYTraits.cpp > CMakeFiles/viewer.dir/io/PLYTraits.cpp.i
 
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/PLYTraits.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/PLYTraits.cpp -o CMakeFiles/viewer.dir/io/PLYTraits.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/PLYTraits.cpp -o CMakeFiles/viewer.dir/io/PLYTraits.cpp.s
 
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.requires
@@ -167,21 +160,20 @@ CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.provides: CMakeFiles/viewer.dir/io/PLYT
 .PHONY : CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.provides.build: CMakeFiles/viewer.dir/io/PLYTraits.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/PLYTraits.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o: ../io/TextureFactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/TextureFactory.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/TextureFactory.cpp.o -c /home/twiemann/software/viewer_blatt14/io/TextureFactory.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/TextureFactory.cpp.o -c /home/tim/Projects/asteroids3D/src/io/TextureFactory.cpp
 
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/TextureFactory.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/TextureFactory.cpp > CMakeFiles/viewer.dir/io/TextureFactory.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/TextureFactory.cpp > CMakeFiles/viewer.dir/io/TextureFactory.cpp.i
 
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/TextureFactory.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/TextureFactory.cpp -o CMakeFiles/viewer.dir/io/TextureFactory.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/TextureFactory.cpp -o CMakeFiles/viewer.dir/io/TextureFactory.cpp.s
 
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.requires
@@ -191,21 +183,20 @@ CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.provides: CMakeFiles/viewer.dir/io
 .PHONY : CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.provides.build: CMakeFiles/viewer.dir/io/TextureFactory.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/TextureFactory.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o: ../io/TriangleMeshFactory.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o -c /home/twiemann/software/viewer_blatt14/io/TriangleMeshFactory.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o -c /home/tim/Projects/asteroids3D/src/io/TriangleMeshFactory.cpp
 
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/io/TriangleMeshFactory.cpp > CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/io/TriangleMeshFactory.cpp > CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.i
 
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/io/TriangleMeshFactory.cpp -o CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/io/TriangleMeshFactory.cpp -o CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.s
 
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.requires
@@ -215,21 +206,20 @@ CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.provides: CMakeFiles/viewer.d
 .PHONY : CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.provides
 
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.provides.build: CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o
-.PHONY : CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/view/MainWindow.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/view/MainWindow.cpp.o: ../view/MainWindow.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/view/MainWindow.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/MainWindow.cpp.o -c /home/twiemann/software/viewer_blatt14/view/MainWindow.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/MainWindow.cpp.o -c /home/tim/Projects/asteroids3D/src/view/MainWindow.cpp
 
 CMakeFiles/viewer.dir/view/MainWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/view/MainWindow.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/view/MainWindow.cpp > CMakeFiles/viewer.dir/view/MainWindow.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/view/MainWindow.cpp > CMakeFiles/viewer.dir/view/MainWindow.cpp.i
 
 CMakeFiles/viewer.dir/view/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/view/MainWindow.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/view/MainWindow.cpp -o CMakeFiles/viewer.dir/view/MainWindow.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/view/MainWindow.cpp -o CMakeFiles/viewer.dir/view/MainWindow.cpp.s
 
 CMakeFiles/viewer.dir/view/MainWindow.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/view/MainWindow.cpp.o.requires
@@ -239,21 +229,20 @@ CMakeFiles/viewer.dir/view/MainWindow.cpp.o.provides: CMakeFiles/viewer.dir/view
 .PHONY : CMakeFiles/viewer.dir/view/MainWindow.cpp.o.provides
 
 CMakeFiles/viewer.dir/view/MainWindow.cpp.o.provides.build: CMakeFiles/viewer.dir/view/MainWindow.cpp.o
-.PHONY : CMakeFiles/viewer.dir/view/MainWindow.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/view/Camera.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/view/Camera.cpp.o: ../view/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/view/Camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/Camera.cpp.o -c /home/twiemann/software/viewer_blatt14/view/Camera.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/Camera.cpp.o -c /home/tim/Projects/asteroids3D/src/view/Camera.cpp
 
 CMakeFiles/viewer.dir/view/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/view/Camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/view/Camera.cpp > CMakeFiles/viewer.dir/view/Camera.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/view/Camera.cpp > CMakeFiles/viewer.dir/view/Camera.cpp.i
 
 CMakeFiles/viewer.dir/view/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/view/Camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/view/Camera.cpp -o CMakeFiles/viewer.dir/view/Camera.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/view/Camera.cpp -o CMakeFiles/viewer.dir/view/Camera.cpp.s
 
 CMakeFiles/viewer.dir/view/Camera.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/view/Camera.cpp.o.requires
@@ -263,21 +252,20 @@ CMakeFiles/viewer.dir/view/Camera.cpp.o.provides: CMakeFiles/viewer.dir/view/Cam
 .PHONY : CMakeFiles/viewer.dir/view/Camera.cpp.o.provides
 
 CMakeFiles/viewer.dir/view/Camera.cpp.o.provides.build: CMakeFiles/viewer.dir/view/Camera.cpp.o
-.PHONY : CMakeFiles/viewer.dir/view/Camera.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/RenderFrame.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/view/RenderFrame.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/RenderFrame.cpp.o -c /home/twiemann/software/viewer_blatt14/view/RenderFrame.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/view/RenderFrame.cpp.o -c /home/tim/Projects/asteroids3D/src/view/RenderFrame.cpp
 
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/view/RenderFrame.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/view/RenderFrame.cpp > CMakeFiles/viewer.dir/view/RenderFrame.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/view/RenderFrame.cpp > CMakeFiles/viewer.dir/view/RenderFrame.cpp.i
 
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/view/RenderFrame.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/view/RenderFrame.cpp -o CMakeFiles/viewer.dir/view/RenderFrame.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/view/RenderFrame.cpp -o CMakeFiles/viewer.dir/view/RenderFrame.cpp.s
 
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.requires
@@ -287,21 +275,20 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.provides: CMakeFiles/viewer.dir/vie
 .PHONY : CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.provides
 
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.provides.build: CMakeFiles/viewer.dir/view/RenderFrame.cpp.o
-.PHONY : CMakeFiles/viewer.dir/view/RenderFrame.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o: ../rendering/TriangleMesh.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o -c /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o -c /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.cpp
 
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.cpp > CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.cpp > CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.i
 
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/rendering/TriangleMesh.cpp -o CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/rendering/TriangleMesh.cpp -o CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.s
 
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.requires
@@ -311,21 +298,20 @@ CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.provides: CMakeFiles/viewer.d
 .PHONY : CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.provides
 
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.provides.build: CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o
-.PHONY : CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o: ../rendering/Texture.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/rendering/Texture.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Texture.cpp.o -c /home/twiemann/software/viewer_blatt14/rendering/Texture.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Texture.cpp.o -c /home/tim/Projects/asteroids3D/src/rendering/Texture.cpp
 
 CMakeFiles/viewer.dir/rendering/Texture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/rendering/Texture.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/rendering/Texture.cpp > CMakeFiles/viewer.dir/rendering/Texture.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/rendering/Texture.cpp > CMakeFiles/viewer.dir/rendering/Texture.cpp.i
 
 CMakeFiles/viewer.dir/rendering/Texture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/rendering/Texture.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/rendering/Texture.cpp -o CMakeFiles/viewer.dir/rendering/Texture.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/rendering/Texture.cpp -o CMakeFiles/viewer.dir/rendering/Texture.cpp.s
 
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/rendering/Texture.cpp.o.requires
@@ -335,21 +321,20 @@ CMakeFiles/viewer.dir/rendering/Texture.cpp.o.provides: CMakeFiles/viewer.dir/re
 .PHONY : CMakeFiles/viewer.dir/rendering/Texture.cpp.o.provides
 
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o.provides.build: CMakeFiles/viewer.dir/rendering/Texture.cpp.o
-.PHONY : CMakeFiles/viewer.dir/rendering/Texture.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.o: ../rendering/Skybox.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/rendering/Skybox.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Skybox.cpp.o -c /home/twiemann/software/viewer_blatt14/rendering/Skybox.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Skybox.cpp.o -c /home/tim/Projects/asteroids3D/src/rendering/Skybox.cpp
 
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/rendering/Skybox.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/rendering/Skybox.cpp > CMakeFiles/viewer.dir/rendering/Skybox.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/rendering/Skybox.cpp > CMakeFiles/viewer.dir/rendering/Skybox.cpp.i
 
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/rendering/Skybox.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/rendering/Skybox.cpp -o CMakeFiles/viewer.dir/rendering/Skybox.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/rendering/Skybox.cpp -o CMakeFiles/viewer.dir/rendering/Skybox.cpp.s
 
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.requires
@@ -359,21 +344,20 @@ CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.provides: CMakeFiles/viewer.dir/ren
 .PHONY : CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.provides
 
 CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.provides.build: CMakeFiles/viewer.dir/rendering/Skybox.cpp.o
-.PHONY : CMakeFiles/viewer.dir/rendering/Skybox.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o: ../rendering/Transformable.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/rendering/Transformable.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Transformable.cpp.o -c /home/twiemann/software/viewer_blatt14/rendering/Transformable.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/Transformable.cpp.o -c /home/tim/Projects/asteroids3D/src/rendering/Transformable.cpp
 
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/rendering/Transformable.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/rendering/Transformable.cpp > CMakeFiles/viewer.dir/rendering/Transformable.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/rendering/Transformable.cpp > CMakeFiles/viewer.dir/rendering/Transformable.cpp.i
 
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/rendering/Transformable.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/rendering/Transformable.cpp -o CMakeFiles/viewer.dir/rendering/Transformable.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/rendering/Transformable.cpp -o CMakeFiles/viewer.dir/rendering/Transformable.cpp.s
 
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.requires
@@ -383,21 +367,20 @@ CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.provides: CMakeFiles/viewer.
 .PHONY : CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.provides
 
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.provides.build: CMakeFiles/viewer.dir/rendering/Transformable.cpp.o
-.PHONY : CMakeFiles/viewer.dir/rendering/Transformable.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o: ../rendering/TexturedMesh.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o -c /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o -c /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.cpp
 
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.cpp > CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.cpp > CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.i
 
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/rendering/TexturedMesh.cpp -o CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/rendering/TexturedMesh.cpp -o CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.s
 
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.requires
@@ -407,21 +390,20 @@ CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.provides: CMakeFiles/viewer.d
 .PHONY : CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.provides
 
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.provides.build: CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o
-.PHONY : CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/Main.cpp.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/Main.cpp.o: ../Main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/Main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/Main.cpp.o -c /home/twiemann/software/viewer_blatt14/Main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/Main.cpp.o -c /home/tim/Projects/asteroids3D/src/Main.cpp
 
 CMakeFiles/viewer.dir/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/Main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/Main.cpp > CMakeFiles/viewer.dir/Main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/Main.cpp > CMakeFiles/viewer.dir/Main.cpp.i
 
 CMakeFiles/viewer.dir/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/Main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/Main.cpp -o CMakeFiles/viewer.dir/Main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/Main.cpp -o CMakeFiles/viewer.dir/Main.cpp.s
 
 CMakeFiles/viewer.dir/Main.cpp.o.requires:
 .PHONY : CMakeFiles/viewer.dir/Main.cpp.o.requires
@@ -431,21 +413,20 @@ CMakeFiles/viewer.dir/Main.cpp.o.provides: CMakeFiles/viewer.dir/Main.cpp.o.requ
 .PHONY : CMakeFiles/viewer.dir/Main.cpp.o.provides
 
 CMakeFiles/viewer.dir/Main.cpp.o.provides.build: CMakeFiles/viewer.dir/Main.cpp.o
-.PHONY : CMakeFiles/viewer.dir/Main.cpp.o.provides.build
 
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o: moc_MainWindow.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/moc_MainWindow.cxx.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/moc_MainWindow.cxx.o -c /home/twiemann/software/viewer_blatt14/build/moc_MainWindow.cxx
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/moc_MainWindow.cxx.o -c /home/tim/Projects/asteroids3D/src/build/moc_MainWindow.cxx
 
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/moc_MainWindow.cxx.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/build/moc_MainWindow.cxx > CMakeFiles/viewer.dir/moc_MainWindow.cxx.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/build/moc_MainWindow.cxx > CMakeFiles/viewer.dir/moc_MainWindow.cxx.i
 
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/moc_MainWindow.cxx.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/build/moc_MainWindow.cxx -o CMakeFiles/viewer.dir/moc_MainWindow.cxx.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/build/moc_MainWindow.cxx -o CMakeFiles/viewer.dir/moc_MainWindow.cxx.s
 
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.requires:
 .PHONY : CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.requires
@@ -455,21 +436,20 @@ CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.provides: CMakeFiles/viewer.dir/moc_M
 .PHONY : CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.provides
 
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.provides.build: CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
-.PHONY : CMakeFiles/viewer.dir/moc_MainWindow.cxx.o.provides.build
 
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o: CMakeFiles/viewer.dir/flags.make
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o: moc_RenderFrame.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o -c /home/twiemann/software/viewer_blatt14/build/moc_RenderFrame.cxx
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o -c /home/tim/Projects/asteroids3D/src/build/moc_RenderFrame.cxx
 
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/viewer.dir/moc_RenderFrame.cxx.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/twiemann/software/viewer_blatt14/build/moc_RenderFrame.cxx > CMakeFiles/viewer.dir/moc_RenderFrame.cxx.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids3D/src/build/moc_RenderFrame.cxx > CMakeFiles/viewer.dir/moc_RenderFrame.cxx.i
 
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/viewer.dir/moc_RenderFrame.cxx.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/twiemann/software/viewer_blatt14/build/moc_RenderFrame.cxx -o CMakeFiles/viewer.dir/moc_RenderFrame.cxx.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids3D/src/build/moc_RenderFrame.cxx -o CMakeFiles/viewer.dir/moc_RenderFrame.cxx.s
 
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.requires:
 .PHONY : CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.requires
@@ -479,19 +459,18 @@ CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.provides: CMakeFiles/viewer.dir/moc_
 .PHONY : CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.provides
 
 CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.provides.build: CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o
-.PHONY : CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o.provides.build
 
 moc_MainWindow.cxx: /usr/bin/moc-qt4
 moc_MainWindow.cxx: ../view/MainWindow.hpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Qt Wrapped File"
-	/usr/bin/moc-qt4 -o /home/twiemann/software/viewer_blatt14/build/moc_MainWindow.cxx /home/twiemann/software/viewer_blatt14/view/MainWindow.hpp
+	/usr/bin/moc-qt4 -o /home/tim/Projects/asteroids3D/src/build/moc_MainWindow.cxx /home/tim/Projects/asteroids3D/src/view/MainWindow.hpp
 
 moc_RenderFrame.cxx: /usr/bin/moc-qt4
 moc_RenderFrame.cxx: ../view/RenderFrame.hpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/twiemann/software/viewer_blatt14/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids3D/src/build/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Qt Wrapped File"
-	/usr/bin/moc-qt4 -o /home/twiemann/software/viewer_blatt14/build/moc_RenderFrame.cxx /home/twiemann/software/viewer_blatt14/view/RenderFrame.hpp
+	/usr/bin/moc-qt4 -o /home/tim/Projects/asteroids3D/src/build/moc_RenderFrame.cxx /home/tim/Projects/asteroids3D/src/view/RenderFrame.hpp
 
 # Object files for target viewer
 viewer_OBJECTS = \
@@ -537,19 +516,19 @@ viewer: CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
 viewer: CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o
 viewer: /usr/lib/libglut.so
 viewer: /usr/lib/libXmu.so
-viewer: /usr/lib/x86_64-linux-gnu/libXi.so
-viewer: /usr/lib/libGLU.so
-viewer: /usr/lib/libGL.so
-viewer: /usr/lib/x86_64-linux-gnu/libSM.so
-viewer: /usr/lib/x86_64-linux-gnu/libICE.so
-viewer: /usr/lib/x86_64-linux-gnu/libX11.so
-viewer: /usr/lib/x86_64-linux-gnu/libXext.so
+viewer: /usr/lib/i386-linux-gnu/libXi.so
+viewer: /usr/lib/i386-linux-gnu/libGLU.so
+viewer: /usr/lib/i386-linux-gnu/libGL.so
+viewer: /usr/lib/i386-linux-gnu/libSM.so
+viewer: /usr/lib/i386-linux-gnu/libICE.so
+viewer: /usr/lib/i386-linux-gnu/libX11.so
+viewer: /usr/lib/i386-linux-gnu/libXext.so
 viewer: ext/load3ds/libc3dsreader.a
 viewer: /usr/lib/libSDLmain.a
 viewer: /usr/lib/libSDL.so
-viewer: /usr/lib/libQtCore.so
-viewer: /usr/lib/libQtGui.so
-viewer: /usr/lib/libQtOpenGL.so
+viewer: /usr/lib/i386-linux-gnu/libQtCore.so
+viewer: /usr/lib/i386-linux-gnu/libQtGui.so
+viewer: /usr/lib/i386-linux-gnu/libQtOpenGL.so
 viewer: CMakeFiles/viewer.dir/build.make
 viewer: CMakeFiles/viewer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable viewer"
@@ -585,6 +564,6 @@ CMakeFiles/viewer.dir/clean:
 
 CMakeFiles/viewer.dir/depend: moc_MainWindow.cxx
 CMakeFiles/viewer.dir/depend: moc_RenderFrame.cxx
-	cd /home/twiemann/software/viewer_blatt14/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/twiemann/software/viewer_blatt14 /home/twiemann/software/viewer_blatt14 /home/twiemann/software/viewer_blatt14/build /home/twiemann/software/viewer_blatt14/build /home/twiemann/software/viewer_blatt14/build/CMakeFiles/viewer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tim/Projects/asteroids3D/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tim/Projects/asteroids3D/src /home/tim/Projects/asteroids3D/src /home/tim/Projects/asteroids3D/src/build /home/tim/Projects/asteroids3D/src/build /home/tim/Projects/asteroids3D/src/build/CMakeFiles/viewer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/viewer.dir/depend
 

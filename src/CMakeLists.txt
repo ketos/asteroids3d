@@ -46,8 +46,8 @@ FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(GLUT REQUIRED)
 
 if(OpenGL_FOUND)
-    link_directories(${OpenGL_INCLUDE_DIRS})
-    include_directories(${OpenGL_LIBRARY_DIRS})
+    link_directories(${OpenGL_LIBRARY_DIRS})
+    include_directories(${OpenGL_INCLUDE_DIRS})
 endif(OpenGL_FOUND)
 
 set( QT_USE_QTOPENGL TRUE )

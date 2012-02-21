@@ -1160,12 +1160,16 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../rendering/TexturedMesh.hpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../rendering/Transformable.hpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../rendering/TriangleMesh.hpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/Camera.hpp
+CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/../rendering/Bullet.hpp
+CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/../rendering/Fighter.hpp
+CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/../rendering/TexturedMesh.hpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/RenderFrame.cpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: ../view/RenderFrame.hpp
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/QPoint
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/QPointF
+CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/QThread
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/QTimer
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qalgorithms.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qatomic.h
@@ -1229,6 +1233,7 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qstringbui
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qstringlist.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qstringmatcher.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qt_windows.h
+CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qthread.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qtimer.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qvariant.h
 CMakeFiles/viewer.dir/view/RenderFrame.cpp.o: /usr/include/qt4/QtCore/qvector.h

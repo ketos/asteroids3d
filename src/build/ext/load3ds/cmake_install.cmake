@@ -1,4 +1,4 @@
-# Install script for directory: /home/twiemann/software/viewer_blatt14/ext/load3ds
+# Install script for directory: /home/tim/Projects/asteroids3D/src/ext/load3ds
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
