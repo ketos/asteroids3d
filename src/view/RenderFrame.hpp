@@ -16,10 +16,7 @@
 #include "rendering/Skybox.hpp"
 #include "math/Global.hpp"
 
-#include <QBrush>
-#include <QFont>
-#include <QImage>
-#include <QPen>
+#include "view/HUD.hpp"
 #include <QGLWidget>
 #include <QTimer>
 
@@ -45,7 +42,10 @@ public:
      * 			with the new one.
      */
    void loadModel(string modelName);
-   void drawInstructions(QPainter *painter);
+  
+   /**
+   *
+   */
    void setupViewport(int width, int height);
 protected:
 	
@@ -144,8 +144,9 @@ protected:
 	 * @brief The last y position of the mouse
 	 */
 	int	m_mouseY;
-
-
+	
+	HUD* hins;
+	
 
 };
 

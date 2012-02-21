@@ -84,11 +84,14 @@ set(VIEWER_SOURCES
     view/MainWindow.cpp 
     view/Camera.cpp
 	view/RenderFrame.cpp
+	view/HUD.cpp
     rendering/TriangleMesh.cpp
 	rendering/Texture.cpp 
 	rendering/Skybox.cpp
 	rendering/Transformable.cpp
 	rendering/TexturedMesh.cpp
+	rendering/Fighter.cpp
+	rendering/Bullet.cpp
     Main.cpp
 )
 
