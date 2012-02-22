@@ -82,7 +82,7 @@ set(VIEWER_SOURCES
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
-	io/sound.cpp
+	#io/sound.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp
@@ -120,6 +120,8 @@ add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 ###############################################################################
 # External library dependencys
 ###############################################################################
+
+message(STATUS "SDL : " ${SDLMIXER_LIBRARY})
 
 target_link_libraries(viewer ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
 target_link_libraries(viewer c3dsreader) 
