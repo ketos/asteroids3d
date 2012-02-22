@@ -82,7 +82,6 @@ set(VIEWER_SOURCES
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
-	#io/sound.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp

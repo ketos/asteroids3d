@@ -27,7 +27,7 @@ void Asteorid::run()
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
 // 		std::cout << "Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
-		m_position = flight_axis  + m_position;
+		//m_position = flight_axis  + m_position;
 
 // 		std::cout << 	"Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
 		usleep(10000);

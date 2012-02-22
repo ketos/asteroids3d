@@ -12,8 +12,6 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 
-#include "io/sound.hpp"
-
 
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
