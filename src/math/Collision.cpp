@@ -14,7 +14,6 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
 void Collision::run()
 {
         //algirthm for checking collisions
-        cout << "runnnning coll" << endl;
         while(m_running)
         {
                 // get the vectors form fighter and galaxis
@@ -38,7 +37,13 @@ void Collision::run()
                                 if ( (diffX <= 100) && (diffY <= 100) && (diffZ <= 100) )
                                 {
                                         //getroffen
-                                        cout << "diffx:"<<diffX<<"  diffY:"<< diffY << "  diffZ:"<<diffZ<<endl;
+                                        //cout << "diffx:"<<diffX<<"  diffY:"<< diffY << "  diffZ:"<<diffZ<<endl;
+                                        
+                                        //auflösen der Kugel 
+                                        (*bulletIt)->kill();
+                                        //auflösen des planeten
+                                        (*asteoridtIt)->destroy();
+                                        
                                 }
                 	        bulletIt++;
                       }
