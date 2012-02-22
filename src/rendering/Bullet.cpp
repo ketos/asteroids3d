@@ -40,6 +40,13 @@ glVector<float> Bullet::getPosition()
 {
         return m_position;
 }
+void Bullet::setAxis(glVector<float> xA, glVector<float> yA, glVector<float> zA)
+{
+        m_xAxis = xA;
+        m_yAxis = yA;
+        m_zAxis = zA;
+}
+
 
 
 

@@ -277,7 +277,7 @@ void RenderFrame::moveCurrentMesh()
     		m_mesh->move(ACCEL, -5);
     	}
     	// Schießen !!
-    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
+    	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
     	    Sound* s = new Sound();
     	    s->playWAV("sound.wav");
