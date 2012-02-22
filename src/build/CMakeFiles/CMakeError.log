@@ -12,8 +12,8 @@ Linking C executable cmTryCompileExec
 /usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: ld gab 1 als Ende-Status zurück
-make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make[1]: *** [cmTryCompileExec] Fehler 1
+make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Fehler 2
 
 
@@ -29,8 +29,8 @@ Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In Funktion »main«:
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Fehler: »Q_WS_WIN« nicht deklariert (erste Benutzung in dieser Funktion)
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Anmerkung: jeder nicht deklarierte Bezeichner wird nur einmal für jede Funktion, in der er vorkommt, gemeldet
-make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Fehler 2
 
 File /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -58,8 +58,8 @@ Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In Funktion »main«:
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Fehler: »Q_WS_QWS« nicht deklariert (erste Benutzung in dieser Funktion)
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Anmerkung: jeder nicht deklarierte Bezeichner wird nur einmal für jede Funktion, in der er vorkommt, gemeldet
-make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Fehler 2
 
 File /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
@@ -87,8 +87,8 @@ Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In Funktion »main«:
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Fehler: »Q_WS_MAC« nicht deklariert (erste Benutzung in dieser Funktion)
 /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:25: Anmerkung: jeder nicht deklarierte Bezeichner wird nur einmal für jede Funktion, in der er vorkommt, gemeldet
-make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Fehler 1
+make[1]: Verlasse Verzeichnis '/home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Fehler 2
 
 File /home/tim/Projects/asteroids/src/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
