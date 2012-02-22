@@ -52,7 +52,7 @@ void RenderFrame::loadModel(string filename)
 	galaxis = new Galaxis();
 	//Vectors
 	glVector<float> v1(m_cam.m_px, m_cam.m_py, m_cam.m_pz-1000);
-	glVector<float> v2(100.0, 50.0, 100.0);
+	glVector<float> v2(1.0,1.0,1.0);
 	galaxis->addAsteorid(v1,v2);
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
