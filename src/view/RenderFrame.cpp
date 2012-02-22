@@ -153,7 +153,7 @@ void RenderFrame::resizeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 
 	// Set 'LookAt'
-    m_cam.apply();
+    //m_cam.apply();
     /*if(i==0) {
         m_cam.apply();
         i++;
