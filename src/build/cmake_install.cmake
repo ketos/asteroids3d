@@ -1,4 +1,4 @@
-# Install script for directory: /home/aloha/git/cpp2012-gruppe3/src
+# Install script for directory: /Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,14 +27,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "1")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds/cmake_install.cmake")
+  INCLUDE("/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/ext/load3ds/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -44,7 +39,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/aloha/git/cpp2012-gruppe3/src/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/aloha/git/cpp2012-gruppe3/src/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

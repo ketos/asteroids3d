@@ -44,3 +44,24 @@ void Fighter::render()
 	    }
     }
 }
+
+void Fighter::killBullet(Bullet* b)
+{
+        //killen der kugel
+        vector<Bullet*>::iterator bulletIt;
+        bulletIt = m_bullets.begin();
+        while(bulletIt != m_bullets.end())
+        {
+	        if((*bulletIt) == b)
+	        {
+	                bulletIt = m_bullets.erase(bulletIt);
+                        b->kill();
+                        break;
+	        }
+	        else
+	        {
+	                bulletIt++;	
+	        }
+      }
+        
+}

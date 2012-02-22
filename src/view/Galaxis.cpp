@@ -19,7 +19,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 }
 	      
 void Galaxis::render()
-{/*
+{
     if( asteorids.size() > 0 )
     {
      std::cout << "rendere den asteoriden" << std::cout;   
@@ -35,10 +35,29 @@ void Galaxis::render()
 	        asteoridtIt++;	
 	      }
       }
-    }*/
+    }
 }
 
 vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
+}
+void Galaxis::killAsteorid(Asteorid* g)
+{
+        //killen des Asterorids
+        vector<Asteorid*>::iterator asteoridtIt;
+        asteoridtIt = asteorids.begin();
+        while(asteoridtIt != asteorids.end())
+        {
+	        if((*asteoridtIt) == g)
+	        {
+	                asteoridtIt = asteorids.erase(asteoridtIt);
+                        g->destroy();
+                        break;
+	        }
+	        else
+	        {
+	                asteoridtIt++;	
+	        }
+      }
 }

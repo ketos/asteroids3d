@@ -37,7 +37,10 @@ public:
      */
 	void run();
     
-    
+    /**
+      * @brief returns position
+      */
+      glVector<float> getPosition();
 
     /**
      * @brief Returns the status of this Asteorid.

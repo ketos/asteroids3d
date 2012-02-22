@@ -38,16 +38,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-6.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-6.app/Contents/bin/cmake" -E remove -f
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-6.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aloha/git/cpp2012-gruppe3/src
+CMAKE_SOURCE_DIR = "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aloha/git/cpp2012-gruppe3/src/build
+CMAKE_BINARY_DIR = "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build"
 
 #=============================================================================
 # Target rules for target CMakeFiles/viewer.dir
@@ -56,7 +59,7 @@ CMAKE_BINARY_DIR = /home/aloha/git/cpp2012-gruppe3/src/build
 CMakeFiles/viewer.dir/all: ext/load3ds/CMakeFiles/c3dsreader.dir/all
 	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/depend
 	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles  6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles"  6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
 	@echo "Built target viewer"
 .PHONY : CMakeFiles/viewer.dir/all
 
@@ -66,9 +69,9 @@ all: CMakeFiles/viewer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/viewer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles" 31
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/viewer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles" 0
 .PHONY : CMakeFiles/viewer.dir/rule
 
 # Convenience name for target.
@@ -106,7 +109,7 @@ ext/load3ds/preinstall:
 ext/load3ds/CMakeFiles/c3dsreader.dir/all:
 	$(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/depend
 	$(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles  1 2 3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles"  1 2 3 4 5
 	@echo "Built target c3dsreader"
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/all
 
@@ -116,9 +119,9 @@ all: ext/load3ds/CMakeFiles/c3dsreader.dir/all
 
 # Build rule for subdir invocation for target.
 ext/load3ds/CMakeFiles/c3dsreader.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/CMakeFiles/c3dsreader.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles" 0
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/rule
 
 # Convenience name for target.

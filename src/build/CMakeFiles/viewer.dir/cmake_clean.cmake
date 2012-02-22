@@ -20,6 +20,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/viewer.dir/rendering/Fighter.cpp.o"
   "CMakeFiles/viewer.dir/rendering/Bullet.cpp.o"
   "CMakeFiles/viewer.dir/Main.cpp.o"
+  "CMakeFiles/viewer.dir/math/Collision.cpp.o"
   "CMakeFiles/viewer.dir/moc_MainWindow.cxx.o"
   "CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o"
   "moc_MainWindow.cxx"

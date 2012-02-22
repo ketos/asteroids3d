@@ -1,2 +1,2 @@
-/home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds/CMakeFiles/c3dsreader.dir
-/home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles/viewer.dir
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/ext/load3ds/CMakeFiles/c3dsreader.dir
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/build/CMakeFiles/viewer.dir

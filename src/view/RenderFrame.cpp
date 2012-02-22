@@ -56,7 +56,15 @@ void RenderFrame::loadModel(string filename)
 	galaxis->addAsteorid(v1,v2);
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
-   m_timer->start();
+        // start collision thread
+        if (m_coll != 0)
+        {
+                m_coll->stop();
+        }
+        m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
+        m_coll->start();
+        
+        m_timer->start();
 
 }
 

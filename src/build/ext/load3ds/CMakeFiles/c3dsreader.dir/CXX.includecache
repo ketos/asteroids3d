@@ -78,103 +78,71 @@ vec_decl.h
 
 ../ext/load3ds/math3d++/vec_decl.h
 
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSFormat.h
-SDL_types.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/SDL_types.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.cpp
-C3DSLightReader.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.h
-C3DSReaderBase.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
-math3d++.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/math3d++.h
-vector
--
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.cpp
-C3DSMaterialReader.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.h
-C3DSReaderBase.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
-vector
--
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.cpp
-C3DSMeshNormalCalculator.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.h
-algorithm
--
-map
--
-set
--
-iterator
--
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.h
-C3DSMeshReader.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.cpp
-C3DSMeshReader.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
-C3DSReaderBase.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
-math3d++.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/math3d++.h
-string
--
-vector
--
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.cpp
-C3DSReaderBase.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
-
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
-C3DSFormat.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSFormat.h
-SDL_rwops.h
-/home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/SDL_rwops.h
-string
--
-
-/usr/include/SDL/SDL_config.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config.h
 SDL_platform.h
-/usr/include/SDL/SDL_platform.h
-stdarg.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+SDL_config_dreamcast.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_dreamcast.h
+SDL_config_macos.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_macos.h
+SDL_config_macosx.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_macosx.h
+SDL_config_symbian.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_symbian.h
+SDL_config_win32.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_win32.h
+SDL_config_os2.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_os2.h
+SDL_config_minimal.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_minimal.h
+
+/Library/Frameworks/SDL.framework/Headers/SDL_config_dreamcast.h
+SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+
+/Library/Frameworks/SDL.framework/Headers/SDL_config_macos.h
+SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+MacTypes.h
 -
 
-/usr/include/SDL/SDL_error.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config_macosx.h
+SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+AvailabilityMacros.h
+-
+
+/Library/Frameworks/SDL.framework/Headers/SDL_config_os2.h
+SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+
+/Library/Frameworks/SDL.framework/Headers/SDL_config_win32.h
+SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
+
+/Library/Frameworks/SDL.framework/Headers/SDL_error.h
 SDL_stdinc.h
-/usr/include/SDL/SDL_stdinc.h
+/Library/Frameworks/SDL.framework/Headers/SDL_stdinc.h
 begin_code.h
-/usr/include/SDL/begin_code.h
+/Library/Frameworks/SDL.framework/Headers/begin_code.h
 close_code.h
-/usr/include/SDL/close_code.h
+/Library/Frameworks/SDL.framework/Headers/close_code.h
 
-/usr/include/SDL/SDL_platform.h
+/Library/Frameworks/SDL.framework/Headers/SDL_platform.h
 
-/usr/include/SDL/SDL_rwops.h
+/Library/Frameworks/SDL.framework/Headers/SDL_rwops.h
 SDL_stdinc.h
-/usr/include/SDL/SDL_stdinc.h
+/Library/Frameworks/SDL.framework/Headers/SDL_stdinc.h
 SDL_error.h
-/usr/include/SDL/SDL_error.h
+/Library/Frameworks/SDL.framework/Headers/SDL_error.h
 begin_code.h
-/usr/include/SDL/begin_code.h
+/Library/Frameworks/SDL.framework/Headers/begin_code.h
 close_code.h
-/usr/include/SDL/close_code.h
+/Library/Frameworks/SDL.framework/Headers/close_code.h
 
-/usr/include/SDL/SDL_stdinc.h
+/Library/Frameworks/SDL.framework/Headers/SDL_stdinc.h
 SDL_config.h
-/usr/include/SDL/SDL_config.h
+/Library/Frameworks/SDL.framework/Headers/SDL_config.h
 sys/types.h
 -
 stdio.h
@@ -208,7 +176,7 @@ ctype.h
 iconv.h
 -
 begin_code.h
-/usr/include/SDL/begin_code.h
+/Library/Frameworks/SDL.framework/Headers/begin_code.h
 alloca.h
 -
 malloc.h
@@ -220,13 +188,81 @@ malloc.h
 stdlib.h
 -
 close_code.h
-/usr/include/SDL/close_code.h
+/Library/Frameworks/SDL.framework/Headers/close_code.h
 
-/usr/include/SDL/SDL_types.h
+/Library/Frameworks/SDL.framework/Headers/SDL_types.h
 SDL_stdinc.h
-/usr/include/SDL/SDL_stdinc.h
+/Library/Frameworks/SDL.framework/Headers/SDL_stdinc.h
 
-/usr/include/SDL/begin_code.h
+/Library/Frameworks/SDL.framework/Headers/begin_code.h
 
-/usr/include/SDL/close_code.h
+/Library/Frameworks/SDL.framework/Headers/close_code.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSFormat.h
+SDL_types.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/SDL_types.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.cpp
+C3DSLightReader.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.h
+C3DSReaderBase.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
+math3d++.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/math3d++.h
+vector
+-
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.cpp
+C3DSMaterialReader.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.h
+C3DSReaderBase.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
+vector
+-
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.cpp
+C3DSMeshNormalCalculator.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.h
+algorithm
+-
+map
+-
+set
+-
+iterator
+-
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.h
+C3DSMeshReader.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.cpp
+C3DSMeshReader.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.h
+C3DSReaderBase.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
+math3d++.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/math3d++.h
+string
+-
+vector
+-
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.cpp
+C3DSReaderBase.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
+
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.h
+C3DSFormat.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/C3DSFormat.h
+SDL_rwops.h
+/Users/nils/Desktop/praktikum cpp/cpp2012-gruppe3/src/ext/load3ds/SDL_rwops.h
+string
+-
 

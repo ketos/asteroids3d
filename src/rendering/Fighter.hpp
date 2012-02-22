@@ -29,9 +29,14 @@ public:
      * @brief Renders the fighter and calls the bullets' render method.
      */
    	void render();
-	
+    /**
+     * @brief returns a vetor width all bullets
+     */
 	vector<Bullet*> get_Bullets();
-
+    /**
+     * @brief kills a specific bullet
+     */
+        void killBullet(Bullet* b);
 
 private:
     // A vector with the bullets this fighter has shot.

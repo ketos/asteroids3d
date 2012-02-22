@@ -30,6 +30,16 @@ void Bullet::run()
 	}
 	alive = false;
 }
+void Bullet::kill()
+{
+        alive = false;
+}
+
+glVector<float> Bullet::getPosition()
+{
+        return m_position;
+}
+
 
 
 
