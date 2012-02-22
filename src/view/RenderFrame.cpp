@@ -12,6 +12,8 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 
+#include <QSound>
+
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -273,8 +275,9 @@ void RenderFrame::moveCurrentMesh()
     		m_mesh->move(ACCEL, -5);
     	}
     	// Schießen !!
-    	    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
+    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
     	{
+    	    QSound::play("sound.wav");
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
     }
