@@ -25,7 +25,7 @@ public:
     
     glVector<float> getPosition();
     glVector<float> getFront();
-    glVector<float> getSide();
+    glVector<float> getUp();
     Quaternion<float> getRotation();
 
     /**

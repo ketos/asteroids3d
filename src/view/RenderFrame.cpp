@@ -20,14 +20,14 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
 
     // set up animation timer
-   m_timer = new QTimer();
-   m_timer->setInterval(25);
-   connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
+    m_timer = new QTimer();
+    m_timer->setInterval(25);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
 
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    //loadModel("bearcat.3ds");
+    loadModel("bearcat.3ds");
 	show();
 }
 
@@ -154,11 +154,11 @@ void RenderFrame::setCam() {
 
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
     glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
-    glVector<float> side = (*(static_cast<Transformable*>(m_mesh))).getSide();
+    glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
     //Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
     //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
     //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
-    m_cam.setLocation(pos, front, side);
+    m_cam.setLocation(pos, front, up);
 
 }
 void RenderFrame::paintGL()
