@@ -6,7 +6,7 @@ Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
-    	glVector<float> v1(0.0, 0.0, 1000.0);
+    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(1.0,1.0,1.0);
 	addAsteorid(v1,v2);
 }
@@ -41,6 +41,13 @@ void Galaxis::render()
 	      }
       }
     }
+}
+
+void Galaxis::nextLevel()
+{
+  level++;
+  // XML-Reader liefert pos!!!
+  // Iterieren und Asteoriden hinzugefuegen
 }
 
 vector<Asteorid*> Galaxis::getAsteorids()

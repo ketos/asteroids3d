@@ -34,7 +34,7 @@ void Collision::run()
                                 float diffX = fabs( ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] );
                                 float diffY = fabs( ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] );
                                 float diffZ = fabs( ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] );
-                                if ( (diffX <= 100) && (diffY <= 100) && (diffZ <= 100) )
+                                if ( (diffX <= 1000) && (diffY <= 1000) && (diffZ <= 1000) )
                                 {
                                         //getroffen
                                         cout << endl << "Kugel Ast getroffen" << endl;
