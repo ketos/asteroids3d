@@ -1,0 +1,1 @@
+cd models/ ; ../build/viewer

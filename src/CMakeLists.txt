@@ -40,6 +40,7 @@ set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall" )
 FIND_PACKAGE(SDL REQUIRED)
 if(SDL_FOUND)
 	include_directories(${SDL_INCLUDE_DIR})
+	#include_directories(${SDLMIXER_INCLUDE_DIR})
 endif(SDL_FOUND)
 
 FIND_PACKAGE(OpenGL REQUIRED)
@@ -95,6 +96,7 @@ set(VIEWER_SOURCES
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     Main.cpp
+    math/Collision.cpp
 )
 
 
@@ -121,6 +123,7 @@ add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 target_link_libraries(viewer ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
 target_link_libraries(viewer c3dsreader) 
 target_link_libraries(viewer ${SDL_LIBRARY})
+#target_link_libraries(viewer ${SDLMIXER_LIBRARY})
 target_link_libraries(viewer ${QGLVIEWER_LIBRARY_RELEASE})
 target_link_libraries(viewer ${QT_QTCORE_LIBRARIES})
 target_link_libraries(viewer ${QT_QTGUI_LIBRARIES})

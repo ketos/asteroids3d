@@ -4,6 +4,7 @@
  */
 
 #include "Bullet.hpp"
+#include <stdio.h>
 
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
 {
@@ -30,6 +31,16 @@ void Bullet::run()
 	}
 	alive = false;
 }
+void Bullet::kill()
+{
+        alive = false;
+}
+
+glVector<float> Bullet::getPosition()
+{
+        return m_position;
+}
+
 
 
 

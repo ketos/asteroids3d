@@ -14,7 +14,7 @@ void Fighter::shoot()
     
     // Create a new bullet with this fighter's position an x-Axis
 	Bullet* b = new Bullet(m_position, m_xAxis);
-	Read3DS reader("arrow.3ds");
+	Read3DS reader("rocket.3ds");
 	reader.getMesh(*(static_cast<TexturedMesh*>(b)));
     // Start a new thread, move the bullet
 	b->start();
@@ -43,4 +43,25 @@ void Fighter::render()
 	        bulletIt++;	
 	    }
     }
+}
+
+void Fighter::killBullet(Bullet* b)
+{
+        //killen der kugel
+        vector<Bullet*>::iterator bulletIt;
+        bulletIt = m_bullets.begin();
+        while(bulletIt != m_bullets.end())
+        {
+	        if((*bulletIt) == b)
+	        {
+	                bulletIt = m_bullets.erase(bulletIt);
+                        b->kill();
+                        break;
+	        }
+	        else
+	        {
+	                bulletIt++;	
+	        }
+      }
+        
 }

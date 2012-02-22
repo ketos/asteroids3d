@@ -17,6 +17,7 @@
 #include "rendering/Asteorid.hpp"
 #include "math/Global.hpp"
 #include "Galaxis.hpp"
+#include "math/Collision.hpp"
 
 #include "view/HUD.hpp"
 #include <QGLWidget>
@@ -49,6 +50,8 @@ public:
    *
    */
    void setupViewport(int width, int height);
+   
+   void sound();
    
    QTimer* m_timer;
    
@@ -134,6 +137,11 @@ protected:
 	 * @brief The currently loaded triangle mesh
 	 */
 	TriangleMesh*	m_mesh;
+	
+	/**
+	 * @brief the collision thread
+	 */
+        Collision* m_coll;
 
 	/**
 	 * @brief the current loaded Galaxis

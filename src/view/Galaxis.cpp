@@ -1,20 +1,19 @@
 #include "Galaxis.hpp"
 #include "io/Read3DS.hpp"
 #include <stdio.h>
+#include "math/glVector.hpp"
 Galaxis::Galaxis()
 {
     // create vector for Asteroids
+	level = 0;
+    	glVector<float> v1(0.0, 0.0, -1000.0);
+	glVector<float> v2(1.0,1.0,1.0);
+	addAsteorid(v1,v2);
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
-    Asteorid* a = new Asteorid(v1,v2);
-    std::cout << "v1.x" << v1.x << std::endl;
-    std::cout << "v1.y" << v1.y << std::endl;
-    std::cout << "v1.z" << v1.z << std::endl;
-    std::cout << "v2.x" << v2.x << std::endl;
-    std::cout << "v2.y" << v2.y << std::endl;
-    std::cout << "v2.z" << v2.z << std::endl;
+    Asteorid* a = new Asteorid(v1,v2);;
     Read3DS reader("arrow.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     // Start a new thread, move the bullet
@@ -44,7 +43,34 @@ void Galaxis::render()
     }
 }
 
+void Galaxis::nextLevel()
+{
+  level++;
+  // XML-Reader liefert pos!!!
+  // Iterieren und Asteoriden hinzugefuegen
+}
+
 vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
 }
+
+// void Galaxis::killAsteorid(Asteorid* g)
+// {
+//         //killen des Asterorids
+//         vector<Asteorid*>::iterator asteoridtIt;
+//         asteoridtIt = asteorids.begin();
+//         while(asteoridtIt != asteorids.end())
+//         {
+// 	        if((*asteoridtIt) == g)
+// 	        {
+// 	                asteoridtIt = asteorids.erase(asteoridtIt);
+//                         g->destroy();
+//                         break;
+// 	        }
+// 	        else
+// 	        {
+// 	                asteoridtIt++;	
+// 	        }
+//       }
+// }
