@@ -56,6 +56,7 @@ void RenderFrame::loadModel(string filename)
 	galaxis->addAsteorid(v1,v2);
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
+
         // start collision thread
         if (m_coll != 0)
         {
@@ -65,8 +66,6 @@ void RenderFrame::loadModel(string filename)
         m_coll->start();
         
         m_timer->start();
-
-	m_timer->start();
 
 
 }
