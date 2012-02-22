@@ -1536,7 +1536,7 @@ Q_WS_QWS:INTERNAL=
 Q_WS_WIN:INTERNAL=
 //Have symbol Q_WS_X11
 Q_WS_X11:INTERNAL=1
-SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/libSDLmain.a;/usr/lib/libSDLmain.a;/usr/lib/libSDL.so;-lpthread;-lpthread
+SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/libSDLmain.a;/usr/lib/libSDL.so;-lpthread
 //ADVANCED property for variable: X11_ICE_INCLUDE_PATH
 X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: X11_ICE_LIB

@@ -15,11 +15,17 @@
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
+/*
     // set up animation timer
    m_timer = new QTimer();
    m_timer->setInterval(25);
    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
+<<<<<<< HEAD
    //m_timer->start();
+=======
+   m_timer->start();
+   */
+>>>>>>> 49f80196c02ffcaf39d936f03b23574e76f3141c
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
@@ -52,7 +58,6 @@ void RenderFrame::loadModel(string filename)
 	//Vectors
 	glVector<float> v1(m_cam.m_px, m_cam.m_py, m_cam.m_pz-1000);
 	glVector<float> v2(0.0, 0.0, 0.0);
-	Asteorid *a1 = new Asteorid(v2, v1);
 	galaxis->addAsteorid(v1,v2);
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
