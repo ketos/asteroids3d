@@ -50,10 +50,6 @@ void RenderFrame::loadModel(string filename)
 	std::cout << "Fighter erstellt und vor der Erstellung der Galaxy" << std::endl;
 	// load the glaxis width all planets 
 	galaxis = new Galaxis();
-	//Vectors
-	glVector<float> v1(m_cam.m_px, m_cam.m_py, m_cam.m_pz-1000);
-	glVector<float> v2(1.0,1.0,1.0);
-	galaxis->addAsteorid(v1,v2);
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
 
