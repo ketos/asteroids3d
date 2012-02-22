@@ -21,11 +21,9 @@ bool Asteorid::isAlive()
 
 void Asteorid::run()
 {
-	int i = 0;
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
 		m_position = flight_axis  + m_position;
-		i++;
 		usleep(1000);
 	}
 }
