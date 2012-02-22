@@ -1,5 +1,6 @@
 #include "Collision.hpp"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -30,10 +31,14 @@ void Collision::run()
                         bulletIt = m_bullets.begin();
                         while(bulletIt != m_bullets.end())
                         {
-                                // if ( (*bulletIt)->getPosition() == (*asteoridtIt)->getPosition() )
-                                //                                 {
-                                //                                         //getroffen
-                                //                                 }
+                                float diffX = fabs( ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] );
+                                float diffY = fabs( ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] );
+                                float diffZ = fabs( ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] );
+                                if ( (diffX <= 100) && (diffY <= 100) && (diffZ <= 100) )
+                                {
+                                        //getroffen
+                                        cout << endl << "Kugel Ast getroffen" << endl;
+                                }
                 	        bulletIt++;
                       }
         	        asteoridtIt++;	

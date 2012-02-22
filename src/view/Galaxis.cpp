@@ -5,7 +5,8 @@
 Galaxis::Galaxis()
 {
     // create vector for Asteroids
-    	glVector<float> v1(0.0, 0.0, 100.0);
+	level = 0;
+    	glVector<float> v1(0.0, 0.0, 1000.0);
 	glVector<float> v2(1.0,1.0,1.0);
 	addAsteorid(v1,v2);
 }
@@ -46,22 +47,23 @@ vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
 }
-void Galaxis::killAsteorid(Asteorid* g)
-{
-        //killen des Asterorids
-        vector<Asteorid*>::iterator asteoridtIt;
-        asteoridtIt = asteorids.begin();
-        while(asteoridtIt != asteorids.end())
-        {
-	        if((*asteoridtIt) == g)
-	        {
-	                asteoridtIt = asteorids.erase(asteoridtIt);
-                        g->destroy();
-                        break;
-	        }
-	        else
-	        {
-	                asteoridtIt++;	
-	        }
-      }
-}
+
+// void Galaxis::killAsteorid(Asteorid* g)
+// {
+//         //killen des Asterorids
+//         vector<Asteorid*>::iterator asteoridtIt;
+//         asteoridtIt = asteorids.begin();
+//         while(asteoridtIt != asteorids.end())
+//         {
+// 	        if((*asteoridtIt) == g)
+// 	        {
+// 	                asteoridtIt = asteorids.erase(asteoridtIt);
+//                         g->destroy();
+//                         break;
+// 	        }
+// 	        else
+// 	        {
+// 	                asteoridtIt++;	
+// 	        }
+//       }
+// }
