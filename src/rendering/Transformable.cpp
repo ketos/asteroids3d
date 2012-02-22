@@ -105,6 +105,17 @@ void Transformable::computeMatrix()
 
 }
 
+glVector<float> Transformable::getPosition() {
+    return m_position;
+}
+
+glVector<float> Transformable::getOrientation() {
+    return m_xAxis;
+}
+Quaternion<float> Transformable::getRotation() {
+    return m_rotation;
+}
+
 Transformable::~Transformable()
 {
     // TODO Auto-generated destructor stub

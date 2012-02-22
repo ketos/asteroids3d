@@ -27,15 +27,9 @@ void Asteorid::run()
 	while(alive){
 // 		std::cout << "Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
 		m_position = flight_axis  + m_position;
-		std::cout << "flight axis x" << flight_axis.x << std::endl;
-		std::cout << "flight axis y" << flight_axis.y << std::endl;
-		std::cout << "flight axis z" << flight_axis.z << std::endl;
-		std::cout << "m_position x" << m_position.x << std::endl;
-		std::cout << "m_position y" << m_position.y << std::endl;
-		std::cout << "m_position z" << m_position.z << std::endl;
 
 // 		std::cout << 	"Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
-		usleep(1000000);
+		usleep(10000);
 	}
 }
 

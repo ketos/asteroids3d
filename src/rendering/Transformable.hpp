@@ -22,6 +22,10 @@ class Transformable : public Renderable
 public:
     Transformable();
     virtual ~Transformable();
+    
+    glVector<float> getPosition();
+    glVector<float> getOrientation();
+    Quaternion<float> getRotation();
 
     /**
      * @brief   Rotates a triangle mesh at the given axis with the given speed

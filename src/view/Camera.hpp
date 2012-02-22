@@ -89,6 +89,9 @@ public:
 	 */
 	void turnDown();
 
+    void rotateLeft();
+    void rotateRight();
+
 	/**
 	 * @brief   Sets the current movement speed
 	 * @param speed Movement speed
@@ -118,6 +121,8 @@ public:
 	 *          matrix stack
 	 */
 	void apply();
+
+    void setLocation(glVector<float> pos, glVector<float> lookat);
 
 	void applyRotationOnly();
 
@@ -151,6 +156,11 @@ public:
 	 * @brief The current rotation around the x-Axis
 	 */
 	float m_rotX;
+
+	/**
+	 * @brief The current rotation around the z-Axis
+	 */
+	float m_rotZ;
 
 	/**
 	 * @brief The current x position

@@ -273,10 +273,24 @@ void RenderFrame::moveCurrentMesh()
     		m_mesh->move(ACCEL, -5);
     	}
     	// Schießen !!
-    	    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
+    	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
     	{
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
+        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
+        {
+            //m_cam.rotateLeft();
+        }
+        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
+        {
+            //m_cam.rotateLeft();
+        }
+    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
+    glVector<float> lookat = (*(static_cast<Transformable*>(m_mesh))).getOrientation();
+    Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
+    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
+    m_cam.setLocation(pos, lookat);
     }
 }
 

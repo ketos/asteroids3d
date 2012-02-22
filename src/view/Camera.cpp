@@ -27,6 +27,7 @@ Camera::Camera()
 
 	m_rotX =        0.0;
 	m_rotY =        0.0;
+	m_rotZ =        0.0;
 
 }
 
@@ -47,6 +48,7 @@ Camera::Camera(float x, float y, float z)
 
 	m_rotX = 0.0;
 	m_rotY = 0.0;
+	m_rotZ = 0.0;
 }
 
 void Camera::moveLeft()
@@ -79,9 +81,9 @@ void Camera::turnUp()
 		m_rotX -= m_turnSpeed;
 
 		// Transform base
-//		Quaternion nq(m_baseX, -m_turnSpeed);
-//		m_baseY = nq * m_baseY;
-//		m_baseZ = nq * m_baseZ;
+		Quaternion<float> nq(m_baseX, -m_turnSpeed);
+		m_baseY = nq * m_baseY;
+		m_baseZ = nq * m_baseZ;
 	}
 }
 
@@ -92,10 +94,30 @@ void Camera::turnDown()
 		m_rotX += m_turnSpeed;
 
 		//Transform base
-//		Quaternion nq(m_baseX, m_turnSpeed);
-//		m_baseY = nq * m_baseY;
-//		m_baseZ = nq * m_baseZ;
+		Quaternion<float> nq(m_baseX, m_turnSpeed);
+		m_baseY = nq * m_baseY;
+		m_baseZ = nq * m_baseZ;
 	}
+}
+
+void Camera::rotateLeft() {
+
+    m_rotZ += m_turnSpeed;
+    
+	//Transform base
+	Quaternion<float> nq(m_baseZ, m_turnSpeed);
+	m_baseX = nq * m_baseX;
+	m_baseY = nq * m_baseY;
+}
+
+void Camera::rotateRight() {
+
+    m_rotZ += m_turnSpeed;
+
+	//Transform base
+	Quaternion<float> nq(m_baseZ, -m_turnSpeed);
+	m_baseX = nq * m_baseX;
+	m_baseY = nq * m_baseY;
 }
 
 void Camera::turnLeft()
@@ -131,12 +153,34 @@ void Camera::moveDown()
 
 void Camera::applyRotationOnly()
 {
-    float lx =   sin(m_rotY);
+    /*float lx =   sin(m_rotY);
     float lz = - cos(m_rotY);
     float ly =   sin(m_rotX);
-
+*/
     glLoadIdentity();
-    gluLookAt(lx, ly, lz, 0, 0, 0, 0.0, 1.0, 0.0);
+    gluLookAt(m_lx, m_ly, m_lz, 0, 0, 0, 0.0, 1.0, 0.0);
+}
+void Camera::setLocation(glVector<float> pos, glVector<float> lookat) {
+    
+    m_px = pos.x;
+    m_py = pos.y+200;
+    m_pz = pos.z+1000;
+
+    m_lx = lookat.x;
+    m_ly = lookat.y;
+    m_lz = lookat.z;
+    applyRotationOnly();
+    std::cout << m_lx << "  " << m_ly << " " << m_lz << std::endl;
+    
+    // Clear matrix stack  
+    glLoadIdentity();
+    
+    // Calc transformation Matrixwf
+    gluLookAt(m_ix + m_px, m_iy + m_py, m_iz - m_pz,
+            m_lx, m_ly, m_lz,
+            0.0, 1.0, 0.0);
+    //std::cout << " cam-change" << std::endl;
+    
 }
 
 void Camera::apply()
