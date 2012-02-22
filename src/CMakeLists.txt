@@ -96,6 +96,7 @@ set(VIEWER_SOURCES
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     Main.cpp
+    math/Collision.cpp
 )
 
 

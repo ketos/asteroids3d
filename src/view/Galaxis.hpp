@@ -12,7 +12,10 @@ class Galaxis{
 	      void addAsteorid(glVector<float> v1, glVector<float> v2);
 	      
 	      void render();
-	      
+	  /**
+           * @brief kills a planet
+           */
+              void killAsteorid(Asteorid* g);
 	      vector<Asteorid*> getAsteorids();
 	      
       private:

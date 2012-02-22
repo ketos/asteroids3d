@@ -36,5 +36,7 @@ void Asteorid::destroy()
 	alive = false;
 }
 
-
-
+glVector<float> Asteorid::getPosition()
+{
+        return m_position;
+}

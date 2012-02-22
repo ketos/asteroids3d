@@ -36,7 +36,14 @@ public:
      * @brief Moves the bullet until it's lifetime is over.
      */
 	void run();
-    
+    /**
+     * @brief kills a bullet
+     */
+        void kill();
+    /**
+      * @brief returns position
+      */
+      glVector<float> getPosition();
     
 
     /**
