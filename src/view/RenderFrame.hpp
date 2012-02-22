@@ -51,6 +51,8 @@ public:
    */
    void setupViewport(int width, int height);
    
+   void sound();
+   
    QTimer* m_timer;
    
 protected:
