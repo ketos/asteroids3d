@@ -102,15 +102,13 @@ void Transformable::computeMatrix()
     m_transformation[13] = m_position[1];
     m_transformation[14] = m_position[2];
 
-
 }
 
 glVector<float> Transformable::getPosition() {
     return m_position;
 }
-
 glVector<float> Transformable::getOrientation() {
-    return m_xAxis;
+    return (m_xAxis );
 }
 Quaternion<float> Transformable::getRotation() {
     return m_rotation;

@@ -24,6 +24,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
+    loadModel("bearcat.3ds");
 	show();
 }
 
@@ -145,11 +146,21 @@ void RenderFrame::resizeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 
 	// Set 'LookAt'
-	m_cam.apply();
+    setCam();
 }
+void RenderFrame::setCam() {
 
+    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
+    glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getOrientation();
+    Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
+    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
+    m_cam.setLocation(pos, up);
+
+}
 void RenderFrame::paintGL()
 {    
+    setCam();
     setFocus();
 	moveCurrentMesh();
 	// Set black background color
@@ -215,7 +226,7 @@ void RenderFrame::moveCurrentMesh()
     if(m_mesh)
     {
     	// Controller for moving and rotation
-    	if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
+    	/*if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
     	{
     		m_mesh->rotate(ROLL, 0.1);
     	}
@@ -233,38 +244,44 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_D) != m_pressedKeys.end())
     	{
     		m_mesh->rotate(YAW, -0.1);
-    	}
+    	}*/
 
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-    		m_mesh->rotate(PITCH, 0.1);
+            m_mesh->move(STRAFE, -10);
+    		//m_mesh->rotate(PITCH, 0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-    		m_mesh->rotate(PITCH, -0.1);
+            m_mesh->move(STRAFE, 10);    
+    		//m_mesh->rotate(PITCH, -0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
-    		m_mesh->move(STRAFE, -10);
+            m_mesh->rotate(PITCH, 0.1);
+    		//m_mesh->move(STRAFE, -10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
-    		m_mesh->move(STRAFE, 10);
+            m_mesh->rotate(PITCH, -0.1);
+    		//m_mesh->move(STRAFE, 10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
-    		m_mesh->move(LIFT, 5);
+            m_mesh->rotate(YAW,  0.1);
+    		//m_mesh->move(LIFT, 5);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
-    		m_mesh->move(LIFT, -5);
+            m_mesh->rotate(YAW, -0.1);
+    		//m_mesh->move(LIFT, -5);
     	}
-
+/*
     	if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
     	{
     		m_mesh->move(ACCEL, 5);
@@ -274,30 +291,16 @@ void RenderFrame::moveCurrentMesh()
     	{
     		m_mesh->move(ACCEL, -5);
     	}
-    	// Schießen !!
+*/    	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
     	{
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
-        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
-        {
-            //m_cam.rotateLeft();
-        }
-        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
-        {
-            //m_cam.rotateLeft();
-        }
-    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
-    glVector<float> lookat = (*(static_cast<Transformable*>(m_mesh))).getOrientation();
-    Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
-    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
-    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
-    //m_cam.setLocation(pos, lookat);
     }
 }
 
 
-void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
+/*void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
 {
 	// Get number the number of pixel between the last
 	// und current mouse position
@@ -405,7 +408,7 @@ void RenderFrame::moveCamHead(int dx, int dy)
 			m_cam.turnLeft();
 		}
 	}
-}
+}*/
 
 void RenderFrame::setupViewport(int width, int height)
 {

@@ -56,6 +56,8 @@ public:
    QTimer* m_timer;
    
 protected:
+
+    void setCam();
 	
     /// The set of currently pressed keys
 	std::set<int> m_pressedKeys;
@@ -82,7 +84,7 @@ protected:
 	 *
 	 * @param	e	The generated mouse event description
 	 */
-	void mouseMoveEvent(QMouseEvent* e);
+	//void mouseMoveEvent(QMouseEvent* e);
 	
 	/**
 	 * @brief 	The OpenGL initialization method. This is always called before
@@ -113,7 +115,7 @@ protected:
 	 * @param 	dx 	The number of pixels the mouse has moved in x direction
 	 * @param	dy 	The number of pixels the mouse has moved in y direction
 	 */
-	void moveCamXY(int dx, int dy);
+	//void moveCamXY(int dx, int dy);
 
 	/**
 	 * @brief   Moves the camera in the z-x plane dy is > MOUSE_SENSITY
@@ -122,7 +124,7 @@ protected:
 	 * @param	dy 	The number of pixels the mouse has moved in y direction
 
 	 */
-	void moveCamZ(int dy);
+	//void moveCamZ(int dy);
 
 	/**
 	 * @brief   Turns the camera around the current up-axis if
@@ -131,7 +133,7 @@ protected:
 	 * @param 	dx 	The number of pixels the mouse has moved in x direction
 	 * @param	dy 	The number of pixels the mouse has moved in y direction
 	 */
-	void moveCamHead(int dx, int dy);
+	//void moveCamHead(int dx, int dy);
 
 	/**
 	 * @brief The currently loaded triangle mesh
@@ -155,12 +157,12 @@ protected:
 	/**
 	 * @brief The last x position of the mouse
 	 */
-	int	m_mouseX;
+	//int	m_mouseX;
 
 	/**
 	 * @brief The last y position of the mouse
 	 */
-	int	m_mouseY;
+	//int	m_mouseY;
 
 	HUD* hins;
 
