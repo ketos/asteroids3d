@@ -4,6 +4,7 @@
  */
 
 #include "Bullet.hpp"
+#include <stdio.h>
 
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
 {

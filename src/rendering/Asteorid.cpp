@@ -26,7 +26,7 @@ void Asteorid::run()
 {
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
-		m_position = m_position + flight_axis * speed;
+		//m_position = m_position + flight_axis * speed;
 		usleep(1000);
 	}
 }
