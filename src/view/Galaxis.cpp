@@ -46,3 +46,22 @@ vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
 }
+void Galaxis::killAsteorid(Asteorid* g)
+{
+        //killen des Asterorids
+        vector<Asteorid*>::iterator asteoridtIt;
+        asteoridtIt = asteorids.begin();
+        while(asteoridtIt != asteorids.end())
+        {
+	        if((*asteoridtIt) == g)
+	        {
+	                asteoridtIt = asteorids.erase(asteoridtIt);
+                        g->destroy();
+                        break;
+	        }
+	        else
+	        {
+	                asteoridtIt++;	
+	        }
+      }
+}

@@ -12,8 +12,6 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 
-#include <QSound>
-
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -53,7 +51,15 @@ void RenderFrame::loadModel(string filename)
 	// load the glaxis width all planets 
 	galaxis = new Galaxis();
 	//Vectors
-	m_timer->start();
+        // start collision thread
+        if (m_coll != 0)
+        {
+                m_coll->stop();
+        }
+        m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
+        m_coll->start();
+        
+        m_timer->start();
 
 }
 
@@ -272,7 +278,6 @@ void RenderFrame::moveCurrentMesh()
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_L) != m_pressedKeys.end())
     	{
-    	    QSound::play("sound.wav");
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
     }
