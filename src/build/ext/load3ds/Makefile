@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aloha/git/cpp2012-gruppe3/src
+CMAKE_SOURCE_DIR = /home/tim/Projects/asteroids3D/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aloha/git/cpp2012-gruppe3/src/build
+CMAKE_BINARY_DIR = /home/tim/Projects/asteroids3D/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,14 +66,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds/CMakeFiles/progress.marks
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles 0
+	cd /home/tim/Projects/asteroids3D/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/tim/Projects/asteroids3D/src/build/CMakeFiles /home/tim/Projects/asteroids3D/src/build/ext/load3ds/CMakeFiles/progress.marks
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tim/Projects/asteroids3D/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/clean
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/clean
 .PHONY : clean
 
 # The main clean target
@@ -82,22 +82,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/preinstall
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/preinstall
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/tim/Projects/asteroids3D/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 ext/load3ds/CMakeFiles/c3dsreader.dir/rule:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/CMakeFiles/c3dsreader.dir/rule
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f CMakeFiles/Makefile2 ext/load3ds/CMakeFiles/c3dsreader.dir/rule
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/rule
 
 # Convenience name for target.
@@ -106,7 +106,7 @@ c3dsreader: ext/load3ds/CMakeFiles/c3dsreader.dir/rule
 
 # fast build rule for target.
 c3dsreader/fast:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/build
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/build
 .PHONY : c3dsreader/fast
 
 C3DSLightReader.o: C3DSLightReader.cpp.o
@@ -114,7 +114,7 @@ C3DSLightReader.o: C3DSLightReader.cpp.o
 
 # target to build an object file
 C3DSLightReader.cpp.o:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o
 .PHONY : C3DSLightReader.cpp.o
 
 C3DSLightReader.i: C3DSLightReader.cpp.i
@@ -122,7 +122,7 @@ C3DSLightReader.i: C3DSLightReader.cpp.i
 
 # target to preprocess a source file
 C3DSLightReader.cpp.i:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i
 .PHONY : C3DSLightReader.cpp.i
 
 C3DSLightReader.s: C3DSLightReader.cpp.s
@@ -130,7 +130,7 @@ C3DSLightReader.s: C3DSLightReader.cpp.s
 
 # target to generate assembly for a file
 C3DSLightReader.cpp.s:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s
 .PHONY : C3DSLightReader.cpp.s
 
 C3DSMaterialReader.o: C3DSMaterialReader.cpp.o
@@ -138,7 +138,7 @@ C3DSMaterialReader.o: C3DSMaterialReader.cpp.o
 
 # target to build an object file
 C3DSMaterialReader.cpp.o:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o
 .PHONY : C3DSMaterialReader.cpp.o
 
 C3DSMaterialReader.i: C3DSMaterialReader.cpp.i
@@ -146,7 +146,7 @@ C3DSMaterialReader.i: C3DSMaterialReader.cpp.i
 
 # target to preprocess a source file
 C3DSMaterialReader.cpp.i:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i
 .PHONY : C3DSMaterialReader.cpp.i
 
 C3DSMaterialReader.s: C3DSMaterialReader.cpp.s
@@ -154,7 +154,7 @@ C3DSMaterialReader.s: C3DSMaterialReader.cpp.s
 
 # target to generate assembly for a file
 C3DSMaterialReader.cpp.s:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s
 .PHONY : C3DSMaterialReader.cpp.s
 
 C3DSMeshNormalCalculator.o: C3DSMeshNormalCalculator.cpp.o
@@ -162,7 +162,7 @@ C3DSMeshNormalCalculator.o: C3DSMeshNormalCalculator.cpp.o
 
 # target to build an object file
 C3DSMeshNormalCalculator.cpp.o:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o
 .PHONY : C3DSMeshNormalCalculator.cpp.o
 
 C3DSMeshNormalCalculator.i: C3DSMeshNormalCalculator.cpp.i
@@ -170,7 +170,7 @@ C3DSMeshNormalCalculator.i: C3DSMeshNormalCalculator.cpp.i
 
 # target to preprocess a source file
 C3DSMeshNormalCalculator.cpp.i:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i
 .PHONY : C3DSMeshNormalCalculator.cpp.i
 
 C3DSMeshNormalCalculator.s: C3DSMeshNormalCalculator.cpp.s
@@ -178,7 +178,7 @@ C3DSMeshNormalCalculator.s: C3DSMeshNormalCalculator.cpp.s
 
 # target to generate assembly for a file
 C3DSMeshNormalCalculator.cpp.s:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s
 .PHONY : C3DSMeshNormalCalculator.cpp.s
 
 C3DSMeshReader.o: C3DSMeshReader.cpp.o
@@ -186,7 +186,7 @@ C3DSMeshReader.o: C3DSMeshReader.cpp.o
 
 # target to build an object file
 C3DSMeshReader.cpp.o:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o
 .PHONY : C3DSMeshReader.cpp.o
 
 C3DSMeshReader.i: C3DSMeshReader.cpp.i
@@ -194,7 +194,7 @@ C3DSMeshReader.i: C3DSMeshReader.cpp.i
 
 # target to preprocess a source file
 C3DSMeshReader.cpp.i:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i
 .PHONY : C3DSMeshReader.cpp.i
 
 C3DSMeshReader.s: C3DSMeshReader.cpp.s
@@ -202,7 +202,7 @@ C3DSMeshReader.s: C3DSMeshReader.cpp.s
 
 # target to generate assembly for a file
 C3DSMeshReader.cpp.s:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s
 .PHONY : C3DSMeshReader.cpp.s
 
 C3DSReaderBase.o: C3DSReaderBase.cpp.o
@@ -210,7 +210,7 @@ C3DSReaderBase.o: C3DSReaderBase.cpp.o
 
 # target to build an object file
 C3DSReaderBase.cpp.o:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o
 .PHONY : C3DSReaderBase.cpp.o
 
 C3DSReaderBase.i: C3DSReaderBase.cpp.i
@@ -218,7 +218,7 @@ C3DSReaderBase.i: C3DSReaderBase.cpp.i
 
 # target to preprocess a source file
 C3DSReaderBase.cpp.i:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i
 .PHONY : C3DSReaderBase.cpp.i
 
 C3DSReaderBase.s: C3DSReaderBase.cpp.s
@@ -226,7 +226,7 @@ C3DSReaderBase.s: C3DSReaderBase.cpp.s
 
 # target to generate assembly for a file
 C3DSReaderBase.cpp.s:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s
+	cd /home/tim/Projects/asteroids3D/src/build && $(MAKE) -f ext/load3ds/CMakeFiles/c3dsreader.dir/build.make ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s
 .PHONY : C3DSReaderBase.cpp.s
 
 # Help Target
@@ -264,6 +264,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/tim/Projects/asteroids3D/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
