@@ -26,11 +26,13 @@ void Collision::run()
                 asteoridtIt = m_asteorids.begin();
                 while(asteoridtIt != m_asteorids.end())
                 {
+                        cout << "durchlauf st" <<endl;
         	        //durchlafen aller bullets
         	        vector<Bullet*>::iterator bulletIt;
                         bulletIt = m_bullets.begin();
                         while(bulletIt != m_bullets.end())
                         {
+                                cout << "durchlauf bullet" <<endl;
                                 float diffX = fabs( ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] );
                                 float diffY = fabs( ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] );
                                 float diffZ = fabs( ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] );
@@ -43,7 +45,7 @@ void Collision::run()
                       }
         	        asteoridtIt++;	
                 }
-                sleep(100);
+                //sleep(100);
         }
 }
 
