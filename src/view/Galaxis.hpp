@@ -3,7 +3,7 @@
 
 #include "rendering/Asteorid.hpp"
 #include <vector>
-
+using namespace std;
 class Galaxis{
   
       public:
@@ -20,6 +20,8 @@ class Galaxis{
 	      
       private:
 	      vector<Asteorid*> asteorids;
+	      vector<pair<glVector<float>,glVector<float> > > pos;
+	      int level;
 };
 
 #endif
