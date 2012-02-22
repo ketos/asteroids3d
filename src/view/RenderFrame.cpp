@@ -19,7 +19,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
    m_timer = new QTimer();
    m_timer->setInterval(25);
    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
-   m_timer->start();
+   //m_timer->start();
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
