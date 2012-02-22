@@ -19,19 +19,19 @@ CMakeFiles/viewer.dir/Main.cpp.o
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/Main.cpp
- /home/tim/Projects/asteroids/src/io/MeshIO.hpp
- /home/tim/Projects/asteroids/src/io/Read3DS.hpp
- /home/tim/Projects/asteroids/src/io/TextureFactory.hpp
- /home/tim/Projects/asteroids/src/rendering/Bullet.hpp
- /home/tim/Projects/asteroids/src/rendering/Fighter.hpp
- /home/tim/Projects/asteroids/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/view/Galaxis.hpp
- /home/tim/Projects/asteroids/src/view/MainWindow.hpp
- /home/tim/Projects/asteroids/src/view/RenderFrame.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/Main.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/MeshIO.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/Read3DS.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TextureFactory.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Bullet.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Fighter.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Materials.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/MainWindow.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -162,8 +162,8 @@ CMakeFiles/viewer.dir/Main.cpp.o
  /usr/include/qt4/QtOpenGL/qgl.h
  /usr/include/qt4/QtOpenGL/qglcolormap.h
 CMakeFiles/viewer.dir/io/PLYTraits.cpp.o
- /home/tim/Projects/asteroids/src/io/PLYTraits.cpp
- /home/tim/Projects/asteroids/src/io/PLYTraits.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/PLYTraits.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/PLYTraits.hpp
 CMakeFiles/viewer.dir/io/Read3DS.cpp.o
  ../ext/load3ds/C3DSFormat.h
  ../ext/load3ds/C3DSMaterialReader.h
@@ -196,10 +196,10 @@ CMakeFiles/viewer.dir/io/Read3DS.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/io/MeshIO.hpp
- /home/tim/Projects/asteroids/src/io/Read3DS.cpp
- /home/tim/Projects/asteroids/src/io/Read3DS.hpp
- /home/tim/Projects/asteroids/src/io/TextureFactory.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/MeshIO.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/Read3DS.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/Read3DS.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TextureFactory.hpp
  /usr/include/SDL/SDL.h
  /usr/include/SDL/SDL_active.h
  /usr/include/SDL/SDL_audio.h
@@ -239,23 +239,23 @@ CMakeFiles/viewer.dir/io/ReadPLY.cpp.o
  ../rendering/Renderable.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/io/PLYElement.hpp
- /home/tim/Projects/asteroids/src/io/PLYProperty.hpp
- /home/tim/Projects/asteroids/src/io/PLYTraits.hpp
- /home/tim/Projects/asteroids/src/io/ReadPLY.cpp
- /home/tim/Projects/asteroids/src/io/ReadPLY.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/PLYElement.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/PLYProperty.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/PLYTraits.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadPLY.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadPLY.hpp
 CMakeFiles/viewer.dir/io/ReadPPM.cpp.o
- /home/tim/Projects/asteroids/src/io/ReadPPM.cpp
- /home/tim/Projects/asteroids/src/io/ReadPPM.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadPPM.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadPPM.hpp
 CMakeFiles/viewer.dir/io/ReadTGA.cpp.o
- /home/tim/Projects/asteroids/src/io/ReadTGA.cpp
- /home/tim/Projects/asteroids/src/io/ReadTGA.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadTGA.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadTGA.hpp
 CMakeFiles/viewer.dir/io/TextureFactory.cpp.o
  ../rendering/Texture.hpp
- /home/tim/Projects/asteroids/src/io/ReadPPM.hpp
- /home/tim/Projects/asteroids/src/io/ReadTGA.hpp
- /home/tim/Projects/asteroids/src/io/TextureFactory.cpp
- /home/tim/Projects/asteroids/src/io/TextureFactory.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadPPM.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/ReadTGA.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TextureFactory.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TextureFactory.hpp
 CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o
  ../io/MeshIO.hpp
  ../io/PLYElement.hpp
@@ -277,8 +277,8 @@ CMakeFiles/viewer.dir/io/TriangleMeshFactory.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/io/TriangleMeshFactory.cpp
- /home/tim/Projects/asteroids/src/io/TriangleMeshFactory.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TriangleMeshFactory.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/io/TriangleMeshFactory.hpp
 CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -298,10 +298,10 @@ CMakeFiles/viewer.dir/moc_MainWindow.cxx.o
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/build/../view/Galaxis.hpp
- /home/tim/Projects/asteroids/src/build/../view/MainWindow.hpp
- /home/tim/Projects/asteroids/src/build/../view/RenderFrame.hpp
- /home/tim/Projects/asteroids/src/build/moc_MainWindow.cxx
+ /home/aloha/git/cpp2012-gruppe3/src/build/../view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/build/../view/MainWindow.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/build/../view/RenderFrame.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/build/moc_MainWindow.cxx
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -442,9 +442,9 @@ CMakeFiles/viewer.dir/moc_RenderFrame.cxx.o
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/build/../view/Galaxis.hpp
- /home/tim/Projects/asteroids/src/build/../view/RenderFrame.hpp
- /home/tim/Projects/asteroids/src/build/moc_RenderFrame.cxx
+ /home/aloha/git/cpp2012-gruppe3/src/build/../view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/build/../view/RenderFrame.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/build/moc_RenderFrame.cxx
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -565,14 +565,14 @@ CMakeFiles/viewer.dir/rendering/Asteorid.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/rendering/Asteorid.cpp
- /home/tim/Projects/asteroids/src/rendering/Asteorid.hpp
- /home/tim/Projects/asteroids/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Asteorid.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Asteorid.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Materials.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/QtCore/QThread
  /usr/include/qt4/QtCore/qalgorithms.h
@@ -625,14 +625,14 @@ CMakeFiles/viewer.dir/rendering/Bullet.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/rendering/Bullet.cpp
- /home/tim/Projects/asteroids/src/rendering/Bullet.hpp
- /home/tim/Projects/asteroids/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Bullet.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Bullet.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Materials.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/QtCore/QThread
  /usr/include/qt4/QtCore/qalgorithms.h
@@ -695,10 +695,10 @@ CMakeFiles/viewer.dir/rendering/Fighter.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/rendering/Bullet.hpp
- /home/tim/Projects/asteroids/src/rendering/Fighter.cpp
- /home/tim/Projects/asteroids/src/rendering/Fighter.hpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Bullet.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Fighter.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Fighter.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/QtCore/QThread
  /usr/include/qt4/QtCore/qalgorithms.h
@@ -764,11 +764,11 @@ CMakeFiles/viewer.dir/rendering/Skybox.cpp.o
  ../view/HUD.hpp
  ../view/MainWindow.hpp
  ../view/RenderFrame.hpp
- /home/tim/Projects/asteroids/src/rendering/FixedObject.hpp
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Skybox.cpp
- /home/tim/Projects/asteroids/src/rendering/Skybox.hpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/FixedObject.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Skybox.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Skybox.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -891,8 +891,8 @@ CMakeFiles/viewer.dir/rendering/Skybox.cpp.o
  /usr/include/qt4/QtOpenGL/qgl.h
  /usr/include/qt4/QtOpenGL/qglcolormap.h
 CMakeFiles/viewer.dir/rendering/Texture.cpp.o
- /home/tim/Projects/asteroids/src/rendering/Texture.cpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
 CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -901,13 +901,13 @@ CMakeFiles/viewer.dir/rendering/TexturedMesh.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/rendering/Materials.hpp
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Texture.hpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.cpp
- /home/tim/Projects/asteroids/src/rendering/TexturedMesh.hpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Materials.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Texture.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TexturedMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.hpp
 CMakeFiles/viewer.dir/rendering/Transformable.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -916,9 +916,9 @@ CMakeFiles/viewer.dir/rendering/Transformable.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.cpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.hpp
 CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -927,10 +927,10 @@ CMakeFiles/viewer.dir/rendering/TriangleMesh.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/rendering/Renderable.hpp
- /home/tim/Projects/asteroids/src/rendering/Transformable.hpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.cpp
- /home/tim/Projects/asteroids/src/rendering/TriangleMesh.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Renderable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/Transformable.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/rendering/TriangleMesh.hpp
 CMakeFiles/viewer.dir/view/Camera.cpp.o
  ../math/Global.hpp
  ../math/Quaternion.hpp
@@ -939,8 +939,8 @@ CMakeFiles/viewer.dir/view/Camera.cpp.o
  ../math/glNormal.tcc
  ../math/glVector.hpp
  ../math/glVector.tcc
- /home/tim/Projects/asteroids/src/view/Camera.cpp
- /home/tim/Projects/asteroids/src/view/Camera.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Camera.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Camera.hpp
 CMakeFiles/viewer.dir/view/Galaxis.cpp.o
  ../io/MeshIO.hpp
  ../io/Read3DS.hpp
@@ -959,8 +959,8 @@ CMakeFiles/viewer.dir/view/Galaxis.cpp.o
  ../rendering/TexturedMesh.hpp
  ../rendering/Transformable.hpp
  ../rendering/TriangleMesh.hpp
- /home/tim/Projects/asteroids/src/view/Galaxis.cpp
- /home/tim/Projects/asteroids/src/view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Galaxis.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Galaxis.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/QtCore/QThread
  /usr/include/qt4/QtCore/qalgorithms.h
@@ -1007,7 +1007,7 @@ CMakeFiles/viewer.dir/view/Galaxis.cpp.o
  /usr/include/qt4/QtCore/qthread.h
 CMakeFiles/viewer.dir/view/HUD.cpp.o
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/view/HUD.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/HUD.cpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint
@@ -1138,10 +1138,10 @@ CMakeFiles/viewer.dir/view/MainWindow.cpp.o
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/view/Galaxis.hpp
- /home/tim/Projects/asteroids/src/view/MainWindow.cpp
- /home/tim/Projects/asteroids/src/view/MainWindow.hpp
- /home/tim/Projects/asteroids/src/view/RenderFrame.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/MainWindow.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/MainWindow.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QDate
@@ -1586,9 +1586,9 @@ CMakeFiles/viewer.dir/view/RenderFrame.cpp.o
  ../rendering/TriangleMesh.hpp
  ../view/Camera.hpp
  ../view/HUD.hpp
- /home/tim/Projects/asteroids/src/view/Galaxis.hpp
- /home/tim/Projects/asteroids/src/view/RenderFrame.cpp
- /home/tim/Projects/asteroids/src/view/RenderFrame.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/Galaxis.hpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/RenderFrame.cpp
+ /home/aloha/git/cpp2012-gruppe3/src/view/RenderFrame.hpp
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
  /usr/include/qt4/QtCore/QPoint

@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tim/Projects/asteroids/src
+CMAKE_SOURCE_DIR = /home/aloha/git/cpp2012-gruppe3/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tim/Projects/asteroids/src/build
+CMAKE_BINARY_DIR = /home/aloha/git/cpp2012-gruppe3/src/build
 
 # Include any dependencies generated for this target.
 include ext/load3ds/CMakeFiles/c3dsreader.dir/depend.make
@@ -48,17 +48,17 @@ include ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o: ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o: ../ext/load3ds/C3DSLightReader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids/src/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o -c /home/tim/Projects/asteroids/src/ext/load3ds/C3DSLightReader.cpp
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o -c /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.cpp
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids/src/ext/load3ds/C3DSLightReader.cpp > CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.cpp > CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.i
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids/src/ext/load3ds/C3DSLightReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSLightReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.s
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.requires:
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.requires
@@ -68,20 +68,21 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.provides: ext/load3d
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.provides
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.provides.build: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o
+.PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSLightReader.cpp.o.provides.build
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o: ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o: ../ext/load3ds/C3DSMaterialReader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids/src/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o -c /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMaterialReader.cpp
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o -c /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.cpp
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMaterialReader.cpp > CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.cpp > CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.i
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMaterialReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMaterialReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.s
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.requires:
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.requires
@@ -91,20 +92,21 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.provides: ext/loa
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.provides
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.provides.build: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o
+.PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMaterialReader.cpp.o.provides.build
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o: ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o: ../ext/load3ds/C3DSMeshNormalCalculator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids/src/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o -c /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshNormalCalculator.cpp
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o -c /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.cpp
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshNormalCalculator.cpp > CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.cpp > CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.i
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshNormalCalculator.cpp -o CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshNormalCalculator.cpp -o CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.s
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.requires:
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.requires
@@ -114,20 +116,21 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.provides: e
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.provides
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.provides.build: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o
+.PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshNormalCalculator.cpp.o.provides.build
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o: ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o: ../ext/load3ds/C3DSMeshReader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids/src/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o -c /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshReader.cpp
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o -c /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.cpp
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshReader.cpp > CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.cpp > CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.i
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids/src/ext/load3ds/C3DSMeshReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSMeshReader.cpp -o CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.s
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.requires:
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.requires
@@ -137,20 +140,21 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.provides: ext/load3ds
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.provides
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.provides.build: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o
+.PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSMeshReader.cpp.o.provides.build
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o: ext/load3ds/CMakeFiles/c3dsreader.dir/flags.make
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o: ../ext/load3ds/C3DSReaderBase.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/tim/Projects/asteroids/src/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aloha/git/cpp2012-gruppe3/src/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o -c /home/tim/Projects/asteroids/src/ext/load3ds/C3DSReaderBase.cpp
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o -c /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.cpp
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/tim/Projects/asteroids/src/ext/load3ds/C3DSReaderBase.cpp > CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.cpp > CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.i
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/tim/Projects/asteroids/src/ext/load3ds/C3DSReaderBase.cpp -o CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds/C3DSReaderBase.cpp -o CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.s
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.requires:
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.requires
@@ -160,6 +164,7 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.provides: ext/load3ds
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.provides
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.provides.build: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o
+.PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBase.cpp.o.provides.build
 
 # Object files for target c3dsreader
 c3dsreader_OBJECTS = \
@@ -180,8 +185,8 @@ ext/load3ds/libc3dsreader.a: ext/load3ds/CMakeFiles/c3dsreader.dir/C3DSReaderBas
 ext/load3ds/libc3dsreader.a: ext/load3ds/CMakeFiles/c3dsreader.dir/build.make
 ext/load3ds/libc3dsreader.a: ext/load3ds/CMakeFiles/c3dsreader.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libc3dsreader.a"
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && $(CMAKE_COMMAND) -P CMakeFiles/c3dsreader.dir/cmake_clean_target.cmake
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/c3dsreader.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && $(CMAKE_COMMAND) -P CMakeFiles/c3dsreader.dir/cmake_clean_target.cmake
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/c3dsreader.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 ext/load3ds/CMakeFiles/c3dsreader.dir/build: ext/load3ds/libc3dsreader.a
@@ -195,10 +200,10 @@ ext/load3ds/CMakeFiles/c3dsreader.dir/requires: ext/load3ds/CMakeFiles/c3dsreade
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/requires
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/clean:
-	cd /home/tim/Projects/asteroids/src/build/ext/load3ds && $(CMAKE_COMMAND) -P CMakeFiles/c3dsreader.dir/cmake_clean.cmake
+	cd /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds && $(CMAKE_COMMAND) -P CMakeFiles/c3dsreader.dir/cmake_clean.cmake
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/clean
 
 ext/load3ds/CMakeFiles/c3dsreader.dir/depend:
-	cd /home/tim/Projects/asteroids/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tim/Projects/asteroids/src /home/tim/Projects/asteroids/src/ext/load3ds /home/tim/Projects/asteroids/src/build /home/tim/Projects/asteroids/src/build/ext/load3ds /home/tim/Projects/asteroids/src/build/ext/load3ds/CMakeFiles/c3dsreader.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aloha/git/cpp2012-gruppe3/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aloha/git/cpp2012-gruppe3/src /home/aloha/git/cpp2012-gruppe3/src/ext/load3ds /home/aloha/git/cpp2012-gruppe3/src/build /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds /home/aloha/git/cpp2012-gruppe3/src/build/ext/load3ds/CMakeFiles/c3dsreader.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ext/load3ds/CMakeFiles/c3dsreader.dir/depend
 
