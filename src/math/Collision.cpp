@@ -41,8 +41,10 @@ void Collision::run()
                                         
                                         //auflösen der Kugel 
                                         (*bulletIt)->kill();
+                                        m_bullets.erase(bulletIt);
                                         //auflösen des planeten
                                         (*asteoridtIt)->destroy();
+                                        m_asteorids.erase(asteoridtIt);
                                         
                                 }
                 	        bulletIt++;

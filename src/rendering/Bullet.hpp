@@ -13,6 +13,7 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <QThread>
+#include "math/glVector.hpp"
 
 
 /**
@@ -44,6 +45,10 @@ public:
       * @brief returns position
       */
       glVector<float> getPosition();
+    /**
+      * @brief returns position
+      */
+      void setAxis(glVector<float> xA, glVector<float> yA, glVector<float> zA);
     
 
     /**
