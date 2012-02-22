@@ -57,6 +57,7 @@ void RenderFrame::loadModel(string filename)
 	std::cout << "Galaxy erstellt und so" << std::endl;
 
 
+
         // start collision thread
         if (m_coll != 0)
         {
