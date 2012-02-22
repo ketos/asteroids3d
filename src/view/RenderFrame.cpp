@@ -297,7 +297,7 @@ void RenderFrame::moveCurrentMesh()
     Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
     //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
     //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
-    m_cam.setLocation(pos, lookat);
+    //m_cam.setLocation(pos, lookat);
     }
 }
 

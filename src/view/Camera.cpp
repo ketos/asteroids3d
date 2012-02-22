@@ -153,10 +153,10 @@ void Camera::moveDown()
 
 void Camera::applyRotationOnly()
 {
-    /*float lx =   sin(m_rotY);
+    float lx =   sin(m_rotY);
     float lz = - cos(m_rotY);
     float ly =   sin(m_rotX);
-*/
+
     glLoadIdentity();
     gluLookAt(m_lx, m_ly, m_lz, 0, 0, 0, 0.0, 1.0, 0.0);
 }
@@ -169,7 +169,6 @@ void Camera::setLocation(glVector<float> pos, glVector<float> lookat) {
     m_lx = lookat.x;
     m_ly = lookat.y;
     m_lz = lookat.z;
-    applyRotationOnly();
     std::cout << m_lx << "  " << m_ly << " " << m_lz << std::endl;
     
     // Clear matrix stack  
