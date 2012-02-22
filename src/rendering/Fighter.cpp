@@ -16,6 +16,7 @@ void Fighter::shoot()
 	Bullet* b = new Bullet(m_position, m_xAxis);
 	Read3DS reader("rocket.3ds");
 	reader.getMesh(*(static_cast<TexturedMesh*>(b)));
+        b->setAxis(m_xAxis,m_yAxis,m_zAxis);
     // Start a new thread, move the bullet
 	b->start();
     // Add it to this fighter's vector of bullets

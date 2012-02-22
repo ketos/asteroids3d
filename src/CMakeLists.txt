@@ -40,8 +40,12 @@ set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall" )
 FIND_PACKAGE(SDL REQUIRED)
 if(SDL_FOUND)
 	include_directories(${SDL_INCLUDE_DIR})
-	#include_directories(${SDLMIXER_INCLUDE_DIR})
 endif(SDL_FOUND)
+
+FIND_PACKAGE(SDL_mixer REQUIRED)
+if(SDLMIXER_FOUND)
+	include_directories(${SDLMIXER_INCLUDE_DIR})
+endif(SDLMIXER_FOUND)
 
 FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(GLUT REQUIRED)
@@ -82,6 +86,7 @@ set(VIEWER_SOURCES
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
+	io/sound.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp
@@ -120,10 +125,12 @@ add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 # External library dependencys
 ###############################################################################
 
+message(STATUS "SDL_Mixer : " ${SDLMIXER_LIBRARY})
+
 target_link_libraries(viewer ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
 target_link_libraries(viewer c3dsreader) 
 target_link_libraries(viewer ${SDL_LIBRARY})
-#target_link_libraries(viewer ${SDLMIXER_LIBRARY})
+target_link_libraries(viewer ${SDLMIXER_LIBRARY})
 target_link_libraries(viewer ${QGLVIEWER_LIBRARY_RELEASE})
 target_link_libraries(viewer ${QT_QTCORE_LIBRARIES})
 target_link_libraries(viewer ${QT_QTGUI_LIBRARIES})
