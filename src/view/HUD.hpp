@@ -9,10 +9,12 @@
 #include <QString>
 #include <string.h>
 #include <QFontMetrics>
+#include "math/glVector.hpp"
 
 class HUD{
 public:
     void draw(QPainter *painter,int x ,int y, QFont f);
+    void drawRadarAstroid(glVector<float> vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint);
     //static HUD getInstance();
     //static void destroy();
     
