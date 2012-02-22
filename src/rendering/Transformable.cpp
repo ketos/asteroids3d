@@ -111,7 +111,7 @@ glVector<float> Transformable::getFront() {
     return (m_xAxis );
 }
 glVector<float> Transformable::getSide() {
-    return (m_yzAxis );
+    return (m_zAxis );
 }
 Quaternion<float> Transformable::getRotation() {
     return m_rotation;

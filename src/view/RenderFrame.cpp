@@ -27,7 +27,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    loadModel("bearcat.3ds");
+    //loadModel("bearcat.3ds");
 	show();
 }
 
