@@ -11,6 +11,7 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
+//#include "SDL/SDL.h"
 
 #include "io/sound.hpp"
 
@@ -27,8 +28,17 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
+    i = 0;
     loadModel("bearcat.3ds");
-	show();
+    /*if( SDL_Init(SDL_INIT_JOYSTICK) < 0) {
+        joyflag = false;
+        std::cout << "kein Joystik gefunden" << std::endl;
+    }
+    else {
+        joyflag = true;
+        std::cout << "Joystick gefunden" << std::endl;
+    }*/
+    show();
 }
 
 RenderFrame::~RenderFrame()
@@ -48,24 +58,19 @@ void RenderFrame::loadModel(string filename)
 
 	// Load new model
 	m_mesh = new Fighter;
-	//Hier Aenderung!! --> m_mesh = new TexturedMesh;
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
-	std::cout << "Fighter erstellt und vor der Erstellung der Galaxy" << std::endl;
+
 	// load the glaxis width all planets 
 	galaxis = new Galaxis();
-	std::cout << "Galaxy erstellt und so" << std::endl;
 
-
-        // start collision thread
-        m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
-        m_coll->start();
-        
-        m_timer->start();
-
-
+    // start collision thread
+    m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
+    m_coll->start();
+    
+    // start Timer
+    m_timer->start();
 }
-
 
 void RenderFrame::initializeGL()
 {
@@ -148,7 +153,13 @@ void RenderFrame::resizeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 
 	// Set 'LookAt'
-    setCam();
+    m_cam.apply();
+    /*if(i==0) {
+        m_cam.apply();
+        i++;
+    } else {
+        setCam();
+    }*/
 }
 void RenderFrame::setCam() {
 

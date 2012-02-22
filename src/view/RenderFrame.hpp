@@ -51,7 +51,7 @@ public:
    */
    void setupViewport(int width, int height);
    
-   void sound();
+   //void sound();
    
    QTimer* m_timer;
    
@@ -143,7 +143,7 @@ protected:
 	/**
 	 * @brief the collision thread
 	 */
-        Collision* m_coll;
+    Collision* m_coll;
 
 	/**
 	 * @brief the current loaded Galaxis
@@ -165,8 +165,10 @@ protected:
 	//int	m_mouseY;
 
 	HUD* hins;
-
-
+    
+    int i;
+    
+    bool joyflag;
 };
 
 #endif // RENDER_FRAME_H
