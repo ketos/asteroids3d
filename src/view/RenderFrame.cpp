@@ -174,24 +174,24 @@ void RenderFrame::paintGL()
 	}
 
     
-     glMatrixMode(GL_PROJECTION);
-     glPushMatrix();
-     glPushAttrib(GL_ALL_ATTRIB_BITS);
-     glLoadIdentity();
-     QPainter painter(this);
-    // painter.setRenderHint(QPainter::Antialiasing);
-     hins->draw(&painter,width(),height(),font());
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glLoadIdentity();
+        QPainter painter(this);
+        //painter.setRenderHint(QPainter::Antialiasing);
+        hins->draw(&painter,width(),height(),font());
      
-     painter.end();
-    // glPopMatrix();
-    // glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
-    glPopAttrib();
-    glMatrixMode(GL_MODELVIEW);
+        painter.end();
+        // glPopMatrix();
+        // glMatrixMode(GL_MODELVIEW);
+        glPopMatrix();
+        glPopAttrib();
+        glMatrixMode(GL_MODELVIEW);
     
-     glFinish();
-	// Call back buffer
-	swapBuffers();
+        glFinish();
+	    // Call back buffer
+	    swapBuffers();
 }
 
 

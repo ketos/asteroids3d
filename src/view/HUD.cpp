@@ -1,5 +1,5 @@
 #include "view/HUD.hpp"
-
+int i =0;
 void HUD::draw(QPainter *painter, int width, int height, QFont f)
 { 
               
@@ -9,9 +9,9 @@ void HUD::draw(QPainter *painter, int width, int height, QFont f)
         int radmidx = width/2;
         int radmidy = height - (durchmesser/2) - abstand;
         
-        painter->setCompositionMode(QPainter::CompositionMode_Clear);
-        painter->eraseRect(width/2-(durchmesser/2), height-abstand-(durchmesser*1.5),durchmesser,durchmesser*1.5);
-        painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
+        //painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
+        painter->fillRect(width/2-(durchmesser/2), height-abstand-(durchmesser*1.5),durchmesser,durchmesser*1.5,QColor(255, 0, 0, 0));
+        //painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
 
         //Schadensanzeige
         std::string dmg = "Schaden 0%";
@@ -44,8 +44,11 @@ void HUD::draw(QPainter *painter, int width, int height, QFont f)
         myImage.load("ss.png");
         painter->drawImage(point, myImage);
         
-        //glVector<float> huas(5000,-30000,12300);
-        //drawRadarAstroid(huas, 50000, durchmesser, width()/2 ,height()-(durchmesser/2)-abstand,painter);
+        
+        glVector<float> huas(5000,-30000,12300);
+        if(i==0)
+        drawRadarAstroid(huas, 50000, durchmesser, width/2 ,height-(durchmesser/2)-abstand,painter);
+        i++;
 }
 
 void HUD::drawRadarAstroid(glVector<float> vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint)
