@@ -35,22 +35,19 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/twiemann/software/viewer_blatt14
+CMAKE_SOURCE_DIR = /home/tim/Projects/asteroids/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/twiemann/software/viewer_blatt14/build
+CMAKE_BINARY_DIR = /home/tim/Projects/asteroids/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,9 +66,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/twiemann/software/viewer_blatt14/build/CMakeFiles /home/twiemann/software/viewer_blatt14/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tim/Projects/asteroids/src/build/CMakeFiles /home/tim/Projects/asteroids/src/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/twiemann/software/viewer_blatt14/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tim/Projects/asteroids/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -364,6 +361,78 @@ moc_RenderFrame.cxx.s:
 	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/moc_RenderFrame.cxx.s
 .PHONY : moc_RenderFrame.cxx.s
 
+rendering/Asteorid.o: rendering/Asteorid.cpp.o
+.PHONY : rendering/Asteorid.o
+
+# target to build an object file
+rendering/Asteorid.cpp.o:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Asteorid.cpp.o
+.PHONY : rendering/Asteorid.cpp.o
+
+rendering/Asteorid.i: rendering/Asteorid.cpp.i
+.PHONY : rendering/Asteorid.i
+
+# target to preprocess a source file
+rendering/Asteorid.cpp.i:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Asteorid.cpp.i
+.PHONY : rendering/Asteorid.cpp.i
+
+rendering/Asteorid.s: rendering/Asteorid.cpp.s
+.PHONY : rendering/Asteorid.s
+
+# target to generate assembly for a file
+rendering/Asteorid.cpp.s:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Asteorid.cpp.s
+.PHONY : rendering/Asteorid.cpp.s
+
+rendering/Bullet.o: rendering/Bullet.cpp.o
+.PHONY : rendering/Bullet.o
+
+# target to build an object file
+rendering/Bullet.cpp.o:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Bullet.cpp.o
+.PHONY : rendering/Bullet.cpp.o
+
+rendering/Bullet.i: rendering/Bullet.cpp.i
+.PHONY : rendering/Bullet.i
+
+# target to preprocess a source file
+rendering/Bullet.cpp.i:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Bullet.cpp.i
+.PHONY : rendering/Bullet.cpp.i
+
+rendering/Bullet.s: rendering/Bullet.cpp.s
+.PHONY : rendering/Bullet.s
+
+# target to generate assembly for a file
+rendering/Bullet.cpp.s:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Bullet.cpp.s
+.PHONY : rendering/Bullet.cpp.s
+
+rendering/Fighter.o: rendering/Fighter.cpp.o
+.PHONY : rendering/Fighter.o
+
+# target to build an object file
+rendering/Fighter.cpp.o:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Fighter.cpp.o
+.PHONY : rendering/Fighter.cpp.o
+
+rendering/Fighter.i: rendering/Fighter.cpp.i
+.PHONY : rendering/Fighter.i
+
+# target to preprocess a source file
+rendering/Fighter.cpp.i:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Fighter.cpp.i
+.PHONY : rendering/Fighter.cpp.i
+
+rendering/Fighter.s: rendering/Fighter.cpp.s
+.PHONY : rendering/Fighter.s
+
+# target to generate assembly for a file
+rendering/Fighter.cpp.s:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/rendering/Fighter.cpp.s
+.PHONY : rendering/Fighter.cpp.s
+
 rendering/Skybox.o: rendering/Skybox.cpp.o
 .PHONY : rendering/Skybox.o
 
@@ -508,6 +577,54 @@ view/Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/Camera.cpp.s
 .PHONY : view/Camera.cpp.s
 
+view/Galaxis.o: view/Galaxis.cpp.o
+.PHONY : view/Galaxis.o
+
+# target to build an object file
+view/Galaxis.cpp.o:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/Galaxis.cpp.o
+.PHONY : view/Galaxis.cpp.o
+
+view/Galaxis.i: view/Galaxis.cpp.i
+.PHONY : view/Galaxis.i
+
+# target to preprocess a source file
+view/Galaxis.cpp.i:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/Galaxis.cpp.i
+.PHONY : view/Galaxis.cpp.i
+
+view/Galaxis.s: view/Galaxis.cpp.s
+.PHONY : view/Galaxis.s
+
+# target to generate assembly for a file
+view/Galaxis.cpp.s:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/Galaxis.cpp.s
+.PHONY : view/Galaxis.cpp.s
+
+view/HUD.o: view/HUD.cpp.o
+.PHONY : view/HUD.o
+
+# target to build an object file
+view/HUD.cpp.o:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/HUD.cpp.o
+.PHONY : view/HUD.cpp.o
+
+view/HUD.i: view/HUD.cpp.i
+.PHONY : view/HUD.i
+
+# target to preprocess a source file
+view/HUD.cpp.i:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/HUD.cpp.i
+.PHONY : view/HUD.cpp.i
+
+view/HUD.s: view/HUD.cpp.s
+.PHONY : view/HUD.s
+
+# target to generate assembly for a file
+view/HUD.cpp.s:
+	$(MAKE) -f CMakeFiles/viewer.dir/build.make CMakeFiles/viewer.dir/view/HUD.cpp.s
+.PHONY : view/HUD.cpp.s
+
 view/MainWindow.o: view/MainWindow.cpp.o
 .PHONY : view/MainWindow.o
 
@@ -596,6 +713,15 @@ help:
 	@echo "... moc_RenderFrame.o"
 	@echo "... moc_RenderFrame.i"
 	@echo "... moc_RenderFrame.s"
+	@echo "... rendering/Asteorid.o"
+	@echo "... rendering/Asteorid.i"
+	@echo "... rendering/Asteorid.s"
+	@echo "... rendering/Bullet.o"
+	@echo "... rendering/Bullet.i"
+	@echo "... rendering/Bullet.s"
+	@echo "... rendering/Fighter.o"
+	@echo "... rendering/Fighter.i"
+	@echo "... rendering/Fighter.s"
 	@echo "... rendering/Skybox.o"
 	@echo "... rendering/Skybox.i"
 	@echo "... rendering/Skybox.s"
@@ -614,6 +740,12 @@ help:
 	@echo "... view/Camera.o"
 	@echo "... view/Camera.i"
 	@echo "... view/Camera.s"
+	@echo "... view/Galaxis.o"
+	@echo "... view/Galaxis.i"
+	@echo "... view/Galaxis.s"
+	@echo "... view/HUD.o"
+	@echo "... view/HUD.i"
+	@echo "... view/HUD.s"
 	@echo "... view/MainWindow.o"
 	@echo "... view/MainWindow.i"
 	@echo "... view/MainWindow.s"

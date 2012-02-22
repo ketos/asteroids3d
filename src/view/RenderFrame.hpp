@@ -18,6 +18,9 @@
 #include "math/Global.hpp"
 #include "Galaxis.hpp"
 
+#include "view/HUD.hpp"
+#include <QGLWidget>
+#include <QTimer>
 
 class RenderFrame : public QGLWidget
 {
@@ -40,8 +43,12 @@ public:
      * 			Is a model is already present, it is replaced
      * 			with the new one.
      */
-    void loadModel(string modelName);
-
+   void loadModel(string modelName);
+  
+   /**
+   *
+   */
+   void setupViewport(int width, int height);
 protected:
 	
     /// The set of currently pressed keys
@@ -146,6 +153,7 @@ protected:
 	
 	QTimer* m_timer;
 
+	HUD* hins;
 
 
 };

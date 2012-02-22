@@ -20,7 +20,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
    m_timer->setInterval(25);
    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
    m_timer->start();
-    
+	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
 	show();
@@ -74,7 +74,7 @@ void RenderFrame::initializeGL()
 	m_skybox = new Skybox(2048, names, m_cam);
     
 	glMatrixMode(GL_MODELVIEW);
-	glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
+	//glPolygonMode (GL_FRONT_AND_BACK, GL_FILL);
 
 	// Setup two light sources
 	float light0_position[4];
@@ -112,8 +112,12 @@ void RenderFrame::initializeGL()
 
 	// Enable z buffer and gouroud shading
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_MULTISAMPLE);
 	glDepthFunc(GL_LESS);
 	glShadeModel (GL_SMOOTH);
+	
+	hins = new HUD();
+	
 }
  
 void RenderFrame::resizeGL(int w, int h)
@@ -165,8 +169,23 @@ void RenderFrame::paintGL()
 		galaxis->render();
 	}
 
-	glFinish();
-
+    
+     glMatrixMode(GL_PROJECTION);
+     glPushMatrix();
+     glPushAttrib(GL_ALL_ATTRIB_BITS);
+     glLoadIdentity();
+     QPainter painter(this);
+    // painter.setRenderHint(QPainter::Antialiasing);
+     hins->draw(&painter,width(),height(),font());
+     
+     painter.end();
+    // glPopMatrix();
+    // glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+    glPopAttrib();
+    glMatrixMode(GL_MODELVIEW);
+    
+     glFinish();
 	// Call back buffer
 	swapBuffers();
 }
@@ -369,3 +388,10 @@ void RenderFrame::moveCamHead(int dx, int dy)
 		}
 	}
 }
+
+void RenderFrame::setupViewport(int width, int height)
+{
+     int side = qMin(width, height);
+     glViewport((width - side) / 2, (height - side) / 2, side, side);
+}
+
