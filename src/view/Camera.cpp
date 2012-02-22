@@ -160,17 +160,21 @@ void Camera::applyRotationOnly()
     glLoadIdentity();
     gluLookAt(lx, ly, lz, 0, 0, 0, 0.0, 1.0, 0.0);
 }
-void Camera::setLocation(glVector<float> pos, glVector<float> up) {
-    
-    m_px = pos.x;
-    m_py = pos.y;
-    m_pz = pos.z+1000;
-    
+void Camera::setLocation(glVector<float> pos, glVector<float> front, glVector<float> side) {
+        
     // Clear matrix stack  
     glLoadIdentity();
     
+    front.normalize();
+    side.normalize();
+    glVector<float> up = pos;
+    up.cross((front * -1), side);
+    up.normalize();
+    float above = -200;
+    float behind= -1000;
+    glVector<float> cam = pos + up * above + front * behind;
     // Calc transformation Matrixwf
-    gluLookAt(pos.x, pos.y+200, pos.z +1000,
+    gluLookAt(cam.x, cam.y, cam.z,
             pos.x ,pos.y, pos.z,
             up.x, up.y, up.z);
     //std::cout << " cam-change" << std::endl;

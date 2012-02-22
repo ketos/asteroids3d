@@ -81,6 +81,13 @@ public:
 	 * @brief   The three values of a vector
 	 */
 	T x, y, z;
+    
+    glVector cross(const glVector vec1, glVector vec2);
+    
+    /**
+     * @brief   Normalize a glVector
+     */
+    void normalize();
 
 };
 

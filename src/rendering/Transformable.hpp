@@ -24,7 +24,8 @@ public:
     virtual ~Transformable();
     
     glVector<float> getPosition();
-    glVector<float> getOrientation();
+    glVector<float> getFront();
+    glVector<float> getSide();
     Quaternion<float> getRotation();
 
     /**

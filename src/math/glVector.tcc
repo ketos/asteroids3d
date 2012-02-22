@@ -89,3 +89,27 @@ void glVector<T>::operator+=(glVector<T> v)
 	y += v.y;
 	z += v.z;
 }
+
+template<typename T>
+glVector<T> glVector<T>::cross(const glVector<T> vec1, const glVector<T> vec2) 
+{
+    T x1 = vec1.y * vec2.z - vec1.z * vec2.y;
+    T y1 = vec1.z * vec2.x - vec1.x * vec2.z;
+    T z1 = vec1.x * vec2.y - vec1.y * vec2.x;
+    return glVector<T>(x1, y1, z1);
+}
+
+template<typename T>
+void glVector<T>::normalize()
+{
+    // Normalize the vector
+    T mag2 = this->x * this->x + this->y * this->y + this->z * this->z;
+    if (fabs(mag2 - 1.0f) > TOLERANCE)
+    {
+        T mag = sqrt(mag2);
+        this->x /= mag;
+        this->y /= mag;
+        this->z /= mag;
+    }
+}
+

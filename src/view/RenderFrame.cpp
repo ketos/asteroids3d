@@ -153,11 +153,12 @@ void RenderFrame::resizeGL(int w, int h)
 void RenderFrame::setCam() {
 
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
-    glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getOrientation();
-    Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
+    glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
+    glVector<float> side = (*(static_cast<Transformable*>(m_mesh))).getSide();
+    //Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
     //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
     //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
-    m_cam.setLocation(pos, up);
+    m_cam.setLocation(pos, front, side);
 
 }
 void RenderFrame::paintGL()

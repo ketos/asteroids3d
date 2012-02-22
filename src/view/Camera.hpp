@@ -122,7 +122,7 @@ public:
 	 */
 	void apply();
 
-    void setLocation(glVector<float> pos, glVector<float> lookat);
+    void setLocation(glVector<float> pos, glVector<float> front, glVector<float> side);
 
 	void applyRotationOnly();
 
