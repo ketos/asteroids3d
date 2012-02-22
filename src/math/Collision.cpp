@@ -26,26 +26,25 @@ void Collision::run()
                 asteoridtIt = m_asteorids.begin();
                 while(asteoridtIt != m_asteorids.end())
                 {
-                        cout << "durchlauf st" <<endl;
         	        //durchlafen aller bullets
         	        vector<Bullet*>::iterator bulletIt;
                         bulletIt = m_bullets.begin();
                         while(bulletIt != m_bullets.end())
                         {
-                                cout << "durchlauf bullet" <<endl;
                                 float diffX = fabs( ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] );
                                 float diffY = fabs( ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] );
                                 float diffZ = fabs( ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] );
-                                if ( (diffX <= 1000) && (diffY <= 1000) && (diffZ <= 1000) )
+                                
+                                if ( (diffX <= 100) && (diffY <= 100) && (diffZ <= 100) )
                                 {
                                         //getroffen
-                                        cout << endl << "Kugel Ast getroffen" << endl;
+                                        cout << "diffx:"<<diffX<<"  diffY:"<< diffY << "  diffZ:"<<diffZ<<endl;
                                 }
                 	        bulletIt++;
                       }
         	        asteoridtIt++;	
                 }
-                //sleep(100);
+                usleep(1000);
         }
 }
 
