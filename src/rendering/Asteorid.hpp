@@ -58,6 +58,8 @@ private:
 	bool alive;
     // axis, the Asteorid is moving on (one of the shooting fighter's axes)
 	glVector<float> flight_axis;
+	
+	float speed;
 };
 
 

@@ -9,6 +9,7 @@
 *CMake*
 *.cmake
 *.bin
+*.cxx
 
 src/build/
 build/

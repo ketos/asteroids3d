@@ -15,7 +15,7 @@ void Fighter::shoot()
     // Create a new bullet with this fighter's position an x-Axis
 	Bullet* b = new Bullet(m_position, m_xAxis);
 	Read3DS reader("arrow.3ds");
-    reader.getMesh(*(static_cast<TexturedMesh*>(b)));
+	reader.getMesh(*(static_cast<TexturedMesh*>(b)));
     // Start a new thread, move the bullet
 	b->start();
     // Add it to this fighter's vector of bullets

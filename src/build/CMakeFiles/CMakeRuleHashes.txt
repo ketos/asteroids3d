@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-0bf6686e96ba5e556812c3f35bdde72a moc_MainWindow.cxx
-6496730f9cd9be44afac8963fa1c7e3a moc_RenderFrame.cxx

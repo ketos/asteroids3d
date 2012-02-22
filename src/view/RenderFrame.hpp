@@ -50,6 +50,9 @@ public:
    *
    */
    void setupViewport(int width, int height);
+   
+   QTimer* m_timer;
+   
 protected:
 	
     /// The set of currently pressed keys
@@ -156,8 +159,6 @@ protected:
 	 * @brief The last y position of the mouse
 	 */
 	int	m_mouseY;
-	
-	QTimer* m_timer;
 
 	HUD* hins;
 
