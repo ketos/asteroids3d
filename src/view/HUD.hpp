@@ -11,22 +11,62 @@
 #include <QFontMetrics>
 #include "math/glVector.hpp"
 #include <vector>
+#include <sstream>
+#include <string>
+#include <iostream> 
 
 class HUD{
 public:
-    void draw(QPainter *painter,int x ,int y, QFont f);
-    void drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint);
-    //static HUD getInstance();
-    //static void destroy();
-    void setAstroidsVector(std::vector<glVector<float>* > collvec);
+  /**
+   * @brief Draws the HUD
+   * @param painter Used QPainter
+   * @param x width of the window;
+   * @param y hiegth of the window;
+   * @param f Used Font
+   */
+  void draw(QPainter *paint,int x ,int y, QFont f);
+    
+  /**
+   *@brief Draws the given Astroid on the rada
+   *@param painter used QPainter
+   *@param radarraange the max distance for astroids
+   *@param durchmesser diameter of the radar
+   *@param radarmidx x value of the radarmid
+   *@param radarmidy y value of the radarmid
+   *@param QPainter used QPainter
+   */
+  void drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint);
+  /**
+   *@brief sets the collvec which contains the astroids in Radarrange
+   *@param vector vector with astroids in radarrange
+   */
+  void setAstroidsVector(std::vector<glVector<float>* > collvec);
+  /**
+  	*@brief paint the score
+  	*@param points
+  	*@param breite width
+  	*@param used Qpainter
+  	*/
+  void score(int punkte, int breite, QPainter *painter);
+  /**
+  	*@brief paint the damage
+  	*@param damage the actual damage
+  	*@param breite width
+  	*@param used Qpainter
+  	*/
+  void damages(int schaden, int breite, QPainter *painter);
     
 private:
     ///HUD();
     //HUD(const HUD&);
     //~HUD();
     //static HUD* instance;
+  /*used QPainter*/
 
-    std::vector<glVector<float>* > collvec;
+  QPainter *painter;
+
+  /*vector which contains the astroids in radarrange*/
+  std::vector<glVector<float>* > collvec;
     
 };
 
