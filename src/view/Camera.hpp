@@ -125,6 +125,10 @@ public:
     void setLocation(glVector<float> pos, glVector<float> front, glVector<float> side);
 
 	void applyRotationOnly();
+    
+    void zoom(float change);
+
+    void changeheight(float change);
 
 public:
 
@@ -210,6 +214,9 @@ public:
 	 * @brief The z component of the "look at" vector
 	 */
 	float m_lz;
+    
+    float above;
+    float behind;
 };
 
 #endif

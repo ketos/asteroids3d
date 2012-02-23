@@ -36,7 +36,7 @@ void Collision::run()
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
 			
-			if(diffFight > 1000)
+			if(diffFight > 4100)
 			{
 				(*asteoridtIt)->changeDirection();
 			}

@@ -33,6 +33,7 @@ vector<Bullet*> Fighter::get_Bullets()
 
 void Fighter::render()
 {
+    m_position = m_position - m_xAxis * m_speed;
     // Render the fighter
     TexturedMesh::render();
     vector<Bullet*>::iterator bulletIt;
@@ -49,6 +50,7 @@ void Fighter::render()
     }
 }
 
+// Anmerkung eigentlich zuviel rausnehmen
 void Fighter::killBullet(Bullet* b)
 {
         //killen der kugel
@@ -73,6 +75,23 @@ void Fighter::killBullet(Bullet* b)
 void Fighter::increaseDamage(int i)
 {
     damage += i;
+}
+
+void Fighter::changeSpeed(float change)
+{
+    if(m_speed <= 100 && m_speed >= 0)   
+    {
+        m_speed += change;
+        if(m_speed > 100) 
+        {
+            m_speed = 100;
+        }
+        if(m_speed < 0)
+        {
+            m_speed = 0;
+        }
+    }
+    std::cout << m_speed << std::endl;
 }
 
 int Fighter::getDamage()

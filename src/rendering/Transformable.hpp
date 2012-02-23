@@ -85,8 +85,10 @@ protected:
      * @brief A quaternion representing the current rotation
      */
     Quaternion<float>  m_rotation;
-
-
+    /**
+     * @brief Actual Speed of the Transformable
+     */
+    float m_speed;
 };
 
 #endif /* TRANSFORMABLE_H_ */
