@@ -48,12 +48,7 @@ void Collision::run()
     				 *	y' = − xsin φ + ycos φ,
    				 *	z' = z. 
 				 */
-				int x;
-				int y;
-				int z;
 				
-
-
 				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 								
 
