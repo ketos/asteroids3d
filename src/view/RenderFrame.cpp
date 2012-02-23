@@ -12,10 +12,11 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 
-#include "io/sound.hpp"
+//#include "io/sound.hpp"
+#include "io/SoundManager.hpp"
 
-Sound* background = new Sound(1,"bg.wav");
-Sound* fire = new Sound(2,"sound.wav");
+//Sound* background = new Sound(1,"bg.wav");
+//Sound* fire = new Sound(2,"sound.wav");
 Camera RenderFrame::m_cam;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
@@ -38,8 +39,9 @@ RenderFrame::~RenderFrame()
 {
     delete m_mesh;
     delete m_skybox;
-    delete background;
-    delete fire;
+    //delete background;
+    //delete fire;
+    SoundManager::deleteManager();
 }
 
 void RenderFrame::loadModel(string filename)
@@ -66,7 +68,9 @@ void RenderFrame::loadModel(string filename)
     
     // start Timer
     m_timer->start();
-    background->playBackground();
+    //---------------------------------------------------------------SOUND
+    //background->playBackground();
+    SoundManager::playBackground();
 }
 
 void RenderFrame::initializeGL()
@@ -306,7 +310,8 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
     	    //----------------------------------------------------------SOUND
-    	    fire->playWAV();
+    	    //fire->playWAV();
+    	    SoundManager::playFireSound();
     	    
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
