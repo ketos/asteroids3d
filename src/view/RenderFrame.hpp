@@ -54,6 +54,9 @@ public:
    //void sound();
    
    QTimer* m_timer;
+
+	/// The camera object tot display the scene
+	static Camera m_cam;
    
 protected:
 
@@ -61,9 +64,6 @@ protected:
 	
     /// The set of currently pressed keys
 	std::set<int> m_pressedKeys;
-	
-	/// The camera object tot display the scene
-	Camera   m_cam;
 
 	/**
 	 * @brief	Our custom key press handler

@@ -8,6 +8,7 @@
 #include "Skybox.hpp"
 #include "io/TextureFactory.hpp"
 #include "view/MainWindow.hpp"
+#include "view/RenderFrame.hpp"
 
 Skybox::Skybox(int width, string files[6], Camera &cam)
     : m_width(width), m_cam(cam)
@@ -43,7 +44,7 @@ void Skybox::render()
     glDisable(GL_LIGHTING);
     glDisable(GL_BLEND);
 
-    m_cam.applyRotationOnly();
+    RenderFrame::m_cam.applyRotationOnly();
 
     // Set color
     glColor3f(1.0f, 1.0f, 1.0f);

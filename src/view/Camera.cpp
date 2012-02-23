@@ -30,7 +30,7 @@ Camera::Camera()
 	m_rotZ =        0.0;
 
 }
-
+/*
 Camera::Camera(float x, float y, float z)
      : m_baseX(1.0, 0.0, 0.0),
        m_baseY(0.0, 1.0, 0.0),
@@ -49,8 +49,8 @@ Camera::Camera(float x, float y, float z)
 	m_rotX = 0.0;
 	m_rotY = 0.0;
 	m_rotZ = 0.0;
-}
-
+}*/
+/*
 void Camera::moveLeft()
 {
 	m_px -= m_speed * sin(PH - m_rotY);
@@ -150,24 +150,26 @@ void Camera::moveDown()
 {
 	m_py -= m_speed;
 }
-
+*/
 void Camera::applyRotationOnly()
 {
-    float lx =   sin(m_rotY);
+    /*float lx =   sin(m_rotY);
     float lz = - cos(m_rotY);
-    float ly =   sin(m_rotX);
+    float ly =   sin(m_rotX);*/
 
     glLoadIdentity();
-    gluLookAt(lx, ly, lz, 0, 0, 0, 0.0, 1.0, 0.0);
+    //gluLookAt(lx, ly, lz, 0, 0, 0, 0.0, 1.0, 0.0);
+
+    gluLookAt(front.x, front.y, front.z, 0, 0, 0, up.x, up.y, up.z);
 }
-void Camera::setLocation(glVector<float> pos, glVector<float> front, glVector<float> up1) {
+void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<float> up1) {
         
     // Clear matrix stack  
     glLoadIdentity();
     
+    front = (front1);
     front.normalize();
-    up1.normalize();
-    glVector<float> up = (up1);
+    up = (up1);
     up.normalize();
     
     float above = 300;

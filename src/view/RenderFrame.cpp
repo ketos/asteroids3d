@@ -14,7 +14,7 @@
 
 #include "io/sound.hpp"
 
-
+Camera RenderFrame::m_cam;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {

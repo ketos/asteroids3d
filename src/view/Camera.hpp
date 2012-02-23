@@ -136,6 +136,10 @@ public:
 
 	///The current orientation of the z-axis
 	glVector<float> m_baseZ;
+    
+    glVector<float> up;
+    
+    glVector<float> front;
 
 	/**
 	 * @brief The current speed
