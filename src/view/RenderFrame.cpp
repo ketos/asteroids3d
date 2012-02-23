@@ -222,8 +222,8 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
         //painter.setRenderHint(QPainter::Antialiasing);
-	hins->setAstroidsVector(m_coll->getCollisionVector());
-	//std::cout<<"Ich habe die Liste"<<std::endl;
+		hins->setAstroidsVector(m_coll->getCollisionVector());
+		//std::cout<<"Ich habe die Liste"<<std::endl;
         hins->draw(&painter,width(),height(),font());
      	//std::cout<<"und hab gezichnet"<<std::endl;
         painter.end();

@@ -6,9 +6,7 @@
 #include "Asteorid.hpp"
 #include <stdio.h>
 #include "io/SoundManager.hpp"
-#include "rendering/Explosion.hpp"
-
-
+#include "rendering/Explosion2.hpp"
 
 Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 {
@@ -37,15 +35,11 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
-
     SoundManager::playExplosion();
-    /*
-    float speed = 0.2;
-    Explosion* e = new Explosion();
-    for(int i=0; i<=(int)9*0.2;i++)
-        e->explode(speed);
-        
-    */
+    //Point3<double> d = new Point3<double>(m_position.x,m_position.y,m_position.z);
+    Explosion* e = new Explosion(Point3<double>(m_position.x,m_position.y,m_position.z), 100.0, 200, 20);
+    e->display();
+    
 	alive = false;
 }
 

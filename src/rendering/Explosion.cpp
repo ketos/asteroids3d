@@ -1,7 +1,8 @@
 #include "rendering/Explosion.hpp"
 
 float frame = 0;
-GLuint texture[8];
+GLuint texture[9];
+
 
 Explosion::Explosion()
 {
@@ -64,7 +65,13 @@ void Explosion::FreeTexture( GLuint texture )
   glDeleteTextures( 1, &texture );
 }
 
-void Explosion::explode(float speed) {
+void Explosion::Explode()
+{
+	SoundManager::playExplosion();
+	ExploLoop(0.2);
+}
+
+void Explosion::ExploLoop(float speed) {
     glBindTexture( GL_TEXTURE_2D, texture[(int)frame] );
     glScalef(2,2,1);
     glBegin (GL_QUADS);
@@ -78,9 +85,10 @@ void Explosion::explode(float speed) {
     glVertex3f(-1,-1,0);
     glEnd();
     
-    frame+=speed;
+    frame += speed;
+    
     if (frame > 8)
     {
-    frame = 1;
+    	frame = 1;
     }
 }

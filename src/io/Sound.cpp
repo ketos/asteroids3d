@@ -10,14 +10,9 @@ Sound::~Sound()
     delete music;
 }
 
-void Sound::playWAV()
+void Sound::playWAV(int loop)
 {
-    Mix_PlayChannel(Channel,music,0);
-}
-
-void Sound::playBackground()
-{
-    Mix_PlayChannel(Channel,music,-1);
+    Mix_PlayChannel(Channel,music,loop);
 }
  
 void Sound::playMP3(const char *mp3){

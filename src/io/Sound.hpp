@@ -15,8 +15,7 @@ class Sound{
 public:
     Sound(int c, const char *wav);
     ~Sound();
-    void playWAV();
-    void playBackground();
+    void playWAV(int loop);
     void playMP3(const char *mp3);
 private:
     int Channel;
