@@ -28,6 +28,13 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     m_timer->setInterval(25);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
     
+    m_timer2=new QTimer();
+    m_timer2->setInterval(500);
+    connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
+    m_timer2->start(); 
+    
+    shoot = true;
+    
     joys = new Joystick();
     
     joyConnect();    
@@ -299,8 +306,12 @@ void RenderFrame::moveCurrentMesh()
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-    		(static_cast<Fighter*>(m_mesh))->shoot();
-    	}
+            if(shoot) {
+    		    (static_cast<Fighter*>(m_mesh))->shoot();
+                shoot = false;
+                m_timer2->start();
+            }
+      	}
         // Ändern der Kamera
         if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
         {
@@ -347,7 +358,11 @@ void RenderFrame::control() {
         m_cam.zoom(15);
     }
     if(joys->getButton(0) > 0) { //A
-        (static_cast<Fighter*>(m_mesh))->shoot();
+        if(shoot) {
+            (static_cast<Fighter*>(m_mesh))->shoot();
+            shoot = false;
+            m_timer2->start();
+        }
     }/*
     if(joys->getButton(1) > 0) { //B
     }
@@ -383,6 +398,11 @@ void RenderFrame::control() {
     }
     if(joys->getButton(15) > 0) {//None
     }*/
+}
+
+void RenderFrame::updateShoot(){
+    shoot = true;
+    m_timer2->stop();
 }
 
 void RenderFrame::setupViewport(int width, int height)

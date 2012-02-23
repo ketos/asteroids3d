@@ -56,6 +56,8 @@ public:
    
    QTimer* m_timer;
     
+    QTimer* m_timer2;
+    
     Joystick *joys;
 
 	/// The camera object tot display the scene
@@ -184,8 +186,13 @@ protected:
     int i;
     
     bool joystick;
+    
+    bool shoot;
 
     void joyConnect();
+
+private slots:
+    void updateShoot();
 };
 
 #endif // RENDER_FRAME_H
