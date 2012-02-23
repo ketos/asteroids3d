@@ -14,11 +14,12 @@
 
 #include "io/sound.hpp"
 
-
+Sound* background = new Sound(1,"bg.wav");
+Sound* fire = new Sound(2,"sound.wav");
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
-
+    
     // set up animation timer
    m_timer = new QTimer();
    m_timer->setInterval(25);
@@ -34,6 +35,8 @@ RenderFrame::~RenderFrame()
 {
     delete m_mesh;
     delete m_skybox;
+    delete background;
+    delete fire;
 }
 
 void RenderFrame::loadModel(string filename)
@@ -62,7 +65,7 @@ void RenderFrame::loadModel(string filename)
         
         m_timer->start();
 
-
+    background->playBackground();
 }
 
 
@@ -279,8 +282,8 @@ void RenderFrame::moveCurrentMesh()
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-    	    Sound* s = new Sound();
-    	    s->playWAV("sound.wav");
+    	    //----------------------------------------------------------SOUND
+    	    fire->playWAV();
     	    
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
