@@ -9,26 +9,7 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
         int radmidx = width/2;
         int radmidy = height - (durchmesser/2) - abstand;
         
- /*       //painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
-        painter->fillRect(width/2-(durchmesser/2), height-abstand-(durchmesser*1.5),durchmesser,durchmesser*1.5,QColor(255, 0, 0, 0));
-        //painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
-
-        //Schadensanzeige
-        std::string dmg = "Schaden 0%";
-        QString damage = QString::fromStdString(dmg);
-        QFontMetrics metrics = QFontMetrics(f);
-        int border = qMax(4, metrics.leading());
-
-        QRect rect = metrics.boundingRect(0, 0, width - 2*border, int(height*0.125),Qt::AlignCenter | Qt::TextWordWrap, damage);
-        painter->setRenderHint(QPainter::TextAntialiasing);
-        painter->fillRect(QRect(0, height-50, 100, 50),QColor(255, 0, 0, 127));
-        painter->setPen(Qt::white);
-        painter->fillRect(QRect(0,height-50, 100 ,50),
-                       QColor(0, 0, 0, 127));
-        painter->drawText(20, height-30,rect.width(), rect.height(),
-                       Qt::AlignCenter | Qt::TextWordWrap, damage);
-
-*/
+ 
         //Radar
         painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
         painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
@@ -60,7 +41,7 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
 void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint)
 {
         int p = 6;
-	glVector<float> tmp(*vec);
+		  glVector<float> tmp(*vec);
         tmp.x/=radarrange;
         tmp.y/=radarrange;
         tmp.z/=radarrange;
@@ -70,8 +51,8 @@ void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser
         int z = tmp.z;
 
         if(!tmp.y == 0)
-            paint->drawLine(radarmidx+x,radarmidy+(z),radarmidx+x,radarmidy+(z)+y);
-        paint->drawEllipse(radarmidx+x-(p/2), radarmidy+z+y-(p/2),p,p);
+            paint->drawLine(radarmidx+x,radarmidy+(z),radarmidx+x,radarmidy+(-z)+y);
+        paint->drawEllipse(radarmidx+x-(p/2), radarmidy-z+y-(p/2),p,p);
  
 
 }
