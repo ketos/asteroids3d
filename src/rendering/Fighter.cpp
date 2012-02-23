@@ -24,6 +24,8 @@ void Fighter::shoot()
     b->start();
     // Add it to this fighter's vector of bullets
     m_bullets.push_back(b);
+    damage = 0;
+    score = 0;
 }
 
 vector<Bullet*> Fighter::get_Bullets()
@@ -53,6 +55,8 @@ void Fighter::render()
 // Anmerkung eigentlich zuviel rausnehmen
 void Fighter::killBullet(Bullet* b)
 {
+		  //Adds 50 Point to the score
+		  score+=50;
         //killen der kugel
         vector<Bullet*>::iterator bulletIt;
         bulletIt = m_bullets.begin();
@@ -91,10 +95,17 @@ void Fighter::changeSpeed(float change)
             m_speed = 0;
         }
     }
-    std::cout << m_speed << std::endl;
 }
 
 int Fighter::getDamage()
 {
     return damage;
+}
+float Fighter::getSpeed()
+{
+    return m_speed;
+}
+int Fighter::getScore()
+{
+    return score;
 }
