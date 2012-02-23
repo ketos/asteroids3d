@@ -9,23 +9,26 @@
 #include "rendering/TexturedMesh.hpp"
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
+
 void Fighter::shoot()
 {
     
     // Create a new bullet with this fighter's position an x-Axis
-	Bullet* b = new Bullet(m_position, m_xAxis);
-	Read3DS reader("rocket.3ds");
-	reader.getMesh(*(static_cast<TexturedMesh*>(b)));
-        b->setAxis(m_xAxis,m_yAxis,m_zAxis);
+    Bullet* b = new Bullet(m_position, m_xAxis);
+    // Read 3ds for Rocket
+    Read3DS reader("rocket.3ds");
+    reader.getMesh(*(static_cast<TexturedMesh*>(b)));
+    // Set the axis of the Rocket
+    b->setAxis(m_xAxis,m_yAxis,m_zAxis);
     // Start a new thread, move the bullet
-	b->start();
+    b->start();
     // Add it to this fighter's vector of bullets
-	m_bullets.push_back(b);
+    m_bullets.push_back(b);
 }
 
 vector<Bullet*> Fighter::get_Bullets()
 {
- return m_bullets; 
+  return m_bullets; 
 }
 
 void Fighter::render()

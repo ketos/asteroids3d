@@ -26,10 +26,7 @@ void Asteorid::run()
 {
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
- 		//std::cout << "Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
 		m_position = flight_axis + m_position;
-
-// 		std::cout << 	"Der Asteorid soll sich bewegen: " << m_position.x << std::endl;
 		usleep(10000);
 	}
 }
@@ -46,9 +43,7 @@ glVector<float> Asteorid::getPosition()
 
 void Asteorid::changeDirection()
 {
-	std::cout << "Der Asteorid soll die Richtung wechseln" << flight_axis.x << std::endl;
     flight_axis = flight_axis * -1;
-	std::cout << "Der Asteorid soll die Richtung wechseln" << flight_axis.x << std::endl;
 }
 
 glVector<float> Asteorid::getFlightAxis()
