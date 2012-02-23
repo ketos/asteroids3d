@@ -15,7 +15,7 @@
 
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
-float RenderFrame::f_angle = 0.5;
+float RenderFrame::f_angle = 0.05;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
