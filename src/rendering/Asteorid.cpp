@@ -37,6 +37,7 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
+
     SoundManager::playExplosion();
     /*
     float speed = 0.2;

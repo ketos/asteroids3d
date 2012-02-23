@@ -2,7 +2,11 @@
 #define __GALAXIS_HPP__
 
 #include "rendering/Asteorid.hpp"
+
+#include "rendering/Mini_Asteorid.hpp"
+
 #include <vector>
+
 using namespace std;
 class Galaxis{
   
@@ -10,9 +14,8 @@ class Galaxis{
 	      Galaxis();
 	      
 	      void addAsteorid(glVector<float> v1, glVector<float> v2);
-	      
+	      void addMiniAsteorid(glVector<float> v1, glVector<float> v2);
 	      void render();
-//               void killAsteorid(Asteorid* g);
 	      vector<Asteorid*> getAsteorids();
 	      void nextLevel();
 	      
