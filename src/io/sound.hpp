@@ -13,10 +13,14 @@
 
 class Sound{
 public:
-    Sound();
+    Sound(int c, const char *wav);
     ~Sound();
-    void playWAV(const char *wav);
+    void playWAV();
+    void playBackground();
     void playMP3(const char *mp3);
+private:
+    int Channel;
+    Mix_Chunk *music;
 };
 
 #endif //_SOUND_H
