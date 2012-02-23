@@ -12,6 +12,7 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 #include "io/SoundManager.hpp"
+#include "io/joystick.h"
 
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
@@ -24,6 +25,10 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     m_timer = new QTimer();
     m_timer->setInterval(25);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
+    
+    joys = new Joystick();
+    
+    joyConnect();    
 
 	setAutoFillBackground(false);
 	m_mesh  = 0;
@@ -32,6 +37,14 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     loadModel("bearcat.3ds");
     show();
     SoundManager::playBackground();
+}
+
+void RenderFrame::joyConnect() {
+    if(joys->init("/dev/input/js0") > -1) {
+        std::cout << "connected" << std::endl;
+    } else {             
+        std::cout << "no joystick" << std::endl;
+    }
 }
 
 RenderFrame::~RenderFrame()

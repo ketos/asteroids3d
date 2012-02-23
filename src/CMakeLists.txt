@@ -89,6 +89,7 @@ set(VIEWER_SOURCES
 	io/TriangleMeshFactory.cpp
 	io/Sound.cpp
 	io/SoundManager.cpp
+    io/joystick.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp
