@@ -11,12 +11,8 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
-
-//#include "io/sound.hpp"
 #include "io/SoundManager.hpp"
 
-//Sound* background = new Sound(1,"bg.wav");
-//Sound* fire = new Sound(2,"sound.wav");
 Camera RenderFrame::m_cam;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
@@ -33,14 +29,13 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     i = 0;
     loadModel("bearcat.3ds");
     show();
+    SoundManager::playBackground();
 }
 
 RenderFrame::~RenderFrame()
 {
     delete m_mesh;
     delete m_skybox;
-    //delete background;
-    //delete fire;
     SoundManager::deleteManager();
 }
 
@@ -77,9 +72,6 @@ void RenderFrame::loadModel(string filename)
     
     // start Timer
     m_timer->start();
-    //---------------------------------------------------------------SOUND
-    //background->playBackground();
-    SoundManager::playBackground();
 }
 
 void RenderFrame::initializeGL()
@@ -317,11 +309,7 @@ void RenderFrame::moveCurrentMesh()
     	}*/
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
-    	{
-    	    //----------------------------------------------------------SOUND
-    	    //fire->playWAV();
-    	    SoundManager::playFireSound();
-    	    
+    	{    	    
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
     }

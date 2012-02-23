@@ -14,6 +14,7 @@
 #include <GL/glut.h>
 #include <QThread>
 #include "math/glVector.hpp"
+#include "io/SoundManager.hpp"
 
 
 /**
