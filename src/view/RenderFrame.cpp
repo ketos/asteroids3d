@@ -12,6 +12,7 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 #include "io/SoundManager.hpp"
+// sudo apt-get install joystick   ausführen
 #include "io/joystick.h"
 
 Camera RenderFrame::m_cam;
