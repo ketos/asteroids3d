@@ -60,6 +60,9 @@ void RenderFrame::joyConnect() {
 
 RenderFrame::~RenderFrame()
 {
+    if(joystick) {
+        joys->stop();
+    }
     delete m_mesh;
     delete m_skybox;
     SoundManager::deleteManager();
