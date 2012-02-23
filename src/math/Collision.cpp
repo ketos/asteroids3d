@@ -80,8 +80,8 @@ int i = 0;
 					{
 						//stoss methode an asteoriden aufrufen
 						cout << "zwei Asteoriden stossen sich ab..." << endl;
-						//(*asteoridtIt)->stoss();
-						//(*asteoridtIt2)->stoss();
+						(*asteoridtIt)->changeDirection();
+						(*asteoridtIt2)->changeDirection();
 					}
 				}			
                       }
