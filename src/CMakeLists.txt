@@ -115,7 +115,9 @@ set(VIEWER_SOURCES
 
 set(VIEWER_MOCS 
     view/MainWindow.hpp 
-    view/RenderFrame.hpp)
+    view/RenderFrame.hpp
+	view/Galaxis.hpp
+	rendering/Asteorid.hpp)
 
 qt_wrap_cpp(viewer VIEWER_MOC_SRC ${VIEWER_MOCS})
 
