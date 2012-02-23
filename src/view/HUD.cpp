@@ -51,8 +51,8 @@ void HUD::draw(QPainter *painter, int width, int height, QFont f)
 
         while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand, painter);
-		itervec++;
+            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand, painter);	
+                itervec++;
         }
      
 }
