@@ -272,13 +272,13 @@ void RenderFrame::moveCurrentMesh()
 
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, -10);
+            m_mesh->move(STRAFE, -50);
     		//m_mesh->rotate(PITCH, 0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, 10);    
+            m_mesh->move(STRAFE, 50);    
     		//m_mesh->rotate(PITCH, -0.1);
     	}
 
