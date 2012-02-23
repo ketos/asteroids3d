@@ -29,4 +29,5 @@ void SoundManager::deleteManager()
 {
     delete fire;
     delete background;
+    delete explosion;
 }

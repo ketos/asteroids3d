@@ -13,6 +13,7 @@ Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
     alive = true;
     // same position as the fighter
     m_position = fighter_position;
+    SoundManager::playFireSound();
 }
 
 bool Bullet::isAlive()
