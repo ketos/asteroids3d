@@ -182,7 +182,7 @@ protected:
     static float f_speed;
     static float f_angle;
     static float deadzone;
-    static float shoottime;
+    static float shootTime;
     
     int i;
     
