@@ -53,6 +53,16 @@ public:
      */
 	void destroy();
 
+    /**
+     * @brief changes the flight-direction of the Astroid
+     */
+        void changeDirection();
+
+    /**
+     * @brief returns the flight-axis
+     */
+        glVector<float> getFlightAxis();
+
 private:
     // true, if the Asteorid's lifetime isn't over yet
 	bool alive;

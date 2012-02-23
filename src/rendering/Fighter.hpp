@@ -38,9 +38,23 @@ public:
      */
         void killBullet(Bullet* b);
 
+    /**
+     * @brief increses the damage
+     * @param int given damage
+     */
+    void increaseDamage(int i);
+
+    /**
+     * @brief returns the actual damage
+     * @return actual damage
+     */
+    int getDamage();
+
 private:
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
+    // Actual damage
+        int damage;
 
 };
 
