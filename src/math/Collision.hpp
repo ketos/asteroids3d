@@ -8,6 +8,10 @@
 #include "rendering/Asteorid.hpp"
 #include "rendering/Bullet.hpp"
 #include "rendering/Fighter.hpp"
+#include  "math/glVector.hpp"
+#include <vector>
+#include <math.h>
+#include <iostream>
 
 
 /**
@@ -41,6 +45,12 @@ class Collision : public QThread
              * @brief stops the thread
              */
             void stop();
+	    /**
+	     * @brief returns the vector containing the nearest astroids
+             * @return vector containing the nearest astroids
+	     */
+	    vector<glVector<float>*> getCollisionVector();
+
         private:
             //fighter
                 Fighter* m_craft;
@@ -52,6 +62,8 @@ class Collision : public QThread
                 vector<Asteorid*> m_asteorids;
             // if the collision algo is alive
                 bool m_running;
+            //Vector for radar
+	        vector<glVector<float>*> radar;
 };
 
 #endif

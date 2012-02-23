@@ -14,7 +14,7 @@ Galaxis::Galaxis()
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Asteorid* a = new Asteorid(v1,v2);;
-    Read3DS reader("arrow.3ds");
+    Read3DS reader("asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     // Start a new thread, move the bullet
     a->start();

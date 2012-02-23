@@ -1,6 +1,4 @@
 #include "Collision.hpp"
-#include <iostream>
-#include <math.h>
 
 using namespace std;
 
@@ -13,7 +11,6 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
 
 void Collision::run()
 {
-int i = 0;
         //algirthm for checking collisions
         while(m_running)
         {
@@ -29,15 +26,39 @@ int i = 0;
                 while(asteoridtIt != m_asteorids.end())
                 {
 
+
 			float diffFightX = fabs( ((*asteoridtIt)->getPosition())[0] - (m_craft->getPosition())[0] );
                         float diffFightY = fabs( ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] );
 			float diffFightZ = fabs( ((*asteoridtIt)->getPosition())[2] - (m_craft->getPosition())[2] );
 			
+			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
 			
+			if(diffFight > 1000)
+			{
+				(*asteoridtIt)->changeDirection();
+			}
+			
+			if(diffFight < 50000)
+			{
+				/**
+				 *      x' = xcos φ + ysin φ,
+    				 *	y' = − xsin φ + ycos φ,
+   				 *	z' = z. 
+				 */
+				int x;
+				int y;
+				int z;
+				
+
+
+				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
+								
+
+				radar.push_back(tmp);
+			}
 
 			if(diffFightX <= 100 && diffFightY <= 100 && diffFightZ <= 100)
 			{
-				cout << "Fighter trifft asteorid!" << i << endl;
 				(*asteoridtIt)->changeDirection();
 				m_craft->increaseDamage(50);
 			}
@@ -89,6 +110,11 @@ int i = 0;
                 }
                 usleep(1000);
         }
+}
+
+vector<glVector<float>*> Collision::getCollisionVector()
+{
+	return radar;
 }
 
 void Collision::stop()
