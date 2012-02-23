@@ -10,7 +10,7 @@ Galaxis::Galaxis()
 	level = 0;
    glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
-	addMiniAsteorid(v1,v2);
+	//addMiniAsteorid(v1,v2);
 	
 }
 
@@ -24,7 +24,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
     // Add it to this fighter's vector of bullets    
     asteorids.push_back( a );
 }
-
+/*
 void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Mini_Asteorid* a = new Mini_Asteorid(v1,v2);;
@@ -35,6 +35,7 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
     // Add it to this fighter's vector of bullets    
     asteorids.push_back( a );
 }
+*/
 	      
 void Galaxis::render()
 {
@@ -48,7 +49,7 @@ void Galaxis::render()
       // if the bullet's lifetime is over, erase it from the vector.
       while(asteoridtIt != asteorids.end()){
 	  (*asteoridtIt)->render();
-	  (*asteoridtIt)->info();
+	  //(*asteoridtIt)->info();
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
 	      }else{

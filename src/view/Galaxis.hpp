@@ -3,7 +3,7 @@
 
 #include "rendering/Asteorid.hpp"
 
-#include "rendering/Mini_Asteorid.hpp"
+//#include "rendering/Mini_Asteorid.hpp"
 
 #include <vector>
 
@@ -14,7 +14,7 @@ class Galaxis{
 	      Galaxis();
 	      
 	      void addAsteorid(glVector<float> v1, glVector<float> v2);
-	      void addMiniAsteorid(glVector<float> v1, glVector<float> v2);
+	      //void addMiniAsteorid(glVector<float> v1, glVector<float> v2);
 	      void render();
 	      vector<Asteorid*> getAsteorids();
 	      void nextLevel();
