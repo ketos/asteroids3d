@@ -101,6 +101,7 @@ set(VIEWER_SOURCES
     rendering/Asteorid.cpp
     rendering/Fighter.cpp
     rendering/Bullet.cpp
+    rendering/Explosion.cpp
     Main.cpp
     math/Collision.cpp
 )
