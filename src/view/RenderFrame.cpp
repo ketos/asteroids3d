@@ -247,12 +247,14 @@ void RenderFrame::moveCurrentMesh()
     	// Controller for moving and rotation
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, -f_speed);
+            //m_mesh->move(STRAFE, -f_speed);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, f_speed); 
+            //m_mesh->move(STRAFE, f_speed);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())

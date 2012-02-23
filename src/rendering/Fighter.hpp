@@ -43,6 +43,10 @@ public:
      * @param int given damage
      */
     void increaseDamage(int i);
+    /**
+     * @brief change the speed
+     */
+    void changeSpeed(float change);
 
     /**
      * @brief returns the actual damage
