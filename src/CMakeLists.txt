@@ -83,7 +83,7 @@ set(VIEWER_SOURCES
 	io/ReadPLY.cpp
 	io/ReadPPM.cpp
 	io/ReadTGA.cpp
-	io/ReadXML.cpp
+	#io/ReadXML.cpp
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
