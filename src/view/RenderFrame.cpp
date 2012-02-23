@@ -225,7 +225,6 @@ void RenderFrame::paintGL()
 	    swapBuffers();
 }
 
-
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
 	// State of key is pressed
@@ -299,117 +298,6 @@ void RenderFrame::moveCurrentMesh()
         }      
     }
 }
-
-
-/*void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
-{
-	// Get number the number of pixel between the last
-	// und current mouse position
-	int dx = event->x() - m_mouseX;
-	int dy = event->y() - m_mouseY;
-
-	// Check which button was pressend and apply action
-	if(event->buttons() == Qt::LeftButton)
-	{
-		moveCamXY(dx, dy);
-	}
-
-	if(event->buttons() == Qt::RightButton)
-	{
-		moveCamHead(dx, dy);
-	}
-
-	if(event->buttons() == Qt::MidButton)
-	{
-		moveCamZ(dy);
-	}
-
-	// Transform viewport
-	m_cam.apply();
-
-	// Save new coodinates
-	m_mouseX = event->x();
-	m_mouseY = event->y();
-
-	paintGL();
-}
-
-void RenderFrame::moveCamXY(int dx, int dy)
-{
-	if(fabs(dx) > MOUSE_SENSITY)
-	{
-		if(dx > 0)
-		{
-			m_cam.turnRight();
-		}
-
-		else
-		{
-			m_cam.turnLeft();
-		}
-
-	}
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.moveBackward();
-		}
-
-		else
-		{
-			m_cam.moveForward();
-		}
-	}
-}
-
-void RenderFrame::moveCamZ(int dy)
-{
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.moveUp();
-		}
-
-		else
-		{
-			m_cam.moveDown();
-		}
-	}
-}
-
-void RenderFrame::moveCamHead(int dx, int dy)
-{
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.turnUp();
-		}
-
-		else
-		{
-			m_cam.turnDown();
-		}
-	}
-
-	if(fabs(dx) > MOUSE_SENSITY)
-	{
-		if(dx > 0)
-		{
-			m_cam.turnRight();
-		}
-
-		else
-		{
-			m_cam.turnLeft();
-		}
-	}
-}*/
 
 void RenderFrame::setupViewport(int width, int height)
 {
