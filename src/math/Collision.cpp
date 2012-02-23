@@ -95,3 +95,7 @@ void Collision::stop()
 {
         m_running=false;
 }
+bool Collision::isRunning()
+{
+        return m_running;
+}

@@ -62,7 +62,16 @@ void RenderFrame::loadModel(string filename)
 	galaxis = new Galaxis();
 
 
-    // start collision thread
+    // // start collision thread
+    //    if (m_coll != 0)
+    //            {
+    //                    if (m_coll->isRunning())
+    //                    {
+    //                            //Thread vorhanden und Läuft
+    //                            m_coll->stop();
+    //                    }
+    //                    delete m_coll;
+    //            }
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
     m_coll->start();
     
