@@ -89,6 +89,7 @@ set(VIEWER_SOURCES
 	io/TriangleMeshFactory.cpp
 	io/Sound.cpp
 	io/SoundManager.cpp
+    io/joystick.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp
@@ -104,6 +105,7 @@ set(VIEWER_SOURCES
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     rendering/Explosion.cpp
+    rendering/Explosion2.cpp
     Main.cpp
     math/Collision.cpp
 )

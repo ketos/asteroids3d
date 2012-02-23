@@ -39,6 +39,7 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
     asteorids.push_back( a );
 }
 
+
 void Galaxis::big_astroid_destroyed(float x, float y, float z)
 {
 	std::cout << "Zerstören!" << x << y << z << std::endl;
@@ -51,6 +52,7 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	addAsteorid(tmp,v3); 
 }
     
+
 void Galaxis::render()
 {
 	//std::cout << asteorids.size() << std::endl;
@@ -62,6 +64,7 @@ void Galaxis::render()
       // if the bullet's lifetime is over, erase it from the vector.
       while(asteoridtIt != asteorids.end()){
 	  (*asteoridtIt)->render();
+	  //(*asteoridtIt)->info();
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
 	      }else{

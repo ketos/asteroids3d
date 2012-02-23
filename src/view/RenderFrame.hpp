@@ -18,6 +18,7 @@
 #include "math/Global.hpp"
 #include "Galaxis.hpp"
 #include "math/Collision.hpp"
+#include "io/joystick.h"
 
 #include "view/HUD.hpp"
 #include <QGLWidget>
@@ -54,6 +55,10 @@ public:
    //void sound();
    
    QTimer* m_timer;
+    
+    QTimer* m_timer2;
+    
+    Joystick *joys;
 
 	/// The camera object tot display the scene
 	static Camera m_cam;
@@ -65,6 +70,8 @@ public:
    HUD* getHUD();
 
 protected:
+    
+    void control();
 
     void setCam();
 	
@@ -174,10 +181,19 @@ protected:
 
     static float f_speed;
     static float f_angle;
+    static float deadzone;
+    static float shootTime;
     
     int i;
     
-    bool joyflag;
+    bool joystick;
+    
+    bool shoot;
+
+    void joyConnect();
+
+private slots:
+    void updateShoot();
 };
 
 #endif // RENDER_FRAME_H

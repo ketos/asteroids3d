@@ -91,7 +91,6 @@ void Fighter::changeSpeed(float change)
             m_speed = 0;
         }
     }
-    std::cout << m_speed << std::endl;
 }
 
 int Fighter::getDamage()

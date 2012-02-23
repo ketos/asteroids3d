@@ -3,7 +3,6 @@
 
 #include "rendering/Asteorid.hpp"
 
-
 #include "rendering/Mini_Asteorid.hpp"
 
 #include <vector>
@@ -31,10 +30,6 @@ class Galaxis: public QObject
 	     	
 	public slots:
 		void big_astroid_destroyed(float x, float y, float z);
-	//signals:
-		//void destroyed(const int pos);
-	
-
 };
 
 #endif
