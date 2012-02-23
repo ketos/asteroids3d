@@ -9,7 +9,7 @@
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
 {
     // the Bullet will move on this axis, it has to be reversed for the direction to be right    
-    this->fighter_axis = fighter_axis * -1;
+    this->fighter_axis = fighter_axis * -3;
     alive = true;
     // same position as the fighter
     m_position = fighter_position;

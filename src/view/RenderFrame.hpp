@@ -171,6 +171,9 @@ protected:
 	//int	m_mouseY;
 
 	HUD* hins;
+
+    static float f_speed;
+    static float f_angle;
     
     int i;
     
