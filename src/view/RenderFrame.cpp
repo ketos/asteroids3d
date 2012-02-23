@@ -17,8 +17,8 @@
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
 float RenderFrame::f_angle = 0.05;
-float RenderFrame::deadzone=12500;   
-
+float RenderFrame::deadzone=12500; 
+float RenderFrame::shootTime=500;  
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -29,7 +29,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
     
     m_timer2=new QTimer();
-    m_timer2->setInterval(500);
+    m_timer2->setInterval(shootTime);
     connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
     m_timer2->start(); 
     
