@@ -23,7 +23,7 @@ Camera::Camera()
 	m_iy =          20.0;
 	m_iz =          100.0;
 	m_turnSpeed =   0.05;
-	m_speed =       40;
+	m_speed =       50;
 
 	m_rotX =        0.0;
 	m_rotY =        0.0;
