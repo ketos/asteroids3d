@@ -48,7 +48,6 @@ void Galaxis::render()
       // if the bullet's lifetime is over, erase it from the vector.
       while(asteoridtIt != asteorids.end()){
 	  (*asteoridtIt)->render();
-	  (*asteoridtIt)->info();
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
 	      }else{
