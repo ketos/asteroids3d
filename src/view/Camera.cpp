@@ -168,16 +168,18 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front, glVector<fl
     front.normalize();
     up1.normalize();
     glVector<float> up = (up1);
-    //up.cross((front * -1), side);
     up.normalize();
-    float above = 500;
-    float behind= -1500;
+    
+    float above = 300;
+    float behind= 1500;
+    
     glVector<float> cam = pos + up * above + front * behind;
+    pos = pos + up * above;
+    
     // Calc transformation Matrixwf
     gluLookAt(cam.x, cam.y, cam.z,
               pos.x, pos.y, pos.z,
               up.x , up.y , up.z);
-    //std::cout << " cam-change" << std::endl;
     
 }
 
