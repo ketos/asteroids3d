@@ -11,12 +11,8 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
-
-//#include "io/sound.hpp"
 #include "io/SoundManager.hpp"
 
-//Sound* background = new Sound(1,"bg.wav");
-//Sound* fire = new Sound(2,"sound.wav");
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
 float RenderFrame::f_angle = 0.5;
@@ -35,14 +31,13 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     i = 0;
     loadModel("bearcat.3ds");
     show();
+    SoundManager::playBackground();
 }
 
 RenderFrame::~RenderFrame()
 {
     delete m_mesh;
     delete m_skybox;
-    //delete background;
-    //delete fire;
     SoundManager::deleteManager();
 }
 
@@ -79,9 +74,6 @@ void RenderFrame::loadModel(string filename)
     
     // start Timer
     m_timer->start();
-    //---------------------------------------------------------------SOUND
-    //background->playBackground();
-    SoundManager::playBackground();
 }
 
 void RenderFrame::initializeGL()
@@ -217,8 +209,10 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
         //painter.setRenderHint(QPainter::Antialiasing);
+	hins->setAstroidsVector(m_coll->getCollisionVector());
+	//std::cout<<"Ich habe die Liste"<<std::endl;
         hins->draw(&painter,width(),height(),font());
-     
+     	//std::cout<<"und hab gezichnet"<<std::endl;
         painter.end();
         // glPopMatrix();
         // glMatrixMode(GL_MODELVIEW);
@@ -321,12 +315,8 @@ void RenderFrame::moveCurrentMesh()
     		m_mesh->move(ACCEL, -5);
     	}*/
     	// Schießen !!
-    	if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
+    	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-    	    //----------------------------------------------------------SOUND
-    	    //fire->playWAV();
-    	    SoundManager::playFireSound();
-    	    
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
     }
@@ -447,5 +437,10 @@ void RenderFrame::setupViewport(int width, int height)
 {
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
+}
+
+HUD* RenderFrame::getHUD()
+{
+    return hins;
 }
 

@@ -1,4 +1,4 @@
-#include "io/sound.hpp"
+#include "io/Sound.hpp"
 Sound::Sound(int c, const char *wav) 
 {
     Channel = c;

@@ -57,7 +57,13 @@ public:
 
 	/// The camera object tot display the scene
 	static Camera m_cam;
-   
+
+   /**
+    * @brief returns the HUD
+    * @return the HUD
+    */
+   HUD* getHUD();
+
 protected:
 
     void setCam();
@@ -143,7 +149,7 @@ protected:
 	/**
 	 * @brief the collision thread
 	 */
-    Collision* m_coll;
+        Collision* m_coll;
 
 	/**
 	 * @brief the current loaded Galaxis

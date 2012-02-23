@@ -1,7 +1,7 @@
 #ifndef _SOUNDMANAGER_H
 #define _SOUNDMANAGER_H
 
-#include "io/sound.hpp"
+#include "io/Sound.hpp"
 
 class SoundManager {
 

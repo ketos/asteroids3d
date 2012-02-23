@@ -64,6 +64,7 @@ class Collision : public QThread
                 bool m_running;
             //Vector for radar
 	        vector<glVector<float>*> radar;
+            //HUD
 };
 
 #endif

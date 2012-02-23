@@ -11,9 +11,12 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
 
 void Collision::run()
 {
+	
         //algirthm for checking collisions
         while(m_running)
         {
+		radar.clear();
+
                 // get the vectors form fighter and galaxis
                 m_bullets = m_craft->get_Bullets();
                 m_asteorids = m_galax->getAsteorids();
@@ -108,8 +111,10 @@ void Collision::run()
                       }
         	        asteoridtIt++;	
                 }
+                
                 usleep(1000);
         }
+
 }
 
 vector<glVector<float>*> Collision::getCollisionVector()
