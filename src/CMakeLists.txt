@@ -99,6 +99,7 @@ set(VIEWER_SOURCES
 	rendering/Transformable.cpp
 	rendering/TexturedMesh.cpp
     rendering/Asteorid.cpp
+    rendering/Mini_Asteorid.cpp
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     Main.cpp

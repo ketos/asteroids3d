@@ -34,7 +34,7 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
-    SoundManager::playExplosion();
+   SoundManager::playExplosion();
 	alive = false;
 }
 

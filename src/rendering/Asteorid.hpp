@@ -63,7 +63,7 @@ public:
      */
         glVector<float> getFlightAxis();
 
-private:
+protected:
     // true, if the Asteorid's lifetime isn't over yet
 	bool alive;
     // axis, the Asteorid is moving on (one of the shooting fighter's axes)
@@ -73,4 +73,4 @@ private:
 };
 
 
-#endif /* BULLET_HPP_ */
+#endif /* ASTEORID_HPP_ */
