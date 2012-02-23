@@ -6,10 +6,13 @@
 #include "Bullet.hpp"
 #include <stdio.h>
 
+float Bullet::b_speed = 3;
+
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
 {
-    // the Bullet will move on this axis, it has to be reversed for the direction to be right    
-    this->fighter_axis = fighter_axis * -3;
+    // the Bullet will move on this axis, it has to be reversed for the direction to be right
+    fighter_axis.normalize();  
+    this->fighter_axis = fighter_axis * - b_speed;
     alive = true;
     // same position as the fighter
     m_position = fighter_position;

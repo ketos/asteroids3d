@@ -65,6 +65,8 @@ private:
 	bool alive;
     // axis, the bullet is moving on (one of the shooting fighter's axes)
 	glVector<float> fighter_axis;
+    
+    static float b_speed;
 };
 
 

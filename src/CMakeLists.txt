@@ -83,6 +83,7 @@ set(VIEWER_SOURCES
 	io/ReadPLY.cpp
 	io/ReadPPM.cpp
 	io/ReadTGA.cpp
+	#io/ReadXML.cpp
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
@@ -102,6 +103,7 @@ set(VIEWER_SOURCES
     rendering/Mini_Asteorid.cpp
     rendering/Fighter.cpp
     rendering/Bullet.cpp
+    rendering/Explosion.cpp
     Main.cpp
     math/Collision.cpp
 )
