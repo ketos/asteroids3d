@@ -7,7 +7,7 @@ Galaxis::Galaxis()
     // create vector for Asteroids
 	level = 0;
     	glVector<float> v1(0.0, 0.0, -1000.0);
-	glVector<float> v2(1.0,1.0,1.0);
+	glVector<float> v2(1.0, 1.0, 1.0);
 	addAsteorid(v1,v2);
 }
 
@@ -18,9 +18,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     // Start a new thread, move the bullet
     a->start();
-    // Add it to this fighter's vector of bullets
-    std::cout << "Asteoriden hinzugefuegt" << std::endl;
-    
+    // Add it to this fighter's vector of bullets    
     asteorids.push_back( a );
 }
 	      

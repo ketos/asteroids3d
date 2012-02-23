@@ -122,7 +122,7 @@ public:
 	 */
 	void apply();
 
-    void setLocation(glVector<float> pos, glVector<float> lookat);
+    void setLocation(glVector<float> pos, glVector<float> front, glVector<float> side);
 
 	void applyRotationOnly();
 
@@ -136,6 +136,10 @@ public:
 
 	///The current orientation of the z-axis
 	glVector<float> m_baseZ;
+    
+    glVector<float> up;
+    
+    glVector<float> front;
 
 	/**
 	 * @brief The current speed

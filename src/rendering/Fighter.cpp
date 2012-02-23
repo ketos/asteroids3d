@@ -66,3 +66,13 @@ void Fighter::killBullet(Bullet* b)
       }
         
 }
+
+void Fighter::increaseDamage(int i)
+{
+    damage += i;
+}
+
+int Fighter::getDamage()
+{
+    return damage;
+}

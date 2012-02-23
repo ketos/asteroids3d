@@ -16,19 +16,22 @@
 
 Sound* background = new Sound(1,"bg.wav");
 Sound* fire = new Sound(2,"sound.wav");
+Camera RenderFrame::m_cam;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
     
     // set up animation timer
-   m_timer = new QTimer();
-   m_timer->setInterval(25);
-   connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
+    m_timer = new QTimer();
+    m_timer->setInterval(25);
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
 
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-	show();
+    i = 0;
+    loadModel("bearcat.3ds");
+    show();
 }
 
 RenderFrame::~RenderFrame()
@@ -50,24 +53,21 @@ void RenderFrame::loadModel(string filename)
 
 	// Load new model
 	m_mesh = new Fighter;
-	//Hier Aenderung!! --> m_mesh = new TexturedMesh;
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
-	std::cout << "Fighter erstellt und vor der Erstellung der Galaxy" << std::endl;
+
 	// load the glaxis width all planets 
 	galaxis = new Galaxis();
-	std::cout << "Galaxy erstellt und so" << std::endl;
 
 
-        // start collision thread
-        m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
-        m_coll->start();
-        
-        m_timer->start();
-
+    // start collision thread
+    m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
+    m_coll->start();
+    
+    // start Timer
+    m_timer->start();
     background->playBackground();
 }
-
 
 void RenderFrame::initializeGL()
 {
@@ -150,11 +150,28 @@ void RenderFrame::resizeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 
 	// Set 'LookAt'
-	m_cam.apply();
+    //m_cam.apply();
+    /*if(i==0) {
+        m_cam.apply();
+        i++;
+    } else {
+        setCam();
+    }*/
 }
+void RenderFrame::setCam() {
 
+    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
+    glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
+    glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
+    //Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
+    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
+    m_cam.setLocation(pos, front, up);
+
+}
 void RenderFrame::paintGL()
 {    
+    setCam();
     setFocus();
 	moveCurrentMesh();
 	// Set black background color
@@ -220,7 +237,7 @@ void RenderFrame::moveCurrentMesh()
     if(m_mesh)
     {
     	// Controller for moving and rotation
-    	if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
+    	/*if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
     	{
     		m_mesh->rotate(ROLL, 0.1);
     	}
@@ -238,38 +255,44 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_D) != m_pressedKeys.end())
     	{
     		m_mesh->rotate(YAW, -0.1);
-    	}
+    	}*/
 
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-    		m_mesh->rotate(PITCH, 0.1);
+            m_mesh->move(STRAFE, -10);
+    		//m_mesh->rotate(PITCH, 0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-    		m_mesh->rotate(PITCH, -0.1);
+            m_mesh->move(STRAFE, 10);    
+    		//m_mesh->rotate(PITCH, -0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
-    		m_mesh->move(STRAFE, -10);
+            m_mesh->rotate(PITCH, 0.1);
+    		//m_mesh->move(STRAFE, -10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
-    		m_mesh->move(STRAFE, 10);
+            m_mesh->rotate(PITCH, -0.1);
+    		//m_mesh->move(STRAFE, 10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
-    		m_mesh->move(LIFT, 5);
+            m_mesh->rotate(YAW,  0.1);
+    		//m_mesh->move(LIFT, 5);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
-    		m_mesh->move(LIFT, -5);
+            m_mesh->rotate(YAW, -0.1);
+    		//m_mesh->move(LIFT, -5);
     	}
-
+/*
     	if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
     	{
     		m_mesh->move(ACCEL, 5);
@@ -278,7 +301,7 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
     	{
     		m_mesh->move(ACCEL, -5);
-    	}
+    	}*/
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
@@ -287,25 +310,11 @@ void RenderFrame::moveCurrentMesh()
     	    
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
-        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
-        {
-            //m_cam.rotateLeft();
-        }
-        if (m_pressedKeys.find(Qt::Key_Y) != m_pressedKeys.end())
-        {
-            //m_cam.rotateLeft();
-        }
-    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
-    glVector<float> lookat = (*(static_cast<Transformable*>(m_mesh))).getOrientation();
-    Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
-    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
-    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
-    //m_cam.setLocation(pos, lookat);
     }
 }
 
 
-void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
+/*void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
 {
 	// Get number the number of pixel between the last
 	// und current mouse position
@@ -413,7 +422,7 @@ void RenderFrame::moveCamHead(int dx, int dy)
 			m_cam.turnLeft();
 		}
 	}
-}
+}*/
 
 void RenderFrame::setupViewport(int width, int height)
 {
