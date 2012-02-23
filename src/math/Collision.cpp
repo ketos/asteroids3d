@@ -108,6 +108,7 @@ void Collision::run()
                       }
         	        asteoridtIt++;	
                 }
+                
                 usleep(1000);
         }
 }

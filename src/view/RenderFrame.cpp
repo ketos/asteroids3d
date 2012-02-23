@@ -215,8 +215,10 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
         //painter.setRenderHint(QPainter::Antialiasing);
+	hins->setAstroidsVector(m_coll->getCollisionVector());
+	//std::cout<<"Ich habe die Liste"<<std::endl;
         hins->draw(&painter,width(),height(),font());
-     
+     	//std::cout<<"und hab gezichnet"<<std::endl;
         painter.end();
         // glPopMatrix();
         // glMatrixMode(GL_MODELVIEW);
@@ -442,5 +444,10 @@ void RenderFrame::setupViewport(int width, int height)
 {
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
+}
+
+HUD* RenderFrame::getHUD()
+{
+    return hins;
 }
 
