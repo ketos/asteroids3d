@@ -17,12 +17,26 @@ class Collision : public QThread
 {
 
         public:
+            /**
+              * @brief create the Thread 
+              * @param schiff the craft to keep on
+              * @param Milchstrasse the Galaxi to keep on
+              */
             Collision(Fighter* schiff, Galaxis* Milchstrasse);
-
+            /**
+              * @brief Deletes the Collision Thread
+              */
+            virtual ~Collision() {};
             /**
              * @brief Moves the bullet until it's lifetime is over.
              */
             void run();
+            /**
+              * @brief return if thred is running
+              * @return if thread is running
+              */
+            bool isRunning();
+            
             /**
              * @brief stops the thread
              */
