@@ -3,7 +3,6 @@
 
 
 #include <QtOpenGL>
-//#include "WMaterial.h"
 #include "Point3.h"
 #include "RGB.h"
 

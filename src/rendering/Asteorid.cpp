@@ -37,7 +37,7 @@ void Asteorid::destroy()
 {
     SoundManager::playExplosion();
     //Point3<double> d = new Point3<double>(m_position.x,m_position.y,m_position.z);
-    Explosion* e = new Explosion(Point3<double>(m_position.x,m_position.y,m_position.z), 1.0, 200, 20);
+    Explosion* e = new Explosion(Point3<double>(m_position.x,m_position.y,m_position.z), 100.0, 200, 20);
     e->display();
     
 	alive = false;
