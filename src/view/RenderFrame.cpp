@@ -11,7 +11,6 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
-//#include "SDL/SDL.h"
 
 #include "io/sound.hpp"
 
@@ -30,14 +29,6 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     i = 0;
     loadModel("bearcat.3ds");
-    /*if( SDL_Init(SDL_INIT_JOYSTICK) < 0) {
-        joyflag = false;
-        std::cout << "kein Joystik gefunden" << std::endl;
-    }
-    else {
-        joyflag = true;
-        std::cout << "Joystick gefunden" << std::endl;
-    }*/
     show();
 }
 
