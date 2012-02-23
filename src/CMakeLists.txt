@@ -16,8 +16,11 @@ project(LSSR)
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_SOURCE_DIR}/ext/load3ds)
 include_directories(${CMAKE_SOURCE_DIR}/ext/load3ds/math3d++)
+include_directories(${CMAKE_SOURCE_DIR}/ext/sound/include)
+
 
 link_directories("${CMAKE_SOURCE_DIR}/lib")
+link_directories("${CMAKE_SOURCE_DIR}/ext/sound/lib")
 
 ###############################################################################
 # With cmake we can define additional compiler flags for different 
@@ -87,6 +90,7 @@ set(VIEWER_SOURCES
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
 	io/sound.cpp
+	io/SoundManager.cpp
     view/MainWindow.cpp 
     view/Camera.cpp
     view/Galaxis.cpp
@@ -126,14 +130,18 @@ add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 ###############################################################################
 
 message(STATUS "SDL_Mixer : " ${SDLMIXER_LIBRARY})
+message(STATUS "Path : " ${CMAKE_SOURCE_DIR})
+message(STATUS "SDL_Mixer : " ${SDLMIXER_INCLUDE_DIR})
 
 target_link_libraries(viewer ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
 target_link_libraries(viewer c3dsreader) 
 target_link_libraries(viewer ${SDL_LIBRARY})
-target_link_libraries(viewer ${SDLMIXER_LIBRARY})
+# target_link_libraries(viewer ${SDLMIXER_LIBRARY})
 target_link_libraries(viewer ${QGLVIEWER_LIBRARY_RELEASE})
 target_link_libraries(viewer ${QT_QTCORE_LIBRARIES})
 target_link_libraries(viewer ${QT_QTGUI_LIBRARIES})
 target_link_libraries(viewer ${QT_QTOPENGL_LIBRARIES})
+target_link_libraries(viewer SDL_mixer)
+
 
 
