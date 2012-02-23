@@ -17,6 +17,8 @@
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
 float RenderFrame::f_angle = 0.05;
+float RenderFrame::deadzone=12500;   
+
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -42,8 +44,10 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 void RenderFrame::joyConnect() {
     if(joys->init("/dev/input/js0") > -1) {
         std::cout << "connected" << std::endl;
+        joystick = true;
     } else {             
         std::cout << "no joystick" << std::endl;
+        joystick = false;
     }
 }
 
@@ -191,6 +195,9 @@ void RenderFrame::setCam() {
 }
 void RenderFrame::paintGL()
 {    
+    if(joystick) {
+        control();
+    }
     setCam();
     setFocus();
 	moveCurrentMesh();
@@ -312,6 +319,70 @@ void RenderFrame::moveCurrentMesh()
             m_cam.changeheight(-5);
         }      
     }
+}
+
+void RenderFrame::control() {
+    if(joys->getAxis(0) <-deadzone) {
+        m_mesh->rotate(YAW,  f_angle);
+    }
+    if(joys->getAxis(0) > deadzone) {
+        m_mesh->rotate(YAW,  -f_angle);
+    }
+    if(joys->getAxis(1) <-deadzone) {
+        m_mesh->rotate(PITCH,  f_angle);
+    }
+    if(joys->getAxis(1) > deadzone) {
+        m_mesh->rotate(PITCH,  -f_angle);
+    }
+    if(joys->getAxis(2) > deadzone) {
+        (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
+    }
+    if(joys->getAxis(5) > deadzone) {
+        (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
+    }
+    if(joys->getAxis(4) <-2*deadzone) {
+        m_cam.zoom(-15);
+    }
+    if(joys->getAxis(4) > 2*deadzone) {
+        m_cam.zoom(15);
+    }
+    if(joys->getButton(0) > 0) { //A
+        (static_cast<Fighter*>(m_mesh))->shoot();
+    }/*
+    if(joys->getButton(1) > 0) { //B
+    }
+    if(joys->getButton(2) > 0) { //X
+    }
+    if(joys->getButton(3) > 0) { //Y
+    }*/
+    if(joys->getButton(4) > 0) { //LB
+        m_cam.changeheight(5);
+    }
+    if(joys->getButton(5) > 0) { //RB
+        m_cam.changeheight(-5);
+    }
+    if(joys->getButton(6) > 0) { //Back
+        loadModel("arrow.3ds");    
+    }
+    if(joys->getButton(7) > 0) { //Start
+        loadModel("bearcat.3ds");    
+    }/*
+    if(joys->getButton(8) > 0) { //BIG
+    }
+    if(joys->getButton(9) > 0) { //AxisLeft
+    }
+    if(joys->getButton(10) > 0) {//AxisRight
+    }
+    if(joys->getButton(11) > 0) {//DpadRight
+    }
+    if(joys->getButton(12) > 0) {//DpadUp
+    }
+    if(joys->getButton(13) > 0) {//DpadLeft
+    }
+    if(joys->getButton(14) > 0) {//DpadDown
+    }
+    if(joys->getButton(15) > 0) {//None
+    }*/
 }
 
 void RenderFrame::setupViewport(int width, int height)

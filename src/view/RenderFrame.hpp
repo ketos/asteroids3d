@@ -68,6 +68,8 @@ public:
    HUD* getHUD();
 
 protected:
+    
+    void control();
 
     void setCam();
 	
@@ -177,10 +179,11 @@ protected:
 
     static float f_speed;
     static float f_angle;
+    static float deadzone;
     
     int i;
     
-    bool joyflag;
+    bool joystick;
 
     void joyConnect();
 };
