@@ -11,9 +11,12 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
 
 void Collision::run()
 {
+	
         //algirthm for checking collisions
         while(m_running)
         {
+		radar.clear();
+
                 // get the vectors form fighter and galaxis
                 m_bullets = m_craft->get_Bullets();
                 m_asteorids = m_galax->getAsteorids();
@@ -33,7 +36,7 @@ void Collision::run()
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
 			
-			if(diffFight > 1000)
+			if(diffFight > 4100)
 			{
 				(*asteoridtIt)->changeDirection();
 			}
@@ -45,12 +48,7 @@ void Collision::run()
     				 *	y' = − xsin φ + ycos φ,
    				 *	z' = z. 
 				 */
-				int x;
-				int y;
-				int z;
 				
-
-
 				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 								
 
@@ -108,8 +106,10 @@ void Collision::run()
                       }
         	        asteoridtIt++;	
                 }
+                
                 usleep(1000);
         }
+
 }
 
 vector<glVector<float>*> Collision::getCollisionVector()

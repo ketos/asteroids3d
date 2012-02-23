@@ -14,6 +14,8 @@
 #include "io/SoundManager.hpp"
 
 Camera RenderFrame::m_cam;
+float RenderFrame::f_speed = 100;
+float RenderFrame::f_angle = 0.05;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -207,8 +209,10 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
         //painter.setRenderHint(QPainter::Antialiasing);
+	hins->setAstroidsVector(m_coll->getCollisionVector());
+	//std::cout<<"Ich habe die Liste"<<std::endl;
         hins->draw(&painter,width(),height(),font());
-     
+     	//std::cout<<"und hab gezichnet"<<std::endl;
         painter.end();
         // glPopMatrix();
         // glMatrixMode(GL_MODELVIEW);
@@ -220,7 +224,6 @@ void RenderFrame::paintGL()
 	    // Call back buffer
 	    swapBuffers();
 }
-
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
@@ -242,193 +245,70 @@ void RenderFrame::moveCurrentMesh()
     if(m_mesh)
     {
     	// Controller for moving and rotation
-    	/*if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(ROLL, 0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_E) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(ROLL, -0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_A) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(YAW, 0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_D) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(YAW, -0.1);
-    	}*/
-
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, -50);
-    		//m_mesh->rotate(PITCH, 0.1);
+            //m_mesh->move(STRAFE, -f_speed);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, 50);    
-    		//m_mesh->rotate(PITCH, -0.1);
+            //m_mesh->move(STRAFE, f_speed);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(PITCH, 0.1);
-    		//m_mesh->move(STRAFE, -10);
+            m_mesh->rotate(PITCH, f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(PITCH, -0.1);
-    		//m_mesh->move(STRAFE, 10);
+            m_mesh->rotate(PITCH, -f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(YAW,  0.1);
-    		//m_mesh->move(LIFT, 5);
+            m_mesh->rotate(YAW,  f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(YAW, -0.1);
-    		//m_mesh->move(LIFT, -5);
+            m_mesh->rotate(YAW, -f_angle);
     	}
-/*
-    	if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
-    	{
-    		m_mesh->move(ACCEL, 5);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
-    	{
-    		m_mesh->move(ACCEL, -5);
-    	}*/
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
-    	{    	    
+    	{
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
+        // Ändern der Kamera
+        if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
+        {
+            m_cam.zoom(-15);
+        }
+        if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
+        {
+            m_cam.zoom(15);
+        } 
+        if (m_pressedKeys.find(Qt::Key_9) != m_pressedKeys.end())
+        {
+            m_cam.changeheight(5);
+        }    
+        if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
+        {
+            m_cam.changeheight(-5);
+        }      
     }
 }
-
-
-/*void RenderFrame::mouseMoveEvent (QMouseEvent  *event)
-{
-	// Get number the number of pixel between the last
-	// und current mouse position
-	int dx = event->x() - m_mouseX;
-	int dy = event->y() - m_mouseY;
-
-	// Check which button was pressend and apply action
-	if(event->buttons() == Qt::LeftButton)
-	{
-		moveCamXY(dx, dy);
-	}
-
-	if(event->buttons() == Qt::RightButton)
-	{
-		moveCamHead(dx, dy);
-	}
-
-	if(event->buttons() == Qt::MidButton)
-	{
-		moveCamZ(dy);
-	}
-
-	// Transform viewport
-	m_cam.apply();
-
-	// Save new coodinates
-	m_mouseX = event->x();
-	m_mouseY = event->y();
-
-	paintGL();
-}
-
-void RenderFrame::moveCamXY(int dx, int dy)
-{
-	if(fabs(dx) > MOUSE_SENSITY)
-	{
-		if(dx > 0)
-		{
-			m_cam.turnRight();
-		}
-
-		else
-		{
-			m_cam.turnLeft();
-		}
-
-	}
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.moveBackward();
-		}
-
-		else
-		{
-			m_cam.moveForward();
-		}
-	}
-}
-
-void RenderFrame::moveCamZ(int dy)
-{
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.moveUp();
-		}
-
-		else
-		{
-			m_cam.moveDown();
-		}
-	}
-}
-
-void RenderFrame::moveCamHead(int dx, int dy)
-{
-
-	if(fabs(dy) > MOUSE_SENSITY)
-	{
-		if(dy > 0)
-		{
-			m_cam.turnUp();
-		}
-
-		else
-		{
-			m_cam.turnDown();
-		}
-	}
-
-	if(fabs(dx) > MOUSE_SENSITY)
-	{
-		if(dx > 0)
-		{
-			m_cam.turnRight();
-		}
-
-		else
-		{
-			m_cam.turnLeft();
-		}
-	}
-}*/
 
 void RenderFrame::setupViewport(int width, int height)
 {
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
+}
+
+HUD* RenderFrame::getHUD()
+{
+    return hins;
 }
 
