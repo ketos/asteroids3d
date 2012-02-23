@@ -29,6 +29,9 @@ Camera::Camera()
 	m_rotY =        0.0;
 	m_rotZ =        0.0;
 
+    above = 300;
+    behind= 1500;
+
 }
 /*
 Camera::Camera(float x, float y, float z)
@@ -172,9 +175,6 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
     up = (up1);
     up.normalize();
     
-    float above = 300;
-    float behind= 1500;
-    
     glVector<float> cam = pos + up * above + front * behind;
     pos = pos + up * above;
     
@@ -184,6 +184,15 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
               up.x , up.y , up.z);
     
 }
+void Camera::zoom(float change) 
+{
+    behind += change;
+}
+
+void Camera::changeheight(float change)
+{
+    above += change;
+}   
 
 void Camera::apply()
 {

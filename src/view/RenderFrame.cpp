@@ -235,9 +235,6 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
-    if(event->key() == Qt::Key_Space) {
-    	(static_cast<Fighter*>(m_mesh))->shoot();
-    }
 	// State of key is unpressed
 	m_pressedKeys.erase(event->key());
 	paintGL();
@@ -249,76 +246,57 @@ void RenderFrame::moveCurrentMesh()
     if(m_mesh)
     {
     	// Controller for moving and rotation
-    	/*if (m_pressedKeys.find(Qt::Key_Q) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(ROLL, 0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_E) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(ROLL, -0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_A) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(YAW, 0.1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_D) != m_pressedKeys.end())
-    	{
-    		m_mesh->rotate(YAW, -0.1);
-    	}*/
-
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
             m_mesh->move(STRAFE, -f_speed);
-    		//m_mesh->rotate(PITCH, 0.1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            m_mesh->move(STRAFE, f_speed);    
-    		//m_mesh->rotate(PITCH, -0.1);
+            m_mesh->move(STRAFE, f_speed); 
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
             m_mesh->rotate(PITCH, f_angle);
-    		//m_mesh->move(STRAFE, -10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
             m_mesh->rotate(PITCH, -f_angle);
-    		//m_mesh->move(STRAFE, 10);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
             m_mesh->rotate(YAW,  f_angle);
-    		//m_mesh->move(LIFT, 5);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
             m_mesh->rotate(YAW, -f_angle);
-    		//m_mesh->move(LIFT, -5);
     	}
-/*
-    	if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
-    	{
-    		m_mesh->move(ACCEL, 5);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
-    	{
-    		m_mesh->move(ACCEL, -5);
-    	}*/
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
     		(static_cast<Fighter*>(m_mesh))->shoot();
     	}
+        // Ändern der Kamera
+        if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
+        {
+            m_cam.zoom(-15);
+        }
+        if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
+        {
+            m_cam.zoom(15);
+        } 
+        if (m_pressedKeys.find(Qt::Key_9) != m_pressedKeys.end())
+        {
+            m_cam.changeheight(5);
+        }    
+        if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
+        {
+            m_cam.changeheight(-5);
+        }      
     }
 }
 
