@@ -104,6 +104,7 @@ set(VIEWER_SOURCES
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     rendering/Explosion.cpp
+    rendering/Explosion2.cpp
     Main.cpp
     math/Collision.cpp
 )
