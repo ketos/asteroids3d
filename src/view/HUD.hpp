@@ -73,7 +73,15 @@ public:
 	 *@param score actual score
 	 *@param speed actual speed
 	 */
-	void setFighterData(int damage, int score, float speed);    
+	void setFighterData(int damage, int score, float speed); 
+	
+	/**
+	*@brief renders a Spalshscreen
+	*@param int breite width of the screen
+	*@param int hoehe higth of the screen
+	*@param painter used qpainter 
+	*/   
+	void drawSplash(int breite, int hoehe, QPainter *painter);
 private:
     ///HUD();
     //HUD(const HUD&);
