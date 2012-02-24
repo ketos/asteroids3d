@@ -73,7 +73,7 @@ void Galaxis::render()
       }
     }
 }
-
+/*
 void Galaxis::nextLevel()
 {
   level++;
@@ -84,7 +84,7 @@ void Galaxis::nextLevel()
   // XML-Reader liefert pos!!!
   // Iterieren und Asteoriden hinzugefuegen
 }
-
+*/
 vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
@@ -94,3 +94,28 @@ void Galaxis::addLevel(string& filename)
 {
 	m_levels.push_back(ReadXML::readConfig(filename));
 }
+void Galaxis::nextLevel()
+{
+	//level erhöhen
+	level++;
+	//loeschen aller asteoriden
+	asteorids.clear();
+	//naechstes level laden
+	//nächtes level in currentLevel
+	vector<std::pair<glVector<float>*, glVector<float>* >* > currentLevel= m_levels[ level ];
+	/*
+	vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
+    levelIt = currentLevel.begin();
+    while(levelIt != currentLevel.end())
+    {
+    	pair<glVector<float>*, glVector<float>* >* p = levelIt;
+    	cout <<p.first<< "    "<< p.second <<endl;
+    }
+    */
+}
+
+
+
+
+
+
