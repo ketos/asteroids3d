@@ -29,6 +29,7 @@ void Asteorid::run()
 		usleep(10000);
 	}
 	emit destroyed(getPosition().x, getPosition().y, getPosition().z );
+	std::cout << "Ich emmitire das destroyed signal, bzw. der Thread ist tot" << std::endl;
 }
 
 void Asteorid::destroy()
@@ -37,7 +38,7 @@ void Asteorid::destroy()
     //Point3<double> d = new Point3<double>(m_position.x,m_position.y,m_position.z);
     Explosion* e = new Explosion(Point3<double>(m_position.x,m_position.y,m_position.z), 100.0, 200, 20);
     e->display();
-    
+    std::cout << "Der Asteorid wird auf falsch gesetzt" << std::endl;
 	alive = false;
 	
 }

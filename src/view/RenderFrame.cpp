@@ -329,6 +329,10 @@ void RenderFrame::moveCurrentMesh()
         {
             m_cam.changeheight(-5);
         }      
+        if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
+        {
+            loadModel("bearcat.3ds");
+        }     
     }
 }
 
