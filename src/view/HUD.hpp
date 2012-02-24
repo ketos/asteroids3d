@@ -18,6 +18,11 @@
 class HUD{
 public:
   /**
+  	*@brief Defualt Constructor
+  	*/
+  	HUD();
+
+  /**
    * @brief Draws the HUD
    * @param painter Used QPainter
    * @param x width of the window;
@@ -76,25 +81,36 @@ public:
 	void setFighterData(int damage, int score, float speed); 
 	
 	/**
-	*@brief renders a Spalshscreen
-	*@param int breite width of the screen
-	*@param int hoehe higth of the screen
-	*@param painter used qpainter 
-	*/   
+ 	 *@brief renders a Spalshscreen
+	 *@param int breite width of the screen
+	 *@param int hoehe higth of the screen
+	 *@param painter used qpainter 
+	 */   
 	void drawSplash(int breite, int hoehe, QPainter *painter);
+	/**
+	 *@brief draws radar
+	 *@param breite height of the windows
+	 *@param hoehe width of the windows
+	 */
+	 void drawRadar(int width, int height);
 private:
-    ///HUD();
     //HUD(const HUD&);
     //~HUD();
     //static HUD* instance;
   /*used QPainter*/
 
   QPainter *painter;
+  
   float fighterSpeed;
   int fighterDamage;
   int fighterScore;
   /*vector which contains the astroids in radarrange*/
   std::vector<glVector<float>* > collvec;
+    
+ 	int durchmesser;
+	int abstand;     
+   int radmidx;
+   int radmidy;
     
 };
 
