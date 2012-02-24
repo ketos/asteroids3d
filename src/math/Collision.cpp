@@ -95,13 +95,13 @@ void Collision::run()
 					float diffAstY = fabs( ((*asteoridtIt)->getPosition())[1] - ((*asteoridtIt2)->getPosition())[1] );
                                		float diffAstZ = fabs( ((*asteoridtIt)->getPosition())[2] - ((*asteoridtIt2)->getPosition())[2] );
 
-					if((diffAstX <= 100) && (diffAstY <= 100) && (diffAstZ <= 100))
+					/*if((diffAstX <= 100) && (diffAstY <= 100) && (diffAstZ <= 100))
 					{
 						//stoss methode an asteoriden aufrufen
 						cout << "zwei Asteoriden stossen sich ab..." << endl;
 						(*asteoridtIt)->changeDirection();
 						(*asteoridtIt2)->changeDirection();
-					}
+					}*/
 				}			
                       }
         	        asteoridtIt++;	
