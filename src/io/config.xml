@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<asteroids>
+    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="100" axis_y="0" axis_z="0"/>
+</asteroids>
