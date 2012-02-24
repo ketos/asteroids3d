@@ -35,6 +35,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
     m_timer2->start(); 
     
+    
     shoot = true;
     
     joys = new Joystick();
@@ -47,6 +48,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     i = 0;
     loadModel("bearcat.3ds");
     show();
+    
     SoundManager::playBackground();
 }
 
