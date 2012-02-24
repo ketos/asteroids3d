@@ -1,1 +1,1 @@
-cd models/ ; ../build/viewer
+./build/viewer

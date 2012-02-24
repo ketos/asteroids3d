@@ -12,7 +12,7 @@ using std::endl;
 MainWindow::MainWindow(QMainWindow *parent)
 {
 	// Set window title an size
-    setWindowTitle("3D-Viewer");
+    setWindowTitle("Asteroids3D");
     resize(800, 600);
 
     // Create a new render frame and set as central widget.

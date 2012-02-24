@@ -16,7 +16,7 @@ void Fighter::shoot()
     // Create a new bullet with this fighter's position an x-Axis
     Bullet* b = new Bullet(m_position, m_xAxis);
     // Read 3ds for Rocket
-    Read3DS reader("rocket.3ds");
+    Read3DS reader("res/models/rocket.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(b)));
     // Set the axis of the Rocket
     b->setAxis(m_xAxis,m_yAxis,m_zAxis);

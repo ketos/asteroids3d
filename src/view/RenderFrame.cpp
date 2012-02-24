@@ -46,7 +46,8 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	m_mesh  = 0;
 	galaxis = 0;
     i = 0;
-    loadModel("bearcat.3ds");
+    
+    //loadModel("res/models/bearcat.3ds");
     show();
     
     SoundManager::playBackground();
@@ -196,7 +197,7 @@ void RenderFrame::resizeGL(int w, int h)
     }*/
 }
 void RenderFrame::setCam() {
-
+    if(m_mesh) {
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
     glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
     glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
@@ -204,7 +205,7 @@ void RenderFrame::setCam() {
     //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
     //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
     m_cam.setLocation(pos, front, up);
-
+    }
 }
 void RenderFrame::paintGL()
 {    
@@ -236,22 +237,25 @@ void RenderFrame::paintGL()
 	}
 
     
+        
+    if(m_mesh) {
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-   	  hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
-		  hins->setAstroidsVector(m_coll->getCollisionVector());
+   	    hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+   	    hins->setAstroidsVector(m_coll->getCollisionVector());
         hins->draw(&painter,width(),height(),font());
         painter.end();
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);
-    
-        glFinish();
-	    // Call back buffer
-	    swapBuffers();
+    }
+
+    glFinish();
+	// Call back buffer
+	swapBuffers();
 }
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
@@ -377,14 +381,14 @@ void RenderFrame::control() {
     if(joys->getButton(6) > 0) { //Back
         if(shoot) {
             shoot = false;
-            loadModel("arrow.3ds");
+            loadModel("res/models/arrow.3ds");
             m_timer2->start();
         }  
     }
     if(joys->getButton(7) > 0) { //Start
         if(shoot) {
             shoot = false;
-            loadModel("bearcat.3ds");
+            loadModel("res/models/bearcat.3ds");
             m_timer2->start();
         }    
     }/*
