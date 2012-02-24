@@ -1,6 +1,6 @@
 #include "ReadXML.hpp"
 
-vector<std::pair< glVector<float>, glVector<float> > > ReadXML::m_asteroidList = 0;
+vector<std::pair< glVector<float>, glVector<float> > >* m_asteroidList;
 
 void ReadXML::readConfig (string& filename)
 {
