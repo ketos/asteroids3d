@@ -123,3 +123,12 @@ void HUD::setFighterData(int damage, int score, float speed)
 	fighterScore = score;
 	fighterSpeed = speed;
 }
+
+void HUD::drawSplash(int breite, int hoehe, QPainter *painter)
+{
+	QImage myImage = QImage("res/images/splash.png");
+	myImage.load("res/images/splash.png");
+	QPoint point = QPoint(breite - myImage.width(),hoehe - myImage.height());
+	painter->drawImage(point, myImage);
+	
+}
