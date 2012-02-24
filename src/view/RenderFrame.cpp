@@ -77,7 +77,7 @@ RenderFrame::~RenderFrame()
 void RenderFrame::loadModel(string filename)
 {
     menu = false;
-    Menu::deleteMenu();
+    Menu::deleteSplash();
 	// Delete currently present model if necessary
 	if(m_mesh)
 	{
@@ -250,7 +250,7 @@ void RenderFrame::paintGL()
             hins->draw(&painter,width(),height(),font());
         }
         if(menu)
-            Menu::drawMenu(width(),height(),&painter);
+            Menu::drawSplash(width(),height(),&painter);
         painter.end();
         glPopMatrix();
         glPopAttrib();
