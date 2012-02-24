@@ -120,7 +120,7 @@ void HUD::drawSplash(int breite, int hoehe, QPainter *painter)
 	myImage.load("res/images/splash.png");
 	QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
 	painter->drawImage(point, myImage);
-	
+	//TODO -- <-- Press any key -->
 }
 void HUD::drawRadar(int width, int height)
 {

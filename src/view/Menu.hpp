@@ -8,8 +8,8 @@
 class Menu {
     
     public:
-        static void drawMenu(int width, int height, QPainter* p);
-        static void deleteMenu();
+        static void drawSplash(int width, int height, QPainter* p);
+        static void deleteSplash();
         
     private:
         static HUD* hins;
