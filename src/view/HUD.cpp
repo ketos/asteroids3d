@@ -128,7 +128,7 @@ void HUD::drawSplash(int breite, int hoehe, QPainter *painter)
 {
 	QImage myImage = QImage("res/images/splash.png");
 	myImage.load("res/images/splash.png");
-	QPoint point = QPoint(breite - myImage.width(),hoehe - myImage.height());
+	QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
 	painter->drawImage(point, myImage);
 	
 }

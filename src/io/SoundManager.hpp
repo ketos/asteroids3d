@@ -9,6 +9,8 @@ class SoundManager {
     static void playFireSound();
     static void playBackground();
     static void playExplosion();
+    static void playMenuSound();
+    static void stopMenuSound();
     
     /*
     * Deletes all Mediafiles
@@ -19,6 +21,7 @@ class SoundManager {
     static Sound* fire;
     static Sound* background;
     static Sound* explosion;
+    static Sound* menu;
 
 };
 

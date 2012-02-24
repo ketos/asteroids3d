@@ -11,16 +11,17 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
-#include "io/SoundManager.hpp"
 // sudo apt-get install joystick   ausführen
 #include "io/joystick.h"
+#include "view/Menu.hpp"
 
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
 float RenderFrame::f_angle = 0.05;
 float RenderFrame::deadzone=7000;
 float RenderFrame::maxjoy=32000;
-float RenderFrame::shootTime=750;  
+float RenderFrame::shootTime=750;
+bool menu = false; 
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -50,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     //loadModel("res/models/bearcat.3ds");
     show();
     
-    SoundManager::playBackground();
+    menu = true;
 }
 
 void RenderFrame::joyConnect() {
@@ -75,7 +76,8 @@ RenderFrame::~RenderFrame()
 
 void RenderFrame::loadModel(string filename)
 {
-
+    menu = false;
+    Menu::deleteMenu();
 	// Delete currently present model if necessary
 	if(m_mesh)
 	{
@@ -236,23 +238,23 @@ void RenderFrame::paintGL()
 	{
 		galaxis->render();
 	}
-
     
-        
-    if(m_mesh) {
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-   	    hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
-   	    hins->setAstroidsVector(m_coll->getCollisionVector());
-        hins->draw(&painter,width(),height(),font());
+        if(m_mesh) {
+   	        hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+   	        hins->setAstroidsVector(m_coll->getCollisionVector());
+            hins->draw(&painter,width(),height(),font());
+        }
+        if(menu)
+            Menu::drawMenu(width(),height(),&painter);
         painter.end();
         glPopMatrix();
         glPopAttrib();
-        glMatrixMode(GL_MODELVIEW);
-    }
+        glMatrixMode(GL_MODELVIEW);   
 
     glFinish();
 	// Call back buffer
