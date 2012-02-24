@@ -24,19 +24,15 @@ public:
     /**
      * @brief Liest config.xml ein un  fügt Asteroiden daten der Liste hinzu
      */
-    static void readConfig(string& filename);
+    static vector<std::pair<glVector<float>*, glVector<float>* >* > readConfig(string& filename);
     
-    /**
-     * @brief Gibt die pair-Liste aller eingelesenen Asterioden zurück
-     */
-    static vector<std::pair<glVector<float>, glVector<float> > > getAsteroids();
   
 private:
 
     /**
      * @brief pair-Liste aller eingelesenen Asterioden
      */
-    static vector<std::pair<glVector<float>, glVector<float> > > m_asteroidList;
+    
 };
 
 #endif // __READXML_HPP__
