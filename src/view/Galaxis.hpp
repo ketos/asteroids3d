@@ -33,6 +33,7 @@ class Galaxis: public QObject
 	     	
 	public slots:
 		void big_astroid_destroyed(float x, float y, float z);
+		void mini_astroid_destroyed();
 };
 
 #endif

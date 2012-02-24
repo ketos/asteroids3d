@@ -22,7 +22,6 @@
  */
 class Mini_Asteorid: public Asteorid
 {
-
 public:
 
     /**
@@ -33,7 +32,6 @@ public:
      * @param   flight_axis   Axis the Asteorid will move on
      */
     Mini_Asteorid(glVector<float> start_position, glVector<float> flight_axis);
-    void info();
     
 };
 

@@ -73,6 +73,7 @@ protected:
 	
 signals:
 	void destroyed(float x, float y, float z);
+	void hit();
 };
 
 #endif /* ASTEORID_HPP_ */
