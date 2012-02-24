@@ -8,7 +8,7 @@ void SoundManager::playFireSound()
 {
     if(fire == 0)
         fire = new Sound(1,"Sounds/fire.wav");
-    fire->playWAV(1); 
+    fire->playWAV(0); 
 }
 
 void SoundManager::playBackground()
@@ -22,7 +22,7 @@ void SoundManager::playExplosion()
 {
     if(explosion == 0)
         explosion = new Sound(3,"Sounds/explo.wav");
-    explosion->playWAV(1); 
+    explosion->playWAV(0); 
 }
 
 void SoundManager::deleteManager()

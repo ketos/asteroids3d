@@ -29,6 +29,8 @@ GLuint Explosion::LoadTexture( const char * filename, int width, int height )
     data = (unsigned char *)malloc( width * height * 3 );
     fread( data, width * height * 3, 1, file );
     fclose( file );
+    
+    std::cout << "Datei ist da" << std::endl;
 
     glGenTextures( 1, &temp ); //generate the texture with the loaded data
     glBindTexture( GL_TEXTURE_2D, temp ); //bind the texture to it’s array
