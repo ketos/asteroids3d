@@ -12,7 +12,7 @@ using std::endl;
 MainWindow::MainWindow(QMainWindow *parent)
 {
 	// Set window title an size
-    setWindowTitle("3D-Viewer");
+    setWindowTitle("Asteroids3D");
     resize(800, 600);
 
     // Create a new render frame and set as central widget.
@@ -45,7 +45,7 @@ void MainWindow::openFile()
 {
 	m_renderFrame->m_timer->stop();
 	// Display a model file selection dialog
-    QString filename = QFileDialog::getOpenFileName(this, "Load mesh", "",  "3DS Models (*.3ds)");
+    QString filename = QFileDialog::getOpenFileName(this, "Load mesh", "res/models/",  "3DS Models (*.3ds)");
 
     // Load selected model into render frame
     m_renderFrame->loadModel(filename.toStdString());

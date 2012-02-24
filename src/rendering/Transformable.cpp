@@ -121,4 +121,15 @@ Transformable::~Transformable()
 {
     // TODO Auto-generated destructor stub
 }
-
+glVector<float> Transformable::getxAxis()
+{
+	return m_xAxis;
+}
+glVector<float> Transformable::getzAxis()
+{
+	return m_zAxis;
+}
+glVector<float> Transformable::getyAxis()
+{
+	return m_yAxis;
+}

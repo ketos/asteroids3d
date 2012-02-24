@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "math/glVector.hpp"
 #include <typeinfo>
-
+#include "io/ReadXML.hpp"
 Galaxis::Galaxis()
 {
     // create vector for Asteroids
@@ -19,7 +19,7 @@ Galaxis::Galaxis()
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Asteorid* a = new Asteorid(v1,v2);;
-    Read3DS reader("asteroid.3ds");
+    Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     std::cout << "Neuer Asteorid" << std::endl;
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
@@ -31,7 +31,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Mini_Asteorid* a = new Mini_Asteorid(v1,v2);;
-    Read3DS reader("asteroid.3ds");
+    Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     a->start();
     asteorids.push_back( a );
@@ -73,7 +73,7 @@ void Galaxis::render()
       }
     }
 }
-
+/*
 void Galaxis::nextLevel()
 {
   level++;
@@ -84,9 +84,33 @@ void Galaxis::nextLevel()
   // XML-Reader liefert pos!!!
   // Iterieren und Asteoriden hinzugefuegen
 }
-
+*/
 vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
 }
 
+void Galaxis::addLevel(string& filename)
+{
+	m_levels.push_back(ReadXML::readConfig(filename));
+}
+
+void Galaxis::nextLevel()
+{
+	//level erhöhen
+	level++;
+	//loeschen aller asteoriden
+	asteorids.clear();
+	//naechstes level laden
+	//nächtes level in currentLevel
+	vector<std::pair<glVector<float>*, glVector<float>* >* > currentLevel= m_levels[ level ];
+	/*
+	vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
+    levelIt = currentLevel.begin();
+    while(levelIt != currentLevel.end())
+    {
+    	pair<glVector<float>*, glVector<float>* >* p = levelIt;
+    	cout <<p.first<< "    "<< p.second <<endl;
+    }
+    */
+}

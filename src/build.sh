@@ -1,1 +1,1 @@
-cd build/ ; rm -r * ; cmake .. ; make ; cd ../models/ ; ../build/viewer
+cd build/ ; rm -r * ; cmake .. ; make ; cd .. ; ./build/viewer

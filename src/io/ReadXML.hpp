@@ -15,28 +15,30 @@ using std::string;
 using std::vector;
 
 /**
- * @brief XML parser für die Spiel config
+ * @brief XML parser für die Level.xml's
  */
 class ReadXML
 {
 public:
 
     /**
-     * @brief Liest config.xml ein un  fügt Asteroiden daten der Liste hinzu
+     * @brief    Liest xml-files ein und gibt Inhalt zurück 
+     *
+     * @param    filename		Name des einzulesenden xml-files
+     *
+     * @return   vector<std::pair<glVector<float>*, glVector<float>* >* >
+     *           vector, bestehend aus glVector pairs, welche postion und axis
+     *           der Asteroiden beinhalten	 
      */
-    static void readConfig(string& filename);
+    static vector<std::pair<glVector<float>*, glVector<float>* >* > readConfig(string& filename);
     
-    /**
-     * @brief Gibt die pair-Liste aller eingelesenen Asterioden zurück
-     */
-    static vector<std::pair<glVector<float>, glVector<float> > > getAsteroids();
   
 private:
 
     /**
      * @brief pair-Liste aller eingelesenen Asterioden
      */
-    static vector<std::pair<glVector<float>, glVector<float> > > m_asteroidList;
+    
 };
 
 #endif // __READXML_HPP__
