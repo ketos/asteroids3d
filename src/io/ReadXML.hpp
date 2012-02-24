@@ -24,7 +24,7 @@ public:
     /**
      * @brief Liest config.xml ein un  fügt Asteroiden daten der Liste hinzu
      */
-    static vector<std::pair<glVector<float>*, glVector<float>* >* > readConfig(string& filename);
+    static vector<std::pair<glVector<float>*, glVector<float>* >* >* readConfig(string& filename);
     
   
 private:

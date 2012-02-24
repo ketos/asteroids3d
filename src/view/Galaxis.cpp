@@ -8,9 +8,9 @@ Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
-   	glVector<float> v1(0.0, 0.0, -1000.0);
-	glVector<float> v2(0.0, 0.0, 0.0);
-	addAsteorid(v1,v2);
+   	//glVector<float> v1(0.0, 0.0, -1000.0);
+	//glVector<float> v2(0.0, 0.0, 0.0);
+	//addAsteorid(v1,v2);
 	
 }
 
@@ -72,13 +72,23 @@ void Galaxis::render()
 	      }
       }
     }
+    else
+    {
+    	//alle asteoriden gelöscht
+    	cout << "keine asteoriden"<<endl;
+    	nextLevel();
+    }
 }
 /*
 void Galaxis::nextLevel()
 {
   level++;
   std::cout << "Dies das nächstes Level " << level << std::endl;
-    glVector<float> v1(1000.0, 10.0, -1000.0);
+    g
+void Galaxis::addLevel(string& filename)
+{
+	//tmp = ReadXML::readConfig( filename );
+	/lVector<float> v1(1000.0, 10.0, -1000.0);
     glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
   // XML-Reader liefert pos!!!
@@ -92,26 +102,41 @@ vector<Asteorid*> Galaxis::getAsteorids()
 
 void Galaxis::addLevel(string& filename)
 {
-	m_levels.push_back(ReadXML::readConfig(filename));
+	//ReadXML::readConfig( filename);
+	//tmp = ReadXML::readConfig( filename );
+	m_levels.push_back(ReadXML::readConfig( filename ));
+	cout << "blub"<<endl;
 }
+
 void Galaxis::nextLevel()
 {
-	//level erhöhen
-	level++;
 	//loeschen aller asteoriden
-	asteorids.clear();
+	//asteorids.clear();
 	//naechstes level laden
 	//nächtes level in currentLevel
-	vector<std::pair<glVector<float>*, glVector<float>* >* > currentLevel= m_levels[ level ];
-	/*
-	vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
-    levelIt = currentLevel.begin();
-    while(levelIt != currentLevel.end())
-    {
-    	pair<glVector<float>*, glVector<float>* >* p = levelIt;
-    	cout <<p.first<< "    "<< p.second <<endl;
+	if (level < m_levels.size())
+	{
+		cout << "innen"<<endl;
+		vector<std::pair<glVector<float>*, glVector<float>* >* >* currentLevel= m_levels[ level ];
+	
+		vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
+		levelIt = currentLevel->begin();
+		while( levelIt != currentLevel->end() )
+		{
+			pair<glVector<float>*, glVector<float>* >* p = (*levelIt);
+		    glVector<float> p_1(p->first->x, p->first->y, p->first->z);
+		    glVector<float> p_2(p->second->x, p->second->y, p->second->z);
+			addAsteorid(p_1, p_2);
+			cout << "bla:"<<p->first->x <<endl;
+			levelIt++;
+    	}
+    	//level erhöhen
+    	level++;
     }
-    */
+    else
+    {
+    	cout<<"ALLE LEVEL DURCH GESPIELT :)) TOLL!"<<endl;
+    }
 }
 
 

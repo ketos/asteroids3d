@@ -14,6 +14,7 @@
 #include "io/SoundManager.hpp"
 // sudo apt-get install joystick   ausführen
 #include "io/joystick.h"
+#include <string>
 
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
@@ -88,6 +89,8 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
+	std::string filenamer = "config.xml";
+	galaxis->addLevel( filenamer );
 	
     // // start collision thread
     //    if (m_coll != 0)

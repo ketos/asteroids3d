@@ -29,10 +29,11 @@ class Galaxis: public QObject
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
 	     	int level;
-	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* > > m_levels;
+	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
+	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;
 	     	
 	public slots:
-		void big_astroid_destroyed(float x, float y, float z);
+			void big_astroid_destroyed(float x, float y, float z);
 };
 
 #endif
