@@ -77,9 +77,10 @@ void RenderFrame::loadModel(string filename)
 {
 
 	// Delete currently present model if necessary
-	if(m_mesh == 0)
+	if(m_mesh)
 	{
 		delete m_mesh;
+		std::cout << "mesh deleted" << std::endl; 
 	}
 
 	// Load new model
@@ -334,7 +335,11 @@ void RenderFrame::moveCurrentMesh()
         if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
         {
             m_cam.changeheight(-5);
-        }      
+        }    
+        if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
+        {
+            loadModel("res/models/bearcat.3ds");
+        }         
     }
 }
 
