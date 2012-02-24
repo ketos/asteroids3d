@@ -3,7 +3,7 @@
 HUD* Menu::hins = 0;
 bool sound = false;
 
-void Menu::drawMenu(int width, int height, QPainter* p)
+void Menu::drawSplash(int width, int height, QPainter* p)
 {    
     if(hins == 0)
         hins = new HUD();
@@ -16,7 +16,7 @@ void Menu::drawMenu(int width, int height, QPainter* p)
     }
 }
 
-void Menu::deleteMenu()
+void Menu::deleteSplash()
 {
     SoundManager::stopMenuSound();
 }
