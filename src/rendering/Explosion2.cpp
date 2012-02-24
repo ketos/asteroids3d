@@ -31,9 +31,9 @@ void Explosion::display(){
         
         int max = 5;
         for(int i = 0; i < max; i++) {
-                displayParticles();
-                displayDebris();
-        glAccum(GL_ACCUM, 1.f/(max-i));
+            displayParticles();
+            displayDebris();
+            glAccum(GL_ACCUM, 1.f/(max-i));
         } 
         glAccum(GL_RETURN, 1.f);
         
