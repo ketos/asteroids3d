@@ -18,8 +18,9 @@
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
 float RenderFrame::f_angle = 0.05;
-float RenderFrame::deadzone=12500; 
-float RenderFrame::shootTime=500;  
+float RenderFrame::deadzone=7000;
+float RenderFrame::maxjoy=32000;
+float RenderFrame::shootTime=750;  
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -337,28 +338,24 @@ void RenderFrame::moveCurrentMesh()
 }
 
 void RenderFrame::control() {
-    if(joys->getAxis(0) <-deadzone) {
-        m_mesh->rotate(YAW,  f_angle);
+    if(joys->getAxis(0) <-deadzone || joys->getAxis(0) > deadzone ) { // joystick links links-rechts
+        float angle = joys->getAxis(0) / maxjoy * f_angle;        
+        m_mesh->rotate(YAW,  -angle);
     }
-    if(joys->getAxis(0) > deadzone) {
-        m_mesh->rotate(YAW,  -f_angle);
+    if(joys->getAxis(1) <-deadzone || joys->getAxis(1) > deadzone ) { // joystick links up-down
+        float angle = joys->getAxis(1) / maxjoy * f_angle;
+        m_mesh->rotate(PITCH,  angle);
     }
-    if(joys->getAxis(1) <-deadzone) {
-        m_mesh->rotate(PITCH,  f_angle);
-    }
-    if(joys->getAxis(1) > deadzone) {
-        m_mesh->rotate(PITCH,  -f_angle);
-    }
-    if(joys->getAxis(2) > deadzone) {
+    if(joys->getAxis(2) > deadzone) { // schulter links
         (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
     }
-    if(joys->getAxis(5) > deadzone) {
+    if(joys->getAxis(5) > deadzone) { // schulter rechts
         (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
     }
-    if(joys->getAxis(4) <-2*deadzone) {
+    if(joys->getAxis(4) <-4*deadzone) { // joystick rechts up-down
         m_cam.zoom(-15);
     }
-    if(joys->getAxis(4) > 2*deadzone) {
+    if(joys->getAxis(4) > 4*deadzone) {
         m_cam.zoom(15);
     }
     if(joys->getButton(0) > 0) { //A
@@ -381,10 +378,18 @@ void RenderFrame::control() {
         m_cam.changeheight(-5);
     }
     if(joys->getButton(6) > 0) { //Back
-        loadModel("arrow.3ds");    
+        if(shoot) {
+            shoot = false;
+            loadModel("arrow.3ds");
+            m_timer2->start();
+        }  
     }
     if(joys->getButton(7) > 0) { //Start
-        loadModel("bearcat.3ds");    
+        if(shoot) {
+            shoot = false;
+            loadModel("bearcat.3ds");
+            m_timer2->start();
+        }    
     }/*
     if(joys->getButton(8) > 0) { //BIG
     }
