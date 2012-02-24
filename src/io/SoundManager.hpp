@@ -9,8 +9,10 @@ class SoundManager {
     static void playFireSound();
     static void playBackground();
     static void playExplosion();
-    static void playBackground2();
     
+    /*
+    * Deletes all Mediafiles
+    */
     static void deleteManager();
     
     private:

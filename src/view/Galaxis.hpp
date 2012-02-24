@@ -22,14 +22,14 @@ class Galaxis: public QObject
 	    	void addAsteorid(glVector<float> v1, glVector<float> v2);
 	    	void render();
 	    	vector<Asteorid*> getAsteorids(); 
-	    	void nextLevel();
 			void addMiniAsteorid(glVector<float> v1, glVector<float> v2);
 			void addLevel(string& filename);
+			void nextLevel();
     	private:
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
 	     	int level;
-	     	vector<vector<pair<glVector<float>*, glVector<float>*>*>*> m_levels;
+	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* > > m_levels;
 	     	
 	public slots:
 		void big_astroid_destroyed(float x, float y, float z);
