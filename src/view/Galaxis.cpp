@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "math/glVector.hpp"
 #include <typeinfo>
-
+#include "io/ReadXML.hpp"
 Galaxis::Galaxis()
 {
     // create vector for Asteroids
@@ -90,3 +90,7 @@ vector<Asteorid*> Galaxis::getAsteorids()
     return asteorids;
 }
 
+void Galaxis::addLevel(string& filename)
+{
+	m_levels.push_back(ReadXML::readConfig(filename));
+}
