@@ -111,6 +111,9 @@ void Galaxis::addLevel(string& filename)
 
 void Galaxis::nextLevel()
 {
+	
+	cout << m_levels.size()<<endl;
+	cout << level <<endl;
 	//loeschen aller asteoriden
 	//asteorids.clear();
 	//naechstes level laden
