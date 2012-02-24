@@ -11,6 +11,7 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
         
  
         //Radar
+        painter->setPen(QColor(255,255,255,255));
         painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
         painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
         
@@ -103,7 +104,7 @@ void HUD::damages(int schaden, int breite, QPainter *painter)
 void HUD::Speed(float speed, int breite, QPainter *painter)
 {
   
-  painter->setPen(QColor(255,255,255,255));
+   painter->setPen(QColor(255,255,255,255));
    std::ostringstream Str;
    Str << speed;
   	std::string spd("Speed:"+Str.str()+"%");

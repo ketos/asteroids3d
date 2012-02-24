@@ -31,7 +31,7 @@ void Collision::run()
 
 
 			float diffFightX = fabs( ((*asteoridtIt)->getPosition())[0] - (m_craft->getPosition())[0] );
-                        float diffFightY = fabs( ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] );
+         float diffFightY = fabs( ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] );
 			float diffFightZ = fabs( ((*asteoridtIt)->getPosition())[2] - (m_craft->getPosition())[2] );
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
@@ -43,13 +43,10 @@ void Collision::run()
 			
 			if(diffFight < 5000)
 			{
-				/**
-				 *      x' = xcos φ + ysin φ,
-    				 *	y' = − xsin φ + ycos φ,
-   				 *	z' = z. 
-				 */
-				
-				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
+				diffFightX = (m_craft->getxAxis()) * ((*asteoridtIt)->getPosition()) ;
+				diffFightY = (m_craft->getyAxis()) * ((*asteoridtIt)->getPosition()) ;
+				diffFightZ = (m_craft->getzAxis()) * ((*asteoridtIt)->getPosition()) ;
+				glVector<float> *tmp = new glVector<float> (diffFightX, -diffFightY, -diffFightZ);
 								
 
 				radar.push_back(tmp);
