@@ -4,26 +4,26 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >  ReadXML::readConfig (s
 {
 	vector<std::pair<glVector<float>*, glVector<float>* >* > m_asteroidList;
 	
- 	QDomDocument doc("asteroids");
-    QFile file("config.xml");
+ 	QDomDocument doc("level");
+    //QFile file("config.xml");
     
-    if(!file.open(QIODevice::ReadOnly))
-    {
+    //if(!file.open(QIODevice::ReadOnly))
+    //{
         
-    }    
-    if( !doc.setContent(&file))
-    {
-        file.close();
+    //}    
+    //if( !doc.setContent(&file))
+    //{
+    //    file.close();
  
-    }
-    file.close();
+    //}
+    //file.close();
     
     glVector<float>* pos; 
     glVector<float>* axis;
     std::pair<glVector<float>*,glVector<float>*>* p;
     
-    QDomNode asteroids   = doc.documentElement();
-    QDomNode asteroid    = asteroids.firstChild();
+    QDomNode level   = doc.documentElement();
+    QDomNode asteroid    = level.firstChild();
     QDomElement ad;
     
     while(!asteroid.isNull())
