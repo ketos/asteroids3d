@@ -84,10 +84,9 @@ void RenderFrame::loadModel(string filename)
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
 
-	// load the glaxis width all planets 
+	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-
-
+	
     // // start collision thread
     //    if (m_coll != 0)
     //            {

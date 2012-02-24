@@ -101,7 +101,7 @@ set(VIEWER_SOURCES
 	rendering/Transformable.cpp
 	rendering/TexturedMesh.cpp
     rendering/Asteorid.cpp
-    #rendering/Mini_Asteorid.cpp
+    rendering/Mini_Asteorid.cpp
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     rendering/Explosion.cpp
@@ -117,7 +117,9 @@ set(VIEWER_SOURCES
 
 set(VIEWER_MOCS 
     view/MainWindow.hpp 
-    view/RenderFrame.hpp)
+    view/RenderFrame.hpp
+	view/Galaxis.hpp
+	rendering/Asteorid.hpp)
 
 qt_wrap_cpp(viewer VIEWER_MOC_SRC ${VIEWER_MOCS})
 

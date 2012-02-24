@@ -13,13 +13,14 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <QThread>
-
-
+#include <QObject>
+#include <QMetaType>
 /**
  * @brief Renders a Asteorid
  */
-class Asteorid: public TexturedMesh, public QThread
+class Asteorid: public QThread, public TexturedMesh
 {
+Q_OBJECT
 
 public:
 
@@ -68,9 +69,10 @@ protected:
 	bool alive;
     // axis, the Asteorid is moving on (one of the shooting fighter's axes)
 	glVector<float> flight_axis;
-	
 	float speed;
+	
+signals:
+	void destroyed(float x, float y, float z);
 };
-
 
 #endif /* ASTEORID_HPP_ */
