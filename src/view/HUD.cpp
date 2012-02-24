@@ -27,9 +27,10 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
 
 	std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
-
-   score(50000,width/2,painter);
-    damages(0,(width/2),painter);
+   score(fighterScore,width/2,painter);
+   Speed(fighterSpeed,0,painter);
+    damages(fighterDamage,(width/2),painter);
+    	
         while(itervec != collvec.end())
         {
             drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand, painter);	
@@ -97,4 +98,26 @@ void HUD::damages(int schaden, int breite, QPainter *painter)
   QString leben = QString::fromStdString(dmg);
   QPoint point = QPoint(breite+50,30);
   painter->drawText(point,leben);
+}
+
+void HUD::Speed(float speed, int breite, QPainter *painter)
+{
+  
+  painter->setPen(QColor(255,255,255,255));
+   std::ostringstream Str;
+   Str << speed;
+  	std::string spd("Speed:"+Str.str()+"%");
+  	QFont font("Helvetica", 20, QFont::Bold);
+  	painter->setFont(font);
+  	QString qspeed = QString::fromStdString(spd);
+  	QPoint point = QPoint(0,30);
+  	painter->drawText(point,qspeed);
+
+		
+}
+void HUD::setFighterData(int damage, int score, float speed)
+{
+	fighterDamage = damage;
+	fighterScore = score;
+	fighterSpeed = speed;
 }

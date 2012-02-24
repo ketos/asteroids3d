@@ -239,14 +239,10 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-        //painter.setRenderHint(QPainter::Antialiasing);
-		hins->setAstroidsVector(m_coll->getCollisionVector());
-		//std::cout<<"Ich habe die Liste"<<std::endl;
+   	  hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+		  hins->setAstroidsVector(m_coll->getCollisionVector());
         hins->draw(&painter,width(),height(),font());
-     	//std::cout<<"und hab gezichnet"<<std::endl;
         painter.end();
-        // glPopMatrix();
-        // glMatrixMode(GL_MODELVIEW);
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);

@@ -151,7 +151,7 @@ protected:
 	/**
 	 * @brief The currently loaded triangle mesh
 	 */
-	TriangleMesh*	m_mesh;
+	Fighter*	m_mesh;
 	
 	/**
 	 * @brief the collision thread

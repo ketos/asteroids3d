@@ -28,7 +28,7 @@ public:
     /**
      * @brief Renders the fighter and calls the bullets' render method.
      */
-   	void render();
+   void render();
     /**
      * @brief returns a vetor width all bullets
      */
@@ -36,7 +36,7 @@ public:
     /**
      * @brief kills a specific bullet
      */
-        void killBullet(Bullet* b);
+   void killBullet(Bullet* b);
 
     /**
      * @brief increses the damage
@@ -53,13 +53,23 @@ public:
      * @return actual damage
      */
     int getDamage();
-
+    /**
+     *@brief returns the actual speed
+     *@return actual speed
+     */
+    float getSpeed();
+    /**
+     *@brief returns the actual score
+     *@return actual score
+     */
+	 int getScore();
 private:
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
     // Actual damage
         int damage;
-
+    //Actual score
+		  int score;
 };
 
 #endif /* FIGHTER_HPP_ */

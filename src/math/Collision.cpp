@@ -41,7 +41,7 @@ void Collision::run()
 				(*asteoridtIt)->changeDirection();
 			}
 			
-			if(diffFight < 50000)
+			if(diffFight < 5000)
 			{
 				/**
 				 *      x' = xcos φ + ysin φ,
