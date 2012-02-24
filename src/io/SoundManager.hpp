@@ -9,14 +9,19 @@ class SoundManager {
     static void playFireSound();
     static void playBackground();
     static void playExplosion();
-    static void playBackground2();
+    static void playMenuSound();
+    static void stopMenuSound();
     
+    /*
+    * Deletes all Mediafiles
+    */
     static void deleteManager();
     
     private:
     static Sound* fire;
     static Sound* background;
     static Sound* explosion;
+    static Sound* menu;
 
 };
 

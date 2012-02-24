@@ -95,6 +95,7 @@ set(VIEWER_SOURCES
     view/Galaxis.cpp
 	view/RenderFrame.cpp
 	view/HUD.cpp
+    view/Menu.cpp
     rendering/TriangleMesh.cpp
 	rendering/Texture.cpp 
 	rendering/Skybox.cpp

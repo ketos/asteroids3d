@@ -1,35 +1,25 @@
 #include "view/HUD.hpp"
 
+HUD::HUD()
+{
+	durchmesser = 150;
+	abstand = 10;
+	
+}
 void HUD::draw(QPainter *paint, int width, int height, QFont f)
 { 
         painter = paint;    
-        int durchmesser = 150;
-        int abstand = 10;
+        radmidx = width/2;
+        radmidy = height - (durchmesser/2) - abstand;
         
-        int radmidx = width/2;
-        int radmidy = height - (durchmesser/2) - abstand;
-        
- 
-        //Radar
-        painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
-        painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
-        
-        QRectF rectangle( (width/2)-(durchmesser/2), height-(durchmesser/2)-abstand-durchmesser/2, durchmesser, durchmesser);
-        
-        int startAngle = 45 * 16;
-        int spanAngle = 90 * 16;
-        painter->drawPie(rectangle, startAngle, spanAngle);
-        
-        QPoint point = QPoint(radmidx-15,radmidy-15);
-        QImage myImage =QImage("ss.png");
-        myImage.load("ss.png");
-        painter->drawImage(point, myImage);
 
-	std::vector<glVector<float>* >::iterator itervec;
+
+	     std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
-   score(fighterScore,width/2,painter);
-   Speed(fighterSpeed,0,painter);
-    damages(fighterDamage,(width/2),painter);
+        drawRadar(width,height);
+        score(fighterScore,width/2,painter);
+        Speed(fighterSpeed,0,painter);
+        damages(fighterDamage,(width/2),painter);
     	
         while(itervec != collvec.end())
         {
@@ -41,6 +31,7 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
 
 void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint)
 {
+	     painter->setPen(QColor(0,255,0,255));
         int p = 6;
 		  glVector<float> tmp(*vec);
         tmp.x/=radarrange;
@@ -65,45 +56,46 @@ void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)
 
 void HUD::score(int punkte, int breite, QPainter *painter)
 {
-  
+    painter->setPen(QColor(255,255,255,255));
     std::ostringstream Str;
     Str << punkte;
     std::string pkt(Str.str());
-  pkt = "SCORE : "+pkt;
-  QFont font("Helvetica", 20, QFont::Bold);
- painter->setFont(font);
-  QString aktuellepunkte = QString::fromStdString(pkt);
-  QPoint point = QPoint(breite/2,30);
-  painter->drawText(point,aktuellepunkte);
+    pkt = "SCORE : "+pkt;
+    QFont font("Helvetica", 20, QFont::Bold);
+    painter->setFont(font);
+    QString aktuellepunkte = QString::fromStdString(pkt);
+    QPoint point = QPoint(breite/2,30);
+    painter->drawText(point,aktuellepunkte);
 }
 
 void HUD::damages(int schaden, int breite, QPainter *painter)
 {
     
-  painter->setPen(QColor(0,255,0,255));
+    painter->setPen(QColor(0,255,0,255));
 
   
-  if(schaden>30)
-  { 
-    painter->setPen(QColor(255,255,0,255));
+    if(schaden>30)
+    { 
+        painter->setPen(QColor(255,255,0,255));
+    }
+    if(schaden>75){
+        painter->setPen(QColor(255,0,0,255));}
+    std::ostringstream Str;
+    Str << schaden;
+    std::string dmg("Schaden:"+Str.str()+"%");
+    QFont font("Helvetica", 20, QFont::Bold);
+    painter->setFont(font);
+    QString leben = QString::fromStdString(dmg);
+    QPoint point = QPoint(breite+50,30);
+    painter->drawText(point,leben);
     
-  }
-  if(schaden>75){
-    painter->setPen(QColor(255,0,0,255));}
-  std::ostringstream Str;
-  Str << schaden;
-  std::string dmg("Schaden:"+Str.str()+"%");
-  QFont font("Helvetica", 20, QFont::Bold);
-  painter->setFont(font);
-  QString leben = QString::fromStdString(dmg);
-  QPoint point = QPoint(breite+50,30);
-  painter->drawText(point,leben);
 }
+
 
 void HUD::Speed(float speed, int breite, QPainter *painter)
 {
   
-  painter->setPen(QColor(255,255,255,255));
+   painter->setPen(QColor(255,255,255,255));
    std::ostringstream Str;
    Str << speed;
   	std::string spd("Speed:"+Str.str()+"%");
@@ -111,13 +103,37 @@ void HUD::Speed(float speed, int breite, QPainter *painter)
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
   	QPoint point = QPoint(0,30);
-  	painter->drawText(point,qspeed);
-
-		
+  	painter->drawText(point,qspeed);	
 }
+
+
 void HUD::setFighterData(int damage, int score, float speed)
 {
 	fighterDamage = damage;
 	fighterScore = score;
 	fighterSpeed = speed;
+}
+
+void HUD::drawSplash(int breite, int hoehe, QPainter *painter)
+{
+	QImage myImage = QImage("res/images/splash.png");
+	myImage.load("res/images/splash.png");
+	QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
+	painter->drawImage(point, myImage);
+	
+}
+void HUD::drawRadar(int width, int height)
+{
+   painter->setPen(QColor(255,255,255,255));
+   painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
+   painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
+        
+   QRectF rectangle( (width/2)-(durchmesser/2), height-(durchmesser/2)-abstand-durchmesser/2, durchmesser, durchmesser);
+
+   painter->drawPie(rectangle, 45*16, 90*16);
+        
+   QPoint point = QPoint(radmidx-15,radmidy-15);
+   QImage myImage = QImage("res/images/ss.png");
+   myImage.load("res/images/ss.png");
+   painter->drawImage(point, myImage);	
 }

@@ -31,8 +31,9 @@ TextureFactory& TextureFactory::instance()
     return instance;
 }
 
-Texture* TextureFactory::getTexture(string filename) const
+Texture* TextureFactory::getTexture(string f) const
 {
+    string filename = "res/models/"+f;
     // A texture object
     Texture* tex = 0;
 

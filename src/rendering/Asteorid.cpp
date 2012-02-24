@@ -29,6 +29,7 @@ void Asteorid::run()
 		usleep(10000);
 	}
 	emit destroyed(getPosition().x, getPosition().y, getPosition().z );
+	std::cout << "Ich emmitire das destroyed signal, bzw. der Thread ist tot" << std::endl;
 }
 
 void Asteorid::destroy()
@@ -36,7 +37,6 @@ void Asteorid::destroy()
     SoundManager::playExplosion();
     //Explosion* e = new Explosion();
     //e->Explode();
-    
 	alive = false;
 	
 }

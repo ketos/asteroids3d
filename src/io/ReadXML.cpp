@@ -11,27 +11,33 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >*  ReadXML::readConfig (
     if(!file.open(QIODevice::ReadOnly))
     {
     	std::cout << "Fehler: Datei nicht zu lesen "<<std::endl;
+
     }    
     if( !doc.setContent(&file))
     {
         file.close();
+ 
     }
     file.close();
-    
+
     glVector<float>* pos; 
     glVector<float>* axis;
     std::pair<glVector<float>*,glVector<float>*>* p;
     std::cout <<"xlreader spaeter " <<std::endl;
     
-    QDomNode level   = doc.documentElement();
+    QDomNode level       = doc.documentElement();
     QDomNode asteroid    = level.firstChild();
     QDomElement ad;
     
+    /**
+    * ein Asteroid wird durchlaufen, alle seine Attribute in floats umgewandelt
+    * und in m_asteroidList eingefügt
+    */ 
     while(!asteroid.isNull())
     {
     	std::cout <<"xmlreader schleife " <<std::endl;
         ad = asteroid.toElement();
-        
+
         pos  = new glVector<float>(ad.attribute("pos_x","0").toFloat(),
                                    ad.attribute("pos_y","0").toFloat(),
                                    ad.attribute("pos_z","0").toFloat());
@@ -41,6 +47,7 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >*  ReadXML::readConfig (
                                    ad.attribute("axis_z","0").toFloat());
                                    
         p = new std::pair<glVector<float>*, glVector<float>*>();            
+
         p->first   = pos;
         p->second  = axis;
         
