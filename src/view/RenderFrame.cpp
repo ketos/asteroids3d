@@ -47,7 +47,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     i = 0;
     
-    loadModel("res/models/bearcat.3ds");
+    //loadModel("res/models/bearcat.3ds");
     show();
     
     SoundManager::playBackground();
@@ -237,22 +237,25 @@ void RenderFrame::paintGL()
 	}
 
     
+        
+    if(m_mesh) {
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-   	  hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
-		  hins->setAstroidsVector(m_coll->getCollisionVector());
+   	    hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+   	    hins->setAstroidsVector(m_coll->getCollisionVector());
         hins->draw(&painter,width(),height(),font());
         painter.end();
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);
-    
-        glFinish();
-	    // Call back buffer
-	    swapBuffers();
+    }
+
+    glFinish();
+	// Call back buffer
+	swapBuffers();
 }
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
