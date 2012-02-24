@@ -22,15 +22,15 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
         painter->drawPie(rectangle, startAngle, spanAngle);
         
         QPoint point = QPoint(radmidx-15,radmidy-15);
-        QImage myImage =QImage("ss.png");
-        myImage.load("ss.png");
+        QImage myImage = QImage("res/images/ss.png");
+        myImage.load("res/images/ss.png");
         painter->drawImage(point, myImage);
 
-	std::vector<glVector<float>* >::iterator itervec;
+	    std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
-   score(fighterScore,width/2,painter);
-   Speed(fighterSpeed,0,painter);
-    damages(fighterDamage,(width/2),painter);
+        score(fighterScore,width/2,painter);
+        Speed(fighterSpeed,0,painter);
+        damages(fighterDamage,(width/2),painter);
     	
         while(itervec != collvec.end())
         {
@@ -70,36 +70,37 @@ void HUD::score(int punkte, int breite, QPainter *painter)
     std::ostringstream Str;
     Str << punkte;
     std::string pkt(Str.str());
-  pkt = "SCORE : "+pkt;
-  QFont font("Helvetica", 20, QFont::Bold);
- painter->setFont(font);
-  QString aktuellepunkte = QString::fromStdString(pkt);
-  QPoint point = QPoint(breite/2,30);
-  painter->drawText(point,aktuellepunkte);
+    pkt = "SCORE : "+pkt;
+    QFont font("Helvetica", 20, QFont::Bold);
+    painter->setFont(font);
+    QString aktuellepunkte = QString::fromStdString(pkt);
+    QPoint point = QPoint(breite/2,30);
+    painter->drawText(point,aktuellepunkte);
 }
 
 void HUD::damages(int schaden, int breite, QPainter *painter)
 {
     
-  painter->setPen(QColor(0,255,0,255));
+    painter->setPen(QColor(0,255,0,255));
 
   
-  if(schaden>30)
-  { 
-    painter->setPen(QColor(255,255,0,255));
+    if(schaden>30)
+    { 
+        painter->setPen(QColor(255,255,0,255));
+    }
+    if(schaden>75){
+        painter->setPen(QColor(255,0,0,255));}
+    std::ostringstream Str;
+    Str << schaden;
+    std::string dmg("Schaden:"+Str.str()+"%");
+    QFont font("Helvetica", 20, QFont::Bold);
+    painter->setFont(font);
+    QString leben = QString::fromStdString(dmg);
+    QPoint point = QPoint(breite+50,30);
+    painter->drawText(point,leben);
     
-  }
-  if(schaden>75){
-    painter->setPen(QColor(255,0,0,255));}
-  std::ostringstream Str;
-  Str << schaden;
-  std::string dmg("Schaden:"+Str.str()+"%");
-  QFont font("Helvetica", 20, QFont::Bold);
-  painter->setFont(font);
-  QString leben = QString::fromStdString(dmg);
-  QPoint point = QPoint(breite+50,30);
-  painter->drawText(point,leben);
 }
+
 
 void HUD::Speed(float speed, int breite, QPainter *painter)
 {
@@ -112,10 +113,10 @@ void HUD::Speed(float speed, int breite, QPainter *painter)
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
   	QPoint point = QPoint(0,30);
-  	painter->drawText(point,qspeed);
-
-		
+  	painter->drawText(point,qspeed);	
 }
+
+
 void HUD::setFighterData(int damage, int score, float speed)
 {
 	fighterDamage = damage;

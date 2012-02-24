@@ -83,7 +83,7 @@ set(VIEWER_SOURCES
 	io/ReadPLY.cpp
 	io/ReadPPM.cpp
 	io/ReadTGA.cpp
-	#io/ReadXML.cpp
+	io/ReadXML.cpp
 	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
@@ -105,7 +105,6 @@ set(VIEWER_SOURCES
     rendering/Fighter.cpp
     rendering/Bullet.cpp
     rendering/Explosion.cpp
-    rendering/Explosion2.cpp
     Main.cpp
     math/Collision.cpp
 )
@@ -143,5 +142,6 @@ target_link_libraries(viewer ${QGLVIEWER_LIBRARY_RELEASE})
 target_link_libraries(viewer ${QT_QTCORE_LIBRARIES})
 target_link_libraries(viewer ${QT_QTGUI_LIBRARIES})
 target_link_libraries(viewer ${QT_QTOPENGL_LIBRARIES})
+target_link_libraries(viewer ${QT_QTXML_LIBRARIES})
 
 

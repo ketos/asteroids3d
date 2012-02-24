@@ -35,6 +35,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
     m_timer2->start(); 
     
+    
     shoot = true;
     
     joys = new Joystick();
@@ -45,8 +46,10 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	m_mesh  = 0;
 	galaxis = 0;
     i = 0;
-    loadModel("bearcat.3ds");
+    
+    //loadModel("res/models/bearcat.3ds");
     show();
+    
     SoundManager::playBackground();
 }
 
@@ -74,9 +77,10 @@ void RenderFrame::loadModel(string filename)
 {
 
 	// Delete currently present model if necessary
-	if(m_mesh == 0)
+	if(m_mesh)
 	{
 		delete m_mesh;
+		std::cout << "mesh deleted" << std::endl; 
 	}
 
 	// Load new model
@@ -194,7 +198,7 @@ void RenderFrame::resizeGL(int w, int h)
     }*/
 }
 void RenderFrame::setCam() {
-
+    if(m_mesh) {
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
     glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
     glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
@@ -202,7 +206,7 @@ void RenderFrame::setCam() {
     //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
     //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
     m_cam.setLocation(pos, front, up);
-
+    }
 }
 void RenderFrame::paintGL()
 {    
@@ -234,22 +238,25 @@ void RenderFrame::paintGL()
 	}
 
     
+        
+    if(m_mesh) {
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-   	  hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
-		  hins->setAstroidsVector(m_coll->getCollisionVector());
+   	    hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+   	    hins->setAstroidsVector(m_coll->getCollisionVector());
         hins->draw(&painter,width(),height(),font());
         painter.end();
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);
-    
-        glFinish();
-	    // Call back buffer
-	    swapBuffers();
+    }
+
+    glFinish();
+	// Call back buffer
+	swapBuffers();
 }
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
@@ -275,13 +282,13 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
             //m_mesh->move(STRAFE, -f_speed);
-            (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
             //m_mesh->move(STRAFE, f_speed);
-            (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
+            (static_cast<Fighter*>(m_mesh))->changeSpeed(-1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
@@ -328,7 +335,11 @@ void RenderFrame::moveCurrentMesh()
         if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
         {
             m_cam.changeheight(-5);
-        }      
+        }    
+        if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
+        {
+            loadModel("res/models/bearcat.3ds");
+        }         
     }
 }
 
@@ -375,14 +386,14 @@ void RenderFrame::control() {
     if(joys->getButton(6) > 0) { //Back
         if(shoot) {
             shoot = false;
-            loadModel("arrow.3ds");
+            loadModel("res/models/arrow.3ds");
             m_timer2->start();
         }  
     }
     if(joys->getButton(7) > 0) { //Start
         if(shoot) {
             shoot = false;
-            loadModel("bearcat.3ds");
+            loadModel("res/models/bearcat.3ds");
             m_timer2->start();
         }    
     }/*
