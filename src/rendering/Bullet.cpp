@@ -28,6 +28,7 @@ void Bullet::run()
 {
 	int i = 0;
     // Modify the Asteorid's position until the lifetime is over
+
 	while(i < lifetime){
 		m_position = fighter_axis  + m_position;
 		i++;

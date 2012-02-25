@@ -9,7 +9,8 @@
 #include "rendering/TexturedMesh.hpp"
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
-
+int damage =0;
+int score =0;
 void Fighter::shoot()
 {
     
@@ -24,8 +25,6 @@ void Fighter::shoot()
     b->start();
     // Add it to this fighter's vector of bullets
     m_bullets.push_back(b);
-    damage = 0;
-    score = 0;
 }
 
 vector<Bullet*> Fighter::get_Bullets()
@@ -55,8 +54,6 @@ void Fighter::render()
 // Anmerkung eigentlich zuviel rausnehmen
 void Fighter::killBullet(Bullet* b)
 {
-		  //Adds 50 Point to the score
-		  score+=50;
         //killen der kugel
         vector<Bullet*>::iterator bulletIt;
         bulletIt = m_bullets.begin();

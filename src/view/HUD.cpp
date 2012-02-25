@@ -1,9 +1,12 @@
 #include "view/HUD.hpp"
-
 HUD::HUD()
 {
+	fighterDamage = 0;
+	fighterSpeed = 0;
+	fighterScore = 0;
 	durchmesser = 150;
 	abstand = 10;
+	
 	
 }
 void HUD::draw(QPainter *paint, int width, int height, QFont f)
@@ -12,18 +15,16 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
         radmidx = width/2;
         radmidy = height - (durchmesser/2) - abstand;
         
-
-
 	     std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
         drawRadar(width,height);
-        score(fighterScore,width/2,painter);
+        score(1337,width/2,painter);
         Speed(fighterSpeed,0,painter);
         damages(fighterDamage,(width/2),painter);
     	
         while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand, painter);	
+            drawRadarAstroid(*itervec, 15000, durchmesser, width /2, height -(durchmesser / 2) - abstand, painter);	
                 itervec++;
         }
      
@@ -43,8 +44,8 @@ void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser
         int z = tmp.z;
 
         if(!tmp.y == 0)
-            paint->drawLine(radarmidx+x,radarmidy+(z),radarmidx+x,radarmidy+(-z)+y);
-        paint->drawEllipse(radarmidx+x-(p/2), radarmidy-z+y-(p/2),p,p);
+            paint->drawLine(radarmidx+z,radarmidy+(x),radarmidx+z,radarmidy+(-x)+y);
+        paint->drawEllipse(radarmidx+z-(p/2), radarmidy-x+y-(p/2),p,p);
  
 
 }
@@ -56,10 +57,36 @@ void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)
 
 void HUD::score(int punkte, int breite, QPainter *painter)
 {
-    painter->setPen(QColor(255,255,255,255));
-    std::ostringstream Str;
-    Str << punkte;
-    std::string pkt(Str.str());
+	painter->setPen(QColor(255,255,255,255));
+   std::ostringstream Str;
+
+   std::string pkt;
+	int a;
+	int stelle = 9;
+	int tmp;
+	int array[]={0,0,0,0,0,0,0,0,0,0};
+	while(punkte !=0)
+	{
+		tmp = punkte % 10;
+		punkte /= 10;
+		array[stelle--] += tmp;
+		a = stelle + 1; 
+		while(array[a] >= 10)
+		{
+			array[a] -= 10;
+			array[--a]++;
+			
+		} 
+		 
+		
+	}
+	for(int i = 0; i < 10 ;i++)
+	{
+		   Str << array[i];
+		   pkt= ""+Str.str();
+		
+	}
+
     pkt = "SCORE : "+pkt;
     QFont font("Helvetica", 20, QFont::Bold);
     painter->setFont(font);
@@ -86,7 +113,7 @@ void HUD::damages(int schaden, int breite, QPainter *painter)
     QFont font("Helvetica", 20, QFont::Bold);
     painter->setFont(font);
     QString leben = QString::fromStdString(dmg);
-    QPoint point = QPoint(breite+50,30);
+    QPoint point = QPoint(breite+90,30);
     painter->drawText(point,leben);
     
 }

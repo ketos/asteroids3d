@@ -15,6 +15,7 @@
 #include <string>
 #include <iostream> 
 
+#include <QPushButton>
 class HUD{
 public:
   /**

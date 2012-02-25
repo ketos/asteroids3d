@@ -41,12 +41,13 @@ void Collision::run()
 			}
 			
 			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
-			if(diffFight < 5000)
+			if(diffFight < 15000)
 			{
-				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
+
 				diffFightX = (m_craft->getxAxis()) * ((*asteoridtIt)->getPosition()) ;
 				diffFightY = (m_craft->getyAxis()) * ((*asteoridtIt)->getPosition()) ;
 				diffFightZ = (m_craft->getzAxis()) * ((*asteoridtIt)->getPosition()) ;
+				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightZ, diffFightY);
 				radar.push_back(tmp);
 			}
 			

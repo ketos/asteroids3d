@@ -67,9 +67,9 @@ private:
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
     // Actual damage
-        int damage;
+      //  static int damage= 0;
     //Actual score
-		  int score;
+		//  static int score = 0;
 };
 
 #endif /* FIGHTER_HPP_ */
