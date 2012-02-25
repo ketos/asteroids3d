@@ -96,6 +96,8 @@ set(VIEWER_SOURCES
 	view/RenderFrame.cpp
 	view/HUD.cpp
     view/Menu.cpp
+    control/keyboard.cpp
+    control/joystickcontrol.cpp
     rendering/TriangleMesh.cpp
 	rendering/Texture.cpp 
 	rendering/Skybox.cpp

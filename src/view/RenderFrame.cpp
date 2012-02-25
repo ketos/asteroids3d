@@ -40,7 +40,6 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
     m_timer2->start(); 
     
-    
     shoot = true;
     
     joys = new Joystick();
@@ -50,9 +49,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    i = 0;
     
-    //loadModel("res/models/bearcat.3ds");
     show();
     
     menu = true;
@@ -73,6 +70,8 @@ RenderFrame::~RenderFrame()
     if(joystick) {
         joys->stop();
     }
+    //delete joysticks;
+    //delete keyboard;
     delete m_mesh;
     delete m_skybox;
     SoundManager::deleteManager();
@@ -86,6 +85,8 @@ void RenderFrame::loadModel(string filename)
 	if(m_mesh)
 	{
 		delete m_mesh;
+        //delete joysticks;
+        //delete keyboard;
 		std::cout << "mesh deleted" << std::endl; 
 	}
 
@@ -93,22 +94,16 @@ void RenderFrame::loadModel(string filename)
 	m_mesh = new Fighter;
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
+    
+    //std::string input = "/dev/input/js0";
+    //joysticks = new JoystickControl(input, *m_mesh , m_cam, shoot);
+    //keyboard  = new Keyboard( *m_mesh , m_cam, shoot);
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
 	std::string filenamer = "config.xml";
 	galaxis->addLevel( filenamer );
 	
-    // // start collision thread
-    //    if (m_coll != 0)
-    //            {
-    //                    if (m_coll->isRunning())
-    //                    {
-    //                            //Thread vorhanden und Läuft
-    //                            m_coll->stop();
-    //                    }
-    //                    delete m_coll;
-    //            }
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
     m_coll->start();
     
@@ -196,23 +191,12 @@ void RenderFrame::resizeGL(int w, int h)
 	gluPerspective(45,ratio,1,100000);
 	glMatrixMode(GL_MODELVIEW);
 
-	// Set 'LookAt'
-    //m_cam.apply();
-    /*if(i==0) {
-        m_cam.apply();
-        i++;
-    } else {
-        setCam();
-    }*/
 }
 void RenderFrame::setCam() {
     if(m_mesh) {
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
     glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
     glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
-    //Quaternion<float> quat = (*(static_cast<Transformable*>(m_mesh))).getRotation();
-    //std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
-    //std::cout << lookat.x << " " << lookat.y << " " << lookat.z << std::endl;
     m_cam.setLocation(pos, front, up);
     }
 }
@@ -221,6 +205,12 @@ void RenderFrame::paintGL()
     if(joystick) {
         control();
     }
+    //if(m_mesh) {
+    //    if(joysticks->connected()) {
+    //        joysticks->update();
+    //    }
+    //    keyboard->update();
+    //}
     setCam();
     setFocus();
 	moveCurrentMesh();
@@ -269,16 +259,16 @@ void RenderFrame::paintGL()
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
+    //keyboard->keypressed(event);
 	// State of key is pressed
 	m_pressedKeys.insert(event->key());
-	paintGL();
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
+    //keyboard->keyrelease(event);
 	// State of key is unpressed
 	m_pressedKeys.erase(event->key());
-	paintGL();
 } 
 
 void RenderFrame::moveCurrentMesh()
@@ -378,13 +368,13 @@ void RenderFrame::control() {
             shoot = false;
             m_timer2->start();
         }
-    }/*
+    }
     if(joys->getButton(1) > 0) { //B
     }
     if(joys->getButton(2) > 0) { //X
     }
     if(joys->getButton(3) > 0) { //Y
-    }*/
+    }
     if(joys->getButton(4) > 0) { //LB
         m_cam.changeheight(5);
     }
@@ -404,7 +394,7 @@ void RenderFrame::control() {
             loadModel("res/models/bearcat.3ds");
             m_timer2->start();
         }    
-    }/*
+    }
     if(joys->getButton(8) > 0) { //BIG
     }
     if(joys->getButton(9) > 0) { //AxisLeft
@@ -420,7 +410,7 @@ void RenderFrame::control() {
     if(joys->getButton(14) > 0) {//DpadDown
     }
     if(joys->getButton(15) > 0) {//None
-    }*/
+    }
 }
 
 void RenderFrame::updateShoot(){
