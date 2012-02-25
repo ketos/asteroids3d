@@ -271,14 +271,14 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
 	// State of key is pressed
 	m_pressedKeys.insert(event->key());
-	paintGL();
+	//paintGL();
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
 	// State of key is unpressed
 	m_pressedKeys.erase(event->key());
-	paintGL();
+	//paintGL();
 } 
 
 void RenderFrame::moveCurrentMesh()
@@ -378,13 +378,13 @@ void RenderFrame::control() {
             shoot = false;
             m_timer2->start();
         }
-    }/*
+    }
     if(joys->getButton(1) > 0) { //B
     }
     if(joys->getButton(2) > 0) { //X
     }
     if(joys->getButton(3) > 0) { //Y
-    }*/
+    }
     if(joys->getButton(4) > 0) { //LB
         m_cam.changeheight(5);
     }
@@ -404,7 +404,7 @@ void RenderFrame::control() {
             loadModel("res/models/bearcat.3ds");
             m_timer2->start();
         }    
-    }/*
+    }
     if(joys->getButton(8) > 0) { //BIG
     }
     if(joys->getButton(9) > 0) { //AxisLeft
@@ -420,7 +420,7 @@ void RenderFrame::control() {
     if(joys->getButton(14) > 0) {//DpadDown
     }
     if(joys->getButton(15) > 0) {//None
-    }*/
+    }
 }
 
 void RenderFrame::updateShoot(){
