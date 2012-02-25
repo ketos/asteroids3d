@@ -19,6 +19,8 @@
 #include "Galaxis.hpp"
 #include "math/Collision.hpp"
 #include "io/joystick.h"
+#include "control/keyboard.hpp"
+#include "control/joystickcontrol.hpp"
 
 #include "view/HUD.hpp"
 #include <QGLWidget>
@@ -45,29 +47,31 @@ public:
      * 			Is a model is already present, it is replaced
      * 			with the new one.
      */
-   void loadModel(string modelName);
+    void loadModel(string modelName);
   
-   /**
-   *
-   */
-   void setupViewport(int width, int height);
+    /**
+     *
+     */
+    void setupViewport(int width, int height);
    
-   //void sound();
-   
-   QTimer* m_timer;
+    QTimer* m_timer;
     
     QTimer* m_timer2;
     
     Joystick *joys;
+    
+    //Keyboard* keyboard;
+     
+    //JoystickControl* joysticks;
 
 	/// The camera object tot display the scene
-	static Camera m_cam;
+    static Camera m_cam;
 
-   /**
-    * @brief returns the HUD
-    * @return the HUD
-    */
-   HUD* getHUD();
+    /**
+     * @brief returns the HUD
+     * @return the HUD
+     */
+    HUD* getHUD();
 
 protected:
     
@@ -91,13 +95,6 @@ protected:
 	 * @param	e	The generated key event description
 	 */
 	void keyReleaseEvent(QKeyEvent* e);
-
-	/**
-	 * @brief	Our custom mouse event handler
-	 *
-	 * @param	e	The generated mouse event description
-	 */
-	//void mouseMoveEvent(QMouseEvent* e);
 	
 	/**
 	 * @brief 	The OpenGL initialization method. This is always called before
@@ -121,32 +118,6 @@ protected:
      * 			needed transformations to the active triangle mesh
      */
 	void moveCurrentMesh();
-	
-	/**
-	 * @brief   Moves the camera in the x-y plane if dx and / or dy are > MOUSE_SENSITY
-	 *
-	 * @param 	dx 	The number of pixels the mouse has moved in x direction
-	 * @param	dy 	The number of pixels the mouse has moved in y direction
-	 */
-	//void moveCamXY(int dx, int dy);
-
-	/**
-	 * @brief   Moves the camera in the z-x plane dy is > MOUSE_SENSITY
-	 *
-	 * @param 	dx 	The number of pixels the mouse has moved in x direction
-	 * @param	dy 	The number of pixels the mouse has moved in y direction
-
-	 */
-	//void moveCamZ(int dy);
-
-	/**
-	 * @brief   Turns the camera around the current up-axis if
-	 * 			dx and / or dy are > MOUSE_SENSITY
-	 *
-	 * @param 	dx 	The number of pixels the mouse has moved in x direction
-	 * @param	dy 	The number of pixels the mouse has moved in y direction
-	 */
-	//void moveCamHead(int dx, int dy);
 
 	/**
 	 * @brief The currently loaded triangle mesh
@@ -156,7 +127,7 @@ protected:
 	/**
 	 * @brief the collision thread
 	 */
-        Collision* m_coll;
+    Collision* m_coll;
 
 	/**
 	 * @brief the current loaded Galaxis
@@ -167,16 +138,6 @@ protected:
 	 */
 	Skybox* m_skybox;
 
-	/**
-	 * @brief The last x position of the mouse
-	 */
-	//int	m_mouseX;
-
-	/**
-	 * @brief The last y position of the mouse
-	 */
-	//int	m_mouseY;
-
 	HUD* hins;
 
     static float f_speed;
@@ -184,8 +145,6 @@ protected:
     static float deadzone;
     static float maxjoy;
     static float shootTime;
-    
-    int i;
     
     bool joystick;
     
