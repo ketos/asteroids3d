@@ -19,10 +19,12 @@ Sound::~Sound()
 
 void Sound::playWAV(int loop)
 {
-    Mix_PlayChannel(Channel,sound,loop);
+    if(sound != 0)
+        Mix_PlayChannel(Channel,sound,loop);
 }
  
 void Sound::playMP3(){
     //Mix_VolumeMusic(100);
-    Mix_PlayMusic(music,-1);
+    if(music != 0)
+        Mix_PlayMusic(music,-1);
 }
