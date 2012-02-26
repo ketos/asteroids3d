@@ -18,7 +18,7 @@ void HUD::draw(QPainter *paint, int width, int height, QFont f)
 	     std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
         drawRadar(width,height);
-        score(1337,width/2,painter);
+        score(fighterScore,width/2,painter);
         Speed(fighterSpeed,0,painter);
         damages(fighterDamage,(width/2),painter);
     	

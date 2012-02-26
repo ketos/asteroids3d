@@ -8,13 +8,17 @@ Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
-
+	
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
 	glVector<float> v3(500.0, 0.0, -1000.0);
 	glVector<float> v4(0.0, 0.0, 0.0);
-	addAsteorid(v3,v4);	
+	addAsteorid(v3,v4);
+	
+	//bitte auslagern
+	score = 0;
+		
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
@@ -46,6 +50,9 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	glVector<float> v2 (0,100,0);
 	addMiniAsteorid(tmp,v1);
 	addMiniAsteorid(tmp,v2);
+	
+	//bitte auslagern
+	score+=50;
 }
 
 void Galaxis::mini_astroid_destroyed()
@@ -101,6 +108,13 @@ vector<Asteorid*> Galaxis::getAsteorids()
     return asteorids;
 }
 
+glVector<float> Galaxis::getOneAsteoridPosition()
+{
+      vector<Asteorid*>::iterator asteoridtIt;
+      asteoridtIt = asteorids.begin();
+      return (*asteoridtIt)->getPosition();
+}
+
 void Galaxis::addLevel(string& filename)
 {
 	//ReadXML::readConfig( filename);
@@ -141,4 +155,10 @@ void Galaxis::nextLevel()
     {
     	cout<<"ALLE LEVEL DURCH GESPIELT :)) TOLL!"<<endl;
     }
+}
+
+int Galaxis::getScore()
+{
+	return score;
+		
 }

@@ -241,7 +241,7 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
         if(m_mesh) {
-   	        hins->setFighterData(m_mesh->getDamage(), m_mesh->getScore(), m_mesh->getSpeed());
+   	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
    	        hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(&painter,width(),height(),font());
         }

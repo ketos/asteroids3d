@@ -25,12 +25,18 @@ class Galaxis: public QObject
 			void addMiniAsteorid(glVector<float> v1, glVector<float> v2);
 			void addLevel(string& filename);
 			void nextLevel();
+			glVector<float> getOneAsteoridPosition();
+			int getScore();
+			
     	private:
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
 	     	int level;
 	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
 	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;
+	     	
+	     	//lager mch aus
+	     	int score;
 	     	
 	public slots:
 

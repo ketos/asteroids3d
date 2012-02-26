@@ -24,6 +24,13 @@ class Bullet: public TexturedMesh, public QThread
 {
 
 public:
+	/**
+     * @brief Contructor. Build a seeking bullet on the given Fighter's
+     *                      position.
+     * @param   fighter_position   Position of the fighter that shoots this bullet
+     * @param   fighter_axis   Axis the bullet will move on
+     */
+	 Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, glVector<float> asteorid);
 
     /**
      * @brief Contructor. Build a bullet on the given Fighter's
@@ -67,6 +74,10 @@ private:
 	glVector<float> fighter_axis;
     
     static float b_speed;
+    
+    glVector<float> target;
+    
+    bool seeking;
 };
 
 
