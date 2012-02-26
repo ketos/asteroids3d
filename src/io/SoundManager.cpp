@@ -43,8 +43,10 @@ void SoundManager::stopMenuSound()
 
 void SoundManager::deleteManager()
 {
-    delete fire;
+    /*
     delete background;
     delete explosion;
     delete menu;
+    */
+    
 }
