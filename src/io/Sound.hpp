@@ -14,12 +14,14 @@
 class Sound{
 public:
     Sound(int c, const char *wav);
+    Sound(const char* file);
     ~Sound();
     void playWAV(int loop);
-    void playMP3(const char *mp3);
+    void playMP3();
 private:
     int Channel;
-    Mix_Chunk *music;
+    Mix_Chunk* sound;
+    Mix_Music* music; 
 };
 
 #endif //_SOUND_H

@@ -29,15 +29,16 @@ void SoundManager::playExplosion()
 void SoundManager::playMenuSound()
 {
     if(menu == 0)
-        menu = new Sound(2,"res/sounds/menu.wav");
-    menu->playWAV(-1);
+        menu = new Sound("res/sounds/menu.mp3");
+    menu->playMP3();
     
 }
 
 void SoundManager::stopMenuSound()
 {
-    Mix_ExpireChannel(2,1);
-    delete menu;
+    if(Mix_PlayingMusic())
+        Mix_FadeOutMusic(2000);
+    //delete menu;
 }
 
 void SoundManager::deleteManager()
