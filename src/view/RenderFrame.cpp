@@ -251,10 +251,11 @@ void RenderFrame::paintGL()
             hins->draw(width(),height(),font());
             if(m_coll->getWarning())
             {
+            	SoundManager::playWarningSound();
                 hins->drawWarning();
             }else
             {
-            	
+            	SoundManager::stopWarningSound();
             }  
         }
         if(menu) {
