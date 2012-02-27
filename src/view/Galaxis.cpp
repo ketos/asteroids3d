@@ -19,7 +19,7 @@ Galaxis::Galaxis()
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Asteorid* a = new Asteorid(v1,v2);;
-    Read3DS reader("res/models/asteroid.3ds");
+    Read3DS reader("res/models/asteroid2.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     std::cout << "Neuer Asteorid" << std::endl;
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
