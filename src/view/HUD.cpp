@@ -87,7 +87,7 @@ void HUD::score(int punkte, int breite)
 		
 	}
     pkt = "SCORE : "+pkt;
-    QFont font("Star Jedi Hollow", 20, QFont::Bold);
+    QFont font("Star Jedi Hollow", 16, QFont::Bold);
     painter->setFont(font);
     QString aktuellepunkte = QString::fromStdString(pkt);
     QPoint point = QPoint(breite/2,30);
@@ -110,7 +110,7 @@ void HUD::damages(int schaden, int breite)
     std::ostringstream Str;
     Str << schaden;
     std::string dmg("Schaden:"+Str.str()+"%");
-    QFont font("Star Jedi Hollow", 20, QFont::Bold);
+    QFont font("Star Jedi Hollow", 16, QFont::Bold);
     painter->setFont(font);
     QString leben = QString::fromStdString(dmg);
     QPoint point = QPoint(breite+90,30);
@@ -124,7 +124,7 @@ void HUD::Speed(float speed, int breite)
    std::ostringstream Str;
    Str << speed;
   	std::string spd("Speed:"+Str.str()+"%");
-  	QFont font("Star Jedi Hollow", 20, QFont::Bold);
+  	QFont font("Star Jedi Hollow", 16, QFont::Bold);
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
   	QPoint point = QPoint(0,30);
