@@ -9,11 +9,11 @@
 float Bullet::b_speed = 3;
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, glVector<float> asteroid)
 {
-    target = asteroid;
-	 this->fighter_axis = (fighter_position - target)* - (b_speed);
-	 alive = true;
+   	target = asteroid;
+	this->fighter_axis = (fighter_position - target)* - (b_speed);
+	alive = true;
     // same position as the fighter
-	 m_position = fighter_position;
+ 	m_position = fighter_position;
     SoundManager::playFireSound();
     seeking = true;
 	
