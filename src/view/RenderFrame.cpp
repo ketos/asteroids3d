@@ -245,8 +245,9 @@ void RenderFrame::paintGL()
    	        hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(&painter,width(),height(),font());
         }
-        if(menu)
+        if(menu) {
             Menu::drawSplash(width(),height(),&painter);
+        }
         painter.end();
         glPopMatrix();
         glPopAttrib();
@@ -262,6 +263,13 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     //keyboard->keypressed(event);
 	// State of key is pressed
 	m_pressedKeys.insert(event->key());
+
+    if(menu) {
+        if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
+        {   
+            loadModel("res/models/bearcat.3ds");
+        }
+    }
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
@@ -272,8 +280,7 @@ void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 } 
 
 void RenderFrame::moveCurrentMesh()
-{
-
+{    
     if(m_mesh)
     {
     	// Controller for moving and rotation
