@@ -48,7 +48,7 @@ public:
     /**
      * @brief kills a bullet
      */
-        void kill();
+     void kill();
     /**
       * @brief returns position
       */

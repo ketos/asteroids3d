@@ -8,8 +8,7 @@ Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
-	
-   	glVector<float> v1(0.0, 0.0, -1000.0);
+   	glVector<float> v1(0.0, 0.0, -2000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
 	score = 0;
@@ -21,7 +20,6 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
     Asteorid* a = new Asteorid(v1,v2);;
     Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
-    std::cout << "Neuer Asteorid" << std::endl;
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
     a->start(); 
     asteorids.push_back( a );
