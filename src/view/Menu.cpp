@@ -3,12 +3,9 @@
 HUD* Menu::hins = 0;
 bool sound = false;
 
-void Menu::drawSplash(int width, int height, QPainter* p)
+void Menu::drawSplash(int width, int height, HUD* h)
 {    
-    if(hins == 0)
-        hins = new HUD();
-        
-    hins->drawSplash(width, height, p);
+    h->drawSplash(width, height);
     if(!sound)
     {
         SoundManager::playMenuSound();
