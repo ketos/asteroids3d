@@ -4,6 +4,7 @@ Sound* SoundManager::fire = 0;
 Sound* SoundManager::explosion = 0;
 Sound* SoundManager::menu = 0;
 Sound* SoundManager::battle = 0;
+Sound* SoundManager::warning = 0;
 
 void SoundManager::playFireSound()
 {
@@ -45,6 +46,19 @@ void SoundManager::stopBattleMusic()
         battle->stopMP3();
 }
 
+void SoundManager::playWarningSound()
+{
+    if(warning == 0)
+        warning = new Sound(2,"res/sounds/warning.wav");
+    warning->playWAV(-1);
+}
+
+void SoundManager::stopWarningSound()
+{
+     if(warning != 0)
+        warning->stopWAV();
+}
+
 void SoundManager::deleteManager()
 {
     if(explosion)
@@ -54,5 +68,7 @@ void SoundManager::deleteManager()
     if(fire)
         delete fire;
     if(battle)
-        delete battle;  
+        delete battle;
+    if(warning)
+        delete warning;
 }

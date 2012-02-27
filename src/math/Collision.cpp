@@ -7,6 +7,7 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
         m_craft = schiff;
         m_galax = Milchstrasse;
         m_running = true;
+        warning = false;
 }
 
 void Collision::run()
@@ -25,7 +26,7 @@ void Collision::run()
         vector<Asteorid*>::iterator asteoridtIt;
         asteoridtIt = m_asteorids.begin();
 		
-
+			warning = false;
 
        	while(asteoridtIt != m_asteorids.end())
         {
@@ -52,6 +53,10 @@ void Collision::run()
 				(*asteoridtIt)->changeDirection();
 				(*asteoridtIt)->destroy();
 				sleep(1);
+			}
+			if(diffFight <= 2000)
+			{
+				warning = true;
 			}
 			
 			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
@@ -107,4 +112,9 @@ void Collision::stop()
 bool Collision::isRunning()
 {
         return m_running;
+}
+
+bool Collision::getWarning()
+{
+	return warning;	
 }

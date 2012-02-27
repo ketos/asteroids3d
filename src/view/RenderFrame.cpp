@@ -27,6 +27,7 @@ float RenderFrame::deadzone = 7000;
 float RenderFrame::maxjoy = 32000;
 float RenderFrame::shootTime = 750;
 bool menu = false; 
+bool warning_sound = false;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -50,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    hins = 0;
+    
     show();
     
     menu = true;
@@ -102,7 +103,7 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-	std::string filenamer = "res/config/config.xml";
+	std::string filenamer = "config.xml";
 	galaxis->addLevel( filenamer );
 	
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
@@ -237,18 +238,32 @@ void RenderFrame::paintGL()
 		galaxis->render();
 	}
     
-    glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
-    glPushAttrib(GL_ALL_ATTRIB_BITS);
-    glLoadIdentity();
-    QPainter painter(this);
-    if(hins)
-        delete hins;
-    hins = new HUD(&painter);
-    if(m_mesh) {
-   		hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
-   	  	hins->setAstroidsVector(m_coll->getCollisionVector());
-        hins->draw(width(),height(),font());
+        glMatrixMode(GL_PROJECTION);
+        glPushMatrix();
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glLoadIdentity();
+        QPainter painter(this);
+        hins = new HUD(&painter);
+        if(m_mesh) {
+             
+              		
+   	      hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
+   	      hins->setAstroidsVector(m_coll->getCollisionVector());
+            hins->draw(width(),height(),font());
+            if(m_coll->getWarning())
+            {
+                if(!warning_sound)
+                {
+            	   SoundManager::playWarningSound();
+            	   warning_sound = true;
+            	}
+                hins->drawWarning();
+                
+            }else
+            {
+                warning_sound = false;
+            	SoundManager::stopWarningSound();
+            }  
         }
         if(menu) {
             Menu::drawSplash(width(),height(), hins);
@@ -350,6 +365,7 @@ void RenderFrame::moveCurrentMesh()
         {
             m_cam.changeheight(-5);
         }
+        //nicht löschen
         if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
         {
             m_cam.setEgo();
@@ -463,3 +479,4 @@ HUD* RenderFrame::getHUD()
 {
     return hins;
 }
+

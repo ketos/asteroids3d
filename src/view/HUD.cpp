@@ -7,10 +7,14 @@ HUD::HUD(QPainter *paint)
 	fighterScore = 0;
 	durchmesser = 150;
 	abstand = 10;
-	painter = paint;	
+	painter = paint;
+	breite = 0;
+	hoehe = 0; 	
 }
 void HUD::draw(int width, int height, QFont f)
 {    
+		  breite = width;
+		  hoehe = height;
         radmidx = width/2;
         radmidy = height - (durchmesser/2) - abstand;
         
@@ -20,6 +24,7 @@ void HUD::draw(int width, int height, QFont f)
         score(fighterScore,width/2);
         Speed(fighterSpeed,0);
         damages(fighterDamage,(width/2));
+
     	
     	if(!collvec.empty())
         while(itervec != collvec.end())
@@ -115,15 +120,15 @@ void HUD::damages(int schaden, int breite)
 
 void HUD::Speed(float speed, int breite)
 {
-    painter->setPen(QColor(255,255,255,255));
-    std::ostringstream Str;
-    Str << speed;
+   painter->setPen(QColor(255,255,255,255));
+   std::ostringstream Str;
+   Str << speed;
   	std::string spd("Speed:"+Str.str()+"%");
   	QFont font("Helvetica", 20, QFont::Bold);
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
   	QPoint point = QPoint(0,30);
-  	painter->drawText(point,qspeed);	
+  	painter->drawText(point,qspeed);
 }
 
 
@@ -157,3 +162,13 @@ void HUD::drawRadar(int width, int height)
    myImage.load("res/images/ss.png");
    painter->drawImage(point, myImage);	
 }
+void HUD::drawWarning()
+{
+	QImage myImage = QImage("res/images/warning.png");
+   myImage.load("res/images/warning.png");
+   
+	QPoint point = QPoint(abstand,hoehe - (myImage.height() + abstand) );
+
+   painter->drawImage(point, myImage);
+}
+
