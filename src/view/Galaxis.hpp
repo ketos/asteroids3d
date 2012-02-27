@@ -31,11 +31,13 @@ class Galaxis: public QObject
 			void nextLevel();
 			glVector<float> getOneAsteoridPosition();
 			int getScore();
-			
+			bool shouldIncLevel();
+			int getLevelnumber();
     	private:
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
 	     	int level;
+	     	bool paintLevel;
 	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
 	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;
 	     	

@@ -1,20 +1,22 @@
 #include "view/HUD.hpp"
 
-HUD::HUD(QPainter *paint, QPainter *paint2)
+HUD::HUD(QPainter *paint)
 {
 	fighterDamage = 0;
-	fighterSpeed = 0;
-	fighterScore = 0;
-	durchmesser = 150;
-	abstand = 10;
-	painter  = paint;	
-	painter2 = paint2;
+	fighterSpeed  = 0;
+	fighterScore  = 0;
+	durchmesser   = 150;
+	abstand       = 10;
+	painter       = paint;
+	paintLevel    = false;
 }
 void HUD::draw(int width, int height, QFont f)
 {    
         radmidx = width/2;
         radmidy = height - (durchmesser/2) - abstand;
         
+        if (paintLevel)
+        	drawLevelEnd();
 	    std::vector<glVector<float>* >::iterator itervec;
         itervec = collvec.begin();
         drawRadar(width,height);
@@ -158,29 +160,41 @@ void HUD::drawRadar(int width, int height)
    painter->drawImage(point, myImage);	
 }
 
-void HUD::drawLevelEnd(int actLevel)
+void HUD::drawLevelEnd()
 {
+	std::cout << "Tim hat mist gemacht, auf henning :D" << levelNumber << std::endl;
 	
 	for(int i = 0 ; i < 10; i++)
 	{
 		std::cout << "ausgabe 1" << std::endl;
-		painter2->setPen(QColor(255,255,0,255));
+		painter->setPen(QColor(255,255,0,255));
 		std::cout << "ausgabe 2" << std::endl;
 	    std::ostringstream Str;
 		
-	    Str << actLevel;
+	    Str << levelNumber;
 			std::cout << "hier" << std::endl;
 	    QImage myImage = QImage("res/images/splash.png");
 	    myImage.load("res/images/splash.png");
 	    QPoint point = QPoint(100/2 - myImage.width()/2,100/2 - myImage.height()/2);
-	    painter2->drawImage(point, myImage);
+	    painter->drawImage(point, myImage);
 	  	std::string spd("Level: " + Str.str());
 	  	QFont font("Helvetica", 20, QFont::Bold);
-	  	painter2->setFont(font);
+	  	painter->setFont(font);
 	  	QString qspeed = QString::fromStdString(spd);
 	  	QPoint point2 = QPoint(100.0/2, 100.0/2);
-	  	painter2->drawText(point2,qspeed);
+	  	painter->drawText(point2,qspeed);
 
 	  	sleep(100);
 	}
+	
+}
+
+void HUD::setIncLevel(bool shouldIPaint)
+{
+	paintLevel = shouldIPaint;
+}
+
+void HUD::setLevel(int levelnumber)
+{
+	levelNumber = levelnumber;
 }

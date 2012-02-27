@@ -242,10 +242,10 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-        QPainter painter2(this);
-        hins = new HUD(&painter, &painter2);
+        hins = new HUD(&painter);
         if(m_mesh) {
-            
+        	hins->setLevel(galaxis->getLevelnumber());
+            hins->setIncLevel(galaxis->shouldIncLevel());
    	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
    	        hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
@@ -254,7 +254,6 @@ void RenderFrame::paintGL()
             Menu::drawSplash(width(),height(), hins);
         }
         painter.end();
-        painter2.end();
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);   

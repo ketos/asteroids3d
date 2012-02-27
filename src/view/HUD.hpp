@@ -21,7 +21,7 @@ public:
   /**
   	*@brief Defualt Constructor
   	*/
-  	HUD(QPainter *paint, QPainter *paint2);
+  	HUD(QPainter *paint);
 
   /**
    * @brief Draws the HUD
@@ -101,7 +101,11 @@ public:
 	 *@param hoehe width of the windows
 	 *@param actLevel actual level
 	 */
-	 void drawLevelEnd(int actLevel);
+	 void drawLevelEnd();
+	 
+	 void setIncLevel(bool shouldIPaint);
+	 
+	 void setLevel(int levelnumber) ;
 	 
 private:
     //HUD(const HUD&);
@@ -110,10 +114,11 @@ private:
     /*used QPainter*/
 
     QPainter *painter;
-    QPainter *painter2; 
-    float fighterSpeed;
-    int fighterDamage;
-    int fighterScore;
+    bool     paintLevel;
+    float    fighterSpeed;
+    int      levelNumber;
+    int      fighterDamage;
+    int      fighterScore;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
     

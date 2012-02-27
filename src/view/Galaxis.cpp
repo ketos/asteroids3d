@@ -4,12 +4,13 @@ Galaxis::Galaxis(HUD* hud)
 {
     // create vector for Asteroids
 	level = 0;
-	display = hud;
+	display    = hud;
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
 	//bitte auslagern
-	score = 0;
+	score      = 0;
+	paintLevel = false;
 		
 }
 
@@ -142,7 +143,7 @@ void Galaxis::nextLevel()
     	}
     	//level erhöhen
     	level++;
-    	display->drawLevelEnd(level);
+    	paintLevel = true;
     }
     else
     {
@@ -152,6 +153,19 @@ void Galaxis::nextLevel()
 
 int Galaxis::getScore()
 {
-	return score;
-		
+	return score;	
+}
+bool Galaxis::shouldIncLevel()
+{
+	if (paintLevel)
+	{
+		paintLevel = false;
+		return true;
+	}
+	return false;
+}
+
+int Galaxis::getLevelnumber()
+{
+	return level;	
 }
