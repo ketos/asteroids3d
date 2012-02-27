@@ -9,28 +9,29 @@ HUD::HUD(QPainter *paint)
 	abstand       = 10;
 	painter       = paint;
 	paintLevel    = false;
-	/*
-	m_timer = new QTimer( this );
-    m_timer->setInterval(2000);
-    m_timer->start();
-    */
+	breite 		  = 0;
+	hoehe 		  = 0; 	
+
 }
 void HUD::draw(int width, int height, QFont f)
 {    
-        radmidx = width/2;
-        radmidy = height - (durchmesser/2) - abstand;
+	breite = width;
+	hoehe = height;
+    radmidx = width/2;
+    radmidy = height - (durchmesser/2) - abstand;
         
-        if (paintLevel)
-        	drawLevelEnd();
-	    std::vector<glVector<float>* >::iterator itervec;
-        itervec = collvec.begin();
-        drawRadar(width,height);
-        score(fighterScore,width/2);
-        Speed(fighterSpeed,0);
-        damages(fighterDamage,(width/2));
+    if (paintLevel)
+      	drawLevelEnd();
+	std::vector<glVector<float>* >::iterator itervec;
+    itervec = collvec.begin();
+    drawRadar(width,height);
+    score(fighterScore,width/2);
+    Speed(fighterSpeed,0);
+    damages(fighterDamage,(width/2));
+
     	
-    	if(!collvec.empty())
-        while(itervec != collvec.end())
+    if(!collvec.empty())
+    	while(itervec != collvec.end())
         {
             drawRadarAstroid(*itervec, 15000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
             itervec++;
@@ -123,15 +124,15 @@ void HUD::damages(int schaden, int breite)
 
 void HUD::Speed(float speed, int breite)
 {
-    painter->setPen(QColor(255,255,255,255));
-    std::ostringstream Str;
-    Str << speed;
+   painter->setPen(QColor(255,255,255,255));
+   std::ostringstream Str;
+   Str << speed;
   	std::string spd("Speed:"+Str.str()+"%");
   	QFont font("Helvetica", 20, QFont::Bold);
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
   	QPoint point = QPoint(0,30);
-  	painter->drawText(point,qspeed);	
+  	painter->drawText(point,qspeed);
 }
 
 
@@ -166,24 +167,23 @@ void HUD::drawRadar(int width, int height)
    painter->drawImage(point, myImage);	
 }
 
+
 void HUD::drawLevelEnd()
-{
-	std::cout << "Tim hat mist gemacht, auf henning :D" << levelNumber << std::endl;
-	
+{	
 	painter->setPen(QColor(255,255,0,255));
     std::ostringstream Str;
 	
     Str << levelNumber;
     QImage myImage = QImage("res/images/splash.png");
     myImage.load("res/images/splash.png");
-    QPoint point = QPoint(100/2 - myImage.width()/2,100/2 - myImage.height()/2);
+    QPoint point = QPoint(breite/2 - myImage.width()/2, hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
     
   	std::string spd("Level: " + Str.str());
-  	QFont font("Helvetica", 20, QFont::Bold);
+  	QFont font("Helvetica", 40, QFont::Bold);
   	painter->setFont(font);
   	QString qspeed = QString::fromStdString(spd);
-  	QPoint point2 = QPoint(100.0/2, 100.0/2);
+  	QPoint point2 = QPoint(breite / 2 - 100, hoehe/8);
     painter->drawText(point2,qspeed);
 
 	
@@ -193,13 +193,19 @@ void HUD::setIncLevel(bool shouldIPaint)
 {
 	paintLevel = shouldIPaint;
 }
-void HUD::stopLevelPaint()
-{
-	std::cout << "blabliblub" << std::endl;
-	paintLevel = false;
-}
 
 void HUD::setLevel(int levelnumber)
 {
 	levelNumber = levelnumber;
 }
+
+void HUD::drawWarning()
+{
+	QImage myImage = QImage("res/images/warning.png");
+   myImage.load("res/images/warning.png");
+   
+	QPoint point = QPoint(abstand,hoehe - (myImage.height() + abstand) );
+
+   painter->drawImage(point, myImage);
+}
+

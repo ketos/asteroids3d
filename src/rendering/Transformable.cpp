@@ -33,6 +33,7 @@ void Transformable::rotate(int axis, float s)
 {
 
     Quaternion<float> nq;
+    glVector<float> x, y, z;
 
     // Get the wanted operation and calculate the new coordinates
     switch(axis)

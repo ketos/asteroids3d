@@ -96,7 +96,7 @@ public:
 	 */
 	 void drawRadar(int width, int height);
 	 
-	 /**
+	/**
 	 *@brief draws current level
 	 *@param breite height of the windows
 	 *@param hoehe width of the windows
@@ -107,9 +107,11 @@ public:
 	 void setIncLevel(bool shouldIPaint);
 	 
 	 void setLevel(int levelnumber) ;
-	 
-private slots:	 
-	 void stopLevelPaint();
+	
+	/**
+	 *@draws a Warning
+	 */
+	 void drawWarning();	 
 	 
 private:
     //HUD(const HUD&);
@@ -128,8 +130,10 @@ private:
     
  	int durchmesser;
 	int abstand;     
-    int radmidx;
-    int radmidy; 
+   int radmidx;
+   int radmidy;
+   int breite;
+   int hoehe; 
 };
 
 #endif //_HUD_H

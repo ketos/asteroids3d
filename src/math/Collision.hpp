@@ -47,10 +47,15 @@ class Collision : public QThread
             void stop();
 	    /**
 	     * @brief returns the vector containing the nearest astroids
-             * @return vector containing the nearest astroids
+        * @return vector containing the nearest astroids
 	     */
 	    vector<glVector<float>*> getCollisionVector();
-
+	    
+	    /**
+	     *@brief return true if a Astroid is closer than 300
+	     *
+	     */
+		 bool getWarning();
         private:
             //fighter
                 Fighter* m_craft;
@@ -64,7 +69,9 @@ class Collision : public QThread
                 bool m_running;
             //Vector for radar
 	        vector<glVector<float>*> radar;
-            //HUD
+            //Warning
+            bool warning;
+            
 };
 
 #endif

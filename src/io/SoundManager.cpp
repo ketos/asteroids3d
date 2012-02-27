@@ -1,23 +1,16 @@
 #include "io/SoundManager.hpp"
 
 Sound* SoundManager::fire = 0;
-Sound* SoundManager::background = 0;
 Sound* SoundManager::explosion = 0;
 Sound* SoundManager::menu = 0;
 Sound* SoundManager::battle = 0;
+Sound* SoundManager::warning = 0;
 
 void SoundManager::playFireSound()
 {
     if(fire == 0)
         fire = new Sound(1,"res/sounds/fire.wav");
     fire->playWAV(0); 
-}
-
-void SoundManager::playBackground()
-{
-    if(background == 0)
-        background = new Sound(2,"res/sounds/bg.wav");
-    background->playWAV(-1); 
 }
 
 void SoundManager::playExplosion()
@@ -53,12 +46,29 @@ void SoundManager::stopBattleMusic()
         battle->stopMP3();
 }
 
+void SoundManager::playWarningSound()
+{
+    if(warning == 0)
+        warning = new Sound(2,"res/sounds/warning.wav");
+    warning->playWAV(-1);
+}
+
+void SoundManager::stopWarningSound()
+{
+     if(warning != 0)
+        warning->stopWAV();
+}
+
 void SoundManager::deleteManager()
 {
-    /*
-    delete background;
-    delete explosion;
-    delete menu;
-    */
-    
+    if(explosion)
+        delete explosion;
+    if(menu)
+        delete menu;
+    if(fire)
+        delete fire;
+    if(battle)
+        delete battle;
+    if(warning)
+        delete warning;
 }

@@ -1,9 +1,17 @@
 #include "Galaxis.hpp"
 
+#include "io/Read3DS.hpp"
+#include <stdio.h>
+#include "math/glVector.hpp"
+#include <typeinfo>
+#include <stdlib.h>
+#include "io/ReadXML.hpp"
+
 Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
+
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
@@ -16,9 +24,8 @@ Galaxis::Galaxis()
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
     Asteorid* a = new Asteorid(v1,v2);;
-    Read3DS reader("res/models/asteroid.3ds");
+    Read3DS reader("res/models/asteroid2.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
-    std::cout << "Neuer Asteorid" << std::endl;
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
     a->start();
     asteorids.push_back( a );
@@ -38,10 +45,12 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
 void Galaxis::big_astroid_destroyed(float x, float y, float z)
 {
 	glVector<float> tmp (x,y,z);
-	glVector<float> v1 (100,0,0);
-	glVector<float> v2 (0,100,0);
+	glVector<float> v1 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
+	glVector<float> v2 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
+	glVector<float> v3 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
 	addMiniAsteorid(tmp,v1);
-	addMiniAsteorid(tmp,v2);
+	addMiniAsteorid(tmp, v2);
+	addMiniAsteorid(tmp, v3);
 	score+=50;
 }
 
@@ -157,9 +166,9 @@ bool Galaxis::shouldIncLevel()
 {
 	if (paintLevel)
 	{
-			return true;			
+			return true;
 	}
-	if (paintLevelcount < 10000)
+	if (paintLevelcount < 10)
 	{
 			paintLevel = true;
 			paintLevelcount++;

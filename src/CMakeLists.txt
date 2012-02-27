@@ -26,8 +26,8 @@ link_directories("${CMAKE_SOURCE_DIR}/lib")
 # special optimization flags
 ###############################################################################
 
-set( CMAKE_CXX_FLAGS         "-O3 -Wall -g" )
-set( CMAKE_CXX_FLAGS_RELEASE "-O3 -msse3 -Wno-deprecated-declarations -Wno-unused -Wcpp" )
+set( CMAKE_CXX_FLAGS         "-Wall -g" )
+set( CMAKE_CXX_FLAGS_RELEASE "-msse3 -Wno-deprecated-declarations -Wno-unused -Wcpp" )
 set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall" )
 
 ###############################################################################
