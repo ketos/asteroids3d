@@ -26,6 +26,7 @@ public:
     glVector<float> getPosition();
     glVector<float> getFront();
     glVector<float> getUp();
+    glVector<float> getSide();
     glVector<float> getxAxis();
     glVector<float> getyAxis();
     glVector<float> getzAxis();
