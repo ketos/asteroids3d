@@ -244,10 +244,13 @@ void RenderFrame::paintGL()
         QPainter painter(this);
         hins = new HUD(&painter);
         if(m_mesh) {
-            
-   	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
-   	        hins->setAstroidsVector(m_coll->getCollisionVector());
+             
+              		
+   	      hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
+   	      hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
+            if(m_coll->getWarning())
+                hins->drawWarning();
         }
         if(menu) {
             Menu::drawSplash(width(),height(), hins);
