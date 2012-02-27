@@ -41,6 +41,8 @@ public:
     */
     void playMP3();
     
+    void stopMP3();
+    
 private:
     /*
     *   The Audio-Channel
