@@ -22,10 +22,10 @@
 
 Camera RenderFrame::m_cam;
 float RenderFrame::f_speed = 100;
-float RenderFrame::f_angle = 0.05;
-float RenderFrame::deadzone=7000;
-float RenderFrame::maxjoy=32000;
-float RenderFrame::shootTime=750;
+float RenderFrame::f_angle = 0.025;
+float RenderFrame::deadzone = 7000;
+float RenderFrame::maxjoy = 32000;
+float RenderFrame::shootTime = 750;
 bool menu = false; 
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
@@ -272,7 +272,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     if(menu) {
         if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
         {   
-            loadModel("res/models/bearcat.3ds");
+            const char* s = "res/models/bearcat.3ds";
+            loadModel(s);
             SoundManager::playBattleMusic();
         }
     }

@@ -15,9 +15,17 @@ Sound::Sound(const char* file)
 Sound::~Sound() 
 {
     if(music != 0)
-        delete music;
+    {
+        Mix_FreeMusic(music);
+        music = NULL;
+        //delete music;
+    }
     if(sound != 0)
-        delete sound;
+    {
+        Mix_FreeChunk(sound);
+        sound = NULL;
+        //delete sound;
+    }
 }
 
 void Sound::playWAV(int loop)

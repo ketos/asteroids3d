@@ -41,6 +41,9 @@ public:
     */
     void playMP3();
     
+    /*
+    *   Stops the mp3-file.
+    */
     void stopMP3();
     
 private:
