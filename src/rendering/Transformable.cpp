@@ -33,14 +33,17 @@ void Transformable::rotate(int axis, float s)
 {
 
     Quaternion<float> nq;
+    glVector<float> x, y, z;
 
     // Get the wanted operation and calculate the new coordinates
     switch(axis)
     {
     case PITCH: // up-down
         nq.fromAxis(m_yAxis, s);
+        move(LIFT, TEMP);
         m_xAxis = nq * m_xAxis;
         m_zAxis = nq * m_zAxis;
+        move(LIFT, -TEMP);
         break;
 
     case YAW: // left-right
