@@ -357,7 +357,16 @@ void RenderFrame::moveCurrentMesh()
         if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
         {
             m_cam.changeheight(-5);
-        }    
+        }
+        //nicht löschen
+        if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
+        {
+            m_cam.setEgo();
+        }
+        if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
+        {
+            m_cam.setThird();
+        }
         if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
         {
             loadModel("res/models/bearcat.3ds");
@@ -404,9 +413,10 @@ void RenderFrame::control() {
     if(joys->getButton(1) > 0) { //B
     }
     if(joys->getButton(2) > 0) { //X
+        m_cam.setEgo();
     }
     if(joys->getButton(3) > 0) { //Y
-        m_cam.setDefault();
+        m_cam.setThird();
     }
     if(joys->getButton(4) > 0) { //LB
         m_cam.changeheight(5);
