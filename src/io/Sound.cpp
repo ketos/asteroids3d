@@ -14,7 +14,10 @@ Sound::Sound(const char* file)
 
 Sound::~Sound() 
 {
-    delete music;
+    if(music != 0)
+        delete music;
+    if(sound != 0)
+        delete sound;
 }
 
 void Sound::playWAV(int loop)
@@ -26,5 +29,11 @@ void Sound::playWAV(int loop)
 void Sound::playMP3(){
     //Mix_VolumeMusic(100);
     if(music != 0)
-        Mix_PlayMusic(music,-1);
+        Mix_FadeInMusic(music,-1,100);
+}
+
+void Sound::stopMP3()
+{
+    if(Mix_PlayingMusic())
+        Mix_FadeOutMusic(2000);
 }

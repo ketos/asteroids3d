@@ -8,7 +8,7 @@
 class Menu {
     
     public:
-        static void drawSplash(int width, int height, QPainter* p);
+        static void drawSplash(int width, int height, HUD* h);
         static void deleteSplash();
         static void drawMenu();
         

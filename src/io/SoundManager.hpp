@@ -11,7 +11,9 @@ class SoundManager {
     static void playExplosion();
     static void playMenuSound();
     static void stopMenuSound();
-    
+    static void playBattleMusic();
+    static void stopBattleMusic();
+
     /*
     * Deletes all Mediafiles
     */
@@ -22,6 +24,7 @@ class SoundManager {
     static Sound* background;
     static Sound* explosion;
     static Sound* menu;
+    static Sound* battle;
 
 };
 

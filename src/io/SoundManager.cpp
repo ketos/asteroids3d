@@ -4,6 +4,7 @@ Sound* SoundManager::fire = 0;
 Sound* SoundManager::background = 0;
 Sound* SoundManager::explosion = 0;
 Sound* SoundManager::menu = 0;
+Sound* SoundManager::battle = 0;
 
 void SoundManager::playFireSound()
 {
@@ -31,14 +32,25 @@ void SoundManager::playMenuSound()
     if(menu == 0)
         menu = new Sound("res/sounds/menu.mp3");
     menu->playMP3();
-    
 }
 
 void SoundManager::stopMenuSound()
 {
-    if(Mix_PlayingMusic())
-        Mix_FadeOutMusic(2000);
-    //delete menu;
+    if(menu != 0)
+        menu->stopMP3();
+}
+
+void SoundManager::playBattleMusic()
+{
+    if(battle == 0)
+        battle = new Sound("res/sounds/battle.mp3");
+    battle->playMP3();
+}
+
+void SoundManager::stopBattleMusic()
+{
+    if(battle != 0)
+        battle->stopMP3();
 }
 
 void SoundManager::deleteManager()
