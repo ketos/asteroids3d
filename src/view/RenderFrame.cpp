@@ -102,7 +102,7 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-	std::string filenamer = "res/config/config.xml";
+	std::string filenamer = "config.xml";
 	galaxis->addLevel( filenamer );
 	
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
@@ -244,10 +244,18 @@ void RenderFrame::paintGL()
         QPainter painter(this);
         hins = new HUD(&painter);
         if(m_mesh) {
-            
-   	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
-   	        hins->setAstroidsVector(m_coll->getCollisionVector());
+             
+              		
+   	      hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
+   	      hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
+            if(m_coll->getWarning())
+            {
+                hins->drawWarning();
+            }else
+            {
+            	
+            }  
         }
         if(menu) {
             Menu::drawSplash(width(),height(), hins);
@@ -463,3 +471,4 @@ HUD* RenderFrame::getHUD()
 {
     return hins;
 }
+

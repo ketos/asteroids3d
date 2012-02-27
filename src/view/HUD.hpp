@@ -94,6 +94,12 @@ public:
 	 *@param hoehe width of the windows
 	 */
 	 void drawRadar(int width, int height);
+	 
+	 /**
+	 *@draws a Warning
+	 */
+	 void drawWarning();
+
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -110,8 +116,10 @@ private:
     
  	int durchmesser;
 	int abstand;     
-    int radmidx;
-    int radmidy; 
+   int radmidx;
+   int radmidy;
+   int breite;
+   int hoehe; 
 };
 
 #endif //_HUD_H
