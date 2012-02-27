@@ -45,6 +45,7 @@ void Collision::run()
 			{
 				m_craft->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
+				
 				(*asteoridtIt)->destroy();
 				sleep(1);
 			}

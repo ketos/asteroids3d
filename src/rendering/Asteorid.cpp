@@ -54,3 +54,8 @@ glVector<float> Asteorid::getFlightAxis()
 {
     return flight_axis;
 }
+
+void Asteorid::set_flight_axis(glVector<float> new_axis)
+{
+	flight_axis = new_axis;
+}
