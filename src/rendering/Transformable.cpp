@@ -40,18 +40,14 @@ void Transformable::rotate(int axis, float s)
     {
     case PITCH: // up-down
         nq.fromAxis(m_yAxis, s);
-        move(LIFT, TEMP);
         m_xAxis = nq * m_xAxis;
         m_zAxis = nq * m_zAxis;
-        move(LIFT, -TEMP);
         break;
 
     case YAW: // left-right
         nq.fromAxis(m_xAxis, s);
-        move(LIFT, TEMP);
         m_yAxis = nq * m_yAxis;
         m_zAxis = nq * m_zAxis;
-        move(LIFT, TEMP);
         break;
 
     case ROLL: // rollen
