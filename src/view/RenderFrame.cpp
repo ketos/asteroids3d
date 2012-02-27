@@ -27,6 +27,7 @@ float RenderFrame::deadzone = 7000;
 float RenderFrame::maxjoy = 32000;
 float RenderFrame::shootTime = 750;
 bool menu = false; 
+bool warning_sound = false;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 {
@@ -251,10 +252,16 @@ void RenderFrame::paintGL()
             hins->draw(width(),height(),font());
             if(m_coll->getWarning())
             {
-            	SoundManager::playWarningSound();
+                if(!warning_sound)
+                {
+            	   SoundManager::playWarningSound();
+            	   warning_sound = true;
+            	}
                 hins->drawWarning();
+                
             }else
             {
+                warning_sound = false;
             	SoundManager::stopWarningSound();
             }  
         }
