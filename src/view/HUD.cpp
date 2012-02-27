@@ -23,7 +23,7 @@ void HUD::draw(int width, int height, QFont f)
     	
         while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 15000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
+            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
             itervec++;
         }
      
@@ -42,9 +42,9 @@ void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser
         int y = tmp.y;
         int z = tmp.z;
 
-        if(!tmp.y == 0)
-            painter->drawLine(radarmidx+z,radarmidy+(x),radarmidx+z,radarmidy+(-x)+y);
-        painter->drawEllipse(radarmidx+z-(p/2), radarmidy-x+y-(p/2),p,p);
+        if(tmp.z != 0)
+            painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
+        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
 }
 
 void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)

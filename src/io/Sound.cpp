@@ -35,5 +35,5 @@ void Sound::playMP3(){
 void Sound::stopMP3()
 {
     if(Mix_PlayingMusic())
-        Mix_FadeOutMusic(2000);
+        Mix_FadeOutMusic(1500);
 }
