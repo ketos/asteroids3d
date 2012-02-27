@@ -43,6 +43,15 @@ void Collision::run()
 				//(*asteoridtIt)->changeDirection();
 			}
 			
+			// Das Schiff wird getroffen
+			if(diffFightX <= 100 && diffFightY <= 100 && diffFightZ <= 100)
+			{
+				std::cout << "Das Schiff nimmt Schaden" << std::endl;
+				m_craft->increaseDamage(10);
+				(*asteoridtIt)->changeDirection();
+				sleep(1);
+			}
+			
 			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
 			if(diffFight < 5000)
 			{

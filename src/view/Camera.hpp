@@ -122,13 +122,17 @@ public:
 	 */
 	void apply();
 
-    void setLocation(glVector<float> pos, glVector<float> front, glVector<float> side);
+    void setLocation(glVector<float> pos, glVector<float> front, glVector<float> up, glVector<float> side);
 
 	void applyRotationOnly();
     
     void zoom(float change);
 
     void changeheight(float change);
+    
+    void changeside(float change);
+    
+    void setDefault();
 
 public:
 
@@ -144,6 +148,8 @@ public:
     glVector<float> up;
     
     glVector<float> front;
+    
+    glVector<float> side;
 
 	/**
 	 * @brief The current speed
@@ -217,6 +223,7 @@ public:
     
     float above;
     float behind;
+    float beside;
 };
 
 #endif

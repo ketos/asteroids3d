@@ -198,7 +198,8 @@ void RenderFrame::setCam() {
     glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
     glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
     glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
-    m_cam.setLocation(pos, front, up);
+    glVector<float> side =(*(static_cast<Transformable*>(m_mesh))).getSide();
+    m_cam.setLocation(pos, front, up, side);
     }
 }
 void RenderFrame::paintGL()
@@ -313,11 +314,13 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
             m_mesh->rotate(YAW,  f_angle);
+            m_mesh->rotate(ROLL ,f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
             m_mesh->rotate(YAW, -f_angle);
+            m_mesh->rotate(ROLL ,-f_angle);
     	}
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
@@ -353,25 +356,33 @@ void RenderFrame::moveCurrentMesh()
 }
 
 void RenderFrame::control() {
+    if(m_mesh) {
     if(joys->getAxis(0) <-deadzone || joys->getAxis(0) > deadzone ) { // joystick links links-rechts
         float angle = joys->getAxis(0) / maxjoy * f_angle;        
         m_mesh->rotate(YAW,  -angle);
+        m_mesh->rotate(ROLL, -angle);
     }
     if(joys->getAxis(1) <-deadzone || joys->getAxis(1) > deadzone ) { // joystick links up-down
         float angle = joys->getAxis(1) / maxjoy * f_angle;
         m_mesh->rotate(PITCH,  angle);
     }
     if(joys->getAxis(2) > deadzone) { // schulter links
-        (static_cast<Fighter*>(m_mesh))->changeSpeed(10);
+        (static_cast<Fighter*>(m_mesh))->changeSpeed(1);
     }
     if(joys->getAxis(5) > deadzone) { // schulter rechts
-        (static_cast<Fighter*>(m_mesh))->changeSpeed(-10);
+        (static_cast<Fighter*>(m_mesh))->changeSpeed(-1);
     }
     if(joys->getAxis(4) <-4*deadzone) { // joystick rechts up-down
         m_cam.zoom(-15);
     }
     if(joys->getAxis(4) > 4*deadzone) {
         m_cam.zoom(15);
+    }
+    if(joys->getAxis(3) <-4*deadzone) { // joystick rechts links-rechts
+        m_cam.changeside(-15);
+    }
+    if(joys->getAxis(3) > 4*deadzone) {
+        m_cam.changeside(15);
     }
     if(joys->getButton(0) > 0) { //A
         if(shoot) {
@@ -385,6 +396,7 @@ void RenderFrame::control() {
     if(joys->getButton(2) > 0) { //X
     }
     if(joys->getButton(3) > 0) { //Y
+        m_cam.setDefault();
     }
     if(joys->getButton(4) > 0) { //LB
         m_cam.changeheight(5);
@@ -421,6 +433,7 @@ void RenderFrame::control() {
     if(joys->getButton(14) > 0) {//DpadDown
     }
     if(joys->getButton(15) > 0) {//None
+    }
     }
 }
 
