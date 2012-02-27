@@ -46,22 +46,35 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
 void Camera::zoom(float change) 
 {
     behind += change;
+    std::cout << "behind: " << behind << std::endl;
 }
 
 void Camera::changeheight(float change)
 {
     above += change;
+    std::cout << "above: " << above << std::endl;
 }
     
 void Camera::changeside(float change)
 {
     beside += change;
+    std::cout << "beside: " << beside << std::endl;
 }
 void Camera::setDefault()
 {
     beside = 0;
     above  = 80;
     behind = 150;
+}
+void Camera::setEgo()
+{
+    setDefault();
+}
+void Camera::setThird()
+{
+    beside = 0;
+    above  = 300;
+    behind = 1500;
 }
 
 void Camera::apply()

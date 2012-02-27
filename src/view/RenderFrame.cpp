@@ -250,7 +250,12 @@ void RenderFrame::paintGL()
    	      hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
             if(m_coll->getWarning())
+            {
                 hins->drawWarning();
+            }else
+            {
+            	
+            }  
         }
         if(menu) {
             Menu::drawSplash(width(),height(), hins);
