@@ -30,6 +30,7 @@ void Collision::run()
 
        	while(asteoridtIt != m_asteorids.end())
         {
+        	
         	float diffFightX = ((*asteoridtIt)->getPosition())[0] - (m_craft->getPosition())[0] ;
             float diffFightY = ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] ;
 			float diffFightZ = ((*asteoridtIt)->getPosition())[2] - (m_craft->getPosition())[2] ;
@@ -45,8 +46,9 @@ void Collision::run()
 			}
 			
 			// Das Schiff wird getroffen
-			if(diffFight <= 100)
+			if(diffFight <= (*asteoridtIt)->get_radius())
 			{
+				
 				m_craft->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
 				(*asteoridtIt)->destroy();
@@ -74,11 +76,15 @@ void Collision::run()
             bulletIt = m_bullets.begin();
             while(bulletIt != m_bullets.end())
             {	
-            	float diffX = fabs( ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] );
-          		float diffY = fabs( ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] );
-                float diffZ = fabs( ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] );               
-                if ( (diffX <= 100) && (diffY <= 100) && (diffZ <= 100) )
-                {
+            float diffX = ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] ;
+            float diffY = ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] ;
+			float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
+			
+			
+			int diff = sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));               
+            if ( diff <= (*asteoridtIt)->get_radius())
+            {
+                	std::cout << (*asteoridtIt)->get_radius() << std::endl;
                 	/* Kugel hat den Hitbereich des Asteoriden erreicht und beide werden zerstört */
                 	(*bulletIt)->kill();
                 	(*asteoridtIt)->destroy();
