@@ -38,7 +38,6 @@ void Asteorid::destroy()
     //Explosion* e = new Explosion();
     //e->Explode();
 	alive = false;
-	
 }
 
 glVector<float> Asteorid::getPosition()
