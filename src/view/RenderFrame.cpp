@@ -241,7 +241,8 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-        hins = new HUD(&painter);
+        QPainter painter2(this);
+        hins = new HUD(&painter, &painter2);
         if(m_mesh) {
             
    	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
@@ -252,6 +253,7 @@ void RenderFrame::paintGL()
             Menu::drawSplash(width(),height(), hins);
         }
         painter.end();
+        painter2.end();
         glPopMatrix();
         glPopAttrib();
         glMatrixMode(GL_MODELVIEW);   

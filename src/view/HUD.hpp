@@ -21,7 +21,7 @@ public:
   /**
   	*@brief Defualt Constructor
   	*/
-  	HUD(QPainter *paint);
+  	HUD(QPainter *paint, QPainter *paint2);
 
   /**
    * @brief Draws the HUD
@@ -101,7 +101,7 @@ public:
 	 *@param hoehe width of the windows
 	 *@param actLevel actual level
 	 */
-	 void drawLevelEnd(int width, int height, int actLevel);
+	 void drawLevelEnd(int actLevel);
 	 
 private:
     //HUD(const HUD&);
@@ -110,7 +110,7 @@ private:
     /*used QPainter*/
 
     QPainter *painter;
-  
+    QPainter *painter2; 
     float fighterSpeed;
     int fighterDamage;
     int fighterScore;

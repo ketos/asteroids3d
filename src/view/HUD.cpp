@@ -1,13 +1,14 @@
 #include "view/HUD.hpp"
 
-HUD::HUD(QPainter *paint)
+HUD::HUD(QPainter *paint, QPainter *paint2)
 {
 	fighterDamage = 0;
 	fighterSpeed = 0;
 	fighterScore = 0;
 	durchmesser = 150;
 	abstand = 10;
-	painter = paint;	
+	painter  = paint;	
+	painter2 = paint2;
 }
 void HUD::draw(int width, int height, QFont f)
 {    
@@ -157,25 +158,29 @@ void HUD::drawRadar(int width, int height)
    painter->drawImage(point, myImage);	
 }
 
-void drawLevelEnd(int actLevel)
+void HUD::drawLevelEnd(int actLevel)
 {
-	for(int i = 0 ; i< 10; i++)
+	
+	for(int i = 0 ; i < 10; i++)
 	{
-		painter->setPen(QColor(255,255,255,255));
+		std::cout << "ausgabe 1" << std::endl;
+		painter2->setPen(QColor(255,255,0,255));
+		std::cout << "ausgabe 2" << std::endl;
 	    std::ostringstream Str;
+		
 	    Str << actLevel;
-
+			std::cout << "hier" << std::endl;
 	    QImage myImage = QImage("res/images/splash.png");
 	    myImage.load("res/images/splash.png");
-	    QPoint point = QPoint(width/2 - myImage.width()/2,height/2 - myImage.height()/2);
-	  	std::string spd("Level:"+Str.str());
+	    QPoint point = QPoint(100/2 - myImage.width()/2,100/2 - myImage.height()/2);
+	    painter2->drawImage(point, myImage);
+	  	std::string spd("Level: " + Str.str());
 	  	QFont font("Helvetica", 20, QFont::Bold);
-	  	painter->setFont(font);
+	  	painter2->setFont(font);
 	  	QString qspeed = QString::fromStdString(spd);
-	  	QPoint point2 = QPoint(width/2,height/2-50);
-	  	painter->drawText(point2,qspeed);
-	
+	  	QPoint point2 = QPoint(100.0/2, 100.0/2);
+	  	painter2->drawText(point2,qspeed);
+
 	  	sleep(100);
 	}
-	
 }

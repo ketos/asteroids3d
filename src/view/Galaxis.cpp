@@ -146,7 +146,7 @@ void Galaxis::nextLevel()
     	}
     	//level erhöhen
     	level++;
-    	display->levelEnd(level);
+    	display->drawLevelEnd(level);
     }
     else
     {
