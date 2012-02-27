@@ -65,6 +65,7 @@ public:
      glVector<float> getFlightAxis();
      
      void set_flight_axis(glVector<float> new_axis);
+     float get_radius();
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet
@@ -72,6 +73,7 @@ protected:
     // axis, the Asteorid is moving on (one of the shooting fighter's axes)
 	glVector<float> flight_axis;
 	float speed;
+	float radius;
 	
 signals:
 	void destroyed(float x, float y, float z);

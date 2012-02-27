@@ -14,6 +14,7 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
     m_position = start_position;
     this->flight_axis = flight_axis;
     speed = 0.02;
+    radius = 250;
 }
 
 bool Asteorid::isAlive()
@@ -58,4 +59,9 @@ glVector<float> Asteorid::getFlightAxis()
 void Asteorid::set_flight_axis(glVector<float> new_axis)
 {
 	flight_axis = new_axis;
+}
+
+float Asteorid::get_radius()
+{
+	return radius;
 }
