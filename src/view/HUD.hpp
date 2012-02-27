@@ -16,7 +16,8 @@
 #include <iostream> 
 
 #include <QPushButton>
-class HUD{
+class HUD
+{
 public:
   /**
   	*@brief Defualt Constructor
@@ -106,6 +107,9 @@ public:
 	 void setIncLevel(bool shouldIPaint);
 	 
 	 void setLevel(int levelnumber) ;
+	 
+private slots:	 
+	 void stopLevelPaint();
 	 
 private:
     //HUD(const HUD&);

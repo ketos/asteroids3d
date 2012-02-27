@@ -9,6 +9,11 @@ HUD::HUD(QPainter *paint)
 	abstand       = 10;
 	painter       = paint;
 	paintLevel    = false;
+	/*
+	m_timer = new QTimer( this );
+    m_timer->setInterval(2000);
+    m_timer->start();
+    */
 }
 void HUD::draw(int width, int height, QFont f)
 {    
@@ -165,34 +170,33 @@ void HUD::drawLevelEnd()
 {
 	std::cout << "Tim hat mist gemacht, auf henning :D" << levelNumber << std::endl;
 	
-	for(int i = 0 ; i < 10; i++)
-	{
-		std::cout << "ausgabe 1" << std::endl;
-		painter->setPen(QColor(255,255,0,255));
-		std::cout << "ausgabe 2" << std::endl;
-	    std::ostringstream Str;
-		
-	    Str << levelNumber;
-			std::cout << "hier" << std::endl;
-	    QImage myImage = QImage("res/images/splash.png");
-	    myImage.load("res/images/splash.png");
-	    QPoint point = QPoint(100/2 - myImage.width()/2,100/2 - myImage.height()/2);
-	    painter->drawImage(point, myImage);
-	  	std::string spd("Level: " + Str.str());
-	  	QFont font("Helvetica", 20, QFont::Bold);
-	  	painter->setFont(font);
-	  	QString qspeed = QString::fromStdString(spd);
-	  	QPoint point2 = QPoint(100.0/2, 100.0/2);
-	  	painter->drawText(point2,qspeed);
+	painter->setPen(QColor(255,255,0,255));
+    std::ostringstream Str;
+	
+    Str << levelNumber;
+    QImage myImage = QImage("res/images/splash.png");
+    myImage.load("res/images/splash.png");
+    QPoint point = QPoint(100/2 - myImage.width()/2,100/2 - myImage.height()/2);
+    painter->drawImage(point, myImage);
+    
+  	std::string spd("Level: " + Str.str());
+  	QFont font("Helvetica", 20, QFont::Bold);
+  	painter->setFont(font);
+  	QString qspeed = QString::fromStdString(spd);
+  	QPoint point2 = QPoint(100.0/2, 100.0/2);
+    painter->drawText(point2,qspeed);
 
-	  	sleep(100);
-	}
 	
 }
 
 void HUD::setIncLevel(bool shouldIPaint)
 {
 	paintLevel = shouldIPaint;
+}
+void HUD::stopLevelPaint()
+{
+	std::cout << "blabliblub" << std::endl;
+	paintLevel = false;
 }
 
 void HUD::setLevel(int levelnumber)

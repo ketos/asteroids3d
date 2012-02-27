@@ -1,21 +1,16 @@
 #include "Galaxis.hpp"
 
-Galaxis::Galaxis(HUD* hud)
+Galaxis::Galaxis()
 {
     // create vector for Asteroids
 	level = 0;
-	display    = hud;
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
-<<<<<<< HEAD
 	//bitte auslagern
 	score      = 0;
 	paintLevel = false;
-=======
-	score = 0;
->>>>>>> 18fddec03d341d7b10e748658860f260c57b1682
-		
+    paintLevelcount = 0;
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
@@ -162,9 +157,14 @@ bool Galaxis::shouldIncLevel()
 {
 	if (paintLevel)
 	{
-		paintLevel = false;
-		return true;
+			return true;			
 	}
+	if (paintLevelcount < 10000)
+	{
+			paintLevel = true;
+			paintLevelcount++;
+	}
+	paintLevel = false;
 	return false;
 }
 
