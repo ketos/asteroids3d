@@ -23,21 +23,25 @@ Sound::~Sound()
         Mix_FreeMusic(music);
         music = NULL;
         //delete music;
-        std::cout << "delete music" << std::endl;
     }
     if(sound)
     {
         Mix_FreeChunk(sound);
         sound = NULL;
         //delete sound;
-        std::cout << "delete sound" << std::endl;
     }
 }
 
 void Sound::playWAV(int loop)
 {
-    if(sound != 0)
+    if(sound)
         Mix_PlayChannel(Channel,sound,loop);
+}
+
+void Sound::stopWAV()
+{
+    if(sound && Mix_Playing(Channel))
+        Mix_HaltChannel(Channel);
 }
  
 void Sound::playMP3(){

@@ -36,6 +36,8 @@ public:
     */
     void playWAV(int loop);
     
+    void stopWAV();
+    
     /*
     *   Plays the mp3-file unlimited times.
     */

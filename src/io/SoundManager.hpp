@@ -36,6 +36,9 @@ class SoundManager {
     */
     static void stopBattleMusic();
     
+    static void playWarningSound();
+
+    static void stopWarningSound();
 
     /*
     * Deletes all Mediafiles
@@ -47,6 +50,7 @@ class SoundManager {
     static Sound* explosion;
     static Sound* menu;
     static Sound* battle;
+    static Sound* warning;
 
 };
 
