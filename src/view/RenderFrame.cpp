@@ -100,7 +100,7 @@ void RenderFrame::loadModel(string filename)
     //keyboard  = new Keyboard( *m_mesh , m_cam, shoot);
 
 	// load the glaxis with all planets 
-	galaxis = new Galaxis();
+	galaxis = new Galaxis(hins);
 	std::string filenamer = "config.xml";
 	galaxis->addLevel( filenamer );
 	

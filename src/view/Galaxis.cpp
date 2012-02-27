@@ -1,14 +1,10 @@
 #include "Galaxis.hpp"
-#include "io/Read3DS.hpp"
-#include <stdio.h>
-#include "math/glVector.hpp"
-#include <typeinfo>
-#include "io/ReadXML.hpp"
-Galaxis::Galaxis()
+
+Galaxis::Galaxis(HUD* hud)
 {
     // create vector for Asteroids
 	level = 0;
-	
+	display = hud;
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
@@ -28,7 +24,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     std::cout << "Neuer Asteorid" << std::endl;
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
-    a->start(); 
+    a->start();
     asteorids.push_back( a );
     std::cout << "Fertig hinzugefuegt" << std::endl;
 }
@@ -150,6 +146,7 @@ void Galaxis::nextLevel()
     	}
     	//level erhöhen
     	level++;
+    	display->levelEnd(level);
     }
     else
     {

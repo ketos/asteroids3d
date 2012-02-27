@@ -164,3 +164,26 @@ void HUD::drawRadar(int width, int height)
    myImage.load("res/images/ss.png");
    painter->drawImage(point, myImage);	
 }
+
+void drawLevelEnd(int actLevel)
+{
+	for(int i = 0 ; i< 10; i++)
+	{
+		painter->setPen(QColor(255,255,255,255));
+	    std::ostringstream Str;
+	    Str << actLevel;
+
+	    QImage myImage = QImage("res/images/splash.png");
+	    myImage.load("res/images/splash.png");
+	    QPoint point = QPoint(width/2 - myImage.width()/2,height/2 - myImage.height()/2);
+	  	std::string spd("Level:"+Str.str());
+	  	QFont font("Helvetica", 20, QFont::Bold);
+	  	painter->setFont(font);
+	  	QString qspeed = QString::fromStdString(spd);
+	  	QPoint point2 = QPoint(width/2,height/2-50);
+	  	painter->drawText(point2,qspeed);
+	
+	  	sleep(100);
+	}
+	
+}

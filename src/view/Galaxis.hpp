@@ -2,14 +2,18 @@
 #define __GALAXIS_HPP__
 
 #include "rendering/Asteorid.hpp"
-
 #include "rendering/Mini_Asteorid.hpp"
+#include "io/Read3DS.hpp"
+#include "math/glVector.hpp"
+#include "io/ReadXML.hpp"
+#include "view/HUD.hpp"
 
 #include <vector>
-
 #include <QObject>
-
 #include <string>
+#include <stdio.h>
+#include <typeinfo>
+
 
 using namespace std;
 
@@ -18,7 +22,7 @@ class Galaxis: public QObject
 	Q_OBJECT
 	
      public:
-	    	Galaxis();
+	    	Galaxis(HUD hud*);
 	    	void addAsteorid(glVector<float> v1, glVector<float> v2);
 	    	void render();
 	    	vector<Asteorid*> getAsteorids(); 
@@ -37,6 +41,7 @@ class Galaxis: public QObject
 	     	
 	     	//lager mch aus
 	     	int score;
+	     	HUD* display;
 	     	
 	public slots:
 

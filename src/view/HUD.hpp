@@ -94,6 +94,15 @@ public:
 	 *@param hoehe width of the windows
 	 */
 	 void drawRadar(int width, int height);
+	 
+	 /**
+	 *@brief draws current level
+	 *@param breite height of the windows
+	 *@param hoehe width of the windows
+	 *@param actLevel actual level
+	 */
+	 void drawLevelEnd(int width, int height, int actLevel);
+	 
 private:
     //HUD(const HUD&);
     //~HUD();
