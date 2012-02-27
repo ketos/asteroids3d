@@ -66,6 +66,16 @@ void Camera::setDefault()
     above  = 80;
     behind = 150;
 }
+void Camera::setEgo()
+{
+    setDefault();
+}
+void Camera::setThird()
+{
+    beside = 0;
+    above  = 300;
+    behind = 1500;
+}
 
 void Camera::apply()
 {

@@ -133,6 +133,10 @@ public:
     void changeside(float change);
     
     void setDefault();
+    
+    void setEgo();
+    
+    void setThird();
 
 public:
 
