@@ -48,6 +48,7 @@ glVector<float> Asteorid::getPosition()
 void Asteorid::changeDirection()
 {
     flight_axis = flight_axis * -1;
+    speed = 0.1;
 }
 
 glVector<float> Asteorid::getFlightAxis()
