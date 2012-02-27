@@ -6,7 +6,8 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >*  ReadXML::readConfig (
 	vector<std::pair<glVector<float>*, glVector<float>* >* > *m_asteroidList = new vector<std::pair<glVector<float>*, glVector<float>* >* >();
 	
  	QDomDocument doc("level");
-    QFile file("res/config/config.xml");
+ 	QString s(filename.c_str());
+    QFile file(s);
     
     if(!file.open(QIODevice::ReadOnly))
     {
