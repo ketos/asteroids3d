@@ -304,11 +304,13 @@ void RenderFrame::moveCurrentMesh()
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
             m_mesh->rotate(PITCH, f_angle);
+            m_mesh->rotate(ROLL , f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
             m_mesh->rotate(PITCH, -f_angle);
+            m_mesh->rotate(ROLL , -f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
