@@ -93,6 +93,8 @@ protected:
      * @brief Actual Speed of the Transformable
      */
     float m_speed;
+    
+    
 };
 
 #endif /* TRANSFORMABLE_H_ */
