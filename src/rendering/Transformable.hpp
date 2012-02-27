@@ -13,6 +13,8 @@
 #include "math/Quaternion.hpp"
 #include "math/glVector.hpp"
 
+#define TEMP 50
+
 /**
  * @brief   Base class for all objects that can be transformed, i.e.
  *          moved and rotated.
