@@ -63,6 +63,8 @@ public:
      * @brief returns the flight-axis
      */
      glVector<float> getFlightAxis();
+     
+     void set_flight_axis(glVector<float> new_axis);
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet

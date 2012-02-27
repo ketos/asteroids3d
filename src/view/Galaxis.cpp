@@ -8,9 +8,13 @@ Galaxis::Galaxis(HUD* hud)
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
+<<<<<<< HEAD
 	//bitte auslagern
 	score      = 0;
 	paintLevel = false;
+=======
+	score = 0;
+>>>>>>> 18fddec03d341d7b10e748658860f260c57b1682
 		
 }
 
@@ -54,7 +58,6 @@ void Galaxis::mini_astroid_destroyed()
 
 void Galaxis::render()
 {
-	//std::cout << asteorids.size() << std::endl;
     if( asteorids.size() > 0 )
     {
       vector<Asteorid*>::iterator asteoridtIt;
