@@ -44,11 +44,10 @@ void Collision::run()
 			}
 			
 			// Das Schiff wird getroffen
-			if(diffFightX <= 100 && diffFightY <= 100 && diffFightZ <= 100)
+			if(diffFight <= 100)
 			{
 				m_craft->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
-				
 				(*asteoridtIt)->destroy();
 				sleep(1);
 			}
