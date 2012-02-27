@@ -349,6 +349,7 @@ void RenderFrame::moveCurrentMesh()
         {
             m_cam.changeheight(-5);
         }
+        //nicht löschen
         if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
         {
             m_cam.setEgo();
