@@ -38,17 +38,17 @@ void Collision::run()
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
 			
-			if(diffFight > 4100)
+			if(diffFight > 15000)
 			{
-				//(*asteoridtIt)->changeDirection();
+				(*asteoridtIt)->changeDirection();
 			}
 			
 			// Das Schiff wird getroffen
-			if(diffFightX <= 100 && diffFightY <= 100 && diffFightZ <= 100)
+			if(diffFightX <= 200 && diffFightY <= 200 && diffFightZ <= 200)
 			{
-				std::cout << "Das Schiff nimmt Schaden" << std::endl;
 				m_craft->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
+				(*asteoridtIt)->destroy();
 				sleep(1);
 			}
 			
@@ -60,7 +60,7 @@ void Collision::run()
 				diffFightY = (m_craft->getyAxis()) * tmp2 ;
 				diffFightZ = (m_craft->getzAxis()) * tmp2 ;
 				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
-				
+
 				radar.push_back(tmp);
 			}
 			

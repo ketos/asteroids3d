@@ -13,7 +13,7 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
     alive = true;
     m_position = start_position;
     this->flight_axis = flight_axis;
-    speed = 0.01;
+    speed = 0.02;
 }
 
 bool Asteorid::isAlive()
@@ -48,7 +48,6 @@ glVector<float> Asteorid::getPosition()
 void Asteorid::changeDirection()
 {
     flight_axis = flight_axis * -1;
-    speed = 0.1;
 }
 
 glVector<float> Asteorid::getFlightAxis()
