@@ -12,8 +12,7 @@
 
 Camera::Camera()
 {
-    above = 300;
-    behind= 1500;
+    setDefault();
 }
 
 void Camera::applyRotationOnly()
@@ -22,7 +21,7 @@ void Camera::applyRotationOnly()
     gluLookAt(front.x, front.y, front.z, 0, 0, 0, up.x, up.y, up.z);
 }
 
-void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<float> up1) {
+void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<float> up1, glVector<float> side1) {
         
     // Clear matrix stack  
     glLoadIdentity();
@@ -31,9 +30,11 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
     front.normalize();
     up = (up1);
     up.normalize();
+    side = (side1);
+    side.normalize();
     
-    glVector<float> cam = pos + up * above + front * behind;
-    pos = pos + up * above;
+    glVector<float> cam = pos + side * beside + up * above + front * behind;
+    pos = pos + side * beside + up * above;
     
     // Calc transformation Matrixwf
     gluLookAt(cam.x, cam.y, cam.z,
@@ -50,7 +51,18 @@ void Camera::zoom(float change)
 void Camera::changeheight(float change)
 {
     above += change;
-}   
+}
+    
+void Camera::changeside(float change)
+{
+    beside += change;
+}
+void Camera::setDefault()
+{
+    beside = 0;
+    above = 300;
+    behind= 1500;
+}
 
 void Camera::apply()
 {

@@ -13,7 +13,7 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
     alive = true;
     m_position = start_position;
     this->flight_axis = flight_axis;
-    speed = 0.01;
+    speed = 0.02;
 }
 
 bool Asteorid::isAlive()
@@ -38,7 +38,6 @@ void Asteorid::destroy()
     //Explosion* e = new Explosion();
     //e->Explode();
 	alive = false;
-	
 }
 
 glVector<float> Asteorid::getPosition()
