@@ -38,7 +38,6 @@ void Asteorid::destroy()
     //Explosion* e = new Explosion();
     //e->Explode();
 	alive = false;
-	
 }
 
 glVector<float> Asteorid::getPosition()
@@ -49,6 +48,7 @@ glVector<float> Asteorid::getPosition()
 void Asteorid::changeDirection()
 {
     flight_axis = flight_axis * -1;
+    speed = 0.1;
 }
 
 glVector<float> Asteorid::getFlightAxis()

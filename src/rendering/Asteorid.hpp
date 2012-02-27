@@ -57,12 +57,12 @@ public:
     /**
      * @brief changes the flight-direction of the Astroid
      */
-        void changeDirection();
+     void changeDirection();
 
     /**
      * @brief returns the flight-axis
      */
-        glVector<float> getFlightAxis();
+     glVector<float> getFlightAxis();
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet

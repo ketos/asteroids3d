@@ -38,6 +38,7 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
     Mini_Asteorid* a = new Mini_Asteorid(v1,v2);;
     Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
+    QObject::connect(a, SIGNAL( hit() ), this, SLOT(mini_astroid_destroyed() ) );
     a->start();
     asteorids.push_back( a );
 }
@@ -50,14 +51,12 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	glVector<float> v2 (0,100,0);
 	addMiniAsteorid(tmp,v1);
 	addMiniAsteorid(tmp,v2);
-	
-	//bitte auslagern
 	score+=50;
 }
 
 void Galaxis::mini_astroid_destroyed()
 {
-	std::cout << "Der Slot wurde aufgerufen" << std::endl;
+	score+=20;
 }
     
 
@@ -75,6 +74,8 @@ void Galaxis::render()
 	  //(*asteoridtIt)->info();
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
+	      
+	      //delete (*asteoridtIt);
 	      }else{
 	        asteoridtIt++;	
 	      }

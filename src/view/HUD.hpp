@@ -21,7 +21,7 @@ public:
   /**
   	*@brief Defualt Constructor
   	*/
-  	HUD();
+  	HUD(QPainter *paint);
 
   /**
    * @brief Draws the HUD
@@ -30,7 +30,7 @@ public:
    * @param y hiegth of the window;
    * @param f Used Font
    */
-  void draw(QPainter *paint,int x ,int y, QFont f);
+  void draw(int x ,int y, QFont f);
     
   /**
    *@brief Draws the given Astroid on the rada
@@ -41,7 +41,7 @@ public:
    *@param radarmidy y value of the radarmid
    *@param QPainter used QPainter
    */
-  void drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy,QPainter *paint);
+  void drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy);
 
   /**
    *@brief sets the collvec which contains the astroids in Radarrange
@@ -55,7 +55,7 @@ public:
   	*@param breite width
   	*@param used Qpainter
   	*/
-  void score(int punkte, int breite, QPainter *painter);
+  void score(int punkte, int breite);
 
   /**
   	*@brief paint the damage
@@ -63,7 +63,7 @@ public:
   	*@param breite width
   	*@param used Qpainter
   	*/
-  void damages(int schaden, int breite, QPainter *painter);
+  void damages(int schaden, int breite);
 	
 	/**
 	 *@brief Draws the speed
@@ -71,7 +71,7 @@ public:
 	 *@param breite width
 	 *@param painter used Painter
 	 */  
-  void Speed(float speed, int breite, QPainter *painter);
+  void Speed(float speed, int breite);
   
 	/**
 	 *@briefset Method for fighter Data like Score,damage speed
@@ -87,7 +87,7 @@ public:
 	 *@param int hoehe higth of the screen
 	 *@param painter used qpainter 
 	 */   
-	void drawSplash(int breite, int hoehe, QPainter *painter);
+	void drawSplash(int breite, int hoehe);
 	/**
 	 *@brief draws radar
 	 *@param breite height of the windows
@@ -98,21 +98,20 @@ private:
     //HUD(const HUD&);
     //~HUD();
     //static HUD* instance;
-  /*used QPainter*/
+    /*used QPainter*/
 
-  QPainter *painter;
+    QPainter *painter;
   
-  float fighterSpeed;
-  int fighterDamage;
-  int fighterScore;
-  /*vector which contains the astroids in radarrange*/
-  std::vector<glVector<float>* > collvec;
+    float fighterSpeed;
+    int fighterDamage;
+    int fighterScore;
+    /*vector which contains the astroids in radarrange*/
+    std::vector<glVector<float>* > collvec;
     
  	int durchmesser;
 	int abstand;     
-   int radmidx;
-   int radmidy;
-    
+    int radmidx;
+    int radmidy; 
 };
 
 #endif //_HUD_H

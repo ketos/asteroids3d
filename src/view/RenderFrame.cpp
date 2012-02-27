@@ -13,6 +13,7 @@
 #include <stdio.h>
 // sudo apt-get install joystick   ausführen
 #include "io/joystick.h"
+#include "io/SoundManager.hpp"
 
 #include <string>
 
@@ -168,7 +169,7 @@ void RenderFrame::initializeGL()
 	glDepthFunc(GL_LESS);
 	glShadeModel (GL_SMOOTH);
 	
-	hins = new HUD();
+	
 }
  
 void RenderFrame::resizeGL(int w, int h)
@@ -241,13 +242,15 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
+        hins = new HUD(&painter);
         if(m_mesh) {
+            
    	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
    	        hins->setAstroidsVector(m_coll->getCollisionVector());
-            hins->draw(&painter,width(),height(),font());
+            hins->draw(width(),height(),font());
         }
         if(menu) {
-            Menu::drawSplash(width(),height(),&painter);
+            Menu::drawSplash(width(),height(), hins);
         }
         painter.end();
         glPopMatrix();
@@ -269,6 +272,7 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
         if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
         {   
             loadModel("res/models/bearcat.3ds");
+            SoundManager::playBattleMusic();
         }
     }
 }
