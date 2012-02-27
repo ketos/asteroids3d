@@ -50,7 +50,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    
+    hins = 0;
     show();
     
     menu = true;
@@ -237,17 +237,18 @@ void RenderFrame::paintGL()
 		galaxis->render();
 	}
     
-        glMatrixMode(GL_PROJECTION);
-        glPushMatrix();
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glLoadIdentity();
-        QPainter painter(this);
-        hins = new HUD(&painter);
-        if(m_mesh) {
-            
-   	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
-   	        hins->setAstroidsVector(m_coll->getCollisionVector());
-            hins->draw(width(),height(),font());
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+    glLoadIdentity();
+    QPainter painter(this);
+    if(hins)
+        delete hins;
+    hins = new HUD(&painter);
+    if(m_mesh) {
+   		hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
+   	  	hins->setAstroidsVector(m_coll->getCollisionVector());
+        hins->draw(width(),height(),font());
         }
         if(menu) {
             Menu::drawSplash(width(),height(), hins);
