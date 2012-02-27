@@ -37,19 +37,19 @@ void Transformable::rotate(int axis, float s)
     // Get the wanted operation and calculate the new coordinates
     switch(axis)
     {
-    case PITCH:
+    case PITCH: // up-down
         nq.fromAxis(m_yAxis, s);
         m_xAxis = nq * m_xAxis;
         m_zAxis = nq * m_zAxis;
         break;
 
-    case YAW:
+    case YAW: // left-right
         nq.fromAxis(m_xAxis, s);
         m_yAxis = nq * m_yAxis;
         m_zAxis = nq * m_zAxis;
         break;
 
-    case ROLL:
+    case ROLL: // rollen
         nq.fromAxis(m_zAxis, s);
         m_yAxis = nq * m_yAxis;
         m_xAxis = nq * m_xAxis;

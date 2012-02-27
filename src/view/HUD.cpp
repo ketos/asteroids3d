@@ -21,9 +21,10 @@ void HUD::draw(int width, int height, QFont f)
         Speed(fighterSpeed,0);
         damages(fighterDamage,(width/2));
     	
+    	if(!collvec.empty())
         while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
+            drawRadarAstroid(*itervec, 15000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
             itervec++;
         }
      
@@ -37,7 +38,7 @@ void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser
         tmp.x/=radarrange;
         tmp.y/=radarrange;
         tmp.z/=radarrange;
-        tmp =/* (vec*(1/radarrange))*/tmp * (durchmesser/2);
+        tmp = tmp * (durchmesser/2);
         int x = tmp.x;
         int y = tmp.y;
         int z = tmp.z;

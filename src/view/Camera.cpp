@@ -60,8 +60,8 @@ void Camera::changeside(float change)
 void Camera::setDefault()
 {
     beside = 0;
-    above = 300;
-    behind= 1500;
+    above  = 80;
+    behind = 150;
 }
 
 void Camera::apply()

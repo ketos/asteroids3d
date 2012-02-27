@@ -53,7 +53,7 @@ void Collision::run()
 			}
 			
 			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
-			if(diffFight < 5000)
+			if(diffFight < 15000)
 			{
                 //std::cout << "fax:"<<diffFightX<<",y:"<<diffFightY<<",z:"<<diffFightZ<<std::endl;
 				diffFightX = (m_craft->getxAxis()) * tmp2 ;
