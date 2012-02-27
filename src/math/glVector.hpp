@@ -88,6 +88,12 @@ public:
      * @brief   Normalize a glVector
      */
     void normalize();
+    
+    /**
+     *@brief returns length
+     *return t The length
+     */
+    T length();
 
 };
 

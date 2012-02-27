@@ -58,8 +58,8 @@ void Collision::run()
 			}
 			
 			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
-			if(diffFight < 15000)
-			{
+			//if(diffFight < 5000)
+			//{
                 //std::cout << "fax:"<<diffFightX<<",y:"<<diffFightY<<",z:"<<diffFightZ<<std::endl;
 				diffFightX = (m_craft->getxAxis()) * tmp2 ;
 				diffFightY = (m_craft->getyAxis()) * tmp2 ;
@@ -67,7 +67,7 @@ void Collision::run()
 				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 
 				radar.push_back(tmp);
-			}
+			//}
 			
 			/* Iteration über alle Kugeln, dann berechnen ob ein Asteorid im Hitbereich ist */
 			vector<Bullet*>::iterator bulletIt;

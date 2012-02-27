@@ -29,28 +29,40 @@ void HUD::draw(int width, int height, QFont f)
     	if(!collvec.empty())
         while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 15000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
+            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
             itervec++;
         }
      
 }
 
-void HUD::drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy)
+void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy)
 {
-	    painter->setPen(QColor(0,255,0,255));
-        int p = 6;
-		glVector<float> tmp(*vec);
-        tmp.x/=radarrange;
-        tmp.y/=radarrange;
-        tmp.z/=radarrange;
-        tmp = tmp * (durchmesser/2);
-        int x = tmp.x;
-        int y = tmp.y;
-        int z = tmp.z;
+		    painter->setPen(QColor(0,255,0,255));
+      int p = 6;
+      glVector<float> tmp(*vec);
+	if(vec->length()<5000)
+	{
 
-        if(tmp.z != 0)
-            painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
-        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
+ 
+		 
+       tmp.x/=radarrange;
+       tmp.y/=radarrange;
+       tmp.z/=radarrange;
+       tmp = tmp * (durchmesser/2);
+       int x = tmp.x;
+       int y = tmp.y;
+       int z = tmp.z;
+
+       if(tmp.z != 0)
+           painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
+       painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
+   }
+   else{
+		tmp.normalize();
+		tmp = tmp * (durchmesser/2);
+		std::cout<<"IM OUT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+		painter->drawEllipse(radarmidx+(tmp.y)-(p/2), radarmidy+(tmp.x)-(p/2),p,p); 	
+  	}
 }
 
 void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)

@@ -112,4 +112,9 @@ void glVector<T>::normalize()
         this->z /= mag;
     }
 }
-
+template<typename T>
+T glVector<T>::length()
+{
+	T mag2 = this->x * this->x + this->y * this->y + this->z * this->z;
+	return sqrt(mag2);
+}

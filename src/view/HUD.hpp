@@ -41,7 +41,7 @@ public:
    *@param radarmidy y value of the radarmid
    *@param QPainter used QPainter
    */
-  void drawRadarAstroid(glVector<float>* vec, int radarrange, int durchmesser, int radarmidx, int radarmidy);
+  void drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy);
 
   /**
    *@brief sets the collvec which contains the astroids in Radarrange
