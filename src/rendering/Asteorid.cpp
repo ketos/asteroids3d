@@ -51,7 +51,6 @@ glVector<float> Asteorid::getPosition()
 
 void Asteorid::changeDirection()
 {
-	std::cout << "Der Asteorid ist zusammengeprallt und soll irgendwas tun";
     flight_axis = flight_axis * -1;
 }
 

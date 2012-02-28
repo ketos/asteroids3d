@@ -228,10 +228,10 @@ void RenderFrame::paintGL()
         if(Game::getFighter()) {
 			
         	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
-            Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed());
+            	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
+   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), 			Game::getFighter()->getSpeed());
    	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
-            Game::getHud()->draw(width(),height(),font());
+            	Game::getHud()->draw(width(),height(),font());
             if(Game::getCollision()->getWarning())
             {
                 if(!warning_sound)
