@@ -1,14 +1,14 @@
 /**
  * Fighter.cpp
  *
- */
-
+*/
 
 #include "Fighter.hpp"
 #include <stdio.h>
 #include "rendering/TexturedMesh.hpp"
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
+
 int damage =0;
 int score =0;
 void Fighter::shoot()
