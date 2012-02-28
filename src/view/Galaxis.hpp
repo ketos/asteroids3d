@@ -30,7 +30,7 @@ class Galaxis: public QObject
 			void addLevel(string& filename);
 			void nextLevel();
 			glVector<float> getOneAsteoridPosition();
-			int getScore();
+
 			bool shouldIncLevel();
 			int getLevelnumber();
     	private:
@@ -41,8 +41,6 @@ class Galaxis: public QObject
 	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
 	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;
 	     	
-	     	//lager mch aus
-	     	int score;
 	     	int paintLevelcount;
 	     	HUD* display;
 	     	

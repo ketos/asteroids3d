@@ -4,14 +4,13 @@
 
 #include <QThread>
 #include <vector>	
-#include "view/Galaxis.hpp"
 #include "rendering/Asteorid.hpp"
 #include "rendering/Bullet.hpp"
-#include "rendering/Fighter.hpp"
-#include  "math/glVector.hpp"
+#include "math/glVector.hpp"
 #include <vector>
 #include <math.h>
 #include <iostream>
+
 
 
 /**
@@ -23,10 +22,8 @@ class Collision : public QThread
         public:
             /**
               * @brief create the Thread 
-              * @param schiff the craft to keep on
-              * @param Milchstrasse the Galaxi to keep on
               */
-            Collision(Fighter* schiff, Galaxis* Milchstrasse);
+            Collision();
             /**
               * @brief Deletes the Collision Thread
               */
@@ -57,10 +54,6 @@ class Collision : public QThread
 	     */
 		 bool getWarning();
         private:
-            //fighter
-                Fighter* m_craft;
-            //Galaxis
-                Galaxis* m_galax;
             //bullets
                 vector<Bullet*> m_bullets;
             //asteorids

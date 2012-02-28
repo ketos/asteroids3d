@@ -11,6 +11,7 @@ class EmitterFlug
 {
 public:
     //Konstruktor
+    EmitterFlug();
     EmitterFlug(int Partikelanzahl);
     //Destruktor
     ~EmitterFlug();
@@ -21,6 +22,8 @@ public:
     bool add(PartikelFlug* partikel);
     // alle updaten
     void update();
+    
+    void setMaxPartikel(int i);
     
     static float m_fFrameTime;
     static float m_fCurTime;

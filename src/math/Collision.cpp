@@ -1,11 +1,11 @@
 #include "Collision.hpp"
+#include "logic/Game.hpp"
 
 using namespace std;
 
-Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
+
+Collision::Collision()
 {
-        m_craft = schiff;
-        m_galax = Milchstrasse;
         m_running = true;
         warning = false;
         //m_bullets = 1;
@@ -22,8 +22,8 @@ void Collision::run()
 		//delete (&m_bullets);
 		//delete (&m_asteorids);
         // get the vectors form fighter and galaxis
-        m_bullets = m_craft->get_Bullets();
-        m_asteorids = m_galax->getAsteorids();
+        m_bullets = Game::getFighter()->get_Bullets();
+        m_asteorids = Game::getGalaxis()->getAsteorids();
       
         //durchlaufen aller asteorids
         vector<Asteorid*>::iterator asteoridtIt;
@@ -35,10 +35,11 @@ void Collision::run()
         {
         	(*asteoridtIt)->set_hitable(true);
         	
-        	float diffFightX = ((*asteoridtIt)->getPosition())[0] - (m_craft->getPosition())[0] ;
-            float diffFightY = ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] ;
-			float diffFightZ = ((*asteoridtIt)->getPosition())[2] - (m_craft->getPosition())[2] ;
-			
+        	float diffFightX = ((*asteoridtIt)->getPosition())[0] - (Game::getFighter()->getPosition())[0] ;
+            float diffFightY = ((*asteoridtIt)->getPosition())[1] - (Game::getFighter()->getPosition())[1] ;
+			float diffFightZ = ((*asteoridtIt)->getPosition())[2] - (Game::getFighter()->getPosition())[2] ;
+			//std::cout << "fx:"<<(Game::getFighter()->getPosition())[0]<<",y:"<<(Game::getFighter()->getPosition())[1]<<",z:"<<(Game::getFighter()->getPosition())[2]<<std::endl;
+			//std::cout << "ax:"<<((*asteoridtIt)->getPosition())[0]<<",y:"<<((*asteoridtIt)->getPosition())[1]<<",z:"<<((*asteoridtIt)->getPosition())[2]<<std::endl;
             glVector<float> tmp2(diffFightX, diffFightY, diffFightZ);		
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
@@ -51,7 +52,8 @@ void Collision::run()
 			// Das Schiff wird getroffen
 			if(diffFight <= (*asteoridtIt)->get_radius())
 			{
-				m_craft->increaseDamage(10);
+				
+				Game::getFighter()->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
 				(*asteoridtIt)->destroy();
 				sleep(1);
@@ -61,11 +63,14 @@ void Collision::run()
 				warning = true;
 			}
 			
-			/* Für das Radar werden die Asteoriden erfasst */
-			diffFightX = (m_craft->getxAxis()) * tmp2 ;
-			diffFightY = (m_craft->getyAxis()) * tmp2 ;
-			diffFightZ = (m_craft->getzAxis()) * tmp2 ;
-			glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
+			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
+			//if(diffFight < 5000)
+			//{
+                //std::cout << "fax:"<<diffFightX<<",y:"<<diffFightY<<",z:"<<diffFightZ<<std::endl;
+				diffFightX = (Game::getFighter()->getxAxis()) * tmp2 ;
+				diffFightY = (Game::getFighter()->getyAxis()) * tmp2 ;
+				diffFightZ = (Game::getFighter()->getzAxis()) * tmp2 ;
+				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 
 			radar.push_back(tmp);
 			

@@ -110,6 +110,7 @@ set(VIEWER_SOURCES
     rendering/partikel/Emitter-Flug.cpp
     rendering/partikel/Partikel-Flug.cpp
     #rendering/Explosion.cpp
+    logic/Game.cpp
     Main.cpp
     math/Collision.cpp
 )
@@ -120,7 +121,6 @@ set(VIEWER_SOURCES
 ###############################################################################
 
 set(VIEWER_MOCS 
-    view/MainWindow.hpp 
     view/RenderFrame.hpp
 	view/Galaxis.hpp
 	rendering/Asteorid.hpp)
