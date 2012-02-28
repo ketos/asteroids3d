@@ -190,8 +190,8 @@ void HUD::drawLevelEnd()
     std::ostringstream Str;
     
     Str << levelNumber;
-    QImage myImage = QImage("res/images/splash.png");
-    myImage.load("res/images/splash.png");
+    QImage myImage = QImage("res/images/level.png");
+    myImage.load("res/images/level.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2, hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
 
