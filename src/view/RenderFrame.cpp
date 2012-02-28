@@ -51,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    
+    hins = new HUD();
     show();
     
     menu = true;
@@ -103,7 +103,7 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-	std::string filenamer = "config.xml";
+	std::string filenamer = "res/config/config.xml";
 	galaxis->addLevel( filenamer );
 	
     Game::getCollision()->start();
@@ -242,7 +242,7 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-		hins = new HUD(&painter);
+		hins->setPainter( &painter );
         if(m_mesh) {
 			
         	hins->setLevel(galaxis->getLevelnumber());
@@ -369,10 +369,30 @@ void RenderFrame::moveCurrentMesh()
         if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
         {
             m_cam.setEgo();
+            //Cockpit löschen
+            if (hins)
+            {
+            	hins->deleteCockpit();	
+            }
         }
         if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
         {
             m_cam.setThird();
+            //Cockpit löschen
+            if (hins)
+            {
+            	hins->deleteCockpit();	
+            }
+        }
+        if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
+        {
+       		
+            m_cam.setThird();
+            //Cockpit setzen
+			if (hins)
+            {
+            	hins->loadCockpit();	
+            }
         }
         if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
         {

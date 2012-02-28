@@ -22,7 +22,7 @@ public:
   /**
   	*@brief Defualt Constructor
   	*/
-  	HUD(QPainter *paint);
+  	HUD();
 
   /**
    * @brief Draws the HUD
@@ -108,11 +108,24 @@ public:
 	 
 	 void setLevel(int levelnumber) ;
 	
+	 void setPainter(QPainter *paint);
 	/**
 	 *@draws a Warning
 	 */
 	 void drawWarning();	 
+	 /*
+	  *@brief makes the cockpit to be visible
+	  */
+	 void loadCockpit();
+	 /*
+	  *@brief hides the cokpit
+	  */
+	 void deleteCockpit();
 	 
+	 /*
+	  *@brief draws the cockpit 
+	  */
+	 void drawCockpit();	
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -121,6 +134,8 @@ private:
 
     QPainter *painter;
     bool     paintLevel;
+    //decides if the cockpit is shown
+    bool     showCockpit;
     float    fighterSpeed;
     int      levelNumber;
     int      fighterDamage;
