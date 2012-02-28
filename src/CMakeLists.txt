@@ -121,7 +121,6 @@ set(VIEWER_SOURCES
 ###############################################################################
 
 set(VIEWER_MOCS 
-    view/MainWindow.hpp 
     view/RenderFrame.hpp
 	view/Galaxis.hpp
 	rendering/Asteorid.hpp)

@@ -10,7 +10,6 @@
 
 
 #include <QMainWindow>
-#include <QMenuBar>
 #include "RenderFrame.hpp"
 
 
@@ -19,8 +18,6 @@
  */
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
-
 public:
 
 	/**
@@ -34,21 +31,11 @@ public:
 	 */
 	~MainWindow();
 	
-public slots:
-
-	/**
-	 * @brief	Display a QFileDialog to choose a model
-	 * 			for the viewer
-	 */
-    void openFile();
-
 private:
 
     /// Our custom QGLWidget class to display the scene
     RenderFrame* 	m_renderFrame;
 
-	/// Our main menu for open and quit operations
-	QMenu* 			m_fileMenu;
 };
 
 #endif

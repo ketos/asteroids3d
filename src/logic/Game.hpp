@@ -13,8 +13,14 @@ class Game
 public:
     
     static void Init();
+
     static Fighter* getFighter();
-    static void setFighter(Fighter fighter);
+private:
+    static void loadFighter(string filename);
+public:
+    static bool isFighter();
+    static void delFighter();
+
     static Galaxis* getGalaxis();
 
     static Collision* getCollision();

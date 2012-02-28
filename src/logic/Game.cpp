@@ -9,19 +9,33 @@ HUD Game::m_Hud;
 int Game::m_points = 0;
 int Game::m_level = 0;
 
-void Init()
+void Game::Init()
 {
-
+    loadFighter("res/models/bearcat.3ds");
 }
 
 Fighter* Game::getFighter()
 {
     return (&m_fighter);
 }
-void Game::setFighter(Fighter fighter)
+
+void Game::loadFighter(string filename)
 {
-    m_fighter = fighter;
+	// Load new model
+   // Fighter m_fighter();
+	//m_fighter = new Fighter();
+	Read3DS reader(filename.c_str());
+	reader.getMesh(*(static_cast<TexturedMesh*>(&m_fighter)));
 }
+bool Game::isFighter()
+{
+    return ((&m_fighter) != 0);
+}
+void Game::delFighter()
+{
+    delete (&m_fighter);
+}
+
 Galaxis* Game::getGalaxis()
 {
     return (&m_galaxis);

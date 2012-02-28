@@ -20,19 +20,6 @@ MainWindow::MainWindow(QMainWindow *parent)
     // need to setup a proper parent (i.e. Frame object) here.
     m_renderFrame = new RenderFrame();
     setCentralWidget(m_renderFrame);
-    
-    // Create a file menu and add action. For larger projects
-    // it would we more comfortable to use the QTDesigner tool
-    // to create the GUI code for us
-    m_fileMenu = menuBar()->addMenu("File");
-    QAction* openAction = m_fileMenu->addAction("Open...");
-    QAction* quitAction = m_fileMenu->addAction("Quit...");
-    
-    // Connect the activation signals of the created actions
-    // with the proper slots.
-    connect(quitAction, SIGNAL(triggered()), this, SLOT(close()));
-    connect(openAction, SIGNAL(triggered()), this, SLOT(openFile()));
-
 }
 
 MainWindow::~MainWindow()
@@ -40,19 +27,3 @@ MainWindow::~MainWindow()
 	// Free resources (just the render frame).
 	delete m_renderFrame;
 }
-
-void MainWindow::openFile()
-{
-	m_renderFrame->m_timer->stop();
-	// Display a model file selection dialog
-    QString filename = QFileDialog::getOpenFileName(this, "Load mesh", "res/models/",  "3DS Models (*.3ds)");
-
-    // Load selected model into render frame
-    m_renderFrame->loadModel(filename.toStdString());
-
-}
-
-
-
-
-

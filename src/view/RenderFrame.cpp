@@ -49,9 +49,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     joyConnect();    
 
 	setAutoFillBackground(false);
-	Game::getFighter()  = 0;
-	galaxis = 0;
-    Game::getHud() = new HUD();
+
     show();
     menu = true;
 }
@@ -78,33 +76,16 @@ RenderFrame::~RenderFrame()
     SoundManager::deleteManager();
 }
 
-void RenderFrame::loadModel(string filename)
+void RenderFrame::start()
 {
     menu = false;
     Menu::deleteSplash();
-	// Delete currently present model if necessary
-	if(Game::getFighter())
-	{
-		delete Game::getFighter();
-        //delete joysticks;
-        //delete keyboard;
-		std::cout << "mesh deleted" << std::endl; 
-	}
-
-	// Load new model
-	Game::getFighter() = new Fighter;
-	Read3DS reader(filename.c_str());
-	reader.getMesh(*(static_cast<TexturedMesh*>(Game::getFighter())));
     
-    //std::string input = "/dev/input/js0";
-    //joysticks = new JoystickControl(input, *Game::getFighter() , m_cam, shoot);
-    //keyboard  = new Keyboard( *Game::getFighter() , m_cam, shoot);
+    Game::Init();
 
-	// load the glaxis with all planets 
-	galaxis = new Galaxis();
 	std::string filenamer = "res/config/config.xml";
-	galaxis->addLevel( filenamer );
-	
+	Game::getGalaxis()->addLevel( filenamer );	
+
     Game::getCollision()->start();
     
     // start Timer
@@ -192,13 +173,15 @@ void RenderFrame::resizeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 
 }
-void RenderFrame::setCam() {
-    if(Game::getFighter()) {
-    glVector<float> pos = (*(static_cast<Transformable*>(Game::getFighter()))).getPosition();
-    glVector<float> front=(*(static_cast<Transformable*>(Game::getFighter()))).getFront();
-    glVector<float> up = (*(static_cast<Transformable*>(Game::getFighter()))).getUp();
-    glVector<float> side =(*(static_cast<Transformable*>(Game::getFighter()))).getSide();
-    m_cam.setLocation(pos, front, up, side);
+void RenderFrame::setCam() 
+{
+    if(Game::getFighter()) 
+    {
+        glVector<float> pos = (*(static_cast<Transformable*>(Game::getFighter()))).getPosition();
+        glVector<float> front=(*(static_cast<Transformable*>(Game::getFighter()))).getFront();
+        glVector<float> up = (*(static_cast<Transformable*>(Game::getFighter()))).getUp();
+        glVector<float> side =(*(static_cast<Transformable*>(Game::getFighter()))).getSide();
+        m_cam.setLocation(pos, front, up, side);
     }
 }
 void RenderFrame::paintGL()
@@ -231,9 +214,9 @@ void RenderFrame::paintGL()
 	{
 		Game::getFighter()->render(!Game::getHud()->getView());
 	}
-	if(galaxis) 
+	if(Game::getGalaxis()) 
 	{
-		galaxis->render();
+		Game::getGalaxis()->render();
 	}
     
         glMatrixMode(GL_PROJECTION);
@@ -244,12 +227,12 @@ void RenderFrame::paintGL()
 		Game::getHud()->setPainter( &painter );
         if(Game::getFighter()) {
 			
-        	Game::getHud()->setLevel(galaxis->getLevelnumber());
-            Game::getHud()->setIncLevel(galaxis->shouldIncLevel());
+        	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
+            Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
    	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed());
-   	        Game::getHud()->setAstroidsVector(m_coll->getCollisionVector());
+   	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
             Game::getHud()->draw(width(),height(),font());
-            if(m_coll->getWarning())
+            if(Game::getCollision()->getWarning())
             {
                 if(!warning_sound)
                 {
@@ -286,8 +269,7 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     if(menu) {
         if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
         {   
-            const char* s = "res/models/bearcat.3ds";
-            loadModel(s);
+            start();
             SoundManager::playBattleMusic();
         }
     }
@@ -393,10 +375,6 @@ void RenderFrame::moveCurrentMesh()
             	Game::getHud()->loadCockpit();	
             }
         }
-        if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
-        {
-            loadModel("res/models/bearcat.3ds");
-        }         
     }
 }
 
@@ -451,18 +429,18 @@ void RenderFrame::control() {
         m_cam.changeheight(-5);
     }
     if(joys->getButton(6) > 0) { //Back
-        if(shoot) {
+        /*if(shoot) {
             shoot = false;
             loadModel("res/models/arrow.3ds");
             m_timer2->start();
-        }  
+        } */ 
     }
     if(joys->getButton(7) > 0) { //Start
-        if(shoot) {
+        /*if(shoot) {
             shoot = false;
             loadModel("res/models/bearcat.3ds");
             m_timer2->start();
-        }    
+        } */   
     }
     if(joys->getButton(8) > 0) { //BIG
     }
@@ -493,9 +471,3 @@ void RenderFrame::setupViewport(int width, int height)
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
 }
-
-HUD* RenderFrame::getHUD()
-{
-    return Game::getHud();
-}
-

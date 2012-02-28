@@ -38,11 +38,9 @@ public:
     ~RenderFrame();
 	
     /**
-     * @brief 	Loads the given file and creates a new model.
-     * 			Is a model is already present, it is replaced
-     * 			with the new one.
+     * @brief  NADA
      */
-    void loadModel(string modelName);
+    void start();
   
     /**
      *
