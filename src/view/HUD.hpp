@@ -16,7 +16,8 @@
 #include <iostream> 
 
 #include <QPushButton>
-class HUD{
+class HUD
+{
 public:
   /**
   	*@brief Defualt Constructor
@@ -95,11 +96,23 @@ public:
 	 */
 	 void drawRadar(int width, int height);
 	 
-	 /**
+	/**
+	 *@brief draws current level
+	 *@param breite height of the windows
+	 *@param hoehe width of the windows
+	 *@param actLevel actual level
+	 */
+	 void drawLevelEnd();
+	 
+	 void setIncLevel(bool shouldIPaint);
+	 
+	 void setLevel(int levelnumber) ;
+	
+	/**
 	 *@draws a Warning
 	 */
-	 void drawWarning();
-
+	 void drawWarning();	 
+	 
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -107,10 +120,11 @@ private:
     /*used QPainter*/
 
     QPainter *painter;
-  
-    float fighterSpeed;
-    int fighterDamage;
-    int fighterScore;
+    bool     paintLevel;
+    float    fighterSpeed;
+    int      levelNumber;
+    int      fighterDamage;
+    int      fighterScore;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
     

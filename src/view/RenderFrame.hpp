@@ -23,8 +23,6 @@
 #include "control/joystickcontrol.hpp"
 
 #include "view/HUD.hpp"
-#include <QGLWidget>
-#include <QTimer>
 
 class RenderFrame : public QGLWidget
 {

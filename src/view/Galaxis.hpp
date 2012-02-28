@@ -2,14 +2,18 @@
 #define __GALAXIS_HPP__
 
 #include "rendering/Asteorid.hpp"
-
 #include "rendering/Mini_Asteorid.hpp"
+#include "io/Read3DS.hpp"
+#include "math/glVector.hpp"
+#include "io/ReadXML.hpp"
+#include "view/HUD.hpp"
 
 #include <vector>
-
 #include <QObject>
-
 #include <string>
+#include <stdio.h>
+#include <typeinfo>
+
 
 using namespace std;
 
@@ -27,16 +31,20 @@ class Galaxis: public QObject
 			void nextLevel();
 			glVector<float> getOneAsteoridPosition();
 			int getScore();
-			
+			bool shouldIncLevel();
+			int getLevelnumber();
     	private:
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
 	     	int level;
+	     	bool paintLevel;
 	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
 	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;
 	     	
 	     	//lager mch aus
 	     	int score;
+	     	int paintLevelcount;
+	     	HUD* display;
 	     	
 	public slots:
 
