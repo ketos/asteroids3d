@@ -53,7 +53,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     
     show();
-    hins = new HUD(&painter);
+
     menu = true;
 }
 
@@ -243,10 +243,10 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-
+        hins = new HUD(&painter);
         if(m_mesh) {
              
-              		
+  		
    	      hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
    	      hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
