@@ -19,51 +19,56 @@
 class Collision : public QThread
 {
 
-        public:
-            /**
-              * @brief create the Thread 
-              */
-            Collision();
-            /**
-              * @brief Deletes the Collision Thread
-              */
-            virtual ~Collision() {};
-            /**
-             * @brief Moves the bullet until it's lifetime is over.
-             */
-            void run();
-            /**
-              * @brief return if thred is running
-              * @return if thread is running
-              */
-            bool isRunning();
+public:
+  /**
+   * @brief create the Thread 
+   */
+	Collision();
+	
+  /**
+   * @brief Deletes the Collision Thread
+   */
+   virtual ~Collision() {};
+   
+  /**
+   * @brief Moves the bullet until it's lifetime is over.
+   */
+   void run();
+   
+  /**
+   * @brief return if thred is running
+   * @return if thread is running
+   */
+   bool isRunning();
             
-            /**
-             * @brief stops the thread
-             */
-            void stop();
-	    /**
-	     * @brief returns the vector containing the nearest astroids
-        * @return vector containing the nearest astroids
-	     */
-	    vector<glVector<float>*> getCollisionVector();
+  /**
+   * @brief stops the thread
+   */
+   void stop();
+   
+  /**
+	* @brief returns the vector containing the nearest astroids
+   * @return vector containing the nearest astroids
+	*/
+	vector<glVector<float>*> getCollisionVector();
 	    
-	    /**
-	     *@brief return true if a Astroid is closer than 300
-	     *
-	     */
-		 bool getWarning();
-        private:
-            //bullets
-                vector<Bullet*> m_bullets;
-            //asteorids
-                vector<Asteorid*> m_asteorids;
-            // if the collision algo is alive
-                bool m_running;
-            //Vector for radar
-	        vector<glVector<float>*> radar;
-            //Warning
-            bool warning;
+  /**
+	* @brief return true if a Astroid is closer than 300
+   *
+	*/
+   bool getWarning();
+   
+private:
+	// bullets
+   vector<Bullet*> m_bullets;
+   // asteorids
+   vector<Asteorid*> m_asteorids;
+   // if the collision algo is alive
+   bool m_running;
+   //Vector for radar
+	vector<glVector<float>*> radar;
+   //Warning
+   bool warning;
             
 };
 

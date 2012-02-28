@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level>
+    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="100" axis_y="0" axis_z="0"/>
+    <asteroid pos_x="0" pos_y="100" pos_z="-1000" axis_x="0" axis_y="100" axis_z="0"/>
+</level>

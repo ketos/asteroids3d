@@ -64,7 +64,7 @@ public:
   	*@param breite width
   	*@param used Qpainter
   	*/
-  void damages(int schaden, int breite);
+  void damages(int schaden);
 	
 	/**
 	 *@brief Draws the speed
