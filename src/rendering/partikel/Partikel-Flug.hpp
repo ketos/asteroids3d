@@ -3,7 +3,7 @@
 
 #include "math/glVector.hpp"
 
-#include "rendering/TriangleMesh.hpp"
+#include "rendering/TexturedMesh.hpp"
 #include "rendering/Transformable.hpp"
 #include <GL/gl.h>    
 #include <GL/glu.h>
@@ -11,7 +11,7 @@
 
 // Partikel für Flug
 
-class PartikelFlug : public TriangleMesh
+class PartikelFlug //: public TexturedMesh
 {
 public:
     //Konstruktor

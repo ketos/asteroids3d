@@ -31,23 +31,20 @@ void EmitterFlug::update()
 {   
     std::list<PartikelFlug>::iterator ite = m_partikel.begin();
     //durchgehen
-    while(ite != m_partikel.end())
+    while((ite) != m_partikel.end())
     {   
         //updaten
-        (*ite).update();
+        ite->update();
         //alive abfragen
         if(!(*ite).isAlive()) //wenn nicht mehr am Leben
         {   
-            //m_partikel.erase(ite);
-            std::cout << "Partikel Tod :( " << std::endl;
+            ite = m_partikel.erase(ite);
         } else
         {   
             //wenn alive rendern;
             (*ite).render();
-            std::cout << "Partikel Render" << std::endl;
+            ite++;
         }
-        //weitergehen;
-        ite++;
     }
 }
 
@@ -56,11 +53,18 @@ void EmitterFlug::createPartikel()
     glVector<float> pos;
     glVector<float> front = Game::getFighter()->getFront();
     front.normalize();
-    pos = Game::getFighter()->getPosition();// + front * 500;
+    pos = Game::getFighter()->getPosition() + front * 1000;
     float size = 20;
     glVector<float> color;
     PartikelFlug p(400, pos, size, color);
     add(p);
+
+    
+ //   PartikelFlug p(400, pos, size, color);
+    // Read 3ds for Rocket
+//    Read3DS reader("res/models/asteroid.3ds");
+//    reader.getMesh(*(static_cast<TexturedMesh*>(&p)));
+//    add(p);
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)
