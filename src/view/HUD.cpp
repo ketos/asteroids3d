@@ -140,7 +140,7 @@ void HUD::score(int punkte, int breite)
     QFont font("Star Jedi Hollow", 16, QFont::Bold);
     painter->setFont(font);
     QString aktuellepunkte = QString::fromStdString(pkt);
-    QPoint point = QPoint(breite/2,30);
+    QPoint point = QPoint(breite/2+30,30);
     painter->drawText(point,aktuellepunkte);
 }
 
@@ -149,8 +149,8 @@ void HUD::damages(int schaden)
  	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,255));
     pen.setWidth(9);
  	 painter->setPen(pen);
-	 QRectF rectangles((breite/2)-(durchmesser/2), hoehe-durchmesser-abstand-20, durchmesser+10, durchmesser+10);
- 	 int startAngle = -30 * 16;
+	 QRectF rectangles((breite/2)-(durchmesser/2)+5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	 int startAngle = -50 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
 }
@@ -158,14 +158,14 @@ void HUD::damages(int schaden)
 void HUD::Speed(float speed)
 {
 
- 	QPen pen(QColor((2.25)*speed,255-((2.25)*speed),0,255));
+ 	QPen pen(QColor((2.25)*speed,255-((2.25)*speed),0,200));
    //pen.setStyle(Qt::DashDotLine);
    pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles(breite/2-durchmesser/2-20, hoehe-durchmesser-abstand-20, durchmesser+10, durchmesser+10);
- 	int startAngle = 330 * 16;
- 	int spanAngle = -1*speed * 16;
+ 	QRectF rectangles(breite/2-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	int startAngle = 230 * 16;
+ 	int spanAngle = (-0.8)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
 
 }
