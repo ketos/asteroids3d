@@ -65,9 +65,6 @@ protected:
     void control();
 
     void setCam();
-	
-    /// The set of currently pressed keys
-	std::set<int> m_pressedKeys;
 
 	/**
 	 * @brief	Our custom key press handler
@@ -99,12 +96,6 @@ protected:
      * @brief	The render function.
      */
     void paintGL();
-   
-    /**
-     * @brief	Reads the current key states and applies the
-     * 			needed transformations to the active triangle mesh
-     */
-	void moveCurrentMesh();
 	/**
 	 * @brief A skybox for the scene
 	 */

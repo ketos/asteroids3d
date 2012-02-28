@@ -200,7 +200,8 @@ void RenderFrame::paintGL()
     //}
     setCam();
     setFocus();
-	moveCurrentMesh();
+    Keyboard::update();
+	//moveCurrentMesh();
 	// Set black background color
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 
@@ -265,12 +266,10 @@ void RenderFrame::paintGL()
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
-    //keyboard->keypressed(event);
-	// State of key is pressed
-	m_pressedKeys.insert(event->key());
+    Keyboard::keypressed(event);
 
     if(menu) {
-        if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
+        if (event->key() == Qt::Key_Return)
         {   
             start();
             SoundManager::playBattleMusic();
@@ -280,106 +279,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
-    //keyboard->keyrelease(event);
-	// State of key is unpressed
-	m_pressedKeys.erase(event->key());
+    Keyboard::keyrelease(event);
 } 
-
-void RenderFrame::moveCurrentMesh()
-{    
-    if(Game::getFighter())
-    {
-    	// Controller for moving and rotation
-    	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
-    	{
-            //Game::getFighter()->move(STRAFE, -f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
-    	{
-            //Game::getFighter()->move(STRAFE, f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(PITCH, f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(PITCH, -f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(YAW,  f_angle);
-            Game::getFighter()->rotate(ROLL ,f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(YAW, -f_angle);
-            Game::getFighter()->rotate(ROLL ,-f_angle);
-    	}
-    	// Schießen !!
-    	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
-    	{
-            if(shoot) {
-    		    (static_cast<Fighter*>(Game::getFighter()))->shoot();
-                shoot = false;
-                m_timer2->start();
-            }
-      	}
-        // Ändern der Kamera
-        if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
-        {
-            m_cam.zoom(-15);
-        }
-        if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
-        {
-            m_cam.zoom(15);
-        } 
-        if (m_pressedKeys.find(Qt::Key_9) != m_pressedKeys.end())
-        {
-            m_cam.changeheight(5);
-        }    
-        if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
-        {
-            m_cam.changeheight(-5);
-        }
-        //nicht löschen
-        if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
-        {
-            m_cam.setEgo();
-            //Cockpit löschen
-            if (Game::getHud())
-            {
-            	Game::getHud()->deleteCockpit();	
-            }
-        }
-        if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
-        {
-            m_cam.setThird();
-            //Cockpit löschen
-            if (Game::getHud())
-            {
-            	Game::getHud()->deleteCockpit();	
-            }
-        }
-        if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
-        {
-       		
-            m_cam.setThird();
-            //Cockpit setzen
-			if (Game::getHud())
-            {
-            	Game::getHud()->loadCockpit();	
-            }
-        }
-    }
-}
 
 void RenderFrame::control() {
     if(Game::getFighter()) {

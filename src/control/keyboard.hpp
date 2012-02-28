@@ -16,16 +16,13 @@
 class Keyboard
 {
 public:
-    Keyboard(Fighter &mesh, Camera &cam, bool &shoot);
-    ~Keyboard();
-    void keypressed(QKeyEvent *event);
-    void keyrelease(QKeyEvent *event);
-    void update();
+    static void Init();
+	static void keypressed(QKeyEvent* e);
+	static void keyrelease(QKeyEvent* e);
+    static void update();
 protected:
-    std::set<int>* m_pressedKeys;
-    Fighter m_mesh;
-    Camera m_cam;
-    bool m_shoot;
+    static std::set<int> m_pressedKeys;
+    static bool m_shoot;
 };
 
 #endif

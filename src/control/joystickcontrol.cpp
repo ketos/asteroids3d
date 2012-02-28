@@ -1,4 +1,5 @@
 #include "control/joystickcontrol.hpp"
+#include "logic/Game.hpp"
 #include <iostream>
 
 JoystickControl::JoystickControl(std::string input, Fighter &mesh, Camera &cam, bool &shoot) : m_mesh(mesh), m_cam(cam)
