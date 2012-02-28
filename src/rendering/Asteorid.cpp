@@ -38,9 +38,9 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
-    SoundManager::playExplosion();
-    //Explosion* e = new Explosion();
-    //e->Explode();
+   SoundManager::playExplosion();
+   //Explosion* e = new Explosion();
+   //e->Explode();
 	alive = false;
 }
 
@@ -51,13 +51,12 @@ glVector<float> Asteorid::getPosition()
 
 void Asteorid::changeDirection()
 {
-	std::cout << "Der Asteorid ist zusammengeprallt und soll irgendwas tun";
-    flight_axis = flight_axis * -2;
+	flight_axis = flight_axis * -2;
 }
 
 glVector<float> Asteorid::getFlightAxis()
 {
-    return flight_axis;
+	return flight_axis;
 }
 
 void Asteorid::set_flight_axis(glVector<float> new_axis)
