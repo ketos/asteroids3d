@@ -1,11 +1,17 @@
+#include "rendering/partikel/Partikel-Flug.hpp"
+#include <QtOpenGL>
 
 
-PartikelFlug::PartikelFlug(EmitterFlug* emit)
+PartikelFlug::PartikelFlug(float lifetime,
+                       glVector<float> pos,
+                       float size, 
+                       glVector<float> color)
 {
-    m_emit = emit;
+    m_lifetime = lifetime;
+    m_position = pos;
+    m_size     = size;
+    m_color    = color;
     m_alive = true;
-    m_next = NULL;
-    //m_birthday setzen
 }
 
 PartikelFlug::~PartikelFlug()
@@ -13,44 +19,27 @@ PartikelFlug::~PartikelFlug()
 
 }
 
-void PartikelFlug::set(float lifetime,
-                       glVector<float> pos, 
-                       glVector<float> speed,
-                       float size, 
-                       glVector<float> color)
+bool PartikelFlug::isAlive()
 {
-    m_lifetime = lifetime;
-    m_position = pos;
-    m_speed    = speed;
-    m_size     = size;
-    m_Color    = color;
-}
-
-Partikel* PartikelFlug::getNext()
-{
-    return m_next;
-}
-    
-void PartikelFlug::setNext(PartikelFlug* partikel)
-{
-    m_next = partikel;
+    return m_alive;
 }
 
 void PartikelFlug::update()
 {
-    //wenn lebensdauer überschritten
-    if(m_emit->m_fCurTime - m_fbirthday > m_lifetime)
-    {   
-        //töten
+    m_lifetime--;
+    if(m_lifetime == 0)
+    {
         m_alive = false;
-        return
     }
-    //weitersetzen
-    m_position += (m_speed * (m_emit->m_fFrameTime));
 }
 
 void PartikelFlug::render()
 {
-    //hier rendern
-    //glusphere?
+     glPointSize(20.0f);
+     glEnable(GL_POINT_SMOOTH);
+     glBegin(GL_POINTS);
+     glColor3d(255,0,0);
+     glVertex3d (m_position[0], m_position[1], m_position[2]);
+     glEnd();
+     glDisable(GL_POINT_SMOOTH);
 }

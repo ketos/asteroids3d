@@ -1,26 +1,22 @@
+#ifndef _PARTIKEL_FLUG_H
+#define _PARTIKEL_FLUG_H
+
+#include "math/glVector.hpp"
 // Partikel für Flug
 
 class PartikelFlug
 {
 public:
     //Konstruktor
-    PartikelFlug(EmitterFlug* emit);
+    PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color);
     //Destruktor
     ~PartikelFlug();
-
-    //setzen der WErte
-    void set(glVector<float> pos, glVector<float> speed,float size, glVector<float> color)
-
     // weitersetzen
     void update();
     //rendern
     void render();
-
-    // Hole nächste Partikel
-    Partikel* getNext();
-    // setze nächsten Partikel
-    void setNext(PartikelFlug* partikel);
-
+    
+    bool isAlive();
 private:
     //Gesundheitstatus
     bool m_alive;
@@ -30,17 +26,10 @@ private:
     float m_birthday;
     //aktuelle Position
     glVector<float> m_position;
-    //richtung
-    glVector<float> m_speed;
     //grösse
     float m_size;
     //Farbe
-    glVector<float<m_Color;
-    //Emitter
-    EmitterFlug* m_emit; 
-    //nächster Partikel
-    PartikelFlug* m_Next;
-    
+    glVector<float> m_color;  
 };
 
-class PartikelList :public CList<PartikelFlug*> {};
+#endif //_PARTIKEL_FLUG_H

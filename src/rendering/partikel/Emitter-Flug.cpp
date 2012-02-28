@@ -1,3 +1,4 @@
+#include "rendering/partikel/Emitter-Flug.hpp"
 // http://www.codeworx.org/opengl_par1.php
 
 //Emitter für Flug
@@ -15,59 +16,34 @@ EmitterFlug::~EmitterFlug()
 
 void EmitterFlug::update()
 {   
-    //Erstes Partikel
-    PartikelFlug* pPar = m_partikel.GetHead();
-    //Folgendes Partikel
-    PartikelFlug* pPrev= NULL;
+    std::list<PartikelFlug*>::iterator ite = m_partikel.begin();
     //durchgehen
-    while(pPar)
+    while(ite != m_partikel.end())
     {   
         //updaten
-        pPar->update();
+        (*ite)->update();
         //alive abfragen
-        if(!pPar->m_alive) //wenn nicht mehr am Leben
-        {
-            if(pPrev)
-            {
-                
-                pPrev->setNext(pPar->getNext());
-            } else 
-            {
-                m_partikel.setHead(pPar->getNext());
-            } 
-            // Partikel löschen und anzahl verringern  
-            delete pPar;
-            pPar = Null;
-            m_PartikelZahl--;
-
-            if(pPrev)
-            {
-                pPar = pPrev->getNext();
-            } else 
-            {
-                pPar = m_partikel.getHead();
-            }
-            continue; // nächster Schleifenaufruf
+        if(!(*ite)->isAlive()) //wenn nicht mehr am Leben
+        {   
+            m_partikel.erase(ite);
+            delete (*ite);
         } else
         {   
             //wenn alive rendern;
-            pPar->render();
+            (*ite)->render();
         }
         //weitergehen;
-        pPrev = pPar;
-        pPar = pPar->getNext();
+        ite++;
     }
 }
 
 bool EmitterFlug::add(PartikelFlug* partikel)
 {   
     //wenn noch Platz
-    if(m_PartikelZahl < m_maxPartikel)
+    if(m_partikel.size() < m_maxPartikel)
     {   
         //Füge hinzu
-        m_partikel.Add(partikel);
-        //erhöhe Anzahl
-        m_PartikelZahl++;
+        m_partikel.push_back(partikel);
         //gebe erstellt zurück
         return true;
     }
