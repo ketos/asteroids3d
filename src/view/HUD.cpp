@@ -37,7 +37,7 @@ void HUD::draw(int width, int height, QFont f)
     drawRadar(width,height);
     score(fighterScore,width/2);
     Speed(fighterSpeed);
-    damages(fighterDamage,(width/2));
+    damages(fighterDamage);
 
     	
     if(!collvec.empty())
@@ -141,12 +141,12 @@ void HUD::score(int punkte, int breite)
     painter->drawText(point,aktuellepunkte);
 }
 
-void HUD::damages(int schaden, int breite)
+void HUD::damages(int schaden)
 {
  	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,255));
     pen.setWidth(9);
  	 painter->setPen(pen);
-	 QRectF rectangles(breite/2+durchmesser/2+20, hoehe-durchmesser-abstand-20, durchmesser+10, durchmesser+10);
+	 QRectF rectangles((breite/2)-(durchmesser/2), hoehe-durchmesser-abstand-20, durchmesser+10, durchmesser+10);
  	 int startAngle = -30 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
@@ -161,7 +161,7 @@ void HUD::Speed(float speed)
  	painter->setPen(pen);
  	
  	QRectF rectangles(breite/2-durchmesser/2-20, hoehe-durchmesser-abstand-20, durchmesser+10, durchmesser+10);
- 	int startAngle = 240 * 16;
+ 	int startAngle = 330 * 16;
  	int spanAngle = -1*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
 
