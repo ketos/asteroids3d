@@ -16,11 +16,10 @@
 #include "rendering/Skybox.hpp"
 #include "rendering/Asteorid.hpp"
 #include "math/Global.hpp"
-#include "Galaxis.hpp"
-#include "math/Collision.hpp"
 #include "io/joystick.h"
 #include "control/keyboard.hpp"
 #include "control/joystickcontrol.hpp"
+#include "logic/Game.hpp"
 
 #include "view/HUD.hpp"
 

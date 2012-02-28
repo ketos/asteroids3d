@@ -15,8 +15,6 @@ Galaxis::Galaxis()
    	glVector<float> v1(0.0, 0.0, -1000.0);
 	glVector<float> v2(0.0, 0.0, 0.0);
 	addAsteorid(v1,v2);
-	//bitte auslagern
-	score      = 0;
 	paintLevel = false;
     paintLevelcount = 0;
 }
@@ -51,14 +49,12 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	addMiniAsteorid(tmp,v1);
 	addMiniAsteorid(tmp, v2);
 	addMiniAsteorid(tmp, v3);
-	score+=50;
 }
 
 void Galaxis::mini_astroid_destroyed()
 {
-	score+=20;
+
 }
-    
 
 void Galaxis::render()
 {
@@ -138,10 +134,6 @@ void Galaxis::nextLevel()
     }
 }
 
-int Galaxis::getScore()
-{
-	return score;	
-}
 bool Galaxis::shouldIncLevel()
 {
 	if ((paintLevelcount < 100) && (paintLevelcount > 0) )

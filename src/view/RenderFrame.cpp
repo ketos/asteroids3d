@@ -106,8 +106,7 @@ void RenderFrame::loadModel(string filename)
 	std::string filenamer = "config.xml";
 	galaxis->addLevel( filenamer );
 	
-    m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
-    m_coll->start();
+    Game::getCollision()->start();
     
     // start Timer
     m_timer->start();
@@ -248,7 +247,7 @@ void RenderFrame::paintGL()
 			
         	hins->setLevel(galaxis->getLevelnumber());
             hins->setIncLevel(galaxis->shouldIncLevel());
-   	        hins->setFighterData(m_mesh->getDamage(), galaxis->getScore(), m_mesh->getSpeed());
+   	        hins->setFighterData(m_mesh->getDamage(), Game::getScore(), m_mesh->getSpeed());
    	        hins->setAstroidsVector(m_coll->getCollisionVector());
             hins->draw(width(),height(),font());
             if(m_coll->getWarning())

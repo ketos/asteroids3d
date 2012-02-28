@@ -3,6 +3,11 @@
 
 //Emitter für Flug
 
+EmitterFlug::EmitterFlug()
+{
+
+}
+
 EmitterFlug::EmitterFlug(int Partikelanzahl)
 {
     m_maxPartikel  = Partikelanzahl;
@@ -12,6 +17,12 @@ EmitterFlug::EmitterFlug(int Partikelanzahl)
 EmitterFlug::~EmitterFlug()
 {
     //TODO alle Partikel löschen
+}
+
+void EmitterFlug::setMaxPartikel(int i)
+{
+    m_maxPartikel = i;
+    m_PartikelZahl =0;
 }
 
 void EmitterFlug::update()
