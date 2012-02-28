@@ -11,6 +11,8 @@ Mini_Asteorid::Mini_Asteorid(glVector<float> start_position, glVector<float> fli
 :     Asteorid(start_position, flight_axis)
 {
 	radius = 100;
+	mini = true;
+	hitable = true;
 }
 
 void Mini_Asteorid::run()

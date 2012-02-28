@@ -53,7 +53,6 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     hins = new HUD();
     show();
-    
     menu = true;
 }
 
@@ -243,6 +242,7 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
+
 		hins->setPainter( &painter );
         if(m_mesh) {
 			
