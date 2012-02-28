@@ -8,6 +8,8 @@ Collision::Collision(Fighter* schiff, Galaxis* Milchstrasse)
         m_galax = Milchstrasse;
         m_running = true;
         warning = false;
+        //m_bullets = 1;
+        //m_asteorids = 1;
 }
 
 void Collision::run()
@@ -17,7 +19,8 @@ void Collision::run()
         while(m_running)
         {
 		radar.clear();
-
+		//delete (&m_bullets);
+		//delete (&m_asteorids);
         // get the vectors form fighter and galaxis
         m_bullets = m_craft->get_Bullets();
         m_asteorids = m_galax->getAsteorids();
@@ -30,12 +33,12 @@ void Collision::run()
 
        	while(asteoridtIt != m_asteorids.end())
         {
+        	(*asteoridtIt)->set_hitable(true);
         	
         	float diffFightX = ((*asteoridtIt)->getPosition())[0] - (m_craft->getPosition())[0] ;
             float diffFightY = ((*asteoridtIt)->getPosition())[1] - (m_craft->getPosition())[1] ;
 			float diffFightZ = ((*asteoridtIt)->getPosition())[2] - (m_craft->getPosition())[2] ;
-			//std::cout << "fx:"<<(m_craft->getPosition())[0]<<",y:"<<(m_craft->getPosition())[1]<<",z:"<<(m_craft->getPosition())[2]<<std::endl;
-			//std::cout << "ax:"<<((*asteoridtIt)->getPosition())[0]<<",y:"<<((*asteoridtIt)->getPosition())[1]<<",z:"<<((*asteoridtIt)->getPosition())[2]<<std::endl;
+			
             glVector<float> tmp2(diffFightX, diffFightY, diffFightZ);		
 			
 			int diffFight = sqrt((diffFightX * diffFightX) + (diffFightY * diffFightY) + (diffFightZ * diffFightZ));
@@ -48,7 +51,6 @@ void Collision::run()
 			// Das Schiff wird getroffen
 			if(diffFight <= (*asteoridtIt)->get_radius())
 			{
-				
 				m_craft->increaseDamage(10);
 				(*asteoridtIt)->changeDirection();
 				(*asteoridtIt)->destroy();
@@ -59,17 +61,13 @@ void Collision::run()
 				warning = true;
 			}
 			
-			/* Für das Radar werden die Asteoriden in einer bestimmten Distanz erfasst */
-			//if(diffFight < 5000)
-			//{
-                //std::cout << "fax:"<<diffFightX<<",y:"<<diffFightY<<",z:"<<diffFightZ<<std::endl;
-				diffFightX = (m_craft->getxAxis()) * tmp2 ;
-				diffFightY = (m_craft->getyAxis()) * tmp2 ;
-				diffFightZ = (m_craft->getzAxis()) * tmp2 ;
-				glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
+			/* Für das Radar werden die Asteoriden erfasst */
+			diffFightX = (m_craft->getxAxis()) * tmp2 ;
+			diffFightY = (m_craft->getyAxis()) * tmp2 ;
+			diffFightZ = (m_craft->getzAxis()) * tmp2 ;
+			glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 
-				radar.push_back(tmp);
-			//}
+			radar.push_back(tmp);
 			
 			/* Iteration über alle Kugeln, dann berechnen ob ein Asteorid im Hitbereich ist */
 			vector<Bullet*>::iterator bulletIt;
@@ -80,8 +78,8 @@ void Collision::run()
             float diffY = ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] ;
 			float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
 			
-			
 			int diff = sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));               
+            
             if ( diff <= (*asteoridtIt)->get_radius())
             {
                 	std::cout << (*asteoridtIt)->get_radius() << std::endl;
@@ -94,6 +92,40 @@ void Collision::run()
 				bulletIt++;
             }
             
+            /* Berechnung der Kollision zwischen zwei Asteoriden */
+            
+            vector<Asteorid*>::iterator asteoridtIt2;
+			asteoridtIt2 = asteoridtIt + 1;
+			while(asteoridtIt2 != m_asteorids.end())
+			{
+				float diffAstX = ( ( (*asteoridtIt)->getPosition() )[0] - ( (*asteoridtIt2)->getPosition() )[0] );
+				float diffAstY = ( ( (*asteoridtIt)->getPosition() )[1] - ( (*asteoridtIt2)->getPosition() )[1] );
+                float diffAstZ = ( ( (*asteoridtIt)->getPosition() )[2] - ( (*asteoridtIt2)->getPosition() )[2] );
+                
+                int diffAst = sqrt((diffAstX * diffAstX) + (diffAstY * diffAstY) + (diffAstZ * diffAstZ));
+                
+            	(*asteoridtIt2)->set_hitable(true);
+            	
+                if( ( diffAst <= (*asteoridtIt)->get_radius()  ) || (diffAst <= (*asteoridtIt2)->get_radius() ) )
+                {
+                	/* Zusammenprall der beiden Asteoriden */
+                	std::cout << "Zusammenprall zwischen zwei Asteoriden" << std::endl;
+                	if( (*asteoridtIt)->is_hitable() )
+                	{
+                		(*asteoridtIt)->changeDirection();
+                		(*asteoridtIt)->set_hitable(false);
+                	}
+
+                	if( (*asteoridtIt)->is_hitable() )
+                	{
+                		(*asteoridtIt2)->changeDirection();
+                		(*asteoridtIt2)->set_hitable(false);
+                	}
+                	
+                	sleep(1);
+                }
+                asteoridtIt2++;
+			}    
 			asteoridtIt++;	
            	}
           	usleep(1000);
