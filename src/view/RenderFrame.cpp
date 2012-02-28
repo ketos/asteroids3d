@@ -49,9 +49,9 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     joyConnect();    
 
 	setAutoFillBackground(false);
-	m_mesh  = 0;
+	Game::getFighter()  = 0;
 	galaxis = 0;
-    hins = new HUD();
+    Game::getHud() = new HUD();
     show();
     
     menu = true;
@@ -74,7 +74,7 @@ RenderFrame::~RenderFrame()
     }
     //delete joysticks;
     //delete keyboard;
-    delete m_mesh;
+    delete Game::getFighter();
     delete m_skybox;
     SoundManager::deleteManager();
 }
@@ -84,22 +84,22 @@ void RenderFrame::loadModel(string filename)
     menu = false;
     Menu::deleteSplash();
 	// Delete currently present model if necessary
-	if(m_mesh)
+	if(Game::getFighter())
 	{
-		delete m_mesh;
+		delete Game::getFighter();
         //delete joysticks;
         //delete keyboard;
 		std::cout << "mesh deleted" << std::endl; 
 	}
 
 	// Load new model
-	m_mesh = new Fighter;
+	Game::getFighter() = new Fighter;
 	Read3DS reader(filename.c_str());
-	reader.getMesh(*(static_cast<TexturedMesh*>(m_mesh)));
+	reader.getMesh(*(static_cast<TexturedMesh*>(Game::getFighter())));
     
     //std::string input = "/dev/input/js0";
-    //joysticks = new JoystickControl(input, *m_mesh , m_cam, shoot);
-    //keyboard  = new Keyboard( *m_mesh , m_cam, shoot);
+    //joysticks = new JoystickControl(input, *Game::getFighter() , m_cam, shoot);
+    //keyboard  = new Keyboard( *Game::getFighter() , m_cam, shoot);
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
@@ -194,11 +194,11 @@ void RenderFrame::resizeGL(int w, int h)
 
 }
 void RenderFrame::setCam() {
-    if(m_mesh) {
-    glVector<float> pos = (*(static_cast<Transformable*>(m_mesh))).getPosition();
-    glVector<float> front=(*(static_cast<Transformable*>(m_mesh))).getFront();
-    glVector<float> up = (*(static_cast<Transformable*>(m_mesh))).getUp();
-    glVector<float> side =(*(static_cast<Transformable*>(m_mesh))).getSide();
+    if(Game::getFighter()) {
+    glVector<float> pos = (*(static_cast<Transformable*>(Game::getFighter()))).getPosition();
+    glVector<float> front=(*(static_cast<Transformable*>(Game::getFighter()))).getFront();
+    glVector<float> up = (*(static_cast<Transformable*>(Game::getFighter()))).getUp();
+    glVector<float> side =(*(static_cast<Transformable*>(Game::getFighter()))).getSide();
     m_cam.setLocation(pos, front, up, side);
     }
 }
@@ -207,7 +207,7 @@ void RenderFrame::paintGL()
     if(joystick) {
         control();
     }
-    //if(m_mesh) {
+    //if(Game::getFighter()) {
     //    if(joysticks->connected()) {
     //        joysticks->update();
     //    }
@@ -228,9 +228,9 @@ void RenderFrame::paintGL()
 	    m_skybox->render();
 	}
 
-	if(m_mesh)
+	if(Game::getFighter())
 	{
-		m_mesh->render();
+		Game::getFighter()->render();
 	}
 	if(galaxis)
 	{
@@ -242,14 +242,14 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-		hins->setPainter( &painter );
-        if(m_mesh) {
+		Game::getHud()->setPainter( &painter );
+        if(Game::getFighter()) {
 			
-        	hins->setLevel(galaxis->getLevelnumber());
-            hins->setIncLevel(galaxis->shouldIncLevel());
-   	        hins->setFighterData(m_mesh->getDamage(), Game::getScore(), m_mesh->getSpeed());
-   	        hins->setAstroidsVector(m_coll->getCollisionVector());
-            hins->draw(width(),height(),font());
+        	Game::getHud()->setLevel(galaxis->getLevelnumber());
+            Game::getHud()->setIncLevel(galaxis->shouldIncLevel());
+   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed());
+   	        Game::getHud()->setAstroidsVector(m_coll->getCollisionVector());
+            Game::getHud()->draw(width(),height(),font());
             if(m_coll->getWarning())
             {
                 if(!warning_sound)
@@ -257,7 +257,7 @@ void RenderFrame::paintGL()
             	   SoundManager::playWarningSound();
             	   warning_sound = true;
             	}
-                hins->drawWarning();
+                Game::getHud()->drawWarning();
                 
             }else
             {
@@ -266,7 +266,7 @@ void RenderFrame::paintGL()
             }  
         }
         if(menu) {
-            Menu::drawSplash(width(),height(), hins);
+            Menu::drawSplash(width(),height(), Game::getHud());
         }
         painter.end();
         glPopMatrix();
@@ -303,47 +303,47 @@ void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 
 void RenderFrame::moveCurrentMesh()
 {    
-    if(m_mesh)
+    if(Game::getFighter())
     {
     	// Controller for moving and rotation
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-            //m_mesh->move(STRAFE, -f_speed);
-            (static_cast<Fighter*>(m_mesh))->changeSpeed(1);
+            //Game::getFighter()->move(STRAFE, -f_speed);
+            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            //m_mesh->move(STRAFE, f_speed);
-            (static_cast<Fighter*>(m_mesh))->changeSpeed(-1);
+            //Game::getFighter()->move(STRAFE, f_speed);
+            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(PITCH, f_angle);
+            Game::getFighter()->rotate(PITCH, f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(PITCH, -f_angle);
+            Game::getFighter()->rotate(PITCH, -f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(YAW,  f_angle);
-            m_mesh->rotate(ROLL ,f_angle);
+            Game::getFighter()->rotate(YAW,  f_angle);
+            Game::getFighter()->rotate(ROLL ,f_angle);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
-            m_mesh->rotate(YAW, -f_angle);
-            m_mesh->rotate(ROLL ,-f_angle);
+            Game::getFighter()->rotate(YAW, -f_angle);
+            Game::getFighter()->rotate(ROLL ,-f_angle);
     	}
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
             if(shoot) {
-    		    (static_cast<Fighter*>(m_mesh))->shoot();
+    		    (static_cast<Fighter*>(Game::getFighter()))->shoot();
                 shoot = false;
                 m_timer2->start();
             }
@@ -370,18 +370,18 @@ void RenderFrame::moveCurrentMesh()
         {
             m_cam.setEgo();
             //Cockpit löschen
-            if (hins)
+            if (Game::getHud())
             {
-            	hins->deleteCockpit();	
+            	Game::getHud()->deleteCockpit();	
             }
         }
         if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
         {
             m_cam.setThird();
             //Cockpit löschen
-            if (hins)
+            if (Game::getHud())
             {
-            	hins->deleteCockpit();	
+            	Game::getHud()->deleteCockpit();	
             }
         }
         if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
@@ -389,9 +389,9 @@ void RenderFrame::moveCurrentMesh()
        		
             m_cam.setThird();
             //Cockpit setzen
-			if (hins)
+			if (Game::getHud())
             {
-            	hins->loadCockpit();	
+            	Game::getHud()->loadCockpit();	
             }
         }
         if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
@@ -402,21 +402,21 @@ void RenderFrame::moveCurrentMesh()
 }
 
 void RenderFrame::control() {
-    if(m_mesh) {
+    if(Game::getFighter()) {
     if(joys->getAxis(0) <-deadzone || joys->getAxis(0) > deadzone ) { // joystick links links-rechts
         float angle = joys->getAxis(0) / maxjoy * f_angle;        
-        m_mesh->rotate(YAW,  -angle);
-        m_mesh->rotate(ROLL, -angle);
+        Game::getFighter()->rotate(YAW,  -angle);
+        Game::getFighter()->rotate(ROLL, -angle);
     }
     if(joys->getAxis(1) <-deadzone || joys->getAxis(1) > deadzone ) { // joystick links up-down
         float angle = joys->getAxis(1) / maxjoy * f_angle;
-        m_mesh->rotate(PITCH,  angle);
+        Game::getFighter()->rotate(PITCH,  angle);
     }
     if(joys->getAxis(2) > deadzone) { // schulter links
-        (static_cast<Fighter*>(m_mesh))->changeSpeed(1);
+        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
     }
     if(joys->getAxis(5) > deadzone) { // schulter rechts
-        (static_cast<Fighter*>(m_mesh))->changeSpeed(-1);
+        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
     }
     if(joys->getAxis(4) <-4*deadzone) { // joystick rechts up-down
         m_cam.zoom(-15);
@@ -432,7 +432,7 @@ void RenderFrame::control() {
     }
     if(joys->getButton(0) > 0) { //A
         if(shoot) {
-            (static_cast<Fighter*>(m_mesh))->shoot();
+            (static_cast<Fighter*>(Game::getFighter()))->shoot();
             shoot = false;
             m_timer2->start();
         }
@@ -497,6 +497,6 @@ void RenderFrame::setupViewport(int width, int height)
 
 HUD* RenderFrame::getHUD()
 {
-    return hins;
+    return Game::getHud();
 }
 

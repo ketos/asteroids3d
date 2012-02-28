@@ -21,8 +21,6 @@
 #include "control/joystickcontrol.hpp"
 #include "logic/Game.hpp"
 
-#include "view/HUD.hpp"
-
 class RenderFrame : public QGLWidget
 {
     Q_OBJECT
@@ -63,12 +61,6 @@ public:
 
 	/// The camera object tot display the scene
     static Camera m_cam;
-
-    /**
-     * @brief returns the HUD
-     * @return the HUD
-     */
-    HUD* getHUD();
 
 protected:
     
@@ -115,27 +107,10 @@ protected:
      * 			needed transformations to the active triangle mesh
      */
 	void moveCurrentMesh();
-
-	/**
-	 * @brief The currently loaded triangle mesh
-	 */
-	Fighter*	m_mesh;
-	
-	/**
-	 * @brief the collision thread
-	 */
-    Collision* m_coll;
-
-	/**
-	 * @brief the current loaded Galaxis
-	 */
-	Galaxis* galaxis;
 	/**
 	 * @brief A skybox for the scene
 	 */
 	Skybox* m_skybox;
-
-	HUD* hins;
 
     static float f_speed;
     static float f_angle;
