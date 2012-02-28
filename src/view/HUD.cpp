@@ -26,7 +26,7 @@ void HUD::draw(int width, int height, QFont f)
     itervec = collvec.begin();
     drawRadar(width,height);
     score(fighterScore,width/2);
-    Speed(fighterSpeed,0);
+    Speed(fighterSpeed);
     damages(fighterDamage,(width/2));
 
     	
@@ -139,17 +139,20 @@ void HUD::damages(int schaden, int breite)
     painter->drawText(point,leben);
 }
 
-void HUD::Speed(float speed, int breite)
+void HUD::Speed(float speed)
 {
-   painter->setPen(QColor(255,255,255,255));
-   std::ostringstream Str;
-   Str << speed;
-  	std::string spd("Speed:"+Str.str()+"%");
-  	QFont font("Star Jedi Hollow", 16, QFont::Bold);
-  	painter->setFont(font);
-  	QString qspeed = QString::fromStdString(spd);
-  	QPoint point = QPoint(0,30);
-  	painter->drawText(point,qspeed);
+
+   QRectF rectangle(breite/2-30, hoehe/2, 10, speed);
+   painter->setPen(QColor((2.25)*speed,255-((2.25)*speed),0,255));
+   painter->fillRect (rectangle,QColor((2.25)*speed,255-((2.25)*speed),0,175));
+ 	painter->drawRect(rectangle);
+ 	
+ 	
+ 	QRectF rectangles(breite/2-80, hoehe-160, 150.0, 150.0);
+ 	int startAngle = 160 * 16;
+ 	int spanAngle = 90 * 16;
+ 	painter->drawArc(rectangles, startAngle, spanAngle);
+
 }
 
 void HUD::setFighterData(int damage, int score, float speed)

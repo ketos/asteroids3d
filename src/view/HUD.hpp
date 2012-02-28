@@ -72,7 +72,7 @@ public:
 	 *@param breite width
 	 *@param painter used Painter
 	 */  
-  void Speed(float speed, int breite);
+  void Speed(float speed);
   
 	/**
 	 *@briefset Method for fighter Data like Score,damage speed

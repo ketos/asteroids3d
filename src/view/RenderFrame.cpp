@@ -53,11 +53,6 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     
     show();
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> b2ec31a0d250ff31a41ea95407badbd999ea5bdb
     menu = true;
 }
 
