@@ -1,17 +1,19 @@
 #include "view/HUD.hpp"
 
-HUD::HUD(QPainter *paint)
+HUD::HUD()
 {
 	fighterDamage = 0;
 	fighterSpeed  = 0;
 	fighterScore  = 0;
 	durchmesser   = 150;
 	abstand       = 10;
-	painter       = paint;
 	paintLevel    = false;
 	breite 		  = 0;
 	hoehe 		  = 0; 	
-
+}
+void HUD::setPainter(QPainter *paint)
+{
+	painter       = paint;
 }
 void HUD::draw(int width, int height, QFont f)
 {    
@@ -41,8 +43,8 @@ void HUD::draw(int width, int height, QFont f)
 void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy)
 {
 		    painter->setPen(QColor(0,255,0,255));
-      int p = 6;
-      glVector<float> tmp(*vec);
+    int p = 6;
+	glVector<float> tmp(*vec);
 	if(vec->length()<5000)
 	{
 

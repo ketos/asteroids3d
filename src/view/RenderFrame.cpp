@@ -51,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    
+    hins = new HUD();
     show();
     
     menu = true;
@@ -243,7 +243,7 @@ void RenderFrame::paintGL()
         glPushAttrib(GL_ALL_ATTRIB_BITS);
         glLoadIdentity();
         QPainter painter(this);
-		hins = new HUD(&painter);
+		hins->setPainter( &painter );
         if(m_mesh) {
 			
         	hins->setLevel(galaxis->getLevelnumber());
