@@ -231,9 +231,9 @@ void RenderFrame::paintGL()
 
 	if(m_mesh)
 	{
-		m_mesh->render();
+		m_mesh->render(!hins->getView());
 	}
-	if(galaxis)
+	if(galaxis) 
 	{
 		galaxis->render();
 	}

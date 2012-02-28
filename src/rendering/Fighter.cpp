@@ -31,12 +31,19 @@ vector<Bullet*> Fighter::get_Bullets()
 {
   return m_bullets; 
 }
-
-void Fighter::render()
+void Fighter::render(bool printFighter)
 {
-    m_position = m_position - m_xAxis * m_speed;
-    // Render the fighter
-    TexturedMesh::render();
+	m_position = m_position - m_xAxis * m_speed;
+    
+	if (printFighter)
+	{
+		// Render the fighter
+    	TexturedMesh::render();
+	}
+	renderBullet();
+}
+void Fighter::renderBullet()
+{
     vector<Bullet*>::iterator bulletIt;
     bulletIt = m_bullets.begin();
     // Iterate over the fighter's bullets and render them
