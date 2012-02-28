@@ -53,7 +53,6 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	galaxis = 0;
     Game::getHud() = new HUD();
     show();
-    
     menu = true;
 }
 
