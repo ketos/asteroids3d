@@ -121,7 +121,11 @@ public:
 	  *@brief hides the cokpit
 	  */
 	 void deleteCockpit();
-	 
+	 /*
+	  *@brief return true if cockpitview
+	   @return  true if cockpitview
+	  */
+	 bool getView();
 	 /*
 	  *@brief draws the cockpit 
 	  */

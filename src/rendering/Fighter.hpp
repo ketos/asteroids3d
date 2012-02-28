@@ -24,11 +24,15 @@ public:
      * @brief Adds a bullet to the fighter's vector of bullets.
      */
 	void shoot();
-    
     /**
      * @brief Renders the fighter and calls the bullets' render method.
+     * @param printFighter decides if the fighter should be painted
      */
-   void render();
+    void render(bool printFighter);
+    /**
+     * @brief calls the bullets' render method.
+     */
+   void renderBullet();
     /**
      * @brief returns a vetor width all bullets
      */

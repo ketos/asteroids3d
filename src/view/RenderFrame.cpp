@@ -229,9 +229,9 @@ void RenderFrame::paintGL()
 
 	if(Game::getFighter())
 	{
-		Game::getFighter()->render();
+		Game::getFighter()->render(!Game::getHud()->getView());
 	}
-	if(galaxis)
+	if(galaxis) 
 	{
 		galaxis->render();
 	}

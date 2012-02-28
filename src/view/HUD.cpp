@@ -83,7 +83,10 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
 		painter->drawEllipse(radarmidx+(xytmp.y)-(p/2), radarmidy+(xytmp.x)-(p/2),p,p); 	
   	}
 }
-
+bool HUD::getView()
+{
+	return showCockpit;
+}
 void HUD::drawCockpit()
 {
 	QImage myImage = QImage("res/images/cockpit.png");
