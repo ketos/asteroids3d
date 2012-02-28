@@ -83,26 +83,10 @@ void Galaxis::render()
     else
     {
     	//alle asteoriden gelöscht
-    	cout << "keine asteoriden"<<endl;
     	nextLevel();
     }
 }
-/*
-void Galaxis::nextLevel()
-{
-  level++;
-  std::cout << "Dies das nächstes Level " << level << std::endl;
-    g
-void Galaxis::addLevel(string& filename)
-{
-	//tmp = ReadXML::readConfig( filename );
-	/lVector<float> v1(1000.0, 10.0, -1000.0);
-    glVector<float> v2(0.0, 0.0, 0.0);
-	addAsteorid(v1,v2);
-  // XML-Reader liefert pos!!!
-  // Iterieren und Asteoriden hinzugefuegen
-}
-*/
+
 vector<Asteorid*> Galaxis::getAsteorids()
 {
     return asteorids;
@@ -126,15 +110,13 @@ void Galaxis::addLevel(string& filename)
 void Galaxis::nextLevel()
 {
 	
-	cout << m_levels.size()<<endl;
-	cout << level <<endl;
 	//loeschen aller asteoriden
 	//asteorids.clear();
 	//naechstes level laden
 	//nächtes level in currentLevel
 	if (level < m_levels.size())
 	{
-		cout << "innen"<<endl;
+		std::cout << "Next Level: " << level << " von " << m_levels.size() << std::endl;
 		vector<std::pair<glVector<float>*, glVector<float>* >* >* currentLevel= m_levels[ level ];
 	
 		vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
@@ -145,7 +127,6 @@ void Galaxis::nextLevel()
 		    glVector<float> p_1(p->first->x, p->first->y, p->first->z);
 		    glVector<float> p_2(p->second->x, p->second->y, p->second->z);
 			addAsteorid(p_1, p_2);
-			cout << "bla:"<<p->first->x <<endl;
 			levelIt++;
     	}
     	//level erhöhen
@@ -154,7 +135,6 @@ void Galaxis::nextLevel()
     }
     else
     {
-    	cout<<"ALLE LEVEL DURCH GESPIELT :)) TOLL!"<<endl;
     }
 }
 
@@ -164,16 +144,18 @@ int Galaxis::getScore()
 }
 bool Galaxis::shouldIncLevel()
 {
-	if (paintLevel)
-	{
-			return true;
-	}
-	if (paintLevelcount < 10)
+	if ((paintLevelcount < 100) && (paintLevelcount > 0) )
 	{
 			paintLevel = true;
-			paintLevelcount++;
 	}
-	paintLevel = false;
+    if (paintLevel)
+	{
+	        paintLevelcount++;
+	        paintLevel = false;
+			return true;
+	}
+	paintLevelcount = 0;
+	paintLevel      = false;
 	return false;
 }
 
