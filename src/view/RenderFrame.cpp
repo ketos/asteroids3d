@@ -103,7 +103,7 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-	std::string filenamer = "config.xml";
+	std::string filenamer = "res/config/config.xml";
 	galaxis->addLevel( filenamer );
 	
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);

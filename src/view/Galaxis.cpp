@@ -70,11 +70,8 @@ void Galaxis::render()
       // if the bullet's lifetime is over, erase it from the vector.
       while(asteoridtIt != asteorids.end()){
 	  (*asteoridtIt)->render();
-	  //(*asteoridtIt)->info();
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
-	      
-	      //delete (*asteoridtIt);
 	      }else{
 	        asteoridtIt++;	
 	      }
@@ -104,7 +101,6 @@ void Galaxis::addLevel(string& filename)
 	//ReadXML::readConfig( filename);
 	//tmp = ReadXML::readConfig( filename );
 	m_levels.push_back(ReadXML::readConfig( filename ));
-	cout << "blub"<<endl;
 }
 
 void Galaxis::nextLevel()
@@ -116,9 +112,7 @@ void Galaxis::nextLevel()
 	//nächtes level in currentLevel
 	if (level < m_levels.size())
 	{
-		std::cout << "Next Level: " << level << " von " << m_levels.size() << std::endl;
-		vector<std::pair<glVector<float>*, glVector<float>* >* >* currentLevel= m_levels[ level ];
-	
+		vector<std::pair<glVector<float>*, glVector<float>* >* >* currentLevel = m_levels[ level ];
 		vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
 		levelIt = currentLevel->begin();
 		while( levelIt != currentLevel->end() )

@@ -19,7 +19,6 @@ void HUD::draw(int width, int height, QFont f)
 	hoehe = height;
     radmidx = width/2;
     radmidy = height - (durchmesser/2) - abstand;
-    std::cout << "Ich zeichen das HUD!! " << paintLevel << std::endl;
     if (paintLevel)
       	drawLevelEnd();
 	std::vector<glVector<float>* >::iterator itervec;
