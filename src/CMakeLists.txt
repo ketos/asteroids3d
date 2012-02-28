@@ -107,6 +107,8 @@ set(VIEWER_SOURCES
     rendering/Mini_Asteorid.cpp
     rendering/Fighter.cpp
     rendering/Bullet.cpp
+    rendering/partikel/Emitter-Flug.cpp
+    rendering/partikel/Partikel-Flug.cpp
     #rendering/Explosion.cpp
     Main.cpp
     math/Collision.cpp

@@ -23,7 +23,7 @@ Galaxis::Galaxis()
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 {
-    Asteorid* a = new Asteorid(v1,v2);;
+    Asteorid* a = new Asteorid(v1,v2);
     Read3DS reader("res/models/asteroid2.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
@@ -33,7 +33,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
 
 void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
 {
-    Mini_Asteorid* a = new Mini_Asteorid(v1,v2);;
+    Mini_Asteorid* a = new Mini_Asteorid(v1,v2);
     Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
     QObject::connect(a, SIGNAL( hit() ), this, SLOT(mini_astroid_destroyed() ) );
