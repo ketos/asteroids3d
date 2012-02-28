@@ -113,3 +113,22 @@ void glVector<T>::normalize()
     }
 }
 
+template<typename T>
+void glVector<T>::xyNormalize()
+{
+    // Normalize the vector
+    T mag2 = this->x * this->x + this->y * this->y;
+    if (fabs(mag2 - 1.0f) > TOLERANCE)
+    {
+        T mag = sqrt(this->x * this->x + this->y * this->y);
+        this->x /= mag;
+        this->y /= mag;
+        this->z /= mag;
+    }
+}
+template<typename T>
+T glVector<T>::length()
+{
+	T mag2 = this->x * this->x + this->y * this->y + this->z * this->z;
+	return sqrt(mag2);
+}
