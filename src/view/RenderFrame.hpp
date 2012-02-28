@@ -16,7 +16,6 @@
 #include "rendering/Skybox.hpp"
 #include "rendering/Asteorid.hpp"
 #include "math/Global.hpp"
-#include "io/joystick.h"
 #include "control/keyboard.hpp"
 #include "control/joystickcontrol.hpp"
 #include "logic/Game.hpp"
@@ -48,14 +47,8 @@ public:
     void setupViewport(int width, int height);
    
     QTimer* m_timer;
-    
-    QTimer* m_timer2;
-    
-    Joystick *joys;
-    
-    //Keyboard* keyboard;
-     
-    //JoystickControl* joysticks;
+
+    JoystickControl* joys;
 
 	/// The camera object tot display the scene
     static Camera m_cam;
@@ -101,20 +94,14 @@ protected:
 	 */
 	Skybox* m_skybox;
 
-    static float f_speed;
-    static float f_angle;
-    static float deadzone;
-    static float maxjoy;
     static float shootTime;
     
     bool joystick;
     
-    bool shoot;
+    int reload;
 
-    void joyConnect();
-
-private slots:
-    void updateShoot();
+public:
+    static bool shoot;
 };
 
 #endif // RENDER_FRAME_H

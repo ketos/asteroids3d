@@ -8,9 +8,6 @@
 #include "io/joystick.h"
 #include <QTimer>
 
-#include "view/Camera.hpp"
-#include "rendering/Fighter.hpp"
-
 /**
  * @brief einige Konstanten
  */
@@ -23,7 +20,7 @@
 class JoystickControl
 {
 public:
-    JoystickControl(std::string input, Fighter &mesh, Camera &cam, bool &shoot);
+    JoystickControl(std::string input);
     ~JoystickControl();
     bool connected();
     void update();
@@ -31,9 +28,6 @@ public:
 private:
     Joystick* joys;
     bool connect;
-    Fighter m_mesh;
-    Camera m_cam;
-    bool m_shoot;
 };
 
 #endif

@@ -5,8 +5,6 @@
 #ifndef __KEYBOARD_H__
 #define __KEYBOARD_H__
 
-#include "view/Camera.hpp"
-#include "rendering/Fighter.hpp"
 #include <QKeyEvent>
 #include <set>
 

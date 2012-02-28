@@ -55,11 +55,10 @@ void Keyboard::update()
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-            /*if(shoot) {
+            if(RenderFrame::shoot) {
     		    (static_cast<Fighter*>(Game::getFighter()))->shoot();
-                shoot = false;
-                m_timer2->start();
-            }*/
+                RenderFrame::shoot = false;
+            }
       	}
         // Ändern der Kamera
         if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
