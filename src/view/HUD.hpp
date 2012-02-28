@@ -22,7 +22,7 @@ public:
   /**
   	*@brief Defualt Constructor
   	*/
-  	HUD(QPainter *paint);
+  	HUD();
 
   /**
    * @brief Draws the HUD
@@ -108,6 +108,7 @@ public:
 	 
 	 void setLevel(int levelnumber) ;
 	
+	 void setPainter(QPainter *paint);
 	/**
 	 *@draws a Warning
 	 */

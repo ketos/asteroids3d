@@ -51,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 	setAutoFillBackground(false);
 	m_mesh  = 0;
 	galaxis = 0;
-    
+    hins = new HUD();
     show();
     menu = true;
 }
@@ -102,7 +102,7 @@ void RenderFrame::loadModel(string filename)
 
 	// load the glaxis with all planets 
 	galaxis = new Galaxis();
-	std::string filenamer = "config.xml";
+	std::string filenamer = "res/config/config.xml";
 	galaxis->addLevel( filenamer );
 	
     m_coll = new Collision( (static_cast<Fighter*>(m_mesh)), galaxis);
@@ -243,7 +243,7 @@ void RenderFrame::paintGL()
         glLoadIdentity();
         QPainter painter(this);
 
-		hins = new HUD(&painter);
+		hins->setPainter( &painter );
         if(m_mesh) {
 			
         	hins->setLevel(galaxis->getLevelnumber());
