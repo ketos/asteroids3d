@@ -370,10 +370,30 @@ void RenderFrame::moveCurrentMesh()
         if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
         {
             m_cam.setEgo();
+            //Cockpit löschen
+            if (hins)
+            {
+            	hins->deleteCockpit();	
+            }
         }
         if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
         {
             m_cam.setThird();
+            //Cockpit löschen
+            if (hins)
+            {
+            	hins->deleteCockpit();	
+            }
+        }
+        if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
+        {
+       		
+            m_cam.setThird();
+            //Cockpit setzen
+			if (hins)
+            {
+            	hins->loadCockpit();	
+            }
         }
         if (m_pressedKeys.find(Qt::Key_O) != m_pressedKeys.end())
         {

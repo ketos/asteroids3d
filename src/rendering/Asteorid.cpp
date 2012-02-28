@@ -15,6 +15,9 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
     this->flight_axis = flight_axis;
     speed = 0.02;
     radius = 250;
+    mini = false;
+    hitable = true;
+    wait = 0;
 }
 
 bool Asteorid::isAlive()
@@ -48,6 +51,7 @@ glVector<float> Asteorid::getPosition()
 
 void Asteorid::changeDirection()
 {
+	std::cout << "Der Asteorid ist zusammengeprallt und soll irgendwas tun";
     flight_axis = flight_axis * -1;
 }
 
@@ -64,4 +68,19 @@ void Asteorid::set_flight_axis(glVector<float> new_axis)
 float Asteorid::get_radius()
 {
 	return radius;
+}
+
+bool Asteorid::is_mini()
+{
+	return mini;
+}
+
+bool Asteorid::is_hitable()
+{
+	return hitable;
+}
+
+void Asteorid::set_hitable(bool hit)
+{
+	hitable = hit;
 }

@@ -66,6 +66,9 @@ public:
      
      void set_flight_axis(glVector<float> new_axis);
      float get_radius();
+     bool is_mini();
+     bool is_hitable();
+     void set_hitable(bool hit);
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet
@@ -74,6 +77,9 @@ protected:
 	glVector<float> flight_axis;
 	float speed;
 	float radius;
+	bool mini;
+	bool hitable;
+	int wait;
 	
 signals:
 	void destroyed(float x, float y, float z);

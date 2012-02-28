@@ -10,6 +10,7 @@ HUD::HUD()
 	durchmesser   = 150;
 	abstand       = 10;
 	paintLevel    = false;
+	showCockpit   = false;
 	breite 		  = 0;
 	hoehe 		  = 0; 	
 }
@@ -23,6 +24,12 @@ void HUD::draw(int width, int height, QFont f)
 	hoehe = height;
     radmidx = width/2;
     radmidy = height - (durchmesser/2) - abstand;
+    //draw cockpit if necessary
+    if (showCockpit)
+    {
+    	//draw Cockpit
+    	drawCockpit();	
+    }
     if (paintLevel)
       	drawLevelEnd();
 	std::vector<glVector<float>* >::iterator itervec;
@@ -76,6 +83,22 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
 		painter->drawEllipse(radarmidx+(xytmp.y)-(p/2), radarmidy+(xytmp.x)-(p/2),p,p); 	
   	}
 }
+
+void HUD::drawCockpit()
+{
+	QImage myImage = QImage("res/images/cockpit.png");
+    myImage.load("res/images/cockpit.png");
+    if (breite > hoehe)
+    {
+    	myImage.scaledToWidth(breite);
+    }
+    else
+    {
+    	myImage.scaledToHeight(hoehe);
+    }
+    QPoint point = QPoint(0,0);
+    painter->drawImage(point, myImage);
+}	
 
 void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)
 {
@@ -215,3 +238,12 @@ void HUD::drawWarning()
     painter->drawImage(point, myImage);
 }
 
+void HUD::loadCockpit()
+{
+	showCockpit = true;
+}
+
+void HUD::deleteCockpit()
+{
+	showCockpit = false;
+}
