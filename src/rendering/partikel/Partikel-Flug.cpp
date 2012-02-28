@@ -12,6 +12,12 @@ PartikelFlug::PartikelFlug(float lifetime,
     m_size     = size;
     m_color    = color;
     m_alive = true;
+
+    GLUquadricObj* qobj = gluNewQuadric();
+    gluQuadricDrawStyle(qobj, GLU_FILL);
+    glNewList(3, GL_COMPILE);
+    gluSphere( qobj, 100, 20, 20);
+    glEndList();
 }
 
 PartikelFlug::~PartikelFlug()
@@ -35,11 +41,21 @@ void PartikelFlug::update()
 
 void PartikelFlug::render()
 {
-     glPointSize(20.0f);
-     glEnable(GL_POINT_SMOOTH);
-     glBegin(GL_POINTS);
-     glColor3d(255,0,0);
-     glVertex3d (m_position[0], m_position[1], m_position[2]);
-     glEnd();
-     glDisable(GL_POINT_SMOOTH);
+    
+    // Compute transformation matrix
+	computeMatrix();
+    // Push old transformation of the OpenGL matrix stack and
+	// start rendering the bullet in according to the
+	// internal transformation matrix
+	glPushMatrix();
+	glMultMatrixf(m_transformation);
+    
+    glCallList(3);
+    
+    //glutSolidTeapot(50);
+	//glutSolidSphere(10,16,16);
+	// Pop transformation matrix of this object
+	// to restore the previous state of the OpenGL
+	// matrix stack
+	glPopMatrix();
 }

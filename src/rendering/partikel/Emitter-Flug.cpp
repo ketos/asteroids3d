@@ -1,6 +1,8 @@
 #include "rendering/partikel/Emitter-Flug.hpp"
 // http://www.codeworx.org/opengl_par1.php
 
+#include <iostream>
+#include "logic/Game.hpp"
 //Emitter für Flug
 
 EmitterFlug::EmitterFlug()
@@ -27,28 +29,41 @@ void EmitterFlug::setMaxPartikel(int i)
 
 void EmitterFlug::update()
 {   
-    std::list<PartikelFlug*>::iterator ite = m_partikel.begin();
+    std::list<PartikelFlug>::iterator ite = m_partikel.begin();
     //durchgehen
     while(ite != m_partikel.end())
     {   
         //updaten
-        (*ite)->update();
+        (*ite).update();
         //alive abfragen
-        if(!(*ite)->isAlive()) //wenn nicht mehr am Leben
+        if(!(*ite).isAlive()) //wenn nicht mehr am Leben
         {   
-            m_partikel.erase(ite);
-            delete (*ite);
+            //m_partikel.erase(ite);
+            std::cout << "Partikel Tod :( " << std::endl;
         } else
         {   
             //wenn alive rendern;
-            (*ite)->render();
+            (*ite).render();
+            std::cout << "Partikel Render" << std::endl;
         }
         //weitergehen;
         ite++;
     }
 }
 
-bool EmitterFlug::add(PartikelFlug* partikel)
+void EmitterFlug::createPartikel()
+{   
+    glVector<float> pos;
+    glVector<float> front = Game::getFighter()->getFront();
+    front.normalize();
+    pos = Game::getFighter()->getPosition();// + front * 500;
+    float size = 20;
+    glVector<float> color;
+    PartikelFlug p(400, pos, size, color);
+    add(p);
+}
+
+bool EmitterFlug::add(PartikelFlug partikel)
 {   
     //wenn noch Platz
     if(m_partikel.size() < m_maxPartikel)

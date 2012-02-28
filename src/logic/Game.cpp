@@ -12,6 +12,8 @@ int Game::m_level = 0;
 void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
+    m_Femit.setMaxPartikel(20);
+    
 }
 
 Fighter* Game::getFighter()

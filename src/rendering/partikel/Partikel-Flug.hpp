@@ -2,9 +2,16 @@
 #define _PARTIKEL_FLUG_H
 
 #include "math/glVector.hpp"
+
+#include "rendering/TriangleMesh.hpp"
+#include "rendering/Transformable.hpp"
+#include <GL/gl.h>    
+#include <GL/glu.h>
+//#include <GL/glut.h>
+
 // Partikel für Flug
 
-class PartikelFlug
+class PartikelFlug : public TriangleMesh
 {
 public:
     //Konstruktor

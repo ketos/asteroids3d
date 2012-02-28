@@ -189,6 +189,9 @@ void RenderFrame::paintGL()
     if(joystick) {
         control();
     }
+
+    Game::getEmitterFlug()->createPartikel();
+    Game::getEmitterFlug()->update();
     //if(Game::getFighter()) {
     //    if(joysticks->connected()) {
     //        joysticks->update();
