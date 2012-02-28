@@ -58,10 +58,15 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
    }
    else{
-		tmp.normalize();
-		tmp = tmp * (durchmesser/2);
-		std::cout<<"IM OUT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
-		painter->drawEllipse(radarmidx+(tmp.y)-(p/2), radarmidy+(tmp.x)-(p/2),p,p); 	
+   	if(tmp.z>=0)
+   	{
+   		painter->setPen(QColor(0,255,0,255));
+   	}else
+   		painter->setPen(QColor(255,0,0,255));
+   	glVector<float> xytmp(tmp.x,tmp.y,0);
+		xytmp.normalize();
+		xytmp = xytmp * (durchmesser/2);
+		painter->drawEllipse(radarmidx+(xytmp.y)-(p/2), radarmidy+(xytmp.x)-(p/2),p,p); 	
   	}
 }
 

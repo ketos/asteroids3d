@@ -94,6 +94,12 @@ public:
      *return t The length
      */
     T length();
+    
+	 /**
+	  *@brief returns length of x and y
+	  *return t The Length
+	  */
+	 void xyNormalize();
 
 };
 
