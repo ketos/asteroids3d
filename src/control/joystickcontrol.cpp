@@ -39,10 +39,12 @@ void JoystickControl::update()
         Game::getFighter()->rotate(PITCH,  angle);
     }
     if(joys->getAxis(2) > DEADZONE) { // schulter links
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(SPEED);
+        float speed = joys->getAxis(2) / (2*JOYMAX) * SPEED;
+        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(speed);
     }
     if(joys->getAxis(5) > DEADZONE) { // schulter rechts
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-SPEED);
+        float speed = joys->getAxis(2) / (2*JOYMAX) * SPEED;
+        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-speed);
     }
     if(joys->getAxis(4) <-4*DEADZONE) { // joystick rechts up-down
         RenderFrame::m_cam.zoom(-15);
