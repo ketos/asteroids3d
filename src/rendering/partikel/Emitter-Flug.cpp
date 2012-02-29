@@ -58,6 +58,7 @@ void EmitterFlug::createPartikel()
     glVector<float> color(0,0,0);
     PartikelFlug p(400, pos, size, color);
     add(p);
+    //std::cout << "p: " << pos[0] << "," << pos[1] << "," << pos[2] << std::endl;
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)
