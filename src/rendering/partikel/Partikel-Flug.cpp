@@ -31,9 +31,13 @@ void PartikelFlug::update()
 void PartikelFlug::render()
 {
     //TODO render GLSphere
-    glBegin(GL_QUADS);			// Start Drawing Quads
-		// Front Face
-		glColor3f(0,0,0); 
-        glVertex3f(m_position[0], m_position[1], m_position[2]);
-    glEnd();
+   
+    glColor3f(1.0f,0.0f,0.0f); //blue color
+    
+    glPointSize(10.0f);//set point size to 10 pixels
+    
+    glBegin(GL_POINTS); //starts drawing of points
+      glVertex3f(m_position[0], m_position[1], m_position[2]);
+        //glVertex3f(0,0,0);
+    glEnd();//end drawing of points
 }

@@ -61,7 +61,7 @@ public:
     /**
      * @brief changes the flight-direction of the Astroid
      */
-     void changeDirection();
+     void changeDirection(glVector<float> dir);
 
     /**
      * @brief returns the flight-axis
@@ -73,6 +73,7 @@ public:
      bool is_mini();
      bool is_hitable();
      void set_hitable(bool hit);
+     void set_speed(float s);
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet
