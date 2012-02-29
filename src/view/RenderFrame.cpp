@@ -179,9 +179,7 @@ void RenderFrame::paintGL()
     }
     Keyboard::update();
 
-    //Emitter
-    Game::getEmitterFlug()->createPartikel();
-    Game::getEmitterFlug()->update();
+
 
     setCam();
     setFocus();
@@ -205,7 +203,12 @@ void RenderFrame::paintGL()
 	{
 		Game::getGalaxis()->render();
 	}
-    
+
+    //Emitter
+    Game::getEmitterFlug()->createPartikel();
+    Game::getEmitterFlug()->update();
+
+
         glMatrixMode(GL_PROJECTION);
         glPushMatrix();
         glPushAttrib(GL_ALL_ATTRIB_BITS);
