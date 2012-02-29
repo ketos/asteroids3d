@@ -34,7 +34,7 @@ void PartikelFlug::render()
    
     glColor3f(1.0f,0.0f,0.0f); //blue color
     
-    glPointSize(10.0f);//set point size to 10 pixels
+    glPointSize((50-m_lifetime)/50*10);//set point size to 10 pixels
     
     glBegin(GL_POINTS); //starts drawing of points
       glVertex3f(m_position[0], m_position[1], m_position[2]);

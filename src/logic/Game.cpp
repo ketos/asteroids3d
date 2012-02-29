@@ -37,8 +37,6 @@ Fighter* Game::getFighter()
 void Game::loadFighter(string filename)
 {
 	// Load new model
-   // Fighter m_fighter();
-	//m_fighter = new Fighter();
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(&m_fighter)));
 }

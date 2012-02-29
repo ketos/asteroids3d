@@ -81,6 +81,7 @@ public:
 	 *
 	 */
 	 void resetDamage();
+	 void reset_position();
 
 private:
      //bool for shot
