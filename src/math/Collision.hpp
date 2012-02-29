@@ -3,6 +3,7 @@
 #define COLLISION_HPP_
 
 #include <QThread>
+#include <QMutex>
 #include <vector>	
 #include "rendering/Asteorid.hpp"
 #include "rendering/Bullet.hpp"
@@ -70,6 +71,7 @@ private:
 	vector<glVector<float>*> radar2;
    //Warning
    bool warning;
+   QMutex mutex;
             
 };
 
