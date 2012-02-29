@@ -12,8 +12,6 @@ class PartikelFlug : public TexturedMesh
 public:
     //Konstruktor
     PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color);
-    //Destruktor
-    ~PartikelFlug();
     // weitersetzen
     void update();
     

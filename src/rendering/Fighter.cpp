@@ -12,18 +12,6 @@
 int damage = 0;
 int score  = 0;
 
-Fighter::~Fighter()
-{
-    delete m_normalBuffer;
-    delete m_vertexBuffer;
-    delete m_indexBuffer;
-    // TODO Auto-generated destructor stub
-    delete &m_materials;
-    delete &m_matFaceLists;
-    delete m_textureCoords;
-    delete &m_bullets;
-}
-
 void Fighter::shoot()
 {
     shot = true;
@@ -131,6 +119,7 @@ int Fighter::getScore()
     return score;
 }
 
+
 bool Fighter::wasShot()
 {
 	if (shot)
@@ -139,5 +128,11 @@ bool Fighter::wasShot()
 		return true;
 	}
 	return false;
+}
+
+
+void Fighter::resetDamage()
+{
+    damage = 0;
 }
 

@@ -1,6 +1,4 @@
 #include "view/HUD.hpp"
-#include <QPen>
-
 
 HUD::HUD()
 {
@@ -172,7 +170,7 @@ void HUD::score(int punkte, int breite)
 
 void HUD::damages(int schaden)
 {
- 	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,255));
+ 	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
     pen.setWidth(9);
  	 painter->setPen(pen);
 	 QRectF rectangles((breite/2)-(durchmesser/2)+5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
@@ -189,9 +187,9 @@ void HUD::Speed(float speed)
    pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles(breite/2-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	QRectF rectangles((breite/2)-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser-10, durchmesser+10);
  	int startAngle = 230 * 16;
- 	int spanAngle = (-0.8)*speed * 16;
+ 	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
 
 }
@@ -276,16 +274,11 @@ void HUD::drawLevelEnd()
     std::ostringstream Str;
     
     Str << levelNumber;
-    QImage myImage = QImage("res/images/level.png");
-    myImage.load("res/images/level.png");
-    QPoint point = QPoint(breite/2 - myImage.width()/2, hoehe/2 - myImage.height()/2);
-    painter->drawImage(point, myImage);
-
     std::string spd("Level: " + Str.str());
     QFont font("Atari Classic Chunky", 40, QFont::Bold);
     painter->setFont(font);
     QString qspeed = QString::fromStdString(spd);
-    QPoint point2 = QPoint(breite / 2 - 100, hoehe / 8);
+    QPoint point2 = QPoint(0, 100);
     painter->drawText(point2,qspeed);
 }
 
