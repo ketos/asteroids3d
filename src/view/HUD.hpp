@@ -146,7 +146,8 @@ private:
     int      fighterScore;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
-    
+    // cockpit bild 
+    QImage cockpitImage;
  	int durchmesser;
 	int abstand;     
    int radmidx;
