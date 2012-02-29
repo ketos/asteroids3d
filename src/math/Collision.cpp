@@ -17,6 +17,7 @@ void Collision::run()
 	//algorithm for checking collisions
    while(m_running)
    {
+   	    mutex.lock();
 		//radar.clear();
 		//delete (&m_bullets);
 		//delete (&m_asteorids);
@@ -44,7 +45,7 @@ void Collision::run()
 			
 			if(diffFight > 15000)
 			{
-				(*asteoridtIt)->changeDirection();
+				//(*asteoridtIt)->changeDirection();
 			}
 			
 			// Das Schiff wird getroffen
@@ -71,10 +72,11 @@ void Collision::run()
 			radar2.push_back(tmp);
 			
 			/* Iteration über alle Kugeln, dann berechnen ob ein Asteorid im Hitbereich ist */
-			vector<Bullet*>::iterator bulletIt;
+		vector<Bullet*>::iterator bulletIt;
          bulletIt = m_bullets.begin();
          while(bulletIt != m_bullets.end())
          {	
+            
             float diffX = ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] ;
             float diffY = ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] ;
 				float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
@@ -130,6 +132,7 @@ void Collision::run()
       }
       radar = radar2;
       radar2.clear();
+      mutex.unlock();
       usleep(1000);
 	}
 }

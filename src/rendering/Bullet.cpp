@@ -7,6 +7,7 @@
 #include <stdio.h>
 
 float Bullet::b_speed = 3;
+
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, glVector<float> asteroid)
 {
    	target = asteroid;
