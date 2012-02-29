@@ -53,10 +53,10 @@ void EmitterFlug::createPartikel()
     glVector<float> pos;
     glVector<float> front = Game::getFighter()->getFront();
     front.normalize();
-    pos = Game::getFighter()->getPosition() + front * 1000;
+    pos = Game::getFighter()->getPosition() - front * 1000;
     float size = 20;
     glVector<float> color(0,0,0);
-    PartikelFlug p(400, pos, size, color);
+    PartikelFlug p(50, pos, size, color);
     add(p);
     //std::cout << "p: " << pos[0] << "," << pos[1] << "," << pos[2] << std::endl;
 }
