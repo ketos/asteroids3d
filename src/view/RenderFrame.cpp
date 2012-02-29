@@ -66,6 +66,14 @@ void RenderFrame::start()
     Game::Init();
 
     Game::getCollision()->start();
+    
+    m_cam.setCockpit();
+    Game::setView(0);
+    //Cockpit setzen
+    if (Game::getHud())
+    {
+        Game::getHud()->loadCockpit();	
+    }
 
     SoundManager::playBattleMusic();
     

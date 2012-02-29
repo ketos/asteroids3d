@@ -105,12 +105,10 @@ void Keyboard::update()
             RenderFrame::m_cam.setCockpit();
             Game::setView(0);
             //Cockpit setzen
-			if (Game::getHud())
-         {
-         	Game::getHud()->loadCockpit();	
-         }
-         
-         
+            if (Game::getHud())
+            {
+         	    Game::getHud()->loadCockpit();	
+            }
         }
     }
 }
