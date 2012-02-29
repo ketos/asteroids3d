@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <level>
-    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="100" axis_y="0" axis_z="0"/>
+    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="5" axis_y="5" axis_z="0"/>
+    <asteroid pos_x="0" pos_y="0" pos_z="-2000" axis_x="7" axis_y="2" axis_z="0"/>
+	<asteroid pos_x="0" pos_y="0" pos_z="-3000" axis_x="12" axis_y="46" axis_z="0"/>
+	<asteroid pos_x="0" pos_y="0" pos_z="-4000" axis_x="1" axis_y="3" axis_z="0"/>
+	<asteroid pos_x="0" pos_y="0" pos_z="-5000" axis_x="6" axis_y="5" axis_z="0"/>
 </level>
-<level>
-    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="100" axis_y="0" axis_z="0"/>
-</level>
-<level>
-    <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="100" axis_y="0" axis_z="0"/>
-</level>
+
