@@ -29,14 +29,6 @@ void Game::loadFighter(string filename)
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(&m_fighter)));
 }
-bool Game::isFighter()
-{
-    return ((&m_fighter) != 0);
-}
-void Game::delFighter()
-{
-    delete (&m_fighter);
-}
 
 Galaxis* Game::getGalaxis()
 {

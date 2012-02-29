@@ -4,14 +4,10 @@
 #include "math/glVector.hpp"
 
 #include "rendering/TexturedMesh.hpp"
-#include "rendering/Transformable.hpp"
-#include <GL/gl.h>    
-#include <GL/glu.h>
-//#include <GL/glut.h>
 
 // Partikel für Flug
 
-class PartikelFlug //: public TexturedMesh
+class PartikelFlug : public TexturedMesh
 {
 public:
     //Konstruktor
@@ -20,8 +16,6 @@ public:
     ~PartikelFlug();
     // weitersetzen
     void update();
-    //rendern
-    void render();
     
     bool isAlive();
 private:

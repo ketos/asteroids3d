@@ -18,9 +18,6 @@ public:
 private:
     static void loadFighter(string filename);
 public:
-    static bool isFighter();
-    static void delFighter();
-
     static Galaxis* getGalaxis();
 
     static Collision* getCollision();
