@@ -64,9 +64,6 @@ void RenderFrame::start()
     
     Game::Init();
 
-	std::string filenamer = "res/config/level1.xml";
-	Game::getGalaxis()->addLevel( filenamer );	
-
     Game::getCollision()->start();
     
     // start Timer
