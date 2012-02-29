@@ -59,7 +59,19 @@ void EmitterFlug::createPartikel()
     front.normalize();
     side.normalize();
     up.normalize();
-    int max = 3200;
+    int max = 0;
+    if(Game::getView() == 0)
+    {
+        max = 2000;
+    } 
+    else if(Game::getView() == 1)
+    {
+        max = 2500;
+    } 
+    else if(Game::getView() == 2)
+    {
+        max = 4000;
+    }
     int range = 2000;
     pos = Game::getFighter()->getPosition() - front * range;
     pos = pos + side * ((rand() % max) - (max/2))   + (up * ((rand() % max) - (max/2))) ;
