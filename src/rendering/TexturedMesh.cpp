@@ -19,13 +19,7 @@ TexturedMesh::TexturedMesh(const TexturedMesh &mesh)
 
 TexturedMesh::~TexturedMesh()
 {
-    delete m_normalBuffer;
-    delete m_vertexBuffer;
-    delete m_indexBuffer;
-    // TODO Auto-generated destructor stub
-    delete &m_materials;
-    delete &m_matFaceLists;
-    delete m_textureCoords;
+
 }
 
 void TexturedMesh::compileDisplayList()

@@ -50,9 +50,9 @@ RenderFrame::~RenderFrame()
 {
     if(joystick)
     {
-        delete joys;
+    //    delete joys;
     }
-    delete Game::getFighter();
+    //delete Game::getFighter();
     delete m_skybox;
     SoundManager::deleteManager();
 }

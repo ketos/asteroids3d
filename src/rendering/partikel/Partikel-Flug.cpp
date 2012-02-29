@@ -14,11 +14,6 @@ PartikelFlug::PartikelFlug(float lifetime,
     m_alive = true;
 }
 
-PartikelFlug::~PartikelFlug()
-{
-
-}
-
 bool PartikelFlug::isAlive()
 {
     return m_alive;

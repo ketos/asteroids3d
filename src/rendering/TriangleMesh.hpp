@@ -37,7 +37,7 @@ public:
 	/**
 	 * @brief   Destructor
 	 */
-	~TriangleMesh();
+	virtual ~TriangleMesh();
 
 	/**
 	 * @brief   Sets the normal buffer of the mesh
