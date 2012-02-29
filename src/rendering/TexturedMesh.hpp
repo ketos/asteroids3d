@@ -60,7 +60,7 @@ public:
      */
     virtual void render();
 
-private:
+protected:
 
     /**
      * @brief   Compiles a display list to render the object
