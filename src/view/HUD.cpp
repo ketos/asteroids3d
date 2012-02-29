@@ -15,7 +15,7 @@ HUD::HUD()
 	ShouldIdrawRedScreen    = 0;
 	ShouldIdrawGreenScreen  = 0;
 	//ini aller bilder
-	cockpitImage->load("res/images/cockpit.png");
+	cockpitImage    		= QImage("res/images/cockpit.png");
 	miniCraft    		= QImage("res/images/ss.png");
     warningPic   		= QImage("res/images/warning.png");
     redScreen    		= QImage("res/images/redScreen.png");
