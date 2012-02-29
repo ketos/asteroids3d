@@ -99,7 +99,7 @@ void Keyboard::update()
         if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
         {
        		
-            RenderFrame::m_cam.setThird();
+            RenderFrame::m_cam.setCockpit();
             //Cockpit setzen
 			if (Game::getHud())
             {

@@ -26,5 +26,9 @@ void PartikelFlug::update()
     {
         m_alive = false;
     }
-    std::cout << "create" << std::endl;
+}
+
+void PartikelFlug::render()
+{
+    //TODO render GLSphere
 }

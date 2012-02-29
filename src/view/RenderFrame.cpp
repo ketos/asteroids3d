@@ -65,6 +65,8 @@ void RenderFrame::start()
     Game::Init();
 
     Game::getCollision()->start();
+
+    SoundManager::playBattleMusic();
     
     // start Timer
     m_timer->start();
@@ -178,8 +180,8 @@ void RenderFrame::paintGL()
     Keyboard::update();
 
     //Emitter
-    //Game::getEmitterFlug()->createPartikel();
-    //Game::getEmitterFlug()->update();
+    Game::getEmitterFlug()->createPartikel();
+    Game::getEmitterFlug()->update();
 
     setCam();
     setFocus();
@@ -214,7 +216,7 @@ void RenderFrame::paintGL()
 			
         	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
             	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), 			Game::getFighter()->getSpeed());
+   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
    	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
             	Game::getHud()->draw(width(),height(),font());
             if(Game::getCollision()->getWarning())
@@ -259,7 +261,6 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
         if (event->key() == Qt::Key_Return)
         {   
             start();
-            SoundManager::playBattleMusic();
         }
     }
 }

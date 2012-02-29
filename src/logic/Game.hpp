@@ -28,7 +28,11 @@ public:
 
     static int getScore();
     static void changeScore(int change);
-    
+    /*
+     * @brief if the fighter has shot
+     * @return true if the fighter shot
+     */ 
+    static bool wasShot();
     static int getLevel();
     static void incLevel();
 
