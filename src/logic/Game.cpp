@@ -8,6 +8,7 @@ HUD Game::m_Hud;
 
 int Game::m_points = 0;
 int Game::m_level = 1;
+int Game::m_view = 0;
 
 void Game::Init()
 {
@@ -80,4 +81,12 @@ int Game::getLevel()
 void Game::incLevel()
 {
     m_level++;
+}
+int Game::getView()
+{
+    return m_view;
+}
+void Game::setView(int view)
+{
+    m_view = view;
 }
