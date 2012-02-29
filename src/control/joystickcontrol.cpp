@@ -34,28 +34,28 @@ void JoystickControl::update()
         Game::getFighter()->rotate(YAW,  -angle);
         Game::getFighter()->rotate(ROLL, -angle);
     }
-    if(joys->getAxis(1) <-DEADZONE || joys->getAxis(1) > DEADZONE ) { // joystick links up-down
+    if(joys->getAxis(1) <-DEADZONE || joys->getAxis(1) > DEADZONE ) { // joystick links up-down 
         float angle = joys->getAxis(1) / JOYMAX * MAX_ANGLE;
         Game::getFighter()->rotate(PITCH,  angle);
     }
-    if(joys->getAxis(2) > DEADZONE) { // schulter links
-        float speed = joys->getAxis(2) / (2*JOYMAX) * SPEED;
+    if(joys->getAxis(2) > -JOYMAX + DEADZONE) { // schulter links
+        float speed = (joys->getAxis(2) + JOYMAX) / (2*JOYMAX) * SPEED;
         (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(speed);
     }
-    if(joys->getAxis(5) > DEADZONE) { // schulter rechts
-        float speed = joys->getAxis(2) / (2*JOYMAX) * SPEED;
+    if(joys->getAxis(5) > -JOYMAX + DEADZONE) { // schulter rechts   
+        float speed = (joys->getAxis(5) + JOYMAX) / (2*JOYMAX) * SPEED;
         (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-speed);
     }
-    if(joys->getAxis(4) <-4*DEADZONE) { // joystick rechts up-down
+    if(joys->getAxis(4) <-6*DEADZONE) { // joystick rechts up-down
         RenderFrame::m_cam.zoom(-15);
     }
-    if(joys->getAxis(4) > 4*DEADZONE) {
+    if(joys->getAxis(4) > 6*DEADZONE) {
         RenderFrame::m_cam.zoom(15);
     }
-    if(joys->getAxis(3) <-4*DEADZONE) { // joystick rechts links-rechts
+    if(joys->getAxis(3) <-6*DEADZONE) { // joystick rechts links-rechts
         RenderFrame::m_cam.changeside(-15);
     }
-    if(joys->getAxis(3) > 4*DEADZONE) {
+    if(joys->getAxis(3) > 6*DEADZONE) {
         RenderFrame::m_cam.changeside(15);
     }
     if(joys->getButton(0) > 0) { //A

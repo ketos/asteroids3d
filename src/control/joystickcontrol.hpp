@@ -11,8 +11,8 @@
 /**
  * @brief einige Konstanten
  */
-#define DEADZONE 8000
-#define JOYMAX 32000
+#define DEADZONE 5000.0
+#define JOYMAX 32767.0
 #define MAX_ANGLE 0.05
 #define SPEED 1
 
