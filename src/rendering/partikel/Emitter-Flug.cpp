@@ -56,7 +56,6 @@ void EmitterFlug::createPartikel()
     pos = Game::getFighter()->getPosition() + front * 1000;
     float size = 20;
     glVector<float> color(0,0,0);
-
     PartikelFlug p(400, pos, size, color);
     add(p);
 }
