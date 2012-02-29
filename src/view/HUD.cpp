@@ -13,8 +13,13 @@ HUD::HUD()
 	showCockpit   = false;
 	breite 		  = 0;
 	hoehe 		  = 0; 
-	
+	ShouldIdrawRedScreen = 0;
+	//ini aller bilder
 	cockpitImage = QImage("res/images/cockpit.png");
+	miniCraft    = QImage("res/images/ss.png");
+    warningPic   = QImage("res/images/warning.png");
+    redScreen    = QImage("res/images/redScreen.png");
+    greenScreen  = QImage("res/images/greenScreen.png");
 	
 }
 void HUD::setPainter(QPainter *paint)
@@ -27,6 +32,8 @@ void HUD::draw(int width, int height, QFont f)
 	hoehe = height;
     radmidx = width/2;
     radmidy = height - (durchmesser/2) - abstand;
+    //draw events like redscreen
+    drawRedScreen();
     //draw cockpit if necessary
     if (showCockpit)
     {
@@ -166,11 +173,33 @@ void HUD::Speed(float speed)
 
 void HUD::setFighterData(int damage, int score, float speed)
 {
-    fighterDamage = damage;
+	if ( fighterDamage < damage )
+	{
+		std::cout << "ausgabe" << std::endl;
+		//roten screen ausgeben
+		ShouldIdrawRedScreen = 1;
+	}
+	
+    fighterDamage = damage;    
     fighterScore = score;
     fighterSpeed = speed;
 }
 
+void HUD::drawRedScreen()
+{
+	if ( (ShouldIdrawRedScreen < 5) && (ShouldIdrawRedScreen > 0) )
+	{
+		ShouldIdrawRedScreen++;
+		//printen des redscreen
+		redScreen = redScreen.scaled(breite,hoehe);
+    	QPoint point = QPoint(0,0);
+    	painter->drawImage(point, redScreen);
+	}
+	else
+	{
+		ShouldIdrawRedScreen = 0;
+	}	
+}
 void HUD::drawSplash(int breite, int hoehe)
 {
 	painter->setBrush(QColor(0, 0, 0, 255));
@@ -194,9 +223,7 @@ void HUD::drawRadar(int width, int height)
     painter->drawPie(rectangle, 45*16, 90*16);
 
     QPoint point = QPoint(radmidx-15,radmidy-15);
-    QImage myImage = QImage("res/images/ss.png");
-    myImage.load("res/images/ss.png");
-    painter->drawImage(point, myImage);	
+    painter->drawImage(point, miniCraft);	
 }
 
 
@@ -226,12 +253,8 @@ void HUD::setLevel(int levelnumber)
 
 void HUD::drawWarning()
 {
-    QImage myImage = QImage("res/images/warning.png");
-    myImage.load("res/images/warning.png");
-
-    QPoint point = QPoint(abstand,hoehe - (myImage.height() + abstand) );
-
-    painter->drawImage(point, myImage);
+    QPoint point = QPoint(abstand,hoehe - (warningPic.height() + abstand) );
+    painter->drawImage(point, warningPic);
 }
 
 void HUD::loadCockpit()
