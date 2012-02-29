@@ -63,7 +63,7 @@ void EmitterFlug::createPartikel()
     if(Game::getView() == 0)
     {
         max = 2000;
-    } 
+    }
     else if(Game::getView() == 1)
     {
         max = 2500;
