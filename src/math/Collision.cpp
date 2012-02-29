@@ -17,6 +17,7 @@ void Collision::run()
 	//algorithm for checking collisions
    while(m_running)
    {
+   	mutex.lock();
 		//radar.clear();
 		//delete (&m_bullets);
 		//delete (&m_asteorids);
@@ -44,7 +45,7 @@ void Collision::run()
 			
 			if(diffFight > 15000)
 			{
-				(*asteoridtIt)->changeDirection();
+				//(*asteoridtIt)->changeDirection();
 			}
 			
 			// Das Schiff wird getroffen
@@ -130,6 +131,7 @@ void Collision::run()
       }
       radar = radar2;
       radar2.clear();
+      mutex.unlock();
       usleep(1000);
 	}
 }

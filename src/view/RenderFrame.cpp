@@ -183,8 +183,8 @@ void RenderFrame::paintGL()
         Keyboard::update();
     //}
     //Emitter
-    Game::getEmitterFlug()->createPartikel();
-    Game::getEmitterFlug()->update();
+    //Game::getEmitterFlug()->createPartikel();
+    //Game::getEmitterFlug()->update();
 
     setCam();
     setFocus();
