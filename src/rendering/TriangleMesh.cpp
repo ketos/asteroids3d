@@ -76,5 +76,6 @@ void TriangleMesh::render()
 TriangleMesh::~TriangleMesh()
 {
 	// TODO Auto-generated destructor stub
+    
 }
 

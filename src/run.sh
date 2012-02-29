@@ -1,1 +1,1 @@
-./build/viewer
+gdb ./build/viewer

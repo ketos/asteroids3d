@@ -31,4 +31,5 @@ void PartikelFlug::update()
     {
         m_alive = false;
     }
+    std::cout << "create" << std::endl;
 }

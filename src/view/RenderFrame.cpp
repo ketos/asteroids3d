@@ -167,7 +167,7 @@ void RenderFrame::setCam()
 }
 void RenderFrame::paintGL()
 {   
-    if(reload > 20)
+    if(reload > 15)
     {
         shoot = true;
         reload = 0;
@@ -175,11 +175,13 @@ void RenderFrame::paintGL()
     reload++;
     
     //Steuerung updaten
-    if(joystick) {
-        joys->update();
-    }
-    Keyboard::update();
-
+    //if(steuerung)
+    //{
+        if(joystick) {
+            joys->update();
+        }
+        Keyboard::update();
+    //}
     //Emitter
     //Game::getEmitterFlug()->createPartikel();
     //Game::getEmitterFlug()->update();
