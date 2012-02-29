@@ -11,6 +11,19 @@
 
 int damage =0;
 int score =0;
+
+Fighter::~Fighter()
+{
+    delete m_normalBuffer;
+    delete m_vertexBuffer;
+    delete m_indexBuffer;
+    // TODO Auto-generated destructor stub
+    delete &m_materials;
+    delete &m_matFaceLists;
+    delete m_textureCoords;
+    delete &m_bullets;
+}
+
 void Fighter::shoot()
 {
     
@@ -29,8 +42,11 @@ void Fighter::shoot()
 
 vector<Bullet*> Fighter::get_Bullets()
 {
-  return m_bullets; 
+	vector<Bullet*> ret;
+	ret = m_bullets;
+  	return ret; 
 }
+
 void Fighter::render(bool printFighter)
 {
 	m_position = m_position - m_xAxis * m_speed;
@@ -42,6 +58,7 @@ void Fighter::render(bool printFighter)
 	}
 	renderBullet();
 }
+
 void Fighter::renderBullet()
 {
     vector<Bullet*>::iterator bulletIt;

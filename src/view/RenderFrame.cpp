@@ -12,7 +12,6 @@
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
 // sudo apt-get install joystick   ausführen
-#include "io/joystick.h"
 #include "io/SoundManager.hpp"
 
 #include <string>
@@ -21,11 +20,7 @@
 
 
 Camera RenderFrame::m_cam;
-float RenderFrame::f_speed = 100;
-float RenderFrame::f_angle = 0.025;
-float RenderFrame::deadzone = 7000;
-float RenderFrame::maxjoy = 32000;
-float RenderFrame::shootTime = 750;
+bool RenderFrame::shoot;
 bool menu = false; 
 bool warning_sound = false;
 
@@ -37,16 +32,13 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     m_timer->setInterval(25);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
     
-    m_timer2=new QTimer();
-    m_timer2->setInterval(shootTime);
-    connect(m_timer2, SIGNAL(timeout()), this, SLOT(updateShoot()));
-    m_timer2->start(); 
-    
     shoot = true;
     
-    joys = new Joystick();
+    reload = 0;
     
-    joyConnect();    
+    joys = new JoystickControl("/dev/input/js0");
+    
+    joystick = joys->connected();
 
 	setAutoFillBackground(false);
 
@@ -54,23 +46,12 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     menu = true;
 }
 
-void RenderFrame::joyConnect() {
-    if(joys->init("/dev/input/js0") > -1) {
-        std::cout << "connected" << std::endl;
-        joystick = true;
-    } else {             
-        std::cout << "no joystick" << std::endl;
-        joystick = false;
-    }
-}
-
 RenderFrame::~RenderFrame()
 {
-    if(joystick) {
-        joys->stop();
+    if(joystick)
+    {
+        delete joys;
     }
-    //delete joysticks;
-    //delete keyboard;
     delete Game::getFighter();
     delete m_skybox;
     SoundManager::deleteManager();
@@ -82,9 +63,6 @@ void RenderFrame::start()
     Menu::deleteSplash();
     
     Game::Init();
-
-	std::string filenamer = "res/config/config.xml";
-	Game::getGalaxis()->addLevel( filenamer );	
 
     Game::getCollision()->start();
     
@@ -185,19 +163,28 @@ void RenderFrame::setCam()
     }
 }
 void RenderFrame::paintGL()
-{    
-    if(joystick) {
-        control();
+{   
+    if(reload > 15)
+    {
+        shoot = true;
+        reload = 0;
     }
-    //if(Game::getFighter()) {
-    //    if(joysticks->connected()) {
-    //        joysticks->update();
-    //    }
-    //    keyboard->update();
+    reload++;
+    
+    //Steuerung updaten
+    //if(steuerung)
+    //{
+        if(joystick) {
+            joys->update();
+        }
+        Keyboard::update();
     //}
+    //Emitter
+    //Game::getEmitterFlug()->createPartikel();
+    //Game::getEmitterFlug()->update();
+
     setCam();
     setFocus();
-	moveCurrentMesh();
 	// Set black background color
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 
@@ -262,12 +249,10 @@ void RenderFrame::paintGL()
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
-    //keyboard->keypressed(event);
-	// State of key is pressed
-	m_pressedKeys.insert(event->key());
+    Keyboard::keypressed(event);
 
     if(menu) {
-        if (m_pressedKeys.find(Qt::Key_Return) != m_pressedKeys.end())
+        if (event->key() == Qt::Key_Return)
         {   
             start();
             SoundManager::playBattleMusic();
@@ -277,193 +262,7 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
-    //keyboard->keyrelease(event);
-	// State of key is unpressed
-	m_pressedKeys.erase(event->key());
-} 
-
-void RenderFrame::moveCurrentMesh()
-{    
-    if(Game::getFighter())
-    {
-    	// Controller for moving and rotation
-    	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
-    	{
-            //Game::getFighter()->move(STRAFE, -f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
-    	{
-            //Game::getFighter()->move(STRAFE, f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(PITCH, f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(PITCH, -f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(YAW,  f_angle);
-            Game::getFighter()->rotate(ROLL ,f_angle);
-    	}
-
-    	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
-    	{
-            Game::getFighter()->rotate(YAW, -f_angle);
-            Game::getFighter()->rotate(ROLL ,-f_angle);
-    	}
-    	// Schießen !!
-    	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
-    	{
-            if(shoot) {
-    		    (static_cast<Fighter*>(Game::getFighter()))->shoot();
-                shoot = false;
-                m_timer2->start();
-            }
-      	}
-        // Ändern der Kamera
-        if (m_pressedKeys.find(Qt::Key_PageUp) != m_pressedKeys.end())
-        {
-            m_cam.zoom(-15);
-        }
-        if (m_pressedKeys.find(Qt::Key_PageDown) != m_pressedKeys.end())
-        {
-            m_cam.zoom(15);
-        } 
-        if (m_pressedKeys.find(Qt::Key_9) != m_pressedKeys.end())
-        {
-            m_cam.changeheight(5);
-        }    
-        if (m_pressedKeys.find(Qt::Key_0) != m_pressedKeys.end())
-        {
-            m_cam.changeheight(-5);
-        }
-        //nicht löschen
-        if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
-        {
-            m_cam.setEgo();
-            //Cockpit löschen
-            if (Game::getHud())
-            {
-            	Game::getHud()->deleteCockpit();	
-            }
-        }
-        if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
-        {
-            m_cam.setThird();
-            //Cockpit löschen
-            if (Game::getHud())
-            {
-            	Game::getHud()->deleteCockpit();	
-            }
-        }
-        if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
-        {
-       		
-            m_cam.setThird();
-            //Cockpit setzen
-			if (Game::getHud())
-            {
-            	Game::getHud()->loadCockpit();	
-            }
-        }
-    }
-}
-
-void RenderFrame::control() {
-    if(Game::getFighter()) {
-    if(joys->getAxis(0) <-deadzone || joys->getAxis(0) > deadzone ) { // joystick links links-rechts
-        float angle = joys->getAxis(0) / maxjoy * f_angle;        
-        Game::getFighter()->rotate(YAW,  -angle);
-        Game::getFighter()->rotate(ROLL, -angle);
-    }
-    if(joys->getAxis(1) <-deadzone || joys->getAxis(1) > deadzone ) { // joystick links up-down
-        float angle = joys->getAxis(1) / maxjoy * f_angle;
-        Game::getFighter()->rotate(PITCH,  angle);
-    }
-    if(joys->getAxis(2) > deadzone) { // schulter links
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
-    }
-    if(joys->getAxis(5) > deadzone) { // schulter rechts
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
-    }
-    if(joys->getAxis(4) <-4*deadzone) { // joystick rechts up-down
-        m_cam.zoom(-15);
-    }
-    if(joys->getAxis(4) > 4*deadzone) {
-        m_cam.zoom(15);
-    }
-    if(joys->getAxis(3) <-4*deadzone) { // joystick rechts links-rechts
-        m_cam.changeside(-15);
-    }
-    if(joys->getAxis(3) > 4*deadzone) {
-        m_cam.changeside(15);
-    }
-    if(joys->getButton(0) > 0) { //A
-        if(shoot) {
-            (static_cast<Fighter*>(Game::getFighter()))->shoot();
-            shoot = false;
-            m_timer2->start();
-        }
-    }
-    if(joys->getButton(1) > 0) { //B
-    }
-    if(joys->getButton(2) > 0) { //X
-        m_cam.setEgo();
-    }
-    if(joys->getButton(3) > 0) { //Y
-        m_cam.setThird();
-    }
-    if(joys->getButton(4) > 0) { //LB
-        m_cam.changeheight(5);
-    }
-    if(joys->getButton(5) > 0) { //RB
-        m_cam.changeheight(-5);
-    }
-    if(joys->getButton(6) > 0) { //Back
-        /*if(shoot) {
-            shoot = false;
-            loadModel("res/models/arrow.3ds");
-            m_timer2->start();
-        } */ 
-    }
-    if(joys->getButton(7) > 0) { //Start
-        /*if(shoot) {
-            shoot = false;
-            loadModel("res/models/bearcat.3ds");
-            m_timer2->start();
-        } */   
-    }
-    if(joys->getButton(8) > 0) { //BIG
-    }
-    if(joys->getButton(9) > 0) { //AxisLeft
-    }
-    if(joys->getButton(10) > 0) {//AxisRight
-    }
-    if(joys->getButton(11) > 0) {//DpadRight
-    }
-    if(joys->getButton(12) > 0) {//DpadUp
-    }
-    if(joys->getButton(13) > 0) {//DpadLeft
-    }
-    if(joys->getButton(14) > 0) {//DpadDown
-    }
-    if(joys->getButton(15) > 0) {//None
-    }
-    }
-}
-
-void RenderFrame::updateShoot(){
-    shoot = true;
-    m_timer2->stop();
+    Keyboard::keyrelease(event);
 }
 
 void RenderFrame::setupViewport(int width, int height)

@@ -2,9 +2,12 @@
 #define _PARTIKEL_FLUG_H
 
 #include "math/glVector.hpp"
+
+#include "rendering/TexturedMesh.hpp"
+
 // Partikel für Flug
 
-class PartikelFlug
+class PartikelFlug : public TexturedMesh
 {
 public:
     //Konstruktor
@@ -13,8 +16,6 @@ public:
     ~PartikelFlug();
     // weitersetzen
     void update();
-    //rendern
-    void render();
     
     bool isAlive();
 private:

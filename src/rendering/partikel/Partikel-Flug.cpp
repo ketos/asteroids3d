@@ -1,6 +1,6 @@
 #include "rendering/partikel/Partikel-Flug.hpp"
 #include <QtOpenGL>
-
+#include <iostream>
 
 PartikelFlug::PartikelFlug(float lifetime,
                        glVector<float> pos,
@@ -31,15 +31,5 @@ void PartikelFlug::update()
     {
         m_alive = false;
     }
-}
-
-void PartikelFlug::render()
-{
-     glPointSize(20.0f);
-     glEnable(GL_POINT_SMOOTH);
-     glBegin(GL_POINTS);
-     glColor3d(255,0,0);
-     glVertex3d (m_position[0], m_position[1], m_position[2]);
-     glEnd();
-     glDisable(GL_POINT_SMOOTH);
+    std::cout << "create" << std::endl;
 }

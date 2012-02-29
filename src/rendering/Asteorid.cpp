@@ -14,7 +14,7 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
     m_position = start_position;
     this->flight_axis = flight_axis;
     speed = 0.02;
-    radius = 250;
+    radius = 350;
     mini = false;
     hitable = true;
     wait = 0;
@@ -38,25 +38,25 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
-    SoundManager::playExplosion();
-    //Explosion* e = new Explosion();
-    //e->Explode();
+   SoundManager::playExplosion();
+   //Explosion* e = new Explosion();
+   //e->Explode();
 	alive = false;
 }
 
 glVector<float> Asteorid::getPosition()
 {
-        return m_position;
+	return m_position;
 }
 
 void Asteorid::changeDirection()
 {
-    flight_axis = flight_axis * -1;
+	flight_axis = flight_axis * -2;
 }
 
 glVector<float> Asteorid::getFlightAxis()
 {
-    return flight_axis;
+	return flight_axis;
 }
 
 void Asteorid::set_flight_axis(glVector<float> new_axis)

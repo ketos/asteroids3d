@@ -80,11 +80,9 @@ add_subdirectory(ext/load3ds)
 
 set(VIEWER_SOURCES
 	io/Read3DS.cpp
-	io/ReadPLY.cpp
 	io/ReadPPM.cpp
 	io/ReadTGA.cpp
 	io/ReadXML.cpp
-	io/PLYTraits.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
 	io/Sound.cpp

@@ -19,9 +19,11 @@ public:
     //returnt aktuelle Zahl an Partikeln
     int getaktPartikelzahl();
     //neuer Partikel hinzufügen
-    bool add(PartikelFlug* partikel);
+    bool add(PartikelFlug partikel);
     // alle updaten
     void update();
+    
+    void createPartikel();
     
     void setMaxPartikel(int i);
     
@@ -30,7 +32,7 @@ public:
 
 private:
     //alle Partikel
-    std::list<PartikelFlug*> m_partikel;
+    std::list<PartikelFlug> m_partikel;
     //aktuelle Anzahl von Partikeln
     int m_PartikelZahl;
     //Maximale Anzahl an Partikeln

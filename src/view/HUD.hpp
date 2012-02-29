@@ -130,6 +130,10 @@ public:
 	  *@brief draws the cockpit 
 	  */
 	 void drawCockpit();	
+	 /*
+	  * @brief draws a redscreen
+	  */
+	  void drawRedScreen();
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -144,9 +148,19 @@ private:
     int      levelNumber;
     int      fighterDamage;
     int      fighterScore;
+    //decides wether the redscreen shoul be printed 
+    int      ShouldIdrawRedScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
-    
+    // cockpit bild 
+    QImage cockpitImage;
+    //mini raumschiff fuer radar
+    QImage miniCraft;
+    //image for the warning
+    QImage warningPic;
+    //images for color gradients fullscreen
+    QImage redScreen;
+    QImage greenScreen;
  	int durchmesser;
 	int abstand;     
    int radmidx;

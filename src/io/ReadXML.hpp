@@ -31,14 +31,7 @@ public:
      *           der Asteroiden beinhalten	 
      */
     static vector<std::pair<glVector<float>*, glVector<float>* >* >* readConfig(string& filename);
-    
-  
-private:
-
-    /**
-     * @brief pair-Liste aller eingelesenen Asterioden
-     */
-    
+   
 };
 
 #endif // __READXML_HPP__

@@ -7,11 +7,25 @@ EmitterFlug Game::m_Femit;
 HUD Game::m_Hud;
 
 int Game::m_points = 0;
-int Game::m_level = 0;
+int Game::m_level = 1;
 
 void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
+    m_Femit.setMaxPartikel(20);
+	
+    for(;m_level < 4;incLevel())
+    {
+	std::string str1 = "res/config/level";
+	std::string str2 = ".xml";
+
+    std::stringstream oss;
+    oss << str1 << m_level << str2;
+
+    std::string name = oss.str();    
+
+	getGalaxis()->addLevel( name );	
+    }
 }
 
 Fighter* Game::getFighter()
@@ -26,14 +40,6 @@ void Game::loadFighter(string filename)
 	//m_fighter = new Fighter();
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(&m_fighter)));
-}
-bool Game::isFighter()
-{
-    return ((&m_fighter) != 0);
-}
-void Game::delFighter()
-{
-    delete (&m_fighter);
 }
 
 Galaxis* Game::getGalaxis()
