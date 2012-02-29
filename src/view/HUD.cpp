@@ -176,7 +176,7 @@ void HUD::damages(int schaden)
      pen.setWidth(9);
  	 painter->setPen(pen);
  	 
-	 QRectF rectangles(radmidx -(durchmesser/2)+5, radmidy-(durchmesser/2)-10, durchmesser+10, durchmesser+10);
+	 QRectF rectangles(radmidx -(durchmesser/2), radmidy-(durchmesser/2)-5, durchmesser+8, durchmesser+10);
  	 int startAngle = -50 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
@@ -190,9 +190,7 @@ void HUD::Speed(float speed)
     pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	//radmidx = width/2;
-     //radmidy = height - (durchmesser/2) - abstand;
- 	QRectF rectangles(radmidx -(durchmesser/2)-5, radmidy-(durchmesser/2)-10, durchmesser-10, durchmesser+10);
+ 	QRectF rectangles(radmidx -(durchmesser/2), radmidy-(durchmesser/2)+5, durchmesser+8, durchmesser+10);
  	int startAngle = 230 * 16;
  	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);

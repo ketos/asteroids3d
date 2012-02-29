@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "logic/Game.hpp"
+#include <stdlib.h>
+#include <time.h>
 //Emitter für Flug
 
 EmitterFlug::EmitterFlug()
@@ -52,8 +54,15 @@ void EmitterFlug::createPartikel()
 {   
     glVector<float> pos;
     glVector<float> front = Game::getFighter()->getFront();
+    glVector<float> side = Game::getFighter()->getSide(); 
+    glVector<float> up = Game::getFighter()->getUp(); 
     front.normalize();
-    pos = Game::getFighter()->getPosition() - front * 1000;
+    side.normalize();
+    up.normalize();
+    int max = 3200;
+    int range = 2000;
+    pos = Game::getFighter()->getPosition() - front * range;
+    pos = pos + side * ((rand() % max) - (max/2))   + (up * ((rand() % max) - (max/2))) ;
     float size = 20;
     glVector<float> color(0,0,0);
     PartikelFlug p(50, pos, size, color);
