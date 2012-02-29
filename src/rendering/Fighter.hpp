@@ -69,6 +69,11 @@ public:
      *@return actual score
      */
 	 int getScore();
+	 /**
+	 *@brief resets Damage
+	 *
+	 */
+	 void resetDamage();
 private:
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
