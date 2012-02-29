@@ -52,7 +52,6 @@ void Collision::run()
 			if(diffFight <= (*asteoridtIt)->get_radius())
 			{	
 				Game::getFighter()->increaseDamage(10);
-				(*asteoridtIt)->changeDirection();
 				(*asteoridtIt)->destroy();
 				sleep(1);
 			}
@@ -85,7 +84,6 @@ void Collision::run()
             
             if ( diff <= (*asteoridtIt)->get_radius())
             {
-                	std::cout << (*asteoridtIt)->get_radius() << std::endl;
                 	/* Kugel hat den Hitbereich des Asteoriden erreicht und beide werden zerstört */
                 	(*bulletIt)->kill();
                 	(*asteoridtIt)->destroy();
@@ -96,36 +94,38 @@ void Collision::run()
             
          /* Berechnung der Kollision zwischen zwei Asteoriden */
             
-         vector<Asteorid*>::iterator asteoridtIt2;
+			vector<Asteorid*>::iterator asteoridtIt2;
 			asteoridtIt2 = asteoridtIt + 1;
 			
 			while(asteoridtIt2 != m_asteorids.end())
 			{
 				float diffAstX = ( ( (*asteoridtIt)->getPosition() )[0] - ( (*asteoridtIt2)->getPosition() )[0] );
 				float diffAstY = ( ( (*asteoridtIt)->getPosition() )[1] - ( (*asteoridtIt2)->getPosition() )[1] );
-            float diffAstZ = ( ( (*asteoridtIt)->getPosition() )[2] - ( (*asteoridtIt2)->getPosition() )[2] );
+            	float diffAstZ = ( ( (*asteoridtIt)->getPosition() )[2] - ( (*asteoridtIt2)->getPosition() )[2] );
                 
-            int diffAst = sqrt((diffAstX * diffAstX) + (diffAstY * diffAstY) + (diffAstZ * diffAstZ));
+            	int diffAst = sqrt((diffAstX * diffAstX) + (diffAstY * diffAstY) + (diffAstZ * diffAstZ));
                 
-            (*asteoridtIt2)->set_hitable(true);
+            	
             	
             if( ( diffAst <= (*asteoridtIt)->get_radius()  ) || (diffAst <= (*asteoridtIt2)->get_radius() ) )
             {
             	/* Zusammenprall der beiden Asteoriden */
-
+				glVector<float> temp = (*asteoridtIt)->getFlightAxis();
                if( (*asteoridtIt)->is_hitable() )
                {
-               	(*asteoridtIt)->changeDirection();
+               		(*asteoridtIt)->changeDirection((*asteoridtIt2)->getFlightAxis());
                 	(*asteoridtIt)->set_hitable(false);
+                	
                }
                if( (*asteoridtIt2)->is_hitable() )
                {
-               	(*asteoridtIt2)->changeDirection();
+               		(*asteoridtIt2)->changeDirection(temp);
                 	(*asteoridtIt2)->set_hitable(false);
                }
                 	
                sleep(1);
             }
+            (*asteoridtIt2)->set_hitable(true);
             asteoridtIt2++;
 			}    
 			asteoridtIt++;	
