@@ -27,10 +27,9 @@ public:
   	*@brief Defualt Constructor
   	*/
   	HUD();
-  /**
-  	*@brief Destructor
-  	*/
+
     ~HUD();
+
   /**
    * @brief Draws the HUD
    * @param painter Used QPainter
@@ -170,6 +169,7 @@ private:
     int 	 ShouldIdrawGreenScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
+
     // cockpit bild 
     QImage cockpitImage;
     //mini raumschiff fuer radar
@@ -178,16 +178,17 @@ private:
     QImage warningPic;
     //images for color gradients fullscreen
     QImage redScreen;
+    //fire animation
     QImage greenScreen;
-
     //Image for warning cokpit
     QImage WarningcockpitImage;
+
  	int durchmesser;
 	int abstand;     
-   int radmidx;
-   int radmidy;
-   int breite;
-   int hoehe; 
+    int radmidx;
+    int radmidy;
+    int breite;
+    int hoehe; 
 
 };
 

@@ -59,7 +59,8 @@ void PartikelFlug::render()
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,TexID1);
 
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+    glEnable (GL_BLEND); 
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS); //starts drawing of points
         //glColor3f(0.0f,0.0f,0.0f);

@@ -26,8 +26,14 @@ HUD::HUD()
 
 HUD::~HUD()
 {
-	
+    delete &cockpitImage;
+    delete &miniCraft;
+    delete &warningPic;
+    delete &redScreen;
+    delete &greenScreen;
+    delete &WarningcockpitImage;
 }
+
 void HUD::setPainter(QPainter *paint)
 {
 	painter       = paint;
@@ -253,7 +259,6 @@ void HUD::drawSplash(int breite, int hoehe)
 	 painter->drawRect(rec);  
 	
     QImage myImage = QImage("res/images/splash.png");
-    myImage.load("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
 }
