@@ -179,6 +179,10 @@ void HUD::setFighterData(int damage, int score, float speed)
 
 void HUD::drawSplash(int breite, int hoehe)
 {
+	painter->setBrush(QColor(0, 0, 0, 255));
+	QRect rec(0,0,breite,hoehe);
+	painter->drawRect(rec);  
+	
     QImage myImage = QImage("res/images/splash.png");
     myImage.load("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
