@@ -71,7 +71,7 @@ void Collision::run()
 			radar2.push_back(tmp);
 			
 			/* Iteration über alle Kugeln, dann berechnen ob ein Asteorid im Hitbereich ist */
-			vector<Bullet*>::iterator bulletIt;
+		vector<Bullet*>::iterator bulletIt;
          bulletIt = m_bullets.begin();
          while(bulletIt != m_bullets.end())
          {	
