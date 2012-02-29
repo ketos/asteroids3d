@@ -176,7 +176,7 @@ void HUD::damages(int schaden)
      pen.setWidth(9);
  	 painter->setPen(pen);
  	 
-	 QRectF rectangles(radmidx -(durchmesser/2), radmidy-(durchmesser/2)-5, durchmesser+8, durchmesser+10);
+	 QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
  	 int startAngle = -50 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
@@ -190,7 +190,7 @@ void HUD::Speed(float speed)
     pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles(radmidx -(durchmesser/2), radmidy-(durchmesser/2)+5, durchmesser+8, durchmesser+10);
+ 	QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
  	int startAngle = 230 * 16;
  	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
@@ -261,7 +261,7 @@ void HUD::drawRadar(int width, int height)
     painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
     painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
 	
-	QRectF rectangle( radmidx-(durchmesser/2), radmidy-durchmesser/2, durchmesser, durchmesser);
+	QRectF rectangle( radmidx-(durchmesser/2), radmidy-(durchmesser/2), durchmesser, durchmesser);
 
     painter->drawPie(rectangle, 45*16, 90*16);
 
