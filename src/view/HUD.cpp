@@ -16,11 +16,17 @@ HUD::HUD()
 	ShouldIdrawGreenScreen  = 0;
 	//ini aller bilder
 	cockpitImage 		= QImage("res/images/cockpit.png");
+	cockpitImage.load("res/images/cockpit.png");
 	miniCraft    		= QImage("res/images/ss.png");
+	miniCraft.load("res/images/cockpit.png");
     warningPic   		= QImage("res/images/warning.png");
+    warningPic.load("res/images/warning.png");
     redScreen    		= QImage("res/images/redScreen.png");
+    redScreen.load("res/images/redScreen.png");
     greenScreen  		= QImage("res/images/greenScreen.png");
+    greenScreen.load("res/images/greenScreen.png");
     WarningcockpitImage = QImage("res/images/cockpitWarning.png");
+    WarningcockpitImage.load("res/images/cockpitWarning.png");
 }
 
 HUD::~HUD()
@@ -255,7 +261,6 @@ void HUD::drawSplash(int breite, int hoehe)
     myImage.load("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
-    //TODO -- <-- Press any key -->
 }
 void HUD::drawRadar(int width, int height)
 {
