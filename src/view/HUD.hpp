@@ -9,13 +9,14 @@
 #include <QString>
 #include <string.h>
 #include <QFontMetrics>
-#include "math/glVector.hpp"
 #include <vector>
 #include <sstream>
 #include <string>
 #include <iostream> 
-
 #include <QPushButton>
+
+#include "math/glVector.hpp"
+
 class HUD
 {
 public:
@@ -23,7 +24,10 @@ public:
   	*@brief Defualt Constructor
   	*/
   	HUD();
-
+  /**
+  	*@brief Destructor
+  	*/
+    ~HUD();
   /**
    * @brief Draws the HUD
    * @param painter Used QPainter
@@ -80,7 +84,7 @@ public:
 	 *@param score actual score
 	 *@param speed actual speed
 	 */
-	void setFighterData(int damage, int score, float speed); 
+	void setFighterData(int damage, int score, float speed, bool shoot); 
 	
 	/**
  	 *@brief renders a Spalshscreen
@@ -130,6 +134,14 @@ public:
 	  *@brief draws the cockpit 
 	  */
 	 void drawCockpit();	
+	 /*
+	  * @brief draws a redscreen
+	  */
+	  void drawRedScreen();
+	 /*
+	  * @brief draws a greenscreen
+	  */
+	  void drawGreenScreen();
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -140,14 +152,27 @@ private:
     bool     paintLevel;
     //decides if the cockpit is shown
     bool     showCockpit;
+    int 	 showWarningCockpit;
     float    fighterSpeed;
     int      levelNumber;
     int      fighterDamage;
     int      fighterScore;
+    //decides wether the redscreen shoul be printed 
+    int      ShouldIdrawRedScreen;
+    int 	 ShouldIdrawGreenScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
     // cockpit bild 
     QImage cockpitImage;
+    //mini raumschiff fuer radar
+    QImage miniCraft;
+    //image for the warning
+    QImage warningPic;
+    //images for color gradients fullscreen
+    QImage redScreen;
+    QImage greenScreen;
+    //Image for warning cokpit
+    QImage WarningcockpitImage;
  	int durchmesser;
 	int abstand;     
    int radmidx;

@@ -8,10 +8,10 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >*  ReadXML::readConfig (
 	QString s(filename.c_str());
    QFile file(s);
     
+   // Fehlerbehandlung 
    if(!file.open(QIODevice::ReadOnly))
    {
-   	std::cout << "Fehler: Datei nicht zu lesen "<<std::endl;
-
+   	std::cout << "Fehler: Datei nicht zu lesen" <<std::endl;
    }
        
    if( !doc.setContent(&file))
@@ -25,8 +25,8 @@ vector<std::pair<glVector<float>*, glVector<float>* >* >*  ReadXML::readConfig (
    glVector<float>* axis;
    std::pair<glVector<float>*,glVector<float>*>* p;
     
-   QDomNode level       = doc.documentElement();
-   QDomNode asteroid    = level.firstChild();
+   QDomNode level    = doc.documentElement();
+   QDomNode asteroid = level.firstChild();
    QDomElement ad;
     
   /**

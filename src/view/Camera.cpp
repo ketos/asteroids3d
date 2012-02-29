@@ -74,6 +74,12 @@ void Camera::setThird()
     behind = 1500;
 }
 
+void Camera::setCockpit()
+{
+	beside = 0;
+	above  = 65;
+	behind = 525;
+}
 void Camera::apply()
 {
     // Clear matrix stack

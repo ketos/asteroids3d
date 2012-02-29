@@ -1,12 +1,4 @@
- /**
- * Asteorid.cpp
- *
- */
-
 #include "Asteorid.hpp"
-#include <stdio.h>
-#include "io/SoundManager.hpp"
-//#include "rendering/Explosion.hpp"
 
 Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 {

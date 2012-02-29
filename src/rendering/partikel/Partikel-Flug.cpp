@@ -14,11 +14,6 @@ PartikelFlug::PartikelFlug(float lifetime,
     m_alive = true;
 }
 
-PartikelFlug::~PartikelFlug()
-{
-
-}
-
 bool PartikelFlug::isAlive()
 {
     return m_alive;
@@ -31,5 +26,14 @@ void PartikelFlug::update()
     {
         m_alive = false;
     }
-    std::cout << "create" << std::endl;
+}
+
+void PartikelFlug::render()
+{
+    //TODO render GLSphere
+    glBegin(GL_QUADS);			// Start Drawing Quads
+		// Front Face
+		glColor3f(0,0,0); 
+        glVertex3f(m_position[0], m_position[1], m_position[2]);
+    glEnd();
 }

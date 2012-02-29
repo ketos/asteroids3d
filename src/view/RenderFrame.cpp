@@ -50,9 +50,9 @@ RenderFrame::~RenderFrame()
 {
     if(joystick)
     {
-        delete joys;
+    //    delete joys;
     }
-    delete Game::getFighter();
+    //delete Game::getFighter();
     delete m_skybox;
     SoundManager::deleteManager();
 }
@@ -65,6 +65,8 @@ void RenderFrame::start()
     Game::Init();
 
     Game::getCollision()->start();
+
+    SoundManager::playBattleMusic();
     
     // start Timer
     m_timer->start();
@@ -172,16 +174,14 @@ void RenderFrame::paintGL()
     reload++;
     
     //Steuerung updaten
-    //if(steuerung)
-    //{
-        if(joystick) {
-            joys->update();
-        }
-        Keyboard::update();
-    //}
+    if(joystick) {
+        joys->update();
+    }
+    Keyboard::update();
+
     //Emitter
-    //Game::getEmitterFlug()->createPartikel();
-    //Game::getEmitterFlug()->update();
+    Game::getEmitterFlug()->createPartikel();
+    Game::getEmitterFlug()->update();
 
     setCam();
     setFocus();
@@ -216,7 +216,7 @@ void RenderFrame::paintGL()
 			
         	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
             	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), 			Game::getFighter()->getSpeed());
+   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
    	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
             	Game::getHud()->draw(width(),height(),font());
             if(Game::getCollision()->getWarning())
@@ -234,7 +234,13 @@ void RenderFrame::paintGL()
             	SoundManager::stopWarningSound();
             }  
         }
-        if(menu) {
+        if(Game::getFighter()->getDamage()>=100)
+        {
+			Game::getFighter()->resetDamage();
+        	menu = true;
+        }
+        if(menu)
+        {
             Menu::drawSplash(width(),height(), Game::getHud());
         }
         painter.end();
@@ -255,7 +261,6 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
         if (event->key() == Qt::Key_Return)
         {   
             start();
-            SoundManager::playBattleMusic();
         }
     }
 }

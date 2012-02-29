@@ -137,6 +137,9 @@ public:
     void setEgo();
     
     void setThird();
+    
+    void setCockpit();
+
 
 public:
 
@@ -228,6 +231,7 @@ public:
     float above;
     float behind;
     float beside;
+
 };
 
 #endif

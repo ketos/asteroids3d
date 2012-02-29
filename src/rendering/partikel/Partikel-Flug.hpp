@@ -7,17 +7,17 @@
 
 // Partikel für Flug
 
-class PartikelFlug : public TexturedMesh
+class PartikelFlug
 {
 public:
     //Konstruktor
     PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color);
-    //Destruktor
-    ~PartikelFlug();
     // weitersetzen
     void update();
     
     bool isAlive();
+
+    void render();
 private:
     //Gesundheitstatus
     bool m_alive;

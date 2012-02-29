@@ -14,17 +14,17 @@ void Game::Init()
     loadFighter("res/models/bearcat.3ds");
     m_Femit.setMaxPartikel(20);
 	
-    for(;m_level < 4;incLevel())
+    for(;m_level < 8;incLevel())
     {
-	std::string str1 = "res/config/level";
-	std::string str2 = ".xml";
+    	std::string str1 = "res/config/level";
+		std::string str2 = ".xml";
 
-    std::stringstream oss;
-    oss << str1 << m_level << str2;
+    	std::stringstream oss;
+    	oss << str1 << m_level << str2;
 
-    std::string name = oss.str();    
+    	std::string level = oss.str();    
 
-	getGalaxis()->addLevel( name );	
+		getGalaxis()->addLevel( level );	
     }
 }
 
@@ -65,6 +65,10 @@ HUD* Game::getHud()
 int Game::getScore()
 {
     return m_points;
+}
+bool Game::wasShot()
+{
+	return 	m_fighter.wasShot();
 }
 void Game::changeScore(int change)
 {

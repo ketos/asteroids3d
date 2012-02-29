@@ -144,12 +144,12 @@ vector<glVector<float>*> Collision::getCollisionVector()
 
 void Collision::stop()
 {
-        m_running = false;
+	m_running = false;
 }
 
 bool Collision::isRunning()
 {
-        return m_running;
+   return m_running;
 }
 
 bool Collision::getWarning()

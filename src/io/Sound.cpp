@@ -14,6 +14,7 @@ Sound::Sound(const char* file)
     Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 2048);
     music = Mix_LoadMUS(file);
     sound = 0;
+    Channel = 0;
 }
 
 Sound::~Sound() 

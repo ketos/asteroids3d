@@ -1,23 +1,15 @@
 #include "Galaxis.hpp"
 
-#include "io/Read3DS.hpp"
-#include <stdio.h>
-#include "math/glVector.hpp"
-#include <typeinfo>
-#include <stdlib.h>
-#include "io/ReadXML.hpp"
-#include "logic/Game.hpp"
 
 Galaxis::Galaxis()
 {
-    // create vector for Asteroids
-	level = 0;
-	/*
-   	glVector<float> v1(0.0, 0.0, -1000.0);
-	glVector<float> v2(0.0, 0.0, 0.0);
-	addAsteorid(v1,v2);*/
-	paintLevel = false;
-    paintLevelcount = 0;
+Galaxis::Galaxis()
+{
+   // create vector for Asteroids
+	level           = 0;
+	nextLevel();
+	paintLevel      = false;
+   paintLevelcount = 0;
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
@@ -81,25 +73,23 @@ void Galaxis::render()
     {
     	//alle asteoriden gelöscht
     	nextLevel();
-    }
+   }
 }
 
 vector<Asteorid*> Galaxis::getAsteorids()
 {
-    return asteorids;
+   return asteorids;
 }
 
 glVector<float> Galaxis::getOneAsteoridPosition()
 {
-      vector<Asteorid*>::iterator asteoridtIt;
-      asteoridtIt = asteorids.begin();
-      return (*asteoridtIt)->getPosition();
+   vector<Asteorid*>::iterator asteoridtIt;
+   asteoridtIt = asteorids.begin();
+   return (*asteoridtIt)->getPosition();
 }
 
 void Galaxis::addLevel(string& filename)
 {
-	//ReadXML::readConfig( filename);
-	//tmp = ReadXML::readConfig( filename );
 	m_levels.push_back(ReadXML::readConfig( filename ));
 }
 
@@ -118,12 +108,12 @@ void Galaxis::nextLevel()
 		while( levelIt != currentLevel->end() )
 		{
 			pair<glVector<float>*, glVector<float>* >* p = (*levelIt);
-		    glVector<float> p_1(p->first->x, p->first->y, p->first->z);
-		    glVector<float> p_2(p->second->x, p->second->y, p->second->z);
+		   glVector<float> p_1(p->first->x, p->first->y, p->first->z);
+		   glVector<float> p_2(p->second->x, p->second->y, p->second->z);
 			addAsteorid(p_1, p_2);
 			levelIt++;
     	}
-    	//level erhöhen
+    	
     	level++;
     	paintLevel = true;
     }
@@ -138,11 +128,12 @@ bool Galaxis::shouldIncLevel()
 	{
 			paintLevel = true;
 	}
-    if (paintLevel)
+	
+   if (paintLevel)
 	{
-	        paintLevelcount++;
-	        paintLevel = false;
-			return true;
+	   paintLevelcount++;
+		paintLevel = false;
+		return true;
 	}
 	paintLevelcount = 0;
 	paintLevel      = false;
