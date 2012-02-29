@@ -11,6 +11,7 @@
 
 int damage =0;
 int score =0;
+
 void Fighter::shoot()
 {
     
@@ -31,6 +32,7 @@ vector<Bullet*> Fighter::get_Bullets()
 {
   return m_bullets; 
 }
+
 void Fighter::render(bool printFighter)
 {
 	m_position = m_position - m_xAxis * m_speed;
@@ -42,6 +44,7 @@ void Fighter::render(bool printFighter)
 	}
 	renderBullet();
 }
+
 void Fighter::renderBullet()
 {
     vector<Bullet*>::iterator bulletIt;
