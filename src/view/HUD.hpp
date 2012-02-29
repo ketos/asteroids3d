@@ -24,7 +24,10 @@ public:
   	*@brief Defualt Constructor
   	*/
   	HUD();
-
+  /**
+  	*@brief Destructor
+  	*/
+    ~HUD();
   /**
    * @brief Draws the HUD
    * @param painter Used QPainter

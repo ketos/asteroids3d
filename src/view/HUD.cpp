@@ -21,6 +21,10 @@ HUD::HUD()
     redScreen    		= QImage("res/images/redScreen.png");
     greenScreen  		= QImage("res/images/greenScreen.png");
     WarningcockpitImage = QImage("res/images/cockpitWarning.png");
+}
+
+HUD::~HUD()
+{
 	
 }
 void HUD::setPainter(QPainter *paint)
