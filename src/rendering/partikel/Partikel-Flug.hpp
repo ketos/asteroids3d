@@ -35,8 +35,6 @@ private:
     glVector<float> m_color;
        
     static GLuint TexID1;
-
-    GLuint LoadTexture(char *TexName); 
 };
 
 #endif //_PARTIKEL_FLUG_H
