@@ -56,13 +56,8 @@ void EmitterFlug::createPartikel()
     pos = Game::getFighter()->getPosition() + front * 1000;
     float size = 20;
     glVector<float> color(0,0,0);
- //   PartikelFlug p(400, pos, size, color);
- //   add(p);
 
     PartikelFlug p(400, pos, size, color);
-    //Read 3ds for Rocket
-    Read3DS reader("res/models/particle.3ds");
-    reader.getMesh(*(static_cast<TexturedMesh*>(&p)));
     add(p);
 }
 
