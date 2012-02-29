@@ -3,7 +3,6 @@
 
 Galaxis::Galaxis()
 {
-   // create vector for Asteroids
 	level           = 0;
 	nextLevel();
 	paintLevel      = false;
@@ -69,6 +68,7 @@ void Galaxis::render()
     }
     else
     {
+    	Game::getFighter()->reset_position();
     	//alle asteoriden gelöscht
     	nextLevel();
    }
