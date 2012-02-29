@@ -136,3 +136,9 @@ void Fighter::resetDamage()
     damage = 0;
 }
 
+void Fighter::reset_position()
+{
+	glVector<float> temp (0.0,0.0,0.0);
+	m_position = temp;
+}
+

@@ -69,6 +69,7 @@ void Galaxis::render()
     }
     else
     {
+    	Game::getFighter()->reset_position();
     	//alle asteoriden gelöscht
     	nextLevel();
    }
