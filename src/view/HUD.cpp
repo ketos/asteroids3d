@@ -145,7 +145,7 @@ void HUD::score(int punkte, int breite)
 
 void HUD::damages(int schaden)
 {
- 	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,255));
+ 	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
     pen.setWidth(9);
  	 painter->setPen(pen);
 	 QRectF rectangles((breite/2)-(durchmesser/2)+5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
@@ -162,9 +162,9 @@ void HUD::Speed(float speed)
    pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles(breite/2-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	QRectF rectangles((breite/2)-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser-10, durchmesser+10);
  	int startAngle = 230 * 16;
- 	int spanAngle = (-0.8)*speed * 16;
+ 	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
 
 }

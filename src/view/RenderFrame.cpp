@@ -234,7 +234,13 @@ void RenderFrame::paintGL()
             	SoundManager::stopWarningSound();
             }  
         }
-        if(menu) {
+        if(Game::getFighter()->getDamage()>=100)
+        {
+			Game::getFighter()->resetDamage();
+        	menu = true;
+        }
+        if(menu)
+        {
             Menu::drawSplash(width(),height(), Game::getHud());
         }
         painter.end();

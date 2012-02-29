@@ -130,3 +130,7 @@ int Fighter::getScore()
 {
     return score;
 }
+void Fighter::resetDamage()
+{
+    damage = 0;
+}
