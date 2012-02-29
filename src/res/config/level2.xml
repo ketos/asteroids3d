@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <level>
     <asteroid pos_x="0" pos_y="0" pos_z="-1000" axis_x="0" axis_y="0" axis_z="50"/>
-    <asteroid pos_x="0" pos_y="0" pos_z="1000" axis_x="0" axis_y="0" axis_z="-50"/>
+    <asteroid pos_x="0" pos_y="-1000" pos_z="0" axis_x="0" axis_y="50" axis_z="0"/>
 </level>
