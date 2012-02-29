@@ -12,7 +12,6 @@ using std::endl;
 #include "TriangleMeshFactory.hpp"
 
 #include "io/Read3DS.hpp"
-#include "io/ReadPLY.hpp"
 
 TriangleMesh* TriangleMeshFactory::getMesh(const string &filename) const
 {
@@ -21,11 +20,7 @@ TriangleMesh* TriangleMeshFactory::getMesh(const string &filename) const
     TriangleMesh* mesh = 0;
 
     // Get file extension
-    if(filename.substr(filename.find_last_of(".") + 1) == "ply")
-    {
-        io = new ReadPLY(filename);
-    }
-    else if(filename.substr(filename.find_last_of(".") + 1) == "3ds")
+    if(filename.substr(filename.find_last_of(".") + 1) == "3ds")
     {
         io = new Read3DS(filename);
     }
