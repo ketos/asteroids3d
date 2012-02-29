@@ -2,7 +2,6 @@
 
 Galaxis::Galaxis()
 {
-   // create vector for Asteroids
 	level           = 0;
 	nextLevel();
 	paintLevel      = false;
