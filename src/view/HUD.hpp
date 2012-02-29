@@ -163,7 +163,7 @@ private:
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
     // cockpit bild 
-    QImage cockpitImage;
+    QImage *cockpitImage;
     //mini raumschiff fuer radar
     QImage miniCraft;
     //image for the warning
