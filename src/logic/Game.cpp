@@ -66,6 +66,10 @@ int Game::getScore()
 {
     return m_points;
 }
+bool Game::wasShot()
+{
+	return 	m_fighter.wasShot();
+}
 void Game::changeScore(int change)
 {
     m_points += change;

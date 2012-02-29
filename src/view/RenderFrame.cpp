@@ -216,7 +216,7 @@ void RenderFrame::paintGL()
 			
         	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
             	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), 			Game::getFighter()->getSpeed());
+   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
    	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
             	Game::getHud()->draw(width(),height(),font());
             if(Game::getCollision()->getWarning())

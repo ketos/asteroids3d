@@ -9,8 +9,8 @@
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
 
-int damage =0;
-int score =0;
+int damage = 0;
+int score  = 0;
 
 Fighter::~Fighter()
 {
@@ -26,7 +26,7 @@ Fighter::~Fighter()
 
 void Fighter::shoot()
 {
-    
+    shot = true;
     // Create a new bullet with this fighter's position an x-Axis
     Bullet* b = new Bullet(m_position, m_xAxis);
     // Read 3ds for Rocket
@@ -130,3 +130,14 @@ int Fighter::getScore()
 {
     return score;
 }
+
+bool Fighter::wasShot()
+{
+	if (shot)
+	{
+		shot = false;
+		return true;
+	}
+	return false;
+}
+
