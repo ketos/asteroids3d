@@ -84,9 +84,9 @@ void JoystickControl::update()
     }
     if(joys->getButton(8) > 0) { //BIG
     }
-    if(joys->getButton(9) > 0) { //AxisLeft
+    if(joys->getButton(9) > 0) { //ButtonAxisLeft
     }
-    if(joys->getButton(10) > 0) {//AxisRight
+    if(joys->getButton(10) > 0) {//ButtonAxisRight
     }
     if(joys->getButton(11) > 0) {//DpadRight
     }

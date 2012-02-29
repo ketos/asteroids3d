@@ -35,7 +35,7 @@ void Collision::run()
       	(*asteoridtIt)->set_hitable(true);
         	
         	float diffFightX = ((*asteoridtIt)->getPosition())[0] - (Game::getFighter()->getPosition())[0] ;
-         float diffFightY = ((*asteoridtIt)->getPosition())[1] - (Game::getFighter()->getPosition())[1] ;
+            float diffFightY = ((*asteoridtIt)->getPosition())[1] - (Game::getFighter()->getPosition())[1] ;
 			float diffFightZ = ((*asteoridtIt)->getPosition())[2] - (Game::getFighter()->getPosition())[2] ;
 			
          glVector<float> tmp2(diffFightX, diffFightY, diffFightZ);		
@@ -116,7 +116,6 @@ void Collision::run()
                	(*asteoridtIt)->changeDirection();
                 	(*asteoridtIt)->set_hitable(false);
                }
-
                if( (*asteoridtIt)->is_hitable() )
                {
                	(*asteoridtIt2)->changeDirection();
