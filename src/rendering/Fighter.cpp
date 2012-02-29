@@ -42,7 +42,9 @@ void Fighter::shoot()
 
 vector<Bullet*> Fighter::get_Bullets()
 {
-  return m_bullets; 
+	vector<Bullet*> ret;
+	ret = m_bullets;
+  	return ret; 
 }
 
 void Fighter::render(bool printFighter)
