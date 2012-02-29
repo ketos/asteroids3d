@@ -15,7 +15,7 @@ using std::string;
 using std::vector;
 
 /**
- * @brief XML parser für die Level.xml's
+ * @brief XML parser für die level.xml's
  */
 class ReadXML
 {
@@ -27,7 +27,8 @@ public:
      * @param    filename		Name des einzulesenden xml-files
      *
      * @return   vector<std::pair<glVector<float>*, glVector<float>* >* >
-     *           vector, bestehend aus glVector pairs, welche postion und axis
+     
+     *           vector liste, bestehend aus glVector pairs, welche postion und axis (richtung)
      *           der Asteroiden beinhalten	 
      */
     static vector<std::pair<glVector<float>*, glVector<float>* >* >* readConfig(string& filename);

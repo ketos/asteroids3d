@@ -1,6 +1,4 @@
 #include "view/HUD.hpp"
-#include <QPen>
-
 
 HUD::HUD()
 {
