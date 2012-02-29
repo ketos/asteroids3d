@@ -12,6 +12,8 @@ class PartikelFlug
 public:
     //Konstruktor
     PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color);
+    //Desructor
+    ~PartikelFlug();
     // weitersetzen
     void update();
     
@@ -30,7 +32,11 @@ private:
     //grösse
     float m_size;
     //Farbe
-    glVector<float> m_color;  
+    glVector<float> m_color;
+       
+    static GLuint TexID1;
+
+    GLuint LoadTexture(char *TexName); 
 };
 
 #endif //_PARTIKEL_FLUG_H
