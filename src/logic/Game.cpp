@@ -16,15 +16,15 @@ void Game::Init()
 	
     for(;m_level < 4;incLevel())
     {
-	std::string str1 = "res/config/level";
-	std::string str2 = ".xml";
+    	std::string str1 = "res/config/level";
+		std::string str2 = ".xml";
 
-    std::stringstream oss;
-    oss << str1 << m_level << str2;
+    	std::stringstream oss;
+    	oss << str1 << m_level << str2;
 
-    std::string name = oss.str();    
+    	std::string level = oss.str();    
 
-	getGalaxis()->addLevel( name );	
+		getGalaxis()->addLevel( level );	
     }
 }
 
