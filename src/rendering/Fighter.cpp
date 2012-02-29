@@ -12,6 +12,18 @@
 int damage =0;
 int score =0;
 
+Fighter::~Fighter()
+{
+    delete m_normalBuffer;
+    delete m_vertexBuffer;
+    delete m_indexBuffer;
+    // TODO Auto-generated destructor stub
+    delete &m_materials;
+    delete &m_matFaceLists;
+    delete m_textureCoords;
+    delete &m_bullets;
+}
+
 void Fighter::shoot()
 {
     

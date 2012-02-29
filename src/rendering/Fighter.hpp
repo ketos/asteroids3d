@@ -21,6 +21,11 @@ class Fighter : public TexturedMesh
 
 public:
     /**
+     * @brief Destruktor
+     */
+    ~Fighter();    
+
+    /**
      * @brief Adds a bullet to the fighter's vector of bullets.
      */
 	void shoot();
