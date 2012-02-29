@@ -14,8 +14,9 @@ HUD::HUD()
 	hoehe 		  			= 0; 
 	ShouldIdrawRedScreen    = 0;
 	ShouldIdrawGreenScreen  = 0;
+	
 	//ini aller bilder
-	cockpitImage    		= QImage("res/images/cockpit.png");
+	cockpitImage    	= QImage("res/images/cockpit.png");
 	miniCraft    		= QImage("res/images/ss.png");
     warningPic   		= QImage("res/images/warning.png");
     redScreen    		= QImage("res/images/redScreen.png");
@@ -38,8 +39,8 @@ void HUD::draw(int width, int height, QFont f)
     // radar für 3.person verschieben	
 	if (showCockpit)
 	{
-		radmidx = width - durchmesser - 10;
-    	radmidy = height - durchmesser - 10;
+		radmidx = width  - (durchmesser/2) - 40;
+    	radmidy = height - (height-(durchmesser/2)) + 40;
 	}
 	else
 	{
@@ -69,7 +70,7 @@ void HUD::draw(int width, int height, QFont f)
     if(!collvec.empty())
     	while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
+            drawRadarAstroid(*itervec, 5000, durchmesser, radmidx, radmidy);	
             itervec++;
         }
      
@@ -77,15 +78,12 @@ void HUD::draw(int width, int height, QFont f)
 
 void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy)
 {
-		    painter->setPen(QColor(0,255,0,255));
+	painter->setPen(QColor(0,255,0,255));
     int p = 6;
 	glVector<float> tmp(*vec);
 	if(vec->length()<5000)
 	{
-
- 
-		 
-       tmp.x/=radarrange;
+	   tmp.x/=radarrange;
        tmp.y/=radarrange;
        tmp.z/=radarrange;
        tmp = tmp * (durchmesser/2);
@@ -175,9 +173,10 @@ void HUD::score(int punkte, int breite)
 void HUD::damages(int schaden)
 {
  	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
-    pen.setWidth(9);
+     pen.setWidth(9);
  	 painter->setPen(pen);
-	 QRectF rectangles((breite/2)-(durchmesser/2)+5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	 
+	 QRectF rectangles(radmidx -(durchmesser/2)+5, radmidy-(durchmesser/2)-10, durchmesser+10, durchmesser+10);
  	 int startAngle = -50 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
@@ -187,11 +186,13 @@ void HUD::Speed(float speed)
 {
 
  	QPen pen(QColor((2.25)*speed,255-((2.25)*speed),0,200));
-   //pen.setStyle(Qt::DashDotLine);
-   pen.setWidth(9);
+    //pen.setStyle(Qt::DashDotLine);
+    pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles((breite/2)-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser-10, durchmesser+10);
+ 	//radmidx = width/2;
+     //radmidy = height - (durchmesser/2) - abstand;
+ 	QRectF rectangles(radmidx -(durchmesser/2)-5, radmidy-(durchmesser/2)-10, durchmesser-10, durchmesser+10);
  	int startAngle = 230 * 16;
  	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
@@ -261,8 +262,8 @@ void HUD::drawRadar(int width, int height)
     painter->setPen(QColor(255,255,255,255));
     painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
     painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
-
-    QRectF rectangle( (width/2)-(durchmesser/2), height-(durchmesser/2)-abstand-durchmesser/2, durchmesser, durchmesser);
+	
+	QRectF rectangle( radmidx-(durchmesser/2), radmidy-durchmesser/2, durchmesser, durchmesser);
 
     painter->drawPie(rectangle, 45*16, 90*16);
 
