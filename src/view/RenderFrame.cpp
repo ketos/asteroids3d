@@ -44,6 +44,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 
     show();
     menu = true;
+    RenderFrame::paintHighscore = false;
 }
 
 RenderFrame::~RenderFrame()
@@ -242,6 +243,10 @@ void RenderFrame::paintGL()
         if(menu)
         {
             Menu::drawSplash(width(),height(), Game::getHud());
+            if(paintHighscore)
+            {
+            	Game::getHud()->drawHighscore();
+            }
         }
         painter.end();
         glPopMatrix();
@@ -263,7 +268,15 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
             start();
             SoundManager::playBattleMusic();
         }
+      
     }
+    if (event->key() == Qt::Key_H)
+    {
+        		paintHighscore = !paintHighscore;
+        		cout<<"HALLLO!!!!!!!!!!!!!!";
+    }
+    
+    
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)

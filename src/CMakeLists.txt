@@ -83,6 +83,7 @@ set(VIEWER_SOURCES
 	io/ReadPPM.cpp
 	io/ReadTGA.cpp
 	io/ReadXML.cpp
+	io/ReadTXT.cpp
 	io/TextureFactory.cpp
 	io/TriangleMeshFactory.cpp
 	io/Sound.cpp

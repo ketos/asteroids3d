@@ -14,6 +14,9 @@
 #include <string>
 #include <iostream> 
 #include <QPushButton>
+#include <QFile>
+#include <QTextStream>
+#include "io/ReadTXT.hpp"
 
 #include "math/glVector.hpp"
 
@@ -134,7 +137,11 @@ public:
 	 /*
 	  * @brief draws a redscreen
 	  */
-	  void drawRedScreen();
+	 void drawRedScreen();
+	   /*
+	    *@brief draws the Highscore
+	    */
+	 void drawHighscore();  
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -162,12 +169,12 @@ private:
     //images for color gradients fullscreen
     QImage redScreen;
     QImage greenScreen;
- 	int durchmesser;
-	int abstand;     
-   int radmidx;
-   int radmidy;
-   int breite;
-   int hoehe; 
+    int durchmesser;
+    int abstand;
+    int radmidx;
+    int radmidy;
+    int breite;
+    int hoehe; 
 };
 
 #endif //_HUD_H

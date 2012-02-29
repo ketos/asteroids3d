@@ -97,8 +97,10 @@ protected:
     static float shootTime;
     
     bool joystick;
+
     
     int reload;
+    bool paintHighscore;
 
 public:
     static bool shoot;

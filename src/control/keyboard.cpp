@@ -102,9 +102,11 @@ void Keyboard::update()
             RenderFrame::m_cam.setThird();
             //Cockpit setzen
 			if (Game::getHud())
-            {
-            	Game::getHud()->loadCockpit();	
-            }
+         {
+         	Game::getHud()->loadCockpit();	
+         }
+         
+         
         }
     }
 }

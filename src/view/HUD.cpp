@@ -1,5 +1,5 @@
 #include "view/HUD.hpp"
-
+#include <QDebug>
 HUD::HUD()
 {
 	fighterDamage = 0;
@@ -40,7 +40,7 @@ void HUD::draw(int width, int height, QFont f)
     }
     if (paintLevel)
       	drawLevelEnd();
-	std::vector<glVector<float>* >::iterator itervec;
+	 std::vector<glVector<float>* >::iterator itervec;
     itervec = collvec.begin();
     drawRadar(width,height);
     score(fighterScore,width/2);
@@ -200,15 +200,16 @@ void HUD::drawRedScreen()
 }
 void HUD::drawSplash(int breite, int hoehe)
 {
-	painter->setBrush(QColor(0, 0, 0, 255));
-	QRect rec(0,0,breite,hoehe);
-	painter->drawRect(rec);  
+	 painter->setBrush(QColor(0, 0, 0, 255));
+	 QRect rec(0,0,breite,hoehe);
+	 painter->drawRect(rec);  
 	
     QImage myImage = QImage("res/images/splash.png");
     myImage.load("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
     //TODO -- <-- Press any key -->
+    
 }
 void HUD::drawRadar(int width, int height)
 {
@@ -263,4 +264,23 @@ void HUD::loadCockpit()
 void HUD::deleteCockpit()
 {
 	showCockpit = false;
+}
+void HUD::drawHighscore()
+{
+	 ReadTXT *reader = new ReadTXT();
+    vector<string> highscore = reader->read();
+    vector<string>::iterator highIt;
+    highIt = highscore.begin();
+    QString tmp;
+    painter->setPen(QColor(255,255,255,255));
+    int i = 0;
+    while(highIt != highscore.end())
+    {
+    		i++;
+        tmp =  QString::fromStdString(*highIt); 
+        highIt++;
+        QPoint point2 = QPoint(0, 100+20*i);
+   	  painter->drawText(point2,tmp);
+    }
+	
 }
