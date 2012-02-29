@@ -12,7 +12,10 @@ HUD::HUD()
 	paintLevel    = false;
 	showCockpit   = false;
 	breite 		  = 0;
-	hoehe 		  = 0; 	
+	hoehe 		  = 0; 
+	
+	cockpitImage = QImage("res/images/cockpit.png");
+	
 }
 void HUD::setPainter(QPainter *paint)
 {
@@ -89,18 +92,9 @@ bool HUD::getView()
 }
 void HUD::drawCockpit()
 {
-	QImage myImage = QImage("res/images/cockpit.png");
-    myImage.load("res/images/cockpit.png");
-    if (breite > hoehe)
-    {
-    	myImage.scaledToWidth(breite);
-    }
-    else
-    {
-    	myImage.scaledToHeight(hoehe);
-    }
-    QPoint point = QPoint(0,0);
-    painter->drawImage(point, myImage);
+    cockpitImage = cockpitImage.scaledToWidth(breite);
+    QPoint point = QPoint(0,hoehe-(cockpitImage.size()).height());
+    painter->drawImage(point, cockpitImage);
 }	
 
 void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)
@@ -137,7 +131,7 @@ void HUD::score(int punkte, int breite)
 		
 	}
     pkt = "SCORE : "+pkt;
-    QFont font("Star Jedi Hollow", 16, QFont::Bold);
+    QFont font("Atari Classic Chunky", 16, QFont::Bold);
     painter->setFont(font);
     QString aktuellepunkte = QString::fromStdString(pkt);
     QPoint point = QPoint(breite/2+30,30);
@@ -218,7 +212,7 @@ void HUD::drawLevelEnd()
     painter->drawImage(point, myImage);
 
     std::string spd("Level: " + Str.str());
-    QFont font("Helvetica", 40, QFont::Bold);
+    QFont font("Atari Classic Chunky", 40, QFont::Bold);
     painter->setFont(font);
     QString qspeed = QString::fromStdString(spd);
     QPoint point2 = QPoint(breite / 2 - 100, hoehe / 8);
