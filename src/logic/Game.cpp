@@ -12,7 +12,7 @@ int Game::m_level = 1;
 void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
-    m_Femit.setMaxPartikel(50);
+    m_Femit.setMaxPartikel(100);
 	
     for(;m_level < 8;incLevel())
     {

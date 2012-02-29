@@ -31,13 +31,16 @@ void PartikelFlug::update()
 void PartikelFlug::render()
 {
     //TODO render GLSphere
-   
-    glColor3f(1.0f,0.0f,0.0f); //blue color
     
-    glPointSize((50-m_lifetime)/50*10);//set point size to 10 pixels
     
+    glPointSize(10); //set point size to 10 pixels
+
+
+   glDisable ( GL_LIGHTING ) ;
     glBegin(GL_POINTS); //starts drawing of points
-      glVertex3f(m_position[0], m_position[1], m_position[2]);
+        glColor3f(1.0f,0.0f,0.0f);
+        glVertex3f(m_position[0], m_position[1], m_position[2]);
         //glVertex3f(0,0,0);
     glEnd();//end drawing of points
+       glEnable ( GL_LIGHTING ) ;
 }

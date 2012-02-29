@@ -90,9 +90,11 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
        int x = tmp.x;
        int y = tmp.y;
        int z = tmp.z;
-
-       if(tmp.z != 0)
+        if(tmp.z < 0) painter->setPen(QColor(255,0,0,255));
+       if(tmp.z != 0){
            painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
+       }
+        
        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
    }
    else{
