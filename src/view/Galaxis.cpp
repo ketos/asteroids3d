@@ -1,12 +1,5 @@
 #include "Galaxis.hpp"
 
-#include "io/Read3DS.hpp"
-#include <stdio.h>
-#include "math/glVector.hpp"
-#include <typeinfo>
-#include <stdlib.h>
-#include "io/ReadXML.hpp"
-
 Galaxis::Galaxis()
 {
    // create vector for Asteroids
@@ -114,7 +107,7 @@ void Galaxis::nextLevel()
 			addAsteorid(p_1, p_2);
 			levelIt++;
     	}
-    	//level erhöhen
+    	
     	level++;
     	paintLevel = true;
     }
@@ -129,11 +122,12 @@ bool Galaxis::shouldIncLevel()
 	{
 			paintLevel = true;
 	}
-    if (paintLevel)
+	
+   if (paintLevel)
 	{
-	        paintLevelcount++;
-	        paintLevel = false;
-			return true;
+	   paintLevelcount++;
+		paintLevel = false;
+		return true;
 	}
 	paintLevelcount = 0;
 	paintLevel      = false;

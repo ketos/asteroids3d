@@ -9,13 +9,14 @@
 #include <QString>
 #include <string.h>
 #include <QFontMetrics>
-#include "math/glVector.hpp"
 #include <vector>
 #include <sstream>
 #include <string>
 #include <iostream> 
-
 #include <QPushButton>
+
+#include "math/glVector.hpp"
+
 class HUD
 {
 public:

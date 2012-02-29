@@ -1,19 +1,19 @@
 #ifndef __GALAXIS_HPP__
 #define __GALAXIS_HPP__
 
-#include "rendering/Asteorid.hpp"
-#include "rendering/Mini_Asteorid.hpp"
-#include "io/Read3DS.hpp"
-#include "math/glVector.hpp"
-#include "io/ReadXML.hpp"
-#include "view/HUD.hpp"
-
 #include <vector>
 #include <QObject>
 #include <string>
 #include <stdio.h>
+#include <stdlib.h>
 #include <typeinfo>
 
+#include "io/Read3DS.hpp"
+#include "io/ReadXML.hpp"
+#include "math/glVector.hpp"
+#include "rendering/Asteorid.hpp"
+#include "rendering/Mini_Asteorid.hpp"
+#include "view/HUD.hpp"
 
 using namespace std;
 

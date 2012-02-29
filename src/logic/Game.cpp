@@ -14,7 +14,7 @@ void Game::Init()
     loadFighter("res/models/bearcat.3ds");
     m_Femit.setMaxPartikel(20);
 	
-    for(;m_level < 4;incLevel())
+    for(;m_level < 8;incLevel())
     {
     	std::string str1 = "res/config/level";
 		std::string str2 = ".xml";
