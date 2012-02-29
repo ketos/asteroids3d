@@ -17,7 +17,7 @@ void Collision::run()
 	//algorithm for checking collisions
    while(m_running)
    {
-		radar.clear();
+		//radar.clear();
 		//delete (&m_bullets);
 		//delete (&m_asteorids);
       // get the vectors form fighter and galaxis
@@ -68,7 +68,7 @@ void Collision::run()
 			
 			glVector<float> *tmp = new glVector<float> (diffFightX, diffFightY, diffFightZ);
 
-			radar.push_back(tmp);
+			radar2.push_back(tmp);
 			
 			/* Iteration über alle Kugeln, dann berechnen ob ein Asteorid im Hitbereich ist */
 			vector<Bullet*>::iterator bulletIt;
@@ -128,6 +128,8 @@ void Collision::run()
 			}    
 			asteoridtIt++;	
       }
+      radar = radar2;
+      radar2.clear();
       usleep(1000);
 	}
 }

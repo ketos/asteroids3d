@@ -67,6 +67,7 @@ private:
    bool m_running;
    //Vector for radar
 	vector<glVector<float>*> radar;
+	vector<glVector<float>*> radar2;
    //Warning
    bool warning;
             
