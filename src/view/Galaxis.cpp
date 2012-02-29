@@ -1,8 +1,6 @@
 #include "Galaxis.hpp"
+#include "logic/Game.hpp"
 
-
-Galaxis::Galaxis()
-{
 Galaxis::Galaxis()
 {
    // create vector for Asteroids
