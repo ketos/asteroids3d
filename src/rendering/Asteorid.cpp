@@ -1,12 +1,4 @@
- /**
- * Asteorid.cpp
- *
- */
-
 #include "Asteorid.hpp"
-#include <stdio.h>
-#include "io/SoundManager.hpp"
-//#include "rendering/Explosion.hpp"
 
 Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 {
@@ -29,11 +21,14 @@ void Asteorid::run()
 {
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
+		if(speed > 0.01)
+    	{
+    		speed -= 0.002;
+    	}
 		m_position = m_position + flight_axis * speed;
 		usleep(10000);
 	}
 	emit destroyed(getPosition().x, getPosition().y, getPosition().z );
-	std::cout << "Ich emmitire das destroyed signal, bzw. der Thread ist tot" << std::endl;
 }
 
 void Asteorid::destroy()
@@ -49,9 +44,9 @@ glVector<float> Asteorid::getPosition()
 	return m_position;
 }
 
-void Asteorid::changeDirection()
+void Asteorid::changeDirection(glVector<float> dir)
 {
-	flight_axis = flight_axis * -2;
+	flight_axis = dir;
 }
 
 glVector<float> Asteorid::getFlightAxis()
@@ -82,4 +77,8 @@ bool Asteorid::is_hitable()
 void Asteorid::set_hitable(bool hit)
 {
 	hitable = hit;
+}
+void Asteorid::set_speed(float s)
+{
+	speed = s;
 }

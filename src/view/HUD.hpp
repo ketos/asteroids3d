@@ -27,7 +27,10 @@ public:
   	*@brief Defualt Constructor
   	*/
   	HUD();
-
+  /**
+  	*@brief Destructor
+  	*/
+    ~HUD();
   /**
    * @brief Draws the HUD
    * @param painter Used QPainter
@@ -84,7 +87,7 @@ public:
 	 *@param score actual score
 	 *@param speed actual speed
 	 */
-	void setFighterData(int damage, int score, float speed); 
+	void setFighterData(int damage, int score, float speed, bool shoot); 
 	
 	/**
  	 *@brief renders a Spalshscreen
@@ -142,6 +145,11 @@ public:
 	    *@brief draws the Highscore
 	    */
 	 void drawHighscore();  
+
+	 /*
+	  * @brief draws a greenscreen
+	  */
+	  void drawGreenScreen();
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -152,12 +160,14 @@ private:
     bool     paintLevel;
     //decides if the cockpit is shown
     bool     showCockpit;
+    int 	 showWarningCockpit;
     float    fighterSpeed;
     int      levelNumber;
     int      fighterDamage;
     int      fighterScore;
     //decides wether the redscreen shoul be printed 
     int      ShouldIdrawRedScreen;
+    int 	 ShouldIdrawGreenScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
     // cockpit bild 
@@ -169,12 +179,16 @@ private:
     //images for color gradients fullscreen
     QImage redScreen;
     QImage greenScreen;
-    int durchmesser;
-    int abstand;
-    int radmidx;
-    int radmidy;
-    int breite;
-    int hoehe; 
+
+    //Image for warning cokpit
+    QImage WarningcockpitImage;
+ 	int durchmesser;
+	int abstand;     
+   int radmidx;
+   int radmidy;
+   int breite;
+   int hoehe; 
+
 };
 
 #endif //_HUD_H

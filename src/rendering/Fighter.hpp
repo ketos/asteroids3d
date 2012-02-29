@@ -19,11 +19,7 @@
 class Fighter : public TexturedMesh
 {
 
-public:
-    /**
-     * @brief Destruktor
-     */
-    ~Fighter();    
+public:   
 
     /**
      * @brief Adds a bullet to the fighter's vector of bullets.
@@ -73,12 +69,23 @@ public:
      *@return actual score
      */
 	 int getScore();
+
+	 /*
+     * @brief if the fighter has shot
+     * @return true if the fighter shot
+     */ 
+	 bool wasShot();
+
 	 /**
 	 *@brief resets Damage
 	 *
 	 */
 	 void resetDamage();
+	 void reset_position();
+
 private:
+     //bool for shot
+     bool shot;
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
     // Actual damage

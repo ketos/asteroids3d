@@ -81,6 +81,7 @@ void Keyboard::update()
         if (m_pressedKeys.find(Qt::Key_1) != m_pressedKeys.end())
         {
             RenderFrame::m_cam.setEgo();
+            Game::setView(1);
             //Cockpit löschen
             if (Game::getHud())
             {
@@ -90,6 +91,7 @@ void Keyboard::update()
         if (m_pressedKeys.find(Qt::Key_2) != m_pressedKeys.end())   
         {
             RenderFrame::m_cam.setThird();
+            Game::setView(2);
             //Cockpit löschen
             if (Game::getHud())
             {
@@ -98,8 +100,8 @@ void Keyboard::update()
         }
         if (m_pressedKeys.find(Qt::Key_3) != m_pressedKeys.end())   
         {
-       		
-            RenderFrame::m_cam.setThird();
+            RenderFrame::m_cam.setCockpit();
+            Game::setView(0);
             //Cockpit setzen
 			if (Game::getHud())
          {

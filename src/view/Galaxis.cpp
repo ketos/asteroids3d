@@ -1,8 +1,8 @@
 #include "Galaxis.hpp"
+#include "logic/Game.hpp"
 
 Galaxis::Galaxis()
 {
-   // create vector for Asteroids
 	level           = 0;
 	nextLevel();
 	paintLevel      = false;
@@ -32,18 +32,21 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
 
 void Galaxis::big_astroid_destroyed(float x, float y, float z)
 {
+	Game::changeScore(50);
 	glVector<float> tmp (x,y,z);
-	glVector<float> v1 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
-	glVector<float> v2 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
-	glVector<float> v3 ((rand() % 200 - 100), (rand() % 200 -100), (rand() % 200 - 100) );
-	addMiniAsteorid(tmp,v1);
+	glVector<float> v1 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
+	glVector<float> v2 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
+	glVector<float> v3 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
+	
+	addMiniAsteorid(tmp, v1);
 	addMiniAsteorid(tmp, v2);
 	addMiniAsteorid(tmp, v3);
 }
 
 void Galaxis::mini_astroid_destroyed()
 {
-
+	std::cout << "kleiner asteroid zerstört" << std::endl;
+	Game::changeScore(20);
 }
 
 void Galaxis::render()
@@ -65,6 +68,7 @@ void Galaxis::render()
     }
     else
     {
+    	Game::getFighter()->reset_position();
     	//alle asteoriden gelöscht
     	nextLevel();
    }

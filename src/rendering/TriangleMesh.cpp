@@ -76,10 +76,5 @@ void TriangleMesh::render()
 TriangleMesh::~TriangleMesh()
 {
 	// TODO Auto-generated destructor stub
-    delete m_normalBuffer;
-    delete m_vertexBuffer;
-    delete m_indexBuffer;
-
-    
 }
 

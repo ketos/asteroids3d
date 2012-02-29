@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "logic/Game.hpp"
+#include <stdlib.h>
+#include <time.h>
 //Emitter für Flug
 
 EmitterFlug::EmitterFlug()
@@ -52,18 +54,32 @@ void EmitterFlug::createPartikel()
 {   
     glVector<float> pos;
     glVector<float> front = Game::getFighter()->getFront();
+    glVector<float> side = Game::getFighter()->getSide(); 
+    glVector<float> up = Game::getFighter()->getUp(); 
     front.normalize();
-    pos = Game::getFighter()->getPosition() + front * 1000;
+    side.normalize();
+    up.normalize();
+    int max = 0;
+    if(Game::getView() == 0)
+    {
+        max = 2000;
+    }
+    else if(Game::getView() == 1)
+    {
+        max = 2500;
+    } 
+    else if(Game::getView() == 2)
+    {
+        max = 4000;
+    }
+    int range = 2000;
+    pos = Game::getFighter()->getPosition() - front * range;
+    pos = pos + side * ((rand() % max) - (max/2))   + (up * ((rand() % max) - (max/2))) ;
     float size = 20;
-    glVector<float> color;
-    PartikelFlug p(400, pos, size, color);
+    glVector<float> color(0,0,0);
+    PartikelFlug p(50, pos, size, color);
     add(p);
-
- //   PartikelFlug p(400, pos, size, color);
-    //Read 3ds for Rocket
- //   Read3DS reader("res/models/particle.3ds");
- //   reader.getMesh(*(static_cast<TexturedMesh*>(&p)));
- //   add(p);
+    //std::cout << "p: " << pos[0] << "," << pos[1] << "," << pos[2] << std::endl;
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)

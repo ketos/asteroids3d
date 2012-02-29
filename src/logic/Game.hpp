@@ -29,6 +29,13 @@ public:
     static int getScore();
     static void changeScore(int change);
     
+    static int getView();
+    static void setView(int view);
+    /*
+     * @brief if the fighter has shot
+     * @return true if the fighter shot
+     */ 
+    static bool wasShot();
     static int getLevel();
     static void incLevel();
 
@@ -41,6 +48,7 @@ private:
     
     static int m_points;
     static int m_level;
+    static int m_view;
 };
 
 #endif 

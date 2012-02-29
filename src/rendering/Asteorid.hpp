@@ -1,20 +1,24 @@
 /**
- * @file
- * Asteorid.hpp
+ * @file Asteorid.hpp
  *
  */
 
 #ifndef ASTEROID_HPP_
 #define ASTEROID_HPP_
 
-#include "TexturedMesh.hpp"
-// We use common cpp threads for this class: 
-// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B 
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <QThread>
 #include <QObject>
 #include <QMetaType>
+#include <stdio.h>
+
+#include "io/SoundManager.hpp"
+#include "TexturedMesh.hpp"
+
+// We use common cpp threads for this class: 
+// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B 
+
 /**
  * @brief Renders a Asteorid
  */
@@ -57,7 +61,7 @@ public:
     /**
      * @brief changes the flight-direction of the Astroid
      */
-     void changeDirection();
+     void changeDirection(glVector<float> dir);
 
     /**
      * @brief returns the flight-axis
@@ -69,6 +73,7 @@ public:
      bool is_mini();
      bool is_hitable();
      void set_hitable(bool hit);
+     void set_speed(float s);
 
 protected:
     // true, if the Asteorid's lifetime isn't over yet

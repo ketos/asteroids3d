@@ -60,8 +60,8 @@ void Camera::changeside(float change)
 void Camera::setDefault()
 {
     beside = 0;
-    above  = 80;
-    behind = 150;
+    above  = 165;
+    behind = 420;
 }
 void Camera::setEgo()
 {
@@ -74,6 +74,12 @@ void Camera::setThird()
     behind = 1500;
 }
 
+void Camera::setCockpit()
+{
+	beside = 0;
+	above  = 30;
+	behind = 20;
+}
 void Camera::apply()
 {
     // Clear matrix stack

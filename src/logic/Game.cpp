@@ -8,11 +8,12 @@ HUD Game::m_Hud;
 
 int Game::m_points = 0;
 int Game::m_level = 1;
+int Game::m_view = 0;
 
 void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
-    m_Femit.setMaxPartikel(20);
+    m_Femit.setMaxPartikel(100);
 	
     for(;m_level < 8;incLevel())
     {
@@ -36,8 +37,6 @@ Fighter* Game::getFighter()
 void Game::loadFighter(string filename)
 {
 	// Load new model
-   // Fighter m_fighter();
-	//m_fighter = new Fighter();
 	Read3DS reader(filename.c_str());
 	reader.getMesh(*(static_cast<TexturedMesh*>(&m_fighter)));
 }
@@ -66,6 +65,10 @@ int Game::getScore()
 {
     return m_points;
 }
+bool Game::wasShot()
+{
+	return 	m_fighter.wasShot();
+}
 void Game::changeScore(int change)
 {
     m_points += change;
@@ -78,4 +81,12 @@ int Game::getLevel()
 void Game::incLevel()
 {
     m_level++;
+}
+int Game::getView()
+{
+    return m_view;
+}
+void Game::setView(int view)
+{
+    m_view = view;
 }

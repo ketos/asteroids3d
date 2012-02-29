@@ -2,22 +2,30 @@
 #include <QDebug>
 HUD::HUD()
 {
-	fighterDamage = 0;
-	fighterSpeed  = 0;
-	fighterScore  = 0;
-	durchmesser   = 150;
-	abstand       = 10;
-	paintLevel    = false;
-	showCockpit   = false;
-	breite 		  = 0;
-	hoehe 		  = 0; 
-	ShouldIdrawRedScreen = 0;
+	fighterDamage 			= 0;
+	fighterSpeed  			= 0;
+	fighterScore  			= 0;
+	durchmesser   			= 150;
+	abstand       			= 10;
+	paintLevel    			= false;
+	showCockpit   			= false;
+	showWarningCockpit 		= 0;
+	breite 		  			= 0;
+	hoehe 		  			= 0; 
+	ShouldIdrawRedScreen    = 0;
+	ShouldIdrawGreenScreen  = 0;
+	
 	//ini aller bilder
-	cockpitImage = QImage("res/images/cockpit.png");
-	miniCraft    = QImage("res/images/ss.png");
-    warningPic   = QImage("res/images/warning.png");
-    redScreen    = QImage("res/images/redScreen.png");
-    greenScreen  = QImage("res/images/greenScreen.png");
+	cockpitImage    	= QImage("res/images/cockpit.png");
+	miniCraft    		= QImage("res/images/ss.png");
+    warningPic   		= QImage("res/images/warning.png");
+    redScreen    		= QImage("res/images/redScreen.png");
+    greenScreen  		= QImage("res/images/greenScreen.png");
+    WarningcockpitImage = QImage("res/images/cockpitWarning.png");
+}
+
+HUD::~HUD()
+{
 	
 }
 void HUD::setPainter(QPainter *paint)
@@ -28,10 +36,21 @@ void HUD::draw(int width, int height, QFont f)
 {    
 	breite = width;
 	hoehe = height;
-    radmidx = width/2;
-    radmidy = height - (durchmesser/2) - abstand;
+    // radar für 3.person verschieben	
+	if (showCockpit)
+	{
+		radmidx = width  - (durchmesser/2) - 40;
+    	radmidy = height - (height-(durchmesser/2)) + 40;
+	}
+	else
+	{
+		radmidx = width/2;
+    	radmidy = height - (durchmesser/2) - abstand;
+	}
+    
     //draw events like redscreen
     drawRedScreen();
+    drawGreenScreen();
     //draw cockpit if necessary
     if (showCockpit)
     {
@@ -51,7 +70,7 @@ void HUD::draw(int width, int height, QFont f)
     if(!collvec.empty())
     	while(itervec != collvec.end())
         {
-            drawRadarAstroid(*itervec, 5000, durchmesser, width /2, height -(durchmesser / 2) - abstand);	
+            drawRadarAstroid(*itervec, 5000, durchmesser, radmidx, radmidy);	
             itervec++;
         }
      
@@ -59,24 +78,23 @@ void HUD::draw(int width, int height, QFont f)
 
 void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy)
 {
-		    painter->setPen(QColor(0,255,0,255));
+	painter->setPen(QColor(0,255,0,255));
     int p = 6;
 	glVector<float> tmp(*vec);
 	if(vec->length()<5000)
 	{
-
- 
-		 
-       tmp.x/=radarrange;
+	   tmp.x/=radarrange;
        tmp.y/=radarrange;
        tmp.z/=radarrange;
        tmp = tmp * (durchmesser/2);
        int x = tmp.x;
        int y = tmp.y;
        int z = tmp.z;
-
-       if(tmp.z != 0)
+        if(tmp.z < 0) painter->setPen(QColor(255,0,0,255));
+       if(tmp.z != 0){
            painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
+       }
+        
        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
    }
    else{
@@ -97,9 +115,20 @@ bool HUD::getView()
 }
 void HUD::drawCockpit()
 {
-    cockpitImage = cockpitImage.scaledToWidth(breite);
-    QPoint point = QPoint(0,hoehe-(cockpitImage.size()).height());
-    painter->drawImage(point, cockpitImage);
+	if ( (showWarningCockpit > 0) && (showWarningCockpit < 10) )
+	{
+		showWarningCockpit++;
+		WarningcockpitImage = WarningcockpitImage.scaledToWidth(breite);
+        QPoint point = QPoint(0,hoehe-(WarningcockpitImage.size()).height());
+        painter->drawImage(point, WarningcockpitImage);
+	}
+	else
+	{
+		cockpitImage = cockpitImage.scaledToWidth(breite);
+        QPoint point = QPoint(0,hoehe-(cockpitImage.size()).height());
+        painter->drawImage(point, cockpitImage);
+        showWarningCockpit = 0;
+	}
 }	
 
 void HUD::setAstroidsVector(std::vector<glVector<float>* > collisionvec)
@@ -146,9 +175,10 @@ void HUD::score(int punkte, int breite)
 void HUD::damages(int schaden)
 {
  	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
-    pen.setWidth(9);
+     pen.setWidth(9);
  	 painter->setPen(pen);
-	 QRectF rectangles((breite/2)-(durchmesser/2)+5, hoehe-durchmesser-abstand-10, durchmesser+10, durchmesser+10);
+ 	 
+	 QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
  	 int startAngle = -50 * 16;
  	 int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);    
@@ -158,24 +188,27 @@ void HUD::Speed(float speed)
 {
 
  	QPen pen(QColor((2.25)*speed,255-((2.25)*speed),0,200));
-   //pen.setStyle(Qt::DashDotLine);
-   pen.setWidth(9);
+    //pen.setStyle(Qt::DashDotLine);
+    pen.setWidth(9);
  	painter->setPen(pen);
  	
- 	QRectF rectangles((breite/2)-(durchmesser/2)-5, hoehe-durchmesser-abstand-10, durchmesser-10, durchmesser+10);
+ 	QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
  	int startAngle = 230 * 16;
  	int spanAngle = (-1)*speed * 16;
  	painter->drawArc(rectangles, startAngle, spanAngle);
 
 }
 
-void HUD::setFighterData(int damage, int score, float speed)
+void HUD::setFighterData(int damage, int score, float speed, bool shoot)
 {
 	if ( fighterDamage < damage )
 	{
-		std::cout << "ausgabe" << std::endl;
 		//roten screen ausgeben
 		ShouldIdrawRedScreen = 1;
+	}
+	if ( shoot )
+	{
+		ShouldIdrawGreenScreen = 1;
 	}
 	
     fighterDamage = damage;    
@@ -185,7 +218,7 @@ void HUD::setFighterData(int damage, int score, float speed)
 
 void HUD::drawRedScreen()
 {
-	if ( (ShouldIdrawRedScreen < 5) && (ShouldIdrawRedScreen > 0) )
+	if ( (ShouldIdrawRedScreen < 10	) && (ShouldIdrawRedScreen > 0) )
 	{
 		ShouldIdrawRedScreen++;
 		//printen des redscreen
@@ -198,6 +231,21 @@ void HUD::drawRedScreen()
 		ShouldIdrawRedScreen = 0;
 	}	
 }
+void HUD::drawGreenScreen()
+{
+	if ( (ShouldIdrawGreenScreen < 5) && (ShouldIdrawGreenScreen > 0) )
+	{
+		ShouldIdrawGreenScreen++;
+		//printen des redscreen
+		greenScreen = greenScreen.scaled(breite,hoehe);
+    	QPoint point = QPoint(0,0);
+    	painter->drawImage(point, greenScreen);
+	}
+	else
+	{
+		ShouldIdrawGreenScreen = 0;
+	}	
+}
 void HUD::drawSplash(int breite, int hoehe)
 {
 	 painter->setBrush(QColor(0, 0, 0, 255));
@@ -208,16 +256,14 @@ void HUD::drawSplash(int breite, int hoehe)
     myImage.load("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
     painter->drawImage(point, myImage);
-    //TODO -- <-- Press any key -->
-    
 }
 void HUD::drawRadar(int width, int height)
 {
     painter->setPen(QColor(255,255,255,255));
     painter->drawEllipse(radmidx - durchmesser/2, radmidy - durchmesser/2,durchmesser,durchmesser);
     painter->drawEllipse(radmidx - durchmesser/4, radmidy - durchmesser/4,durchmesser/2,durchmesser/2);
-
-    QRectF rectangle( (width/2)-(durchmesser/2), height-(durchmesser/2)-abstand-durchmesser/2, durchmesser, durchmesser);
+	
+	QRectF rectangle( radmidx-(durchmesser/2), radmidy-(durchmesser/2), durchmesser, durchmesser);
 
     painter->drawPie(rectangle, 45*16, 90*16);
 
@@ -252,8 +298,15 @@ void HUD::setLevel(int levelnumber)
 
 void HUD::drawWarning()
 {
-    QPoint point = QPoint(abstand,hoehe - (warningPic.height() + abstand) );
-    painter->drawImage(point, warningPic);
+	if (showCockpit)
+	{
+		showWarningCockpit = 1;	
+	}
+	else
+	{
+    	QPoint point = QPoint(abstand,hoehe - (warningPic.height() + abstand) );
+    	painter->drawImage(point, warningPic);
+    }
 }
 
 void HUD::loadCockpit()

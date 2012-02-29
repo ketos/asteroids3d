@@ -36,7 +36,7 @@ private:
     //aktuelle Anzahl von Partikeln
     int m_PartikelZahl;
     //Maximale Anzahl an Partikeln
-    int m_maxPartikel;
+    unsigned int m_maxPartikel;
 };
 
 #endif //_EMITTER_FLUG_H
