@@ -27,3 +27,8 @@ void PartikelFlug::update()
         m_alive = false;
     }
 }
+
+void PartikelFlug::render()
+{
+    //TODO render GLSphere
+}

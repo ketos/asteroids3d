@@ -7,7 +7,7 @@
 
 // Partikel für Flug
 
-class PartikelFlug : public TexturedMesh
+class PartikelFlug
 {
 public:
     //Konstruktor
@@ -16,6 +16,8 @@ public:
     void update();
     
     bool isAlive();
+
+    void render();
 private:
     //Gesundheitstatus
     bool m_alive;
