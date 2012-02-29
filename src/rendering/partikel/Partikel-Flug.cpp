@@ -55,7 +55,7 @@ void PartikelFlug::render()
 
     glEnable ( GL_RGBA_MODE ) ;
     glDisable ( GL_LIGHTING ) ;
-
+                  
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,TexID1);
 

@@ -8,6 +8,7 @@
 #include "rendering/TexturedMesh.hpp"
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
+#include "math/Global.hpp"
 
 int damage = 0;
 int score  = 0;
@@ -37,6 +38,9 @@ vector<Bullet*> Fighter::get_Bullets()
 
 void Fighter::render(bool printFighter)
 {
+    rotate(PITCH, m_anglepitch);
+    rotate(YAW  , m_angleyaw);
+    rotate(ROLL , m_angleroll); 
 	m_position = m_position - m_xAxis * m_speed;
     
 	if (printFighter)
@@ -103,6 +107,71 @@ void Fighter::changeSpeed(float change)
         {
             m_speed = 0;
         }
+    }
+}
+void Fighter::changeAngle(int axis, float change)
+{
+    switch(axis){
+    case PITCH: // up-down
+        if(m_anglepitch <= MAXANGLE && m_anglepitch >=-MAXANGLE)
+        {
+            m_anglepitch += change;
+            if(m_anglepitch > MAXANGLE)
+            {
+                m_anglepitch = MAXANGLE;
+            }
+            //if(abs(m_anglepitch) <= DEADANGLE))
+            //{
+            //    m_anglepitch = 0;
+            //}
+            if(m_anglepitch < -MAXANGLE)
+            {
+                m_anglepitch = -MAXANGLE;
+            }
+            std::cout << "pitch: " << m_anglepitch << std::endl; 
+        }
+        break;
+
+    case YAW: // left-right
+        if(m_angleyaw <= MAXANGLE && m_angleyaw >=-MAXANGLE)
+        {
+            m_angleyaw += change;
+            if(m_angleyaw > MAXANGLE)
+            {
+                m_angleyaw = MAXANGLE;
+            }
+            //if(abs(m_angleyaw) <= DEADANGLE))
+            //{
+            //    m_angleyaw = 0;
+            //}
+            if(m_angleyaw < -MAXANGLE)
+            {
+                m_angleyaw = -MAXANGLE;
+            }
+            std::cout << "yaw: " << m_angleyaw << std::endl; 
+        }
+        break;
+
+    case ROLL: // rollen
+        if(m_angleroll <= MAXANGLE && m_angleroll >=-MAXANGLE)
+        {
+            m_angleroll += change;
+            if(m_angleroll > MAXANGLE)
+            {
+                m_angleroll = MAXANGLE;
+            }
+            //if(abs(m_angleroll) <= DEADANGLE))
+            //{
+            //    m_angleroll = 0;
+            //}
+            if(m_angleroll < -MAXANGLE)
+            {
+                m_angleroll = -MAXANGLE;
+            }
+            
+            std::cout << "roll: " << m_angleroll << std::endl; 
+        }
+        break;
     }
 }
 

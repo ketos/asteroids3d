@@ -8,7 +8,7 @@
 #include <QKeyEvent>
 #include <set>
 
-#define ANGLE 0.02
+#define ANGLE 0.005
 #define SPEED 2
 
 class Keyboard

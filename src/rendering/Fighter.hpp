@@ -13,6 +13,9 @@
 #include <vector>	
 #include "Bullet.hpp"
 
+#define MAXANGLE 0.2
+#define DEADANGLE 0.1
+
 /**
  * @brief   Represents a fighter that can shoot bullets.
  */
@@ -53,6 +56,10 @@ public:
      * @brief change the speed
      */
     void changeSpeed(float change);
+    /**
+     * @brief change Rotationangles
+     */
+    void changeAngle(int axis, float change);
 
     /**
      * @brief returns the actual damage
@@ -88,10 +95,10 @@ private:
      bool shot;
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
-    // Actual damage
-      //  static int damage= 0;
-    //Actual score
-		//  static int score = 0;
+    
+    float m_anglepitch;
+    float m_angleyaw;
+    float m_angleroll;
 };
 
 #endif /* FIGHTER_HPP_ */

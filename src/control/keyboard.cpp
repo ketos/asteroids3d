@@ -2,6 +2,7 @@
 #include "logic/Game.hpp"
 #include "view/RenderFrame.hpp"
 #include <iostream>
+#include "math/Global.hpp"
 
 std::set<int> Keyboard::m_pressedKeys;
 
@@ -22,41 +23,42 @@ void Keyboard::update()
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
             //Game::getFighter()->move(STRAFE, -f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(1);
+            Game::getFighter()->changeSpeed(1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
             //Game::getFighter()->move(STRAFE, f_speed);
-            (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-1);
+            Game::getFighter()->changeSpeed(-1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Up) != m_pressedKeys.end())
     	{
-            Game::getFighter()->rotate(PITCH, ANGLE);
+            Game::getFighter()->changeAngle(PITCH, ANGLE);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
-            Game::getFighter()->rotate(PITCH, -ANGLE);
+            Game::getFighter()->changeAngle(PITCH, -ANGLE);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
-            Game::getFighter()->rotate(YAW,  ANGLE);
-            Game::getFighter()->rotate(ROLL ,ANGLE);
+            Game::getFighter()->changeAngle(YAW  , ANGLE);
+            Game::getFighter()->changeAngle(ROLL ,ANGLE);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
-            Game::getFighter()->rotate(YAW, -ANGLE);
-            Game::getFighter()->rotate(ROLL ,-ANGLE);
+            Game::getFighter()->changeAngle(YAW  ,-ANGLE);
+            Game::getFighter()->changeAngle(ROLL ,-ANGLE);
     	}
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-            if(RenderFrame::shoot) {
-    		    (static_cast<Fighter*>(Game::getFighter()))->shoot();
+            if(RenderFrame::shoot) {    
+    		    Game::getFighter()->shoot();
+                //(static_cast<Fighter*>(Game::getFighter()))->shoot();
                 RenderFrame::shoot = false;
             }
       	}
