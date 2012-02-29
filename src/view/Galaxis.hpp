@@ -36,7 +36,7 @@ class Galaxis: public QObject
     	private:
 	    	vector<Asteorid*> asteorids;
 	    	vector<pair<glVector<float>,glVector<float> > > pos;
-	     	int level;
+	     	unsigned int level;
 	     	bool paintLevel;
 	     	vector< vector<std::pair<glVector<float>*, glVector<float>* >* >* > m_levels;
 	     	vector<std::pair<glVector<float>*, glVector<float>* >* > tmp;

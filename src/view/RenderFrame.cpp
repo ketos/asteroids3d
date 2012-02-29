@@ -172,13 +172,11 @@ void RenderFrame::paintGL()
     reload++;
     
     //Steuerung updaten
-    //if(steuerung)
-    //{
-        if(joystick) {
-            joys->update();
-        }
-        Keyboard::update();
-    //}
+    if(joystick) {
+        joys->update();
+    }
+    Keyboard::update();
+
     //Emitter
     //Game::getEmitterFlug()->createPartikel();
     //Game::getEmitterFlug()->update();
