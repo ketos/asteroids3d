@@ -8,7 +8,7 @@ GLuint PartikelExplosion::TexID1 = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    m_lifetime  = 300;
+    m_lifetime  = 200;
     m_position  = pos;
     m_size      = 20;
     m_color     = glVector<float>(1,1,1); //White
