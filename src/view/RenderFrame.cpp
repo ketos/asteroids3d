@@ -25,7 +25,8 @@ bool menu = false;
 bool warning_sound = false;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
-{
+{	
+	// Der Drops ist gelutscht!
     
     // set up animation timer
     m_timer = new QTimer();
