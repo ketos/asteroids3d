@@ -252,10 +252,20 @@ void RenderFrame::paintGL()
         Menu::drawSplash(width(),height(), Game::getHud());
         if(paintHighscore)
         {
-            Game::getHud()->drawHighscore();
+        	if(!paintHighscore)
+        	{            
+        		cout<<"Ich übermale"<<endl;
+            Menu::drawSplash(width(),height(), Game::getHud());
+			}            
+            if(paintHighscore)
+            {
+            	
+        		cout<<"Ich übermale2"<<endl;
+            	Game::getHud()->drawHighscore();
+            }
         }
     }
-
+    Keyboard::update();
     painter.end();
     glPopMatrix();
     glPopAttrib();
@@ -270,18 +280,24 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
     Keyboard::keypressed(event);
 
+	
     if(menu) {
+    	
+    	if (event->key() == Qt::Key_H)
+    	{
+    		cout << "h gedrückt " << endl;
+       		paintHighscore = !paintHighscore;
+       		paintGL();
+   		}
+    	
+    	
         if (event->key() == Qt::Key_Return)
-        {   
+        {
             start();
         }
       
     }
-    if (event->key() == Qt::Key_H)
-    {
-        paintHighscore = !paintHighscore;
-   	    cout<<"HALLLO!!!!!!!!!!!!!!";
-    }
+    
     
     
 }
