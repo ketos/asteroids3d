@@ -14,11 +14,12 @@ PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, float size, glVe
     m_size     = size;
     m_color    = color;
     m_alive = true;
+    m_birthday = 0;
 
     //Load texture one time
     if(!TexID1)
     {
-        TexID1 = TextureManager::LoadTexture("res/images/Logo.tga");
+        TexID1 = TextureManager::LoadTexture("res/images/debris.tga");
     }
 }
 
@@ -53,7 +54,7 @@ void PartikelFlug::render()
     glVector<float> vec3 = m_position + side *30 + up * 30;
 
 
-    glEnable ( GL_RGBA_MODE ) ;
+    //glEnable ( GL_RGBA_MODE ) ;
     glDisable ( GL_LIGHTING ) ;
                   
     glEnable(GL_TEXTURE_2D);
@@ -73,5 +74,5 @@ void PartikelFlug::render()
     glEnd();
 
     glEnable ( GL_LIGHTING ) ;
-    glDisable ( GL_RGBA_MODE ) ;
+    //glDisable ( GL_RGBA_MODE ) ;
 }

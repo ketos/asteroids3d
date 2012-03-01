@@ -45,7 +45,7 @@ void EmitterFlug::update()
         {   
             //wenn alive rendern;
             (*ite).render();
-            ite++;
+            ++ite;
         }
     }
 }
