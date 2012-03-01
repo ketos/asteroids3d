@@ -2,6 +2,7 @@
 
 #include "logic/Game.hpp"
 #include "math/Global.hpp"
+#include <cmath>
 
 EmitterExplosion::EmitterExplosion()
 {
@@ -48,31 +49,19 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     float angle2;  
     int L = 4;
     int B = 4;
-    for(angle = 0; angle < (2 *PI); angle += (2 * PI / L))
+    float s = 6;
+    for(angle = PI/L; angle < (2 * PI); angle += ( PI / L))
     {
         for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
         {
-            speed.x = 3*(sin(angle2 * PW) * cos(angle * PW));
-            speed.y = 3*(sin(angle2 * PW) * sin(angle * PW));
-            speed.z = 3*(sin(angle  * PW));
+            speed.x = s * (sin(angle2 * PI/180) * cos(angle * PI/180));
+            speed.y = s * (sin(angle2 * PI/180) * sin(angle * PI/180));
+            speed.z = s * (sin(angle  * PI/180));
+            std::cout << "speed: " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
             PartikelExplosion p(pos, speed);
             add(p);
         }   
     }    
-    /*            
-    PartikelExplosion p1(pos, front);
-    add(p1);
-    PartikelExplosion p2(pos, front*(-1));
-    add(p2);
-    PartikelExplosion p3(pos, up);
-    add(p3);
-    PartikelExplosion p4(pos, up*(-1));
-    add(p4);
-    PartikelExplosion p5(pos, side);
-    add(p5);
-    PartikelExplosion p6(pos, side*(-1));
-    add(p6);
-    */
 }
 
 bool EmitterExplosion::add(PartikelExplosion partikel)
