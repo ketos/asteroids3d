@@ -8,12 +8,13 @@ GLuint PartikelExplosion::TexID1 = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    m_lifetime  = 100;
+    m_lifetime  = 300;
     m_position  = pos;
     m_size      = 20;
     m_color     = glVector<float>(1,1,1); //White
     m_alive     = true;
     m_speed     = speed * 3;
+    m_alpha     = 1;
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -49,13 +50,11 @@ void PartikelExplosion::update()
     else if (m_color.y > 0)
     {
         m_color.z = 0.0f;
-        m_color.x -= 0.02f;
-        m_color.y -= 0.02f;
+        m_alpha -= 0.02f;
     }
     else
     {
-        m_color.y = 0.0f;
-        m_color.z = 0.0f;
+        m_alpha = 0.0f;
     }      
 
     //Update Speed
@@ -67,10 +66,12 @@ void PartikelExplosion::render()
 {
     glDisable ( GL_LIGHTING ) ;
 
+    glEnable(GL_POINT_SMOOTH);
+    glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+
     glPointSize(m_size);
     glBegin(GL_POINTS); //starts drawing of point
-        //glColor3f(m_color[0], m_color[1], m_color[2]);
-        glColor3f(1, 0, 0);
+        glColor4f(m_color[0], m_color[1], m_color[2], m_alpha);
         glVertex3f(m_position[0], m_position[1], m_position[2]);
     glEnd();
 
