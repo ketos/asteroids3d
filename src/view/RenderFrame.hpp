@@ -117,6 +117,7 @@ private slots:
     
 private:
     QString userName;
+    bool gameOver;
 };
 
 #endif // RENDER_FRAME_H
