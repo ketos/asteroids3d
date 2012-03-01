@@ -1,5 +1,4 @@
 #include "rendering/partikel/Partikel-Flug.hpp"
-#include <QtOpenGL>
 #include <iostream>
 #include "logic/Game.hpp"
 #include "io/TextureManager.hpp"
@@ -7,14 +6,13 @@
 //Static Texture-Member
 GLuint PartikelFlug::TexID1 = 0;
 
-PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color)
+PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color)
 {
-    m_lifetime = lifetime;
-    m_position = pos;
-    m_size     = size;
-    m_color    = color;
-    m_alive = true;
-    m_birthday = 0;
+    m_lifetime  = lifetime;
+    m_position  = pos;
+    m_size      = size;
+    m_color     = color;
+    m_alive     = true;
 
     //Load texture one time
     if(!TexID1)
@@ -49,9 +47,9 @@ void PartikelFlug::render()
     glVector<float> up = Game::getFighter()->getUp();
     up.normalize();
 
-    glVector<float> vec1 = m_position + side * 30;
-    glVector<float> vec2 = m_position + up * 30;
-    glVector<float> vec3 = m_position + side *30 + up * 30;
+    glVector<float> vec1 = m_position + side * m_size;
+    glVector<float> vec2 = m_position + up * m_size;
+    glVector<float> vec3 = m_position + side * m_size + up * m_size;
 
 
     //glEnable ( GL_RGBA_MODE ) ;

@@ -26,10 +26,6 @@ public:
     void createPartikel();
     
     void setMaxPartikel(int i);
-    
-    static float m_fFrameTime;
-    static float m_fCurTime;
-
 private:
     //alle Partikel
     std::list<PartikelFlug> m_partikel;

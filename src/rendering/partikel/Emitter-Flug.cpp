@@ -26,7 +26,7 @@ EmitterFlug::~EmitterFlug()
 void EmitterFlug::setMaxPartikel(int i)
 {
     m_maxPartikel = i;
-    m_PartikelZahl =0;
+    m_PartikelZahl = 0;
 }
 
 void EmitterFlug::update()
@@ -56,30 +56,36 @@ void EmitterFlug::createPartikel()
     glVector<float> front = Game::getFighter()->getFront();
     glVector<float> side = Game::getFighter()->getSide(); 
     glVector<float> up = Game::getFighter()->getUp(); 
+
     front.normalize();
     side.normalize();
     up.normalize();
+
     int max = 0;
+
     if(Game::getView() == 0)
     {
-        max = 2000;
+        max = 2500;
     }
     else if(Game::getView() == 1)
     {
-        max = 2500;
+        max = 3000;
     } 
     else if(Game::getView() == 2)
     {
-        max = 4000;
+        max = 4500;
     }
+
     int range = 2000;
+
     pos = Game::getFighter()->getPosition() - front * range;
     pos = pos + side * ((rand() % max) - (max/2))   + (up * ((rand() % max) - (max/2))) ;
-    float size = 20;
-    glVector<float> color(0,0,0);
-    PartikelFlug p(50, pos, size, color);
+
+
+    glVector<float> color(1,0,0); //Red
+
+    PartikelFlug p(50, pos, 20, color);
     add(p);
-    //std::cout << "p: " << pos[0] << "," << pos[1] << "," << pos[2] << std::endl;
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)
