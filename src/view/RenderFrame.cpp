@@ -20,7 +20,7 @@
 
 
 Camera RenderFrame::m_cam;
-bool RenderFrame::shoot;
+//bool RenderFrame::shoot;
 bool menu = false; 
 bool warning_sound = false;
 
@@ -32,9 +32,11 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     m_timer->setInterval(25);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
     
-    shoot = true;
+    m_timer2= new QTimer();
+    m_timer2->setInterval(100);
+    connect(m_timer2,SIGNAL(timeout()), this, SLOT(Gameupdate()));
     
-    reload = 0;
+ //   shoot = true;
     
     joys = new JoystickControl("/dev/input/js0");
     
@@ -79,6 +81,7 @@ void RenderFrame::start()
     
     // start Timer
     m_timer->start();
+    m_timer2->start();
 }
 
 void RenderFrame::initializeGL()
@@ -174,14 +177,7 @@ void RenderFrame::setCam()
     }
 }
 void RenderFrame::paintGL()
-{   
-    if(reload > 15)
-    {
-        shoot = true;
-        reload = 0;
-    }
-    reload++;
-    
+{       
     //Steuerung updaten
     if(joystick) {
         joys->update();
@@ -280,8 +276,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     }
     if (event->key() == Qt::Key_H)
     {
-        		paintHighscore = !paintHighscore;
-        		cout<<"HALLLO!!!!!!!!!!!!!!";
+        paintHighscore = !paintHighscore;
+   	    cout<<"HALLLO!!!!!!!!!!!!!!";
     }
     
     
@@ -296,4 +292,8 @@ void RenderFrame::setupViewport(int width, int height)
 {
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
+}
+void RenderFrame::Gameupdate()
+{
+    Game::update();
 }

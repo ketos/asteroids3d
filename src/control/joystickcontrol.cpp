@@ -1,6 +1,7 @@
 #include "control/joystickcontrol.hpp"
 #include "view/RenderFrame.hpp"
 #include "logic/Game.hpp"
+#include "control/control.hpp"
 #include <iostream>
 
 JoystickControl::JoystickControl(std::string input)
@@ -30,21 +31,21 @@ bool JoystickControl::connected()
 void JoystickControl::update() 
 {
     if(joys->getAxis(0) <-DEADZONE || joys->getAxis(0) > DEADZONE ) { // joystick links links-rechts
-        float angle = joys->getAxis(0) / JOYMAX * MAX_ANGLE;        
-        Game::getFighter()->rotate(YAW,  -angle);
-        Game::getFighter()->rotate(ROLL, -angle);
+        float angle = joys->getAxis(0) / JOYMAX * ANGLE;        
+        Game::getFighter()->changeAngle(YAW,  -angle);
+        Game::getFighter()->changeAngle(ROLL, -angle);
     }
     if(joys->getAxis(1) <-DEADZONE || joys->getAxis(1) > DEADZONE ) { // joystick links up-down 
-        float angle = joys->getAxis(1) / JOYMAX * MAX_ANGLE;
-        Game::getFighter()->rotate(PITCH,  angle);
+        float angle = joys->getAxis(1) / JOYMAX * ANGLE;
+        Game::getFighter()->changeAngle(PITCH,  angle);
     }
     if(joys->getAxis(2) > -JOYMAX + DEADZONE) { // schulter links
         float speed = (joys->getAxis(2) + JOYMAX) / (2*JOYMAX) * SPEED;
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(speed);
+        Game::getFighter()->changeSpeed(speed);
     }
     if(joys->getAxis(5) > -JOYMAX + DEADZONE) { // schulter rechts   
         float speed = (joys->getAxis(5) + JOYMAX) / (2*JOYMAX) * SPEED;
-        (static_cast<Fighter*>(Game::getFighter()))->changeSpeed(-speed);
+        Game::getFighter()->changeSpeed(-speed);
     }
     if(joys->getAxis(4) <-6*DEADZONE) { // joystick rechts up-down
         RenderFrame::m_cam.zoom(-15);
@@ -59,9 +60,9 @@ void JoystickControl::update()
         RenderFrame::m_cam.changeside(15);
     }
     if(joys->getButton(0) > 0) { //A
-        if(RenderFrame::shoot) {
-            (static_cast<Fighter*>(Game::getFighter()))->shoot();
-            RenderFrame::shoot = false;
+        if(Game::getshoot()) {
+            Game::getFighter()->shoot();
+            Game::shot();
         }
     }
 //    if(joys->getButton(1) > 0) { //B

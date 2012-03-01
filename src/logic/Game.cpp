@@ -9,6 +9,8 @@ HUD Game::m_Hud;
 int Game::m_points = 0;
 int Game::m_level = 1;
 int Game::m_view = 0;
+bool Game::m_shoot;
+int Game::i = 0;
 
 void Game::Init()
 {
@@ -27,6 +29,7 @@ void Game::Init()
 
 		getGalaxis()->addLevel( level );	
     }
+    m_shoot = true;
 }
 
 Fighter* Game::getFighter()
@@ -89,4 +92,26 @@ int Game::getView()
 void Game::setView(int view)
 {
     m_view = view;
+}
+void Game::shot()
+{
+    m_shoot = false;
+}
+bool Game::getshoot()
+{
+    return m_shoot;
+}
+void Game::update()
+{
+    //winkel verkleinern
+    m_fighter.reduceAngle();
+    if(!m_shoot)
+    {
+        if(i>10)
+        {
+            m_shoot = true;
+            i = 0;
+        }
+        i++;
+    }
 }

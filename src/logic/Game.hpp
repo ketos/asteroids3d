@@ -8,7 +8,7 @@
 #include "view/HUD.hpp"
 #include "io/SoundManager.hpp"
 
-class Game 
+class Game
 {
 public:
     
@@ -38,6 +38,10 @@ public:
     static bool wasShot();
     static int getLevel();
     static void incLevel();
+    
+    static void shot();
+    static bool getshoot(); 
+    static void update();
 
 private:
     static Fighter  m_fighter;
@@ -45,6 +49,9 @@ private:
     static Collision   m_coll;
     static EmitterFlug m_Femit;
     static HUD m_Hud;
+    
+    static bool m_shoot;
+    static int i;
     
     static int m_points;
     static int m_level;

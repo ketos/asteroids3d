@@ -3,6 +3,7 @@
 #include "view/RenderFrame.hpp"
 #include <iostream>
 #include "math/Global.hpp"
+#include "control/control.hpp"
 
 std::set<int> Keyboard::m_pressedKeys;
 
@@ -22,13 +23,11 @@ void Keyboard::update()
     	// Controller for moving and rotation
     	if (m_pressedKeys.find(Qt::Key_W) != m_pressedKeys.end())
     	{
-            //Game::getFighter()->move(STRAFE, -f_speed);
             Game::getFighter()->changeSpeed(1);
     	}
 
     	if (m_pressedKeys.find(Qt::Key_S) != m_pressedKeys.end())
     	{
-            //Game::getFighter()->move(STRAFE, f_speed);
             Game::getFighter()->changeSpeed(-1);
     	}
 
@@ -36,18 +35,15 @@ void Keyboard::update()
     	{
             Game::getFighter()->changeAngle(PITCH, ANGLE);
     	}
-
     	if (m_pressedKeys.find(Qt::Key_Down) != m_pressedKeys.end())
     	{
             Game::getFighter()->changeAngle(PITCH, -ANGLE);
     	}
-
     	if (m_pressedKeys.find(Qt::Key_Left) != m_pressedKeys.end())
     	{
             Game::getFighter()->changeAngle(YAW  , ANGLE);
-            Game::getFighter()->changeAngle(ROLL ,ANGLE);
+            Game::getFighter()->changeAngle(ROLL , ANGLE);
     	}
-
     	if (m_pressedKeys.find(Qt::Key_Right) != m_pressedKeys.end())
     	{
             Game::getFighter()->changeAngle(YAW  ,-ANGLE);
@@ -56,10 +52,9 @@ void Keyboard::update()
     	// Schießen !!
     	if (m_pressedKeys.find(Qt::Key_Space) != m_pressedKeys.end())
     	{
-            if(RenderFrame::shoot) {    
+            if(Game::getshoot()) {    
     		    Game::getFighter()->shoot();
-                //(static_cast<Fighter*>(Game::getFighter()))->shoot();
-                RenderFrame::shoot = false;
+                Game::shot();
             }
       	}
         // Ändern der Kamera
