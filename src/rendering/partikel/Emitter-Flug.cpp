@@ -65,15 +65,15 @@ void EmitterFlug::createPartikel()
 
     if(Game::getView() == 0)
     {
-        max = 2000;
+        max = 2500;
     }
     else if(Game::getView() == 1)
     {
-        max = 2500;
+        max = 3000;
     } 
     else if(Game::getView() == 2)
     {
-        max = 4000;
+        max = 4500;
     }
 
     int range = 2000;
@@ -84,7 +84,7 @@ void EmitterFlug::createPartikel()
 
     glVector<float> color(1,0,0); //Red
 
-    PartikelFlug p(50, pos, 30, color);
+    PartikelFlug p(50, pos, 20, color);
     add(p);
 }
 

@@ -6,14 +6,14 @@
 //Static Texture-Member
 GLuint PartikelExplosion::TexID1 = 0;
 
-PartikelExplosion::PartikelExplosion(float lifetime, glVector<float> pos, float size, glVector<float> color)
+PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    m_lifetime = lifetime;
-    m_position = pos;
-    m_size     = size;
-    m_color    = color;
-    m_alive = true;
-    m_birthday = 0;
+    m_lifetime  = 100;
+    m_position  = pos;
+    m_size      = size;
+    m_color     = glVector<float>(1,1,1); //White
+    m_alive     = true;
+    m_speed     = speed;
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -28,25 +28,41 @@ bool PartikelExplosion::isAlive()
 
 void PartikelExplosion::update()
 {
+    //Update Lifetime
     m_lifetime--;
-    if(m_lifetime == 0)
+    if(!m_lifetime)
     {
         m_alive = false;
+        return;
     }
+
+    //Update Position
+    m_position += m_speed;
+
+    //Update Color
+    //This Function expect as start Color 255,255,255
+    if(m_color.z > 0)
+    {
+        m_color.z -= 0.01f;
+    }
+    else if (m_color.y > 0)
+    {
+        m_color.z = 0.0f;
+        m_color.x -= 0.05f;
+        m_color.y -= 0.05f;
+    }
+    else
+    {
+        m_color.y = 0.0f;
+        m_color.z = 0.0f;
+    }      
+
+    //Update Speed
+    m_speed *= 0.9f; 
 }
 
 void PartikelExplosion::render()
 {
-    glVector<float> side = Game::getFighter()->getSide();
-    side.normalize();
-    glVector<float> up = Game::getFighter()->getUp();
-    up.normalize();
-
-    glVector<float> vec1 = m_position + side * 30;
-    glVector<float> vec2 = m_position + up * 30;
-    glVector<float> vec3 = m_position + side *30 + up * 30;
-
-
     glDisable ( GL_LIGHTING ) ;
 
     glBegin(GL_Points); //starts drawing of point

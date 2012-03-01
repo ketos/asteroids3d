@@ -31,6 +31,8 @@ private:
     float m_size;
     //Farbe
     glVector<float> m_color;
+
+    glVector<float> m_speed;
        
     static GLuint TexID1;
 };

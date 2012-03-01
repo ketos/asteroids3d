@@ -8,12 +8,11 @@ GLuint PartikelFlug::TexID1 = 0;
 
 PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color)
 {
-    m_lifetime = lifetime;
-    m_position = pos;
-    m_size     = size;
-    m_color    = color;
-    m_alive = true;
-    m_birthday = 0;
+    m_lifetime  = lifetime;
+    m_position  = pos;
+    m_size      = size;
+    m_color     = color;
+    m_alive     = true;
 
     //Load texture one time
     if(!TexID1)
