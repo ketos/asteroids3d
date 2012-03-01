@@ -49,8 +49,8 @@ void PartikelExplosion::update()
     else if (m_color.y > 0)
     {
         m_color.z = 0.0f;
-        m_color.x -= 0.05f;
-        m_color.y -= 0.05f;
+        m_color.x -= 0.02f;
+        m_color.y -= 0.02f;
     }
     else
     {
@@ -69,7 +69,8 @@ void PartikelExplosion::render()
 
     glPointSize(m_size);
     glBegin(GL_POINTS); //starts drawing of point
-        glColor3f(m_color[0], m_color[1], m_color[2]);
+        //glColor3f(m_color[0], m_color[1], m_color[2]);
+        glColor3f(1, 0, 0);
         glVertex3f(m_position[0], m_position[1], m_position[2]);
     glEnd();
 
