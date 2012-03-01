@@ -160,7 +160,7 @@ void Fighter::changeAngle(int axis, float change)
             {
                 m_anglepitch = -MAXANGLE;
             } 
-            std::cout << "pitch: " << m_anglepitch << std::endl;               
+            //std::cout << "pitch: " << m_anglepitch << std::endl;               
             break;
 
         case YAW: // left-right
@@ -173,7 +173,7 @@ void Fighter::changeAngle(int axis, float change)
             {
                 m_angleyaw = -MAXANGLE;
             } 
-            std::cout << "yaw: " << m_angleyaw << std::endl;               
+            //std::cout << "yaw: " << m_angleyaw << std::endl;               
             break;
 
         case ROLL: // rollen
@@ -186,7 +186,7 @@ void Fighter::changeAngle(int axis, float change)
             {
                 m_angleroll = -MAXANGLE;
             } 
-            std::cout << "roll: " << m_angleroll << std::endl;            
+            //std::cout << "roll: " << m_angleroll << std::endl;            
             break;
     }
 }

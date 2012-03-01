@@ -208,8 +208,10 @@ void RenderFrame::paintGL()
 	}
 
     //Emitter
-    Game::getEmitterFlug()->createPartikel();
-    Game::getEmitterFlug()->update();
+    //Game::getEmitterFlug()->createPartikel();
+    //Game::getEmitterFlug()->update();
+
+    Game::getEEmit()->update();
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
@@ -222,7 +224,7 @@ void RenderFrame::paintGL()
     if(Game::getFighter()) {
        	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
         Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
+   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), 			Game::getFighter()->wasShot());
    	    Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
         Game::getHud()->draw(width(),height(),font());
 
@@ -243,8 +245,18 @@ void RenderFrame::paintGL()
 
     if(Game::getFighter()->getDamage()>=100)
     {
+    	std::cout << Game::getScore() << std::endl;
+   		std::cout << "Game Over ... Anfang" << std::endl;
         Game::getFighter()->resetDamage();
-        menu = true;
+        std::cout << "Game Over ... Damage resetet" << std::endl;
+        Game::getGalaxis()->reset_level();
+        Game::getGalaxis()->nextLevel();
+        std::cout << "Game Over ... Level resetet" << std::endl;
+        Game::reset_score();
+        std::cout << "Game Over ... Score resetet" << std::endl;
+        Game::getFighter()->reset_position();
+        std::cout << "Game Over ... Position resetet" << std::endl;
+        menu = true;	
     }
 
     if(menu)

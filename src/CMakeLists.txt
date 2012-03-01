@@ -109,6 +109,8 @@ set(VIEWER_SOURCES
     rendering/Bullet.cpp
     rendering/partikel/Emitter-Flug.cpp
     rendering/partikel/Partikel-Flug.cpp
+    rendering/partikel/Emitter-Explosion.cpp
+    rendering/partikel/Partikel-Explosion.cpp
     #rendering/Explosion.cpp
     logic/Game.cpp
     Main.cpp

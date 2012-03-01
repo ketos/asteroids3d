@@ -15,7 +15,7 @@ public:
     bool add(PartikelExplosion partikel);
     void update();
 
-    createPartikel();
+    void createPartikel(glVector<float> a_pos);
     void setMaxPartikel();
     
 private:

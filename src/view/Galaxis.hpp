@@ -30,7 +30,7 @@ public:
     void addLevel(string& filename);
     void nextLevel();
     glVector<float> getOneAsteoridPosition();
-
+	void reset_level();
     bool shouldIncLevel();
     int getLevelnumber();
 private:

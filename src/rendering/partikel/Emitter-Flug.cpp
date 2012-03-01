@@ -89,4 +89,15 @@ void EmitterFlug::createPartikel()
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)
-{
+{   
+    //wenn noch Platz
+    if(m_partikel.size() < m_maxPartikel)
+    {   
+        //Füge hinzu
+        m_partikel.push_back(partikel);
+        //gebe erstellt zurück
+        return true;
+    }
+    //gebe nicht erstellt zurück
+    return false;
+}

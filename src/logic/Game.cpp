@@ -5,6 +5,7 @@ Galaxis Game::m_galaxis;
 Collision Game::m_coll;
 EmitterFlug Game::m_Femit;
 HUD Game::m_Hud;
+EmitterExplosion Game::m_eemit;
 
 int Game::m_points = 0;
 int Game::m_level = 1;
@@ -77,6 +78,16 @@ void Game::changeScore(int change)
     m_points += change;
 }
 
+void Game::reset_level()
+{
+	m_level = 1;
+}
+
+void Game::reset_score()
+{
+	m_points = 0;
+}
+
 int Game::getLevel()
 {
     return m_level;
@@ -114,4 +125,9 @@ void Game::update()
         }
         i++;
     }
+}
+
+EmitterExplosion* Game::getEEmit()
+{
+    return &m_eemit;
 }
