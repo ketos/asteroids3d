@@ -1,7 +1,7 @@
 #include "io/TextureManager.hpp"
 #include "io/tga.h"
 
-GLuint TextureManager::LoadTexture(char *TexName)
+GLuint TextureManager::LoadTexture(const char *TexName)
 {
    TGAImg Img;        // Image loader
    GLuint Texture;
