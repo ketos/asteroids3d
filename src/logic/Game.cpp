@@ -77,6 +77,16 @@ void Game::changeScore(int change)
     m_points += change;
 }
 
+void Game::reset_level()
+{
+	m_level = 1;
+}
+
+void Game::reset_score()
+{
+	m_points = 0;
+}
+
 int Game::getLevel()
 {
     return m_level;

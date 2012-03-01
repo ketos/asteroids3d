@@ -44,7 +44,10 @@ void Collision::run()
 			/* Fighter wird getroffen */
 			if(diffFight <= (*asteoridtIt)->get_radius())
 			{	
-				Game::getFighter()->increaseDamage(20);
+				if( (*asteoridtIt)->is_mini() )
+					Game::getFighter()->increaseDamage(20);
+				else
+					Game::getFighter()->increaseDamage(50);
 				(*asteoridtIt)->destroy();
 				sleep(1);
 			}
