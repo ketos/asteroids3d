@@ -330,12 +330,15 @@ void HUD::drawHighscore()
     painter->setPen(QColor(255, 255, 255, 255));
     int i = 0;
 	highIt = highscore.begin();
+	QString header("-Highscore-");
+    QPoint point = QPoint(100, 80);
+    painter->drawText(point, header);
     while(highIt != highscore.end())
     {
     	i++;
         tmp =  QString::fromStdString(*highIt); 
         highIt++;
-        QPoint point2 = QPoint(breite / 2, 100 + 20 * i);
+        QPoint point2 = QPoint(100, 100 + 20 * i);
    	    painter->drawText(point2, tmp);
     }
 
