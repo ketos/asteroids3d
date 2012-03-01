@@ -13,6 +13,7 @@ PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, int size, glVect
     m_size      = size;
     m_color     = color;
     m_alive     = true;
+    m_alpha     = 0;
 
     //Load texture one time
     if(!TexID1)
@@ -37,6 +38,17 @@ void PartikelFlug::update()
     if(m_lifetime == 0)
     {
         m_alive = false;
+        return;
+    }
+
+    //Update Alpha-Bĺending
+    if(m_lifetime >= (m_lifetime-10))
+    {
+        m_alpha += 0.1;
+    }
+    else if(m_lifetime <= 10)
+    {
+        m_alpha -= 0.1;
     }
 }
 
@@ -51,8 +63,6 @@ void PartikelFlug::render()
     glVector<float> vec2 = m_position + up * m_size;
     glVector<float> vec3 = m_position + side * m_size + up * m_size;
 
-
-    //glEnable ( GL_RGBA_MODE ) ;
     glDisable ( GL_LIGHTING ) ;
                   
     glEnable(GL_TEXTURE_2D);
@@ -62,7 +72,7 @@ void PartikelFlug::render()
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS); //starts drawing of quad
-        glColor3f(1.0f,1.0f,1.0f);
+        glColor4f(1.0f,1.0f,1.0f, m_alpha);
 
         glTexCoord2f(1.0f,1.0f); glVertex3f(m_position[0], m_position[1], m_position[2]);
         glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);
@@ -72,5 +82,4 @@ void PartikelFlug::render()
     glEnd();
 
     glEnable ( GL_LIGHTING ) ;
-    //glDisable ( GL_RGBA_MODE ) ;
 }

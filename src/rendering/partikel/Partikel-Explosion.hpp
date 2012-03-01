@@ -38,7 +38,7 @@ private:
 
     glVector<float> m_speed;
        
-    static GLuint TexID1;
+    static GLuint tex;
 };
 
 #endif //_PARTIKEL_FLUG_H
