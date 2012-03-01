@@ -77,7 +77,7 @@ void RenderFrame::start()
         Game::getHud()->loadCockpit();	
     }
 
-    SoundManager::playBattleMusic();
+    //SoundManager::playBattleMusic();
     
     // start Timer
     m_timer->start();
@@ -211,52 +211,55 @@ void RenderFrame::paintGL()
     Game::getEmitterFlug()->createPartikel();
     Game::getEmitterFlug()->update();
 
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+    glLoadIdentity();
 
-        glMatrixMode(GL_PROJECTION);
-        glPushMatrix();
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glLoadIdentity();
-        QPainter painter(this);
-		Game::getHud()->setPainter( &painter );
-        if(Game::getFighter()) {
-			
-        	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
-            	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
-   	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
-            	Game::getHud()->draw(width(),height(),font());
-            if(Game::getCollision()->getWarning())
+    QPainter painter(this);
+	Game::getHud()->setPainter( &painter );
+
+    if(Game::getFighter()) {
+       	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
+        Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
+   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
+   	    Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
+        Game::getHud()->draw(width(),height(),font());
+
+        if(Game::getCollision()->getWarning())
+        {
+            if(!warning_sound)
             {
-                if(!warning_sound)
-                {
-            	   SoundManager::playWarningSound();
-            	   warning_sound = true;
-            	}
-                Game::getHud()->drawWarning();
+          	   //SoundManager::playWarningSound();
+           	   warning_sound = true;
+           	}
+            Game::getHud()->drawWarning();
                 
-            }else
-            {
-                warning_sound = false;
-            	SoundManager::stopWarningSound();
-            }  
-        }
-        if(Game::getFighter()->getDamage()>=100)
+        } else {
+            warning_sound = false;
+            //SoundManager::stopWarningSound();
+        }  
+    }
+
+    if(Game::getFighter()->getDamage()>=100)
+    {
+        Game::getFighter()->resetDamage();
+        menu = true;
+    }
+
+    if(menu)
+    {
+        Menu::drawSplash(width(),height(), Game::getHud());
+        if(paintHighscore)
         {
-			Game::getFighter()->resetDamage();
-        	menu = true;
+            Game::getHud()->drawHighscore();
         }
-        if(menu)
-        {
-            Menu::drawSplash(width(),height(), Game::getHud());
-            if(paintHighscore)
-            {
-            	Game::getHud()->drawHighscore();
-            }
-        }
-        painter.end();
-        glPopMatrix();
-        glPopAttrib();
-        glMatrixMode(GL_MODELVIEW);   
+    }
+
+    painter.end();
+    glPopMatrix();
+    glPopAttrib();
+    glMatrixMode(GL_MODELVIEW);   
 
     glFinish();
 	// Call back buffer
