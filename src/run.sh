@@ -1,1 +1,1 @@
-./build/megagame
+./build/asteroids3D

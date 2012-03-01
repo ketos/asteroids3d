@@ -8,5 +8,3 @@ boeser 1580
 Player5 1000
 tim 660
 Player4 500
-Michel 270
-
