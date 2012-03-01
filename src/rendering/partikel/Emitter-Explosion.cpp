@@ -16,12 +16,10 @@ EmitterExplosion::~EmitterExplosion()
 
 void EmitterExplosion::update()
 {
-    std::cout << "update mich" << std::endl;
     std::list<PartikelExplosion>::iterator ite = m_partikel.begin();
     //durchgehen
     while((ite) != m_partikel.end())
     {
-        std::cout << "render mich" << std::endl;
         ite->update();
         if(!(*ite).isAlive())
         {

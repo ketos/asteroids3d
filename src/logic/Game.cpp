@@ -17,14 +17,14 @@ void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
     m_Femit.setMaxPartikel(100);
-	
+
+    std::string file_prefix = "res/config/level";
+	std::string file_postfix = ".xml";	
+
     for(;m_level < 8;incLevel())
     {
-    	std::string str1 = "res/config/level";
-		std::string str2 = ".xml";
-
     	std::stringstream oss;
-    	oss << str1 << m_level << str2;
+    	oss << file_prefix << m_level << file_postfix;
 
     	std::string level = oss.str();    
 
