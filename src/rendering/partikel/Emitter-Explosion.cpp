@@ -27,7 +27,6 @@ void EmitterExplosion::update()
             ite = m_partikel.erase(ite);
         } else
         {
-            
             (*ite).render();
             ++ite;
         }

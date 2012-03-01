@@ -4,16 +4,23 @@
 #include "io/TextureManager.hpp"
 
 //Static Texture-Member
-GLuint PartikelExplosion::TexID1 = 0;
+GLuint PartikelExplosion::tex = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     m_lifetime  = 200;
     m_position  = pos;
-    m_size      = 2;
+    m_size      = 20;
     m_color     = glVector<float>(1,1,1); //White
     m_alive     = true;
-    m_speed     = speed * 3;
+    m_speed     = speed * 4;
+    m_alpha     = 1;
+
+    //Load texture one time
+    if(!tex)
+    {
+        tex = TextureManager::LoadTexture("res/images/grad.tga");
+    }
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -35,43 +42,43 @@ void PartikelExplosion::update()
         m_alive = false;
         return;
     }
-
+    
     //Update Position
     m_position += m_speed;
 
     
-    //Update Color
-    //This Function expect as start Color 255,255,255
-    if(m_color.z > 0)
-    {
-        m_color.z -= 0.01f;
-    }
-    else if (m_color.y > 0)
-    {
-        m_color.z = 0.0f;
-        m_color.x -= 0.02f;
-        m_color.y -= 0.02f;
-    }
-    else
-    {
-        m_color.y = 0.0f;
-        m_color.z = 0.0f;
-    }      
-
-    //Update Speed
-    m_speed = m_speed * 0.99f;
-
+    //Update Alpha-Bĺending
+    if(m_lifetime <= 20)
+        m_alpha -= 0.05;
+  
 }
 
 void PartikelExplosion::render()
 {
-    glDisable ( GL_LIGHTING ) ;
+    glVector<float> side = Game::getFighter()->getSide();
+    side.normalize();
+    glVector<float> up = Game::getFighter()->getUp();
+    up.normalize();
 
-    glPointSize(m_size);
-    glBegin(GL_POINTS); //starts drawing of point
-        //glColor3f(m_color[0], m_color[1], m_color[2]);
-        glColor3f(1, 0, 0);
-        glVertex3f(m_position[0], m_position[1], m_position[2]);
+    glVector<float> vec1 = m_position + side * m_size;
+    glVector<float> vec2 = m_position + up * m_size;
+    glVector<float> vec3 = m_position + side * m_size + up * m_size;
+    
+    glDisable ( GL_LIGHTING ) ;
+                  
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,tex);
+
+    glEnable (GL_BLEND); 
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glBegin(GL_QUADS); //starts drawing of quad
+        glColor4f(m_color[0], m_color[1], m_color[2], m_alpha);
+
+        glTexCoord2f(1.0f,1.0f); glVertex3f(m_position[0], m_position[1], m_position[2]);
+        glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);
+        glTexCoord2f(0.0f,0.0f); glVertex3f(vec3[0], vec3[1], vec3[2]);
+        glTexCoord2f(0.0f,1.0f); glVertex3f(vec2[0], vec2[1], vec2[2]);
     glEnd();
 
     glEnable ( GL_LIGHTING ) ;
