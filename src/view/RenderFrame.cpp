@@ -94,7 +94,7 @@ void RenderFrame::start()
         Game::getHud()->loadCockpit();	
     }
 
-    //SoundManager::playBattleMusic();
+    SoundManager::playBattleMusic();
     
     // start Timer
     m_timer->start();
@@ -226,7 +226,7 @@ void RenderFrame::paintGL()
 
     //Emitter
     Game::getEmitterFlug()->createPartikel();
-    
+
     Game::getEEmit()->update();
 
     Game::getEmitterFlug()->update();
