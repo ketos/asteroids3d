@@ -1,3 +1,4 @@
+tim 999999999
 Chuck_Norris 999999999
 Gruppe3 10001
 Player8 10000
@@ -5,6 +6,5 @@ Player7 5000
 Player6 2000
 Player5 1000
 Player4 500
-Michel 270
+Michel_stinkt 270
 Player3 200
-Player2 100
