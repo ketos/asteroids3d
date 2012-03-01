@@ -5,6 +5,7 @@
 #include "math/Collision.hpp"
 #include "rendering/Fighter.hpp"
 #include "rendering/partikel/Emitter-Flug.hpp"
+#include "rendering/partikel/Emitter-Explosion.hpp"
 #include "view/HUD.hpp"
 #include "io/SoundManager.hpp"
 
@@ -38,11 +39,14 @@ public:
     static bool wasShot();
     static int getLevel();
     static void incLevel();
-    
+    static void reset_level();
+    static void reset_score();
     static void shot();
     static bool getshoot(); 
     static void update();
     
+
+    static EmitterExplosion* getEEmit();
 
 private:
     static Fighter  m_fighter;
@@ -50,6 +54,8 @@ private:
     static Collision   m_coll;
     static EmitterFlug m_Femit;
     static HUD m_Hud;
+
+    static EmitterExplosion m_eemit;
     
     static bool m_shoot;
     static int i;

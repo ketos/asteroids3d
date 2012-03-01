@@ -89,7 +89,7 @@ void RenderFrame::start()
         Game::getHud()->loadCockpit();	
     }
 
-    SoundManager::playBattleMusic();
+    //SoundManager::playBattleMusic();
     
     // start Timer
     m_timer->start();
@@ -221,46 +221,64 @@ void RenderFrame::paintGL()
 
     //Emitter
     Game::getEmitterFlug()->createPartikel();
+    
+    Game::getEEmit()->update();
+
     Game::getEmitterFlug()->update();
 
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glPushAttrib(GL_ALL_ATTRIB_BITS);
+    glLoadIdentity();
 
-        glMatrixMode(GL_PROJECTION);
-        glPushMatrix();
-        glPushAttrib(GL_ALL_ATTRIB_BITS);
-        glLoadIdentity();
-        QPainter painter(this);
-		Game::getHud()->setPainter( &painter );
+    QPainter painter(this);
+	Game::getHud()->setPainter( &painter );
 
-        if(Game::getFighter()) {
-			
-        	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
-            	Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	        Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
-   	        Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
-            	Game::getHud()->draw(width(),height(),font());
-            if(Game::getCollision()->getWarning())
-            {
-                if(!warning_sound)
-                {
-            	   SoundManager::playWarningSound();
-            	   warning_sound = true;
-            	}
-                Game::getHud()->drawWarning();
-                
-            }else
-            {
-                warning_sound = false;
-            	SoundManager::stopWarningSound();
-            }  
-        }
-        if(Game::getFighter()->getDamage()>=100)
+    if(Game::getFighter()) {
+       	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
+        Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
+   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), 			Game::getFighter()->wasShot());
+   	    Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
+        Game::getHud()->draw(width(),height(),font());
+
+        if(Game::getCollision()->getWarning())
         {
-            ReadTXT *reader = new ReadTXT();
-            reader->write(userName.toStdString(), Game::getScore());
-			Game::getFighter()->resetDamage();
-        	menu = true;
-        }
-        if(menu)
+            if(!warning_sound)
+            {
+          	   //SoundManager::playWarningSound();
+           	   warning_sound = true;
+           	}
+            Game::getHud()->drawWarning();
+                
+
+        } else {
+            warning_sound = false;
+            //SoundManager::stopWarningSound();
+        }  
+    }
+
+    if(Game::getFighter()->getDamage()>=100)
+    {
+        ReadTXT *reader = new ReadTXT();
+        reader->write(userName.toStdString(), Game::getScore());
+    	std::cout << Game::getScore() << std::endl;
+   		std::cout << "Game Over ... Anfang" << std::endl;
+        Game::getFighter()->resetDamage();
+        std::cout << "Game Over ... Damage resetet" << std::endl;
+        Game::getGalaxis()->reset_level();
+        Game::getGalaxis()->nextLevel();
+        std::cout << "Game Over ... Level resetet" << std::endl;
+        Game::reset_score();
+        std::cout << "Game Over ... Score resetet" << std::endl;
+        Game::getFighter()->reset_position();
+        std::cout << "Game Over ... Position resetet" << std::endl;
+        menu = true;	
+    }
+
+    if(menu)
+    {
+        Menu::drawSplash(width(),height(), Game::getHud());
+        if(paintHighscore)
         {
         	if(!paintHighscore)
         	{
@@ -271,11 +289,12 @@ void RenderFrame::paintGL()
                 Game::getHud()->drawHighscore();
             }
         }
+    }
     Keyboard::update();
-        painter.end();
-        glPopMatrix();
-        glPopAttrib();
-        glMatrixMode(GL_MODELVIEW);   
+    painter.end();
+    glPopMatrix();
+    glPopAttrib();
+    glMatrixMode(GL_MODELVIEW);   
 
     glFinish();
 	// Call back buffer
@@ -299,12 +318,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
         if (event->key() == Qt::Key_Return)
         {
             start();
-        }
-      
+        }     
     }
-    
-    
-    
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)

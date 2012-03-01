@@ -1,1 +1,1 @@
-cppcheck . --enable=all 2> error.txt
+rm error.txt ; cppcheck . --enable=all 2> error.txt ; cat error.txt

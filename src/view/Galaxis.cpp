@@ -6,7 +6,7 @@ Galaxis::Galaxis()
 	level           = 0;
 	nextLevel();
 	paintLevel      = false;
-   paintLevelcount = 0;
+   	paintLevelcount = 0;
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
@@ -45,7 +45,6 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 
 void Galaxis::mini_astroid_destroyed()
 {
-	std::cout << "kleiner asteroid zerstört" << std::endl;
 	Game::changeScore(20);
 }
 
@@ -141,4 +140,10 @@ bool Galaxis::shouldIncLevel()
 int Galaxis::getLevelnumber()
 {
 	return level;	
+}
+
+void Galaxis::reset_level()
+{
+	level = 0;
+	asteorids.clear();
 }

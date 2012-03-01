@@ -5,6 +5,7 @@ Galaxis Game::m_galaxis;
 Collision Game::m_coll;
 EmitterFlug Game::m_Femit;
 HUD Game::m_Hud;
+EmitterExplosion Game::m_eemit;
 
 int Game::m_points = 0;
 int Game::m_level = 1;
@@ -16,14 +17,14 @@ void Game::Init()
 {
     loadFighter("res/models/bearcat.3ds");
     m_Femit.setMaxPartikel(100);
-	
+
+    std::string file_prefix = "res/config/level";
+	std::string file_postfix = ".xml";	
+
     for(;m_level < 8;incLevel())
     {
-    	std::string str1 = "res/config/level";
-		std::string str2 = ".xml";
-
     	std::stringstream oss;
-    	oss << str1 << m_level << str2;
+    	oss << file_prefix << m_level << file_postfix;
 
     	std::string level = oss.str();    
 
@@ -77,6 +78,16 @@ void Game::changeScore(int change)
     m_points += change;
 }
 
+void Game::reset_level()
+{
+	m_level = 1;
+}
+
+void Game::reset_score()
+{
+	m_points = 0;
+}
+
 int Game::getLevel()
 {
     return m_level;
@@ -113,5 +124,12 @@ void Game::update()
             i = 0;
         }
         i++;
-    }  
+
+    }
 }
+
+EmitterExplosion* Game::getEEmit()
+{
+    return &m_eemit;
+}
+
