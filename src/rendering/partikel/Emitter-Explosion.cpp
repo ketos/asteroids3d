@@ -1,10 +1,12 @@
 #include "rendering/partikel/Emitter-Explosion.hpp"
 
 #include "logic/Game.hpp"
+#include "math/Global.hpp"
 
 EmitterExplosion::EmitterExplosion()
 {
-
+    m_maxPartikel = 400;
+    m_PartikelZahl = 0;
 }
 
 EmitterExplosion::EmitterExplosion(int Partikelanzahl)
@@ -46,6 +48,23 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     side.normalize();
     up.normalize();
     
+    glVector<float> speed;
+    float angle;
+    float angle2;  
+    int L = 4;
+    int B = 4;
+    for(angle = 0; angle < (2 *PI); angle += (2 * PI / L))
+    {
+        for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
+        {
+            speed.x = (sin(angle2 * PW) * cos(angle * PW));
+            speed.y = (sin(angle2 * PW) * sin(angle * PW));
+            speed.z = (sin(angle  * PW));
+            PartikelExplosion p(pos, speed);
+            add(p);
+        }   
+    }    
+                
     PartikelExplosion p1(pos, front);
     add(p1);
     PartikelExplosion p2(pos, -front);
