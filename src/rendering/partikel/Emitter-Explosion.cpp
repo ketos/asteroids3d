@@ -2,7 +2,7 @@
 
 #include "logic/Game.hpp"
 #include "math/Global.hpp"
-#include <cmath>
+#include <math.h>
 
 EmitterExplosion::EmitterExplosion()
 {
@@ -47,17 +47,19 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     glVector<float> speed;
     float angle;
     float angle2;  
-    int L = 4;
-    int B = 4;
-    float s = 6;
-    for(angle = PI/L; angle < (2 * PI); angle += ( PI / L))
+    int L = 20;
+    int B = 20;
+    float s = 1;
+    for(angle = 0; angle < (2 * PI); angle += ( PI / L))
     {
         for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
         {
-            speed.x = s * (sin(angle2 * PI/180) * cos(angle * PI/180));
-            speed.y = s * (sin(angle2 * PI/180) * sin(angle * PI/180));
-            speed.z = s * (sin(angle  * PI/180));
-            std::cout << "speed: " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
+            speed.x = s * (/*sin(angle2) */ cos(angle));
+            speed.y = s * (/*sin(angle2) */ sin(angle));
+            //speed.z = s * (sin(angle ));
+            //std::cout << "winkel1: " << angle  << std::endl;
+            //std::cout << "winkel2: " << angle2 << std::endl;
+            std::cout << "speed:  " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
             PartikelExplosion p(pos, speed);
             add(p);
         }   
