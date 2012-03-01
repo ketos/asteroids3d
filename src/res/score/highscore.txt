@@ -6,5 +6,5 @@ Player7 5000
 Player6 2000
 Player5 1000
 Player4 500
-eviler 300
-Michel 270
+timlachtnichtundistdoof 270
+Michel_stinkt 270
