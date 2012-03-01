@@ -2,6 +2,7 @@
 #define _PARTIKEL_EXPLOSION_H
 
 #include "math/glVector.hpp"
+#include <QtOpenGL>
 
 // Partikel für Flug
 
@@ -9,7 +10,7 @@ class PartikelExplosion
 {
 public:
     //Konstruktor
-    PartikelExplosion(float lifetime, glVector<float> pos, float size, glVector<float> color);
+    PartikelExplosion(glVector<float> pos, glVector<float> speed);
     //Desructor
     ~PartikelExplosion();
     // weitersetzen
