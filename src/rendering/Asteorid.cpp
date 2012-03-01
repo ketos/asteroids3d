@@ -23,6 +23,7 @@ void Asteorid::run()
 	while(alive){
 		if(speed > 0.01)
     	{
+    		std::cout << "Geschwindigkeit: " << speed << std::endl;
     		speed -= 0.002;
     	}
 		m_position = m_position + flight_axis * speed;
