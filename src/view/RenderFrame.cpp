@@ -226,7 +226,7 @@ void RenderFrame::paintGL()
 
     //Emitter
     Game::getEmitterFlug()->createPartikel();
-    
+
     Game::getEEmit()->update();
 
     Game::getEmitterFlug()->update();

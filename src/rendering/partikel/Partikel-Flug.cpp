@@ -78,7 +78,6 @@ void PartikelFlug::render()
         glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);
         glTexCoord2f(0.0f,0.0f); glVertex3f(vec3[0], vec3[1], vec3[2]);
         glTexCoord2f(0.0f,1.0f); glVertex3f(vec2[0], vec2[1], vec2[2]);
-
     glEnd();
 
     glEnable ( GL_LIGHTING ) ;

@@ -10,7 +10,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     m_lifetime  = 200;
     m_position  = pos;
-    m_size      = 2;
+    m_size      = 20;
     m_color     = glVector<float>(1,1,1); //White
     m_alive     = true;
     m_speed     = speed * 4;
@@ -19,7 +19,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
     //Load texture one time
     if(!tex)
     {
-        tex = TextureManager::LoadTexture("res/images/debris.tga");
+        tex = TextureManager::LoadTexture("res/images/grad.tga");
     }
 }
 
@@ -42,16 +42,15 @@ void PartikelExplosion::update()
         m_alive = false;
         return;
     }
-
+    
     //Update Position
     m_position += m_speed;
 
+    
     //Update Alpha-Bĺending
     if(m_lifetime <= 20)
         m_alpha -= 0.05;
-
-    //Update Speed
-    m_speed = m_speed * 0.99f;
+  
 }
 
 void PartikelExplosion::render()
