@@ -326,25 +326,24 @@ void HUD::deleteCockpit()
 void HUD::drawHighscore()
 {
 	
-	std::cout<<"Ich male die Score"<<std::endl;
 	painter->setBrush(QColor(0, 0, 0, 255));
-	QRect rec(0,0,breite,hoehe);
+	QRect rec(0, 0, breite, hoehe);
     painter->drawRect(rec); 
 	ReadTXT *reader = new ReadTXT();
     vector<string> highscore = reader->read();
     vector<string>::iterator highIt;
     
     QString tmp;
-    painter->setPen(QColor(255,255,255,255));
-int i=0;
+    painter->setPen(QColor(255, 255, 255, 255));
+    int i = 0;
 	highIt = highscore.begin();
     while(highIt != highscore.end())
     {
     	i++;
         tmp =  QString::fromStdString(*highIt); 
         highIt++;
-        QPoint point2 = QPoint(breite/2, 100+20*i);
-   	  painter->drawText(point2,tmp);
+        QPoint point2 = QPoint(breite / 2, 100 + 20 * i);
+   	    painter->drawText(point2, tmp);
     }
 
 	

@@ -42,6 +42,7 @@ public:
     static void shot();
     static bool getshoot(); 
     static void update();
+    
 
 private:
     static Fighter  m_fighter;

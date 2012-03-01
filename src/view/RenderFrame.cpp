@@ -47,6 +47,18 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     show();
     menu = true;
     RenderFrame::paintHighscore = false;
+    textLabel =new QLabel(this);
+    
+    
+    
+    
+     bool ok;
+     userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                          tr("User name:"), QLineEdit::Normal,
+                                          QDir::home().dirName(), &ok);
+     if (ok && !userName.isEmpty())
+         textLabel->setText(userName);    
+    
 }
 
 RenderFrame::~RenderFrame()
@@ -243,21 +255,20 @@ void RenderFrame::paintGL()
         }
         if(Game::getFighter()->getDamage()>=100)
         {
+            ReadTXT *reader = new ReadTXT();
+            reader->write(userName.toStdString(), Game::getScore());
 			Game::getFighter()->resetDamage();
         	menu = true;
         }
         if(menu)
         {
         	if(!paintHighscore)
-        	{            
-        		cout<<"Ich übermale"<<endl;
-            Menu::drawSplash(width(),height(), Game::getHud());
+        	{
+                Menu::drawSplash(width(),height(), Game::getHud());
 			}            
             if(paintHighscore)
             {
-            	
-        		cout<<"Ich übermale2"<<endl;
-            	Game::getHud()->drawHighscore();
+                Game::getHud()->drawHighscore();
             }
         }
     Keyboard::update();
@@ -280,9 +291,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     	
     	if (event->key() == Qt::Key_H)
     	{
-    		cout << "h gedrückt " << endl;
-       		paintHighscore = !paintHighscore;
-       		paintGL();
+            paintHighscore = !paintHighscore;
+       	    paintGL();
    		}
     	
     	
