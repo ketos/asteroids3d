@@ -29,7 +29,7 @@ public:
 
     static int getScore();
     static void changeScore(int change);
-    
+    static void game_over();
     static int getView();
     static void setView(int view);
     /*

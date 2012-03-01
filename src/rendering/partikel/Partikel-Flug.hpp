@@ -30,6 +30,8 @@ private:
     glVector<float> m_position;
     //grösse
     float m_size;
+
+    float m_alpha;
     //Farbe
     glVector<float> m_color;
        
