@@ -1,11 +1,13 @@
 #include "rendering/partikel/Emitter-Explosion.hpp"
 
 #include "logic/Game.hpp"
+#include "math/Global.hpp"
+#include <math.h>
 
 EmitterExplosion::EmitterExplosion()
 {
         m_PartikelZahl = 0;
-        m_maxPartikel = 6;
+        m_maxPartikel = 600;
 }
 
 EmitterExplosion::~EmitterExplosion()
@@ -42,18 +44,77 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     side.normalize();
     up.normalize();
     
-    PartikelExplosion p1(pos, front);
-    add(p1);
-    PartikelExplosion p2(pos, front*(-1));
-    add(p2);
-    PartikelExplosion p3(pos, up);
-    add(p3);
-    PartikelExplosion p4(pos, up*(-1));
-    add(p4);
-    PartikelExplosion p5(pos, side);
-    add(p5);
-    PartikelExplosion p6(pos, side*(-1));
-    add(p6);
+    glVector<float> speed;
+    float angle;
+    //float angle2;  
+    int L = 150;
+    //int B = 20;
+    //float s = 1;
+    for(angle = 0; angle < (2 * PI); angle += ( PI / L))
+    {
+        //for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
+        //{
+            float x = cos(angle);
+            float y = sin(angle);
+    
+            int rand3 = (rand() % 100 +1);
+            float random2 = (float)rand3 * 0.001 - 0.05;
+
+            speed.x = 1.5 * x;
+            speed.y = 1.5 * y;
+            speed.z = 0.5 * y;//random2;
+            
+            PartikelExplosion p0(pos, speed);
+            add(p0);    
+            
+            int rand2 = (rand() % 100 +1);
+            float random = (float)rand2 * 0.002 + 0.8;
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
+           
+            speed.x = random * x;
+            speed.y = random * y;
+            speed.z = random2;
+            PartikelExplosion p(pos, speed);
+            add(p);
+
+            rand2 = (rand() % 100 +1);
+            random = (float)rand2 * 0.002 + 0.8;          
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
+            
+            speed.x = random2;
+            speed.y = random * x;
+            speed.z = random * y;
+            PartikelExplosion p1(pos, speed);
+            add(p1);
+            
+            rand2 = (rand() % 100 +1);
+            random = (float)rand2 * 0.002 + 0.8;
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
+
+            speed.x = random * y;
+            speed.y = random2;
+            speed.z = random * x;
+            PartikelExplosion p2(pos, speed);
+            add(p2);
+            
+                
+            //speed.x = s * (/*sin(angle2) */ cos(angle));
+            //speed.y = s * (/*sin(angle2) */ sin(angle));
+            //speed.z = s * (sin(angle ));
+            //std::cout << "winkel1: " << angle  << std::endl;
+            //std::cout << "winkel2: " << angle2 << std::endl;
+            //std::cout << "speed:  " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
+            //PartikelExplosion p(pos, speed);
+            //add(p);
+            //speed.x = s * (sin(angle));
+        //}   
+    }
 }
 
 bool EmitterExplosion::add(PartikelExplosion partikel)

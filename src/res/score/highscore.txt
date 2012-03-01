@@ -1,4 +1,4 @@
-henning 999999999
+tim 999999999
 Chuck_Norris 999999999
 Gruppe3 10001
 Player8 10000

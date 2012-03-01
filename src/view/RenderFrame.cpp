@@ -57,7 +57,12 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
                                           tr("User name:"), QLineEdit::Normal,
                                           QDir::home().dirName(), &ok);
      if (ok && !userName.isEmpty())
-         textLabel->setText(userName);    
+         textLabel->setText(userName); 
+         string so;
+         so = userName.toStdString();
+         for( unsigned int i=0; i<so.length(); i++)
+     		if(so[i] == ' ') so.erase(i,1);
+         userName= QString::fromStdString(so);
     
 }
 
