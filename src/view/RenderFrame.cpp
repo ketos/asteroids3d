@@ -269,7 +269,7 @@ void RenderFrame::paintGL()
     	gameOver = true;
         ReadTXT *reader = new ReadTXT();
         reader->write(userName.toStdString(), Game::getScore());
-		Game::game_over();
+		//Game::game_over();
         menu = true;	
     }
 
@@ -323,6 +323,13 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     	
         if (event->key() == Qt::Key_Return)
         {
+        	if(gameOver){
+        		Game::game_over();
+        	}
+        	else 
+        	{
+        		gameOver = false;
+        	}
             start();
         }     
     }
