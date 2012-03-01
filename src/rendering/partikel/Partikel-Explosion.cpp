@@ -17,10 +17,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
     m_alpha     = 1;
 
     //Load texture one time
-    if(!tex)
-    {
-        tex = TextureManager::LoadTexture("res/images/grad.tga");
-    }
+
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -60,6 +57,10 @@ void PartikelExplosion::update()
 
 void PartikelExplosion::render()
 {
+        if(!tex)
+    {
+        tex = TextureManager::LoadTexture("res/images/grad.tga");
+    }
     glVector<float> side = Game::getFighter()->getSide();
     side.normalize();
     glVector<float> up = Game::getFighter()->getUp();
