@@ -10,17 +10,14 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     m_lifetime  = 200;
     m_position  = pos;
-    m_size      = 20;
-    m_color     = glVector<float>(1,1,1); //White
+    m_size      = 10;
+    m_color     = glVector<float>(1,0.5,0); //Orange
     m_alive     = true;
     m_speed     = speed * 4;
     m_alpha     = 1;
 
     //Load texture one time
-    if(!tex)
-    {
-        tex = TextureManager::LoadTexture("res/images/grad.tga");
-    }
+
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -42,19 +39,28 @@ void PartikelExplosion::update()
         m_alive = false;
         return;
     }
-    
     //Update Position
     m_position += m_speed;
-
     
     //Update Alpha-Bĺending
     if(m_lifetime <= 20)
         m_alpha -= 0.05;
-  
+
+    //Update Color-Bĺending
+    if(m_lifetime <= 185)
+    {
+        m_color.y += 0.09;
+        m_color.z += 0.09;
+    }
+
 }
 
 void PartikelExplosion::render()
 {
+        if(!tex)
+    {
+        tex = TextureManager::LoadTexture("res/images/grad.tga");
+    }
     glVector<float> side = Game::getFighter()->getSide();
     side.normalize();
     glVector<float> up = Game::getFighter()->getUp();
