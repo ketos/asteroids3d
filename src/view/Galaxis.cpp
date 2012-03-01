@@ -6,7 +6,7 @@ Galaxis::Galaxis()
 	level           = 0;
 	nextLevel();
 	paintLevel      = false;
-   paintLevelcount = 0;
+   	paintLevelcount = 0;
 }
 
 void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
@@ -140,4 +140,10 @@ bool Galaxis::shouldIncLevel()
 int Galaxis::getLevelnumber()
 {
 	return level;	
+}
+
+void Galaxis::reset_level()
+{
+	level = 0;
+	asteorids.clear();
 }

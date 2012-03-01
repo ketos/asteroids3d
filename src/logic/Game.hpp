@@ -39,7 +39,8 @@ public:
     static bool wasShot();
     static int getLevel();
     static void incLevel();
-    
+    static void reset_level();
+    static void reset_score();
     static void shot();
     static bool getshoot(); 
     static void update();

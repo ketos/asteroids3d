@@ -146,7 +146,7 @@ void HUD::score(int punkte, int breite)
 {
 	painter->setPen(QColor(255,255,255,255));
     std::ostringstream Str;
-
+	std::cout << punkte << " in der HUD" << std::endl;
     std::string pkt;
 	int a;
 	int stelle = 9;
