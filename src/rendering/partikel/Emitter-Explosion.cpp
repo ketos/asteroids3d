@@ -47,23 +47,46 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     glVector<float> speed;
     float angle;
     float angle2;  
-    int L = 20;
-    int B = 20;
-    float s = 1;
+    int L = 30;
+    //int B = 20;
+    //float s = 1;
     for(angle = 0; angle < (2 * PI); angle += ( PI / L))
     {
-        for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
-        {
-            speed.x = s * (/*sin(angle2) */ cos(angle));
-            speed.y = s * (/*sin(angle2) */ sin(angle));
+        //for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
+        //{
+            float x = cos(angle);
+            float y = sin(angle);
+           
+            speed.x = x;
+            speed.y = y;
+            speed.z = 0;
+            PartikelExplosion p(pos, speed);
+            add(p);
+            
+            speed.x = 0;
+            speed.y = 0.8*x;
+            speed.z = 0.8*y;
+            PartikelExplosion p1(pos, speed);
+            add(p1);
+            
+            speed.x = 0.9*y;
+            speed.y = 0;
+            speed.z = 0.9*x;
+            PartikelExplosion p2(pos, speed);
+            add(p2);
+            
+                
+            //speed.x = s * (/*sin(angle2) */ cos(angle));
+            //speed.y = s * (/*sin(angle2) */ sin(angle));
             //speed.z = s * (sin(angle ));
             //std::cout << "winkel1: " << angle  << std::endl;
             //std::cout << "winkel2: " << angle2 << std::endl;
-            std::cout << "speed:  " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
-            PartikelExplosion p(pos, speed);
-            add(p);
-        }   
-    }    
+            //std::cout << "speed:  " << speed.x << ", " << speed.y << ", " << speed.z << std::endl;
+            //PartikelExplosion p(pos, speed);
+            //add(p);
+            //speed.x = s * (sin(angle));
+        //}   
+    }
 }
 
 bool EmitterExplosion::add(PartikelExplosion partikel)
