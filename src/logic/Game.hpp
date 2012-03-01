@@ -5,6 +5,7 @@
 #include "math/Collision.hpp"
 #include "rendering/Fighter.hpp"
 #include "rendering/partikel/Emitter-Flug.hpp"
+#include "rendering/partikel/Emitter-Explosion.hpp"
 #include "view/HUD.hpp"
 #include "io/SoundManager.hpp"
 
@@ -43,12 +44,16 @@ public:
     static bool getshoot(); 
     static void update();
 
+    static EmitterExplosion* getEEmit();
+
 private:
     static Fighter  m_fighter;
     static Galaxis  m_galaxis;
     static Collision   m_coll;
     static EmitterFlug m_Femit;
     static HUD m_Hud;
+
+    static EmitterExplosion m_eemit;
     
     static bool m_shoot;
     static int i;

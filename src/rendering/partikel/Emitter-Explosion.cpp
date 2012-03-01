@@ -48,15 +48,15 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     
     PartikelExplosion p1(pos, front);
     add(p1);
-    PartikelExplosion p2(pos, -front);
+    PartikelExplosion p2(pos, front*(-1));
     add(p2);
     PartikelExplosion p3(pos, up);
     add(p3);
-    PartikelExplosion p4(pos, -up);
+    PartikelExplosion p4(pos, up*(-1));
     add(p4);
     PartikelExplosion p5(pos, side);
     add(p5);
-    PartikelExplosion p6(pos, -side);
+    PartikelExplosion p6(pos, side*(-1));
     add(p6);
 }
 

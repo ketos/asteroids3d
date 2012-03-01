@@ -1,4 +1,5 @@
 #include "Asteorid.hpp"
+#include "logic/Game.hpp"
 
 Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 {
@@ -34,9 +35,10 @@ void Asteorid::run()
 
 void Asteorid::destroy()
 {
-   SoundManager::playExplosion();
-   //Explosion* e = new Explosion();
-   //e->Explode();
+    SoundManager::playExplosion();
+    
+    Game::getEEmit()->createPartikel(m_position);
+    
 	alive = false;
 }
 
