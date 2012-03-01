@@ -44,6 +44,7 @@ public:
     static void shot();
     static bool getshoot(); 
     static void update();
+    
 
     static EmitterExplosion* getEEmit();
 

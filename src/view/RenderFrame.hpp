@@ -8,9 +8,13 @@
 #define RENDER_FRAME_H
 
 
+#include <QInputDialog>
 #include <set>
 #include <QGLWidget>
 #include <QTimer>
+#include <QDir>
+#include <QLabel>	
+#include "io/ReadTXT.hpp"
 #include "view/Camera.hpp"
 #include "rendering/TriangleMesh.hpp"
 #include "rendering/Skybox.hpp"
@@ -103,12 +107,16 @@ protected:
     
     int reload;
     bool paintHighscore;
+    QLabel *textLabel;
 
 //public:
 //    static bool shoot;
     
 private slots:
     void Gameupdate();
+    
+private:
+    QString userName;
 };
 
 #endif // RENDER_FRAME_H

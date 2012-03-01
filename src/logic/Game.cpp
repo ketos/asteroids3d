@@ -124,6 +124,7 @@ void Game::update()
             i = 0;
         }
         i++;
+
     }
 }
 
@@ -131,3 +132,4 @@ EmitterExplosion* Game::getEEmit()
 {
     return &m_eemit;
 }
+

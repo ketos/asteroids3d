@@ -47,6 +47,18 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     show();
     menu = true;
     RenderFrame::paintHighscore = false;
+    textLabel =new QLabel(this);
+    
+    
+    
+    
+     bool ok;
+     userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                          tr("User name:"), QLineEdit::Normal,
+                                          QDir::home().dirName(), &ok);
+     if (ok && !userName.isEmpty())
+         textLabel->setText(userName);    
+    
 }
 
 RenderFrame::~RenderFrame()
@@ -238,6 +250,7 @@ void RenderFrame::paintGL()
            	}
             Game::getHud()->drawWarning();
                 
+
         } else {
             warning_sound = false;
             //SoundManager::stopWarningSound();
@@ -246,6 +259,8 @@ void RenderFrame::paintGL()
 
     if(Game::getFighter()->getDamage()>=100)
     {
+        ReadTXT *reader = new ReadTXT();
+        reader->write(userName.toStdString(), Game::getScore());
     	std::cout << Game::getScore() << std::endl;
    		std::cout << "Game Over ... Anfang" << std::endl;
         Game::getFighter()->resetDamage();
@@ -266,15 +281,12 @@ void RenderFrame::paintGL()
         if(paintHighscore)
         {
         	if(!paintHighscore)
-        	{            
-        		cout<<"Ich übermale"<<endl;
-            Menu::drawSplash(width(),height(), Game::getHud());
+        	{
+                Menu::drawSplash(width(),height(), Game::getHud());
 			}            
             if(paintHighscore)
             {
-            	
-        		cout<<"Ich übermale2"<<endl;
-            	Game::getHud()->drawHighscore();
+                Game::getHud()->drawHighscore();
             }
         }
     }
@@ -298,9 +310,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
     	
     	if (event->key() == Qt::Key_H)
     	{
-    		cout << "h gedrückt " << endl;
-       		paintHighscore = !paintHighscore;
-       		paintGL();
+            paintHighscore = !paintHighscore;
+       	    paintGL();
    		}
     	
     	
