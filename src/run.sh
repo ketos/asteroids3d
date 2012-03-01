@@ -1,1 +1,1 @@
-./build/viewer
+./build/megagame

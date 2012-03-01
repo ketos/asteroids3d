@@ -65,6 +65,14 @@ HUD* Game::getHud()
     return (&m_Hud);
 }
 
+void Game::game_over()
+{
+	getFighter()->resetDamage();
+	getGalaxis()->reset_level();
+	reset_score();
+	getFighter()->reset_position();
+}
+
 int Game::getScore()
 {
     return m_points;

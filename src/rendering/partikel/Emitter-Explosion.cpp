@@ -46,8 +46,8 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     
     glVector<float> speed;
     float angle;
-    float angle2;  
-    int L = 30;
+    //float angle2;  
+    int L = 150;
     //int B = 20;
     //float s = 1;
     for(angle = 0; angle < (2 * PI); angle += ( PI / L))
@@ -56,22 +56,50 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
         //{
             float x = cos(angle);
             float y = sin(angle);
+    
+            int rand3 = (rand() % 100 +1);
+            float random2 = (float)rand3 * 0.001 - 0.05;
+
+            speed.x = 1.5 * x;
+            speed.y = 1.5 * y;
+            speed.z = 0.5 * y;//random2;
+            
+            PartikelExplosion p0(pos, speed);
+            add(p0);    
+            
+            int rand2 = (rand() % 100 +1);
+            float random = (float)rand2 * 0.002 + 0.8;
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
            
-            speed.x = x;
-            speed.y = y;
-            speed.z = 0;
+            speed.x = random * x;
+            speed.y = random * y;
+            speed.z = random2;
             PartikelExplosion p(pos, speed);
             add(p);
+
+            rand2 = (rand() % 100 +1);
+            random = (float)rand2 * 0.002 + 0.8;          
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
             
-            speed.x = 0;
-            speed.y = 0.8*x;
-            speed.z = 0.8*y;
+            speed.x = random2;
+            speed.y = random * x;
+            speed.z = random * y;
             PartikelExplosion p1(pos, speed);
             add(p1);
             
-            speed.x = 0.9*y;
-            speed.y = 0;
-            speed.z = 0.9*x;
+            rand2 = (rand() % 100 +1);
+            random = (float)rand2 * 0.002 + 0.8;
+
+            rand3 = (rand() % 100 +1);
+            random2 = (float)rand3 * 0.008 - 0.4;
+
+            speed.x = random * y;
+            speed.y = random2;
+            speed.z = random * x;
             PartikelExplosion p2(pos, speed);
             add(p2);
             

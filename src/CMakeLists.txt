@@ -127,13 +127,13 @@ set(VIEWER_MOCS
 	view/Galaxis.hpp
 	rendering/Asteorid.hpp)
 
-qt_wrap_cpp(viewer VIEWER_MOC_SRC ${VIEWER_MOCS})
+qt_wrap_cpp(megagame VIEWER_MOC_SRC ${VIEWER_MOCS})
 
 ###############################################################################
 # The executable fpr our project
 ###############################################################################
 
-add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
+add_executable(megagame ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 
 ###############################################################################
 # External library dependencys
@@ -141,14 +141,14 @@ add_executable(viewer ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOURCES})
 
 message(STATUS "SDL_Mixer : " ${SDLMIXER_LIBRARY})
 
-target_link_libraries(viewer ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
-target_link_libraries(viewer c3dsreader) 
-target_link_libraries(viewer ${SDL_LIBRARY})
-target_link_libraries(viewer ${SDLMIXER_LIBRARY})
-target_link_libraries(viewer ${QGLVIEWER_LIBRARY_RELEASE})
-target_link_libraries(viewer ${QT_QTCORE_LIBRARIES})
-target_link_libraries(viewer ${QT_QTGUI_LIBRARIES})
-target_link_libraries(viewer ${QT_QTOPENGL_LIBRARIES})
-target_link_libraries(viewer ${QT_QTXML_LIBRARIES})
+target_link_libraries(megagame ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
+target_link_libraries(megagame c3dsreader) 
+target_link_libraries(megagame ${SDL_LIBRARY})
+target_link_libraries(megagame ${SDLMIXER_LIBRARY})
+target_link_libraries(megagame ${QGLVIEWER_LIBRARY_RELEASE})
+target_link_libraries(megagame ${QT_QTCORE_LIBRARIES})
+target_link_libraries(megagame ${QT_QTGUI_LIBRARIES})
+target_link_libraries(megagame ${QT_QTOPENGL_LIBRARIES})
+target_link_libraries(megagame ${QT_QTXML_LIBRARIES})
 
 

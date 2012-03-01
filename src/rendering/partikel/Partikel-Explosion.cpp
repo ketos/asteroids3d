@@ -10,7 +10,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     m_lifetime  = 200;
     m_position  = pos;
-    m_size      = 20;
+    m_size      = 2;
     m_color     = glVector<float>(1,1,1); //White
     m_alive     = true;
     m_speed     = speed * 3;
