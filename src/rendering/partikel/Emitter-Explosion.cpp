@@ -54,14 +54,14 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     {
         for(angle2 = 0; angle2 < PI; angle2 += (PI / B))
         {
-            speed.x = (sin(angle2 * PW) * cos(angle * PW));
-            speed.y = (sin(angle2 * PW) * sin(angle * PW));
-            speed.z = (sin(angle  * PW));
+            speed.x = 3*(sin(angle2 * PW) * cos(angle * PW));
+            speed.y = 3*(sin(angle2 * PW) * sin(angle * PW));
+            speed.z = 3*(sin(angle  * PW));
             PartikelExplosion p(pos, speed);
             add(p);
         }   
     }    
-                
+    /*            
     PartikelExplosion p1(pos, front);
     add(p1);
     PartikelExplosion p2(pos, front*(-1));
@@ -74,6 +74,7 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     add(p5);
     PartikelExplosion p6(pos, side*(-1));
     add(p6);
+    */
 }
 
 bool EmitterExplosion::add(PartikelExplosion partikel)
