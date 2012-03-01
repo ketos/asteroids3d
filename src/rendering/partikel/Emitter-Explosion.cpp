@@ -46,7 +46,7 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     glVector<float> speed;
     float angle;
     //float angle2;  
-    int L = 10;
+    int L = 40;
     //int B = 20;
     //float s = 1;
     for(angle = 0; angle < (2 * PI); angle += ( PI / L))
