@@ -62,7 +62,7 @@ void PartikelFlug::render()
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS); //starts drawing of quad
-        //glColor3f(0.0f,0.0f,0.0f);
+        glColor3f(1.0f,1.0f,1.0f);
 
         glTexCoord2f(1.0f,1.0f); glVertex3f(m_position[0], m_position[1], m_position[2]);
         glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);

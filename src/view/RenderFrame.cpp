@@ -208,10 +208,11 @@ void RenderFrame::paintGL()
 	}
 
     //Emitter
-    //Game::getEmitterFlug()->createPartikel();
-    //Game::getEmitterFlug()->update();
-
+    Game::getEmitterFlug()->createPartikel();
+    
     Game::getEEmit()->update();
+
+    Game::getEmitterFlug()->update();
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
@@ -306,12 +307,8 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
         if (event->key() == Qt::Key_Return)
         {
             start();
-        }
-      
+        }     
     }
-    
-    
-    
 }
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)

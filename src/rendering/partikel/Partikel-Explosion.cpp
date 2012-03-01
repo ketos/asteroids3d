@@ -10,10 +10,10 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     m_lifetime  = 100;
     m_position  = pos;
-    m_size      = 50;
-    m_color     = glVector<float>(1,0,0); //White
+    m_size      = 100;
+    m_color     = glVector<float>(1,1,1); //White
     m_alive     = true;
-    m_speed     = speed;
+    m_speed     = speed * 3;
 }
 
 PartikelExplosion::~PartikelExplosion()
@@ -39,7 +39,7 @@ void PartikelExplosion::update()
     //Update Position
     m_position += m_speed;
 
-    /*
+    
     //Update Color
     //This Function expect as start Color 255,255,255
     if(m_color.z > 0)
@@ -59,8 +59,8 @@ void PartikelExplosion::update()
     }      
 
     //Update Speed
-    m_speed = m_speed * 0.9f;
-*/ 
+    m_speed = m_speed * 0.99f;
+
 }
 
 void PartikelExplosion::render()
@@ -68,7 +68,7 @@ void PartikelExplosion::render()
     glDisable ( GL_LIGHTING ) ;
 
     glBegin(GL_POINTS); //starts drawing of point
-        glPointSize(m_size);
+        glPointSize(40);
         glColor3f(m_color[0], m_color[1], m_color[2]);
         glVertex3f(m_position[0], m_position[1], m_position[2]);
     glEnd();

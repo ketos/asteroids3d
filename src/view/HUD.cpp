@@ -26,12 +26,7 @@ HUD::HUD()
 
 HUD::~HUD()
 {
-    delete &cockpitImage;
-    delete &miniCraft;
-    delete &warningPic;
-    delete &redScreen;
-    delete &greenScreen;
-    delete &WarningcockpitImage;
+
 }
 
 void HUD::setPainter(QPainter *paint)
@@ -65,21 +60,20 @@ void HUD::draw(int width, int height, QFont f)
     }
     if (paintLevel)
       	drawLevelEnd();
-	 std::vector<glVector<float>* >::iterator itervec;
+
+	std::vector<glVector<float>* >::iterator itervec;
     itervec = collvec.begin();
     drawRadar(width,height);
     score(fighterScore,width/2);
     Speed(fighterSpeed);
     damages(fighterDamage);
 
-    	
     if(!collvec.empty())
     	while(itervec != collvec.end())
         {
             drawRadarAstroid(*itervec, 5000, durchmesser, radmidx, radmidy);	
             itervec++;
         }
-     
 }
 
 void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy)
@@ -96,11 +90,11 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
        int x = tmp.x;
        int y = tmp.y;
        int z = tmp.z;
-        if(tmp.z < 0) painter->setPen(QColor(255,0,0,255));
-       if(tmp.z != 0){
+       if(tmp.z < 0) painter->setPen(QColor(255,0,0,255));
+       if(tmp.z != 0)
+       {
            painter->drawLine(radarmidx+y,radarmidy+(x),radarmidx+y,radarmidy+x-z);
        }
-        
        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
    }
    else{
@@ -146,7 +140,6 @@ void HUD::score(int punkte, int breite)
 {
 	painter->setPen(QColor(255,255,255,255));
     std::ostringstream Str;
-	std::cout << punkte << " in der HUD" << std::endl;
     std::string pkt;
 	int a;
 	int stelle = 9;
