@@ -184,8 +184,6 @@ void RenderFrame::paintGL()
     }
     Keyboard::update();
 
-
-
     setCam();
     setFocus();
 	// Set black background color

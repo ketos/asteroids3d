@@ -6,7 +6,7 @@
 class TextureManager
 {
 public:
-    static GLuint LoadTexture(char *TexName);
+    static GLuint LoadTexture(const char *TexName);
 
 };
 
