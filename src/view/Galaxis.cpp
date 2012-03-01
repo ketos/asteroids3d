@@ -45,7 +45,6 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 
 void Galaxis::mini_astroid_destroyed()
 {
-	std::cout << "kleiner asteroid zerstört" << std::endl;
 	Game::changeScore(20);
 }
 
