@@ -22,6 +22,8 @@ HUD::HUD()
     redScreen    		= QImage("res/images/redScreen.png");
     greenScreen  		= QImage("res/images/greenScreen.png");
     WarningcockpitImage = QImage("res/images/cockpitWarning.png");
+    WarningcockpitBrokenImage = QImage("res/images/cockpitWarningBroken.png");
+    cockpitBrokenImage  = QImage("res/images/cockpitBroken.png");
 }
 
 HUD::~HUD()
@@ -115,19 +117,39 @@ bool HUD::getView()
 }
 void HUD::drawCockpit()
 {
-	if ( (showWarningCockpit > 0) && (showWarningCockpit < 10) )
+	if (fighterDamage >=50)
 	{
-		showWarningCockpit++;
-		WarningcockpitImage = WarningcockpitImage.scaledToWidth(breite);
-        QPoint point = QPoint(0,hoehe-(WarningcockpitImage.size()).height());
-        painter->drawImage(point, WarningcockpitImage);
+		if ( (showWarningCockpit > 0) && (showWarningCockpit < 10) )
+		{
+			showWarningCockpit++;
+			WarningcockpitBrokenImage = WarningcockpitBrokenImage.scaledToWidth(breite);
+	        QPoint point = QPoint(0,hoehe-(WarningcockpitBrokenImage.size()).height());
+	        painter->drawImage(point, WarningcockpitBrokenImage);
+		}
+		else
+		{
+			cockpitBrokenImage = cockpitBrokenImage.scaledToWidth(breite);
+	        QPoint point = QPoint(0,hoehe-(cockpitBrokenImage.size()).height());
+	        painter->drawImage(point, cockpitBrokenImage);
+	        showWarningCockpit = 0;
+		}
 	}
 	else
 	{
-		cockpitImage = cockpitImage.scaledToWidth(breite);
-        QPoint point = QPoint(0,hoehe-(cockpitImage.size()).height());
-        painter->drawImage(point, cockpitImage);
-        showWarningCockpit = 0;
+		if ( (showWarningCockpit > 0) && (showWarningCockpit < 10) )
+		{
+			showWarningCockpit++;
+			WarningcockpitImage = WarningcockpitImage.scaledToWidth(breite);
+	        QPoint point = QPoint(0,hoehe-(WarningcockpitImage.size()).height());
+	        painter->drawImage(point, WarningcockpitImage);
+		}
+		else
+		{
+			cockpitImage = cockpitImage.scaledToWidth(breite);
+	        QPoint point = QPoint(0,hoehe-(cockpitImage.size()).height());
+	        painter->drawImage(point, cockpitImage);
+	        showWarningCockpit = 0;
+		}
 	}
 }	
 
@@ -343,4 +365,14 @@ void HUD::drawHighscore()
     }
 
 	
+}
+void HUD::drawGameover(int breite, int hoehe)
+{
+	 painter->setBrush(QColor(0, 0, 0, 255));
+	 QRect rec(0,0,breite,hoehe);
+	 painter->drawRect(rec);  
+	
+    QImage myImage = QImage("res/images/gameOver.png");
+    QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
+    painter->drawImage(point, myImage);
 }

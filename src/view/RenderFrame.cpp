@@ -51,7 +51,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     
     
     
-    
+         gameOver = false;
      bool ok;
      userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
                                           tr("User name:"), QLineEdit::Normal,
@@ -63,6 +63,8 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
          for(int i=0; i<so.length(); i++)
      		if(so[i] == ' ') so.erase(i,1);
          userName= QString::fromStdString(so);
+         
+
     
 }
 
@@ -264,6 +266,7 @@ void RenderFrame::paintGL()
 
     if(Game::getFighter()->getDamage()>=100)
     {
+    	gameOver = true;
         ReadTXT *reader = new ReadTXT();
         reader->write(userName.toStdString(), Game::getScore());
     	std::cout << Game::getScore() << std::endl;
@@ -277,23 +280,31 @@ void RenderFrame::paintGL()
         std::cout << "Game Over ... Score resetet" << std::endl;
         Game::getFighter()->reset_position();
         std::cout << "Game Over ... Position resetet" << std::endl;
-        menu = true;	
+        menu = true;
     }
 
     if(menu)
     {
-        Menu::drawSplash(width(),height(), Game::getHud());
-        if(paintHighscore)
+    	if(gameOver)
+    	{
+
+    		Menu::drawGameover(width(),height(), Game::getHud());
+    	}else{
+    		std::cout<<"FUCK THIS SHIT!";
+      	    Menu::drawSplash(width(),height(), Game::getHud());
+        }
+        /*if(paintHighscore)
         {
         	if(!paintHighscore)
         	{
+        		
                 Menu::drawSplash(width(),height(), Game::getHud());
-			}            
+			} */           
             if(paintHighscore)
             {
                 Game::getHud()->drawHighscore();
             }
-        }
+        //}
     }
     Keyboard::update();
     painter.end();

@@ -11,6 +11,8 @@ class Menu {
         static void drawSplash(int width, int height, HUD* h);
         static void deleteSplash();
         static void drawMenu();
+        static void drawGameover(int width, int height, HUD* h);
+        static void deleteGameover();
         
     private:
         static HUD* hins;
