@@ -47,6 +47,8 @@ public:
     void setupViewport(int width, int height);
    
     QTimer* m_timer;
+    
+    QTimer* m_timer2;
 
     JoystickControl* joys;
 
@@ -102,8 +104,11 @@ protected:
     int reload;
     bool paintHighscore;
 
-public:
-    static bool shoot;
+//public:
+//    static bool shoot;
+    
+private slots:
+    void Gameupdate();
 };
 
 #endif // RENDER_FRAME_H

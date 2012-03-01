@@ -8,15 +8,6 @@
 #include "io/joystick.h"
 #include <QTimer>
 
-/**
- * @brief einige Konstanten
- */
-#define DEADZONE 5000.0
-#define JOYMAX 32767.0
-#define MAX_ANGLE 0.02
-#define SPEED 2
-
-
 class JoystickControl
 {
 public:

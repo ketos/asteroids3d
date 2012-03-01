@@ -1,6 +1,7 @@
 #include "control/joystickcontrol.hpp"
 #include "view/RenderFrame.hpp"
 #include "logic/Game.hpp"
+#include "control/control.hpp"
 #include <iostream>
 
 JoystickControl::JoystickControl(std::string input)
@@ -30,12 +31,12 @@ bool JoystickControl::connected()
 void JoystickControl::update() 
 {
     if(joys->getAxis(0) <-DEADZONE || joys->getAxis(0) > DEADZONE ) { // joystick links links-rechts
-        float angle = joys->getAxis(0) / JOYMAX * MAX_ANGLE;        
+        float angle = joys->getAxis(0) / JOYMAX * MAXANGLE;        
         Game::getFighter()->rotate(YAW,  -angle);
         Game::getFighter()->rotate(ROLL, -angle);
     }
     if(joys->getAxis(1) <-DEADZONE || joys->getAxis(1) > DEADZONE ) { // joystick links up-down 
-        float angle = joys->getAxis(1) / JOYMAX * MAX_ANGLE;
+        float angle = joys->getAxis(1) / JOYMAX * MAXANGLE;
         Game::getFighter()->rotate(PITCH,  angle);
     }
     if(joys->getAxis(2) > -JOYMAX + DEADZONE) { // schulter links
@@ -59,9 +60,9 @@ void JoystickControl::update()
         RenderFrame::m_cam.changeside(15);
     }
     if(joys->getButton(0) > 0) { //A
-        if(RenderFrame::shoot) {
+        if(Game::getshoot()) {
             (static_cast<Fighter*>(Game::getFighter()))->shoot();
-            RenderFrame::shoot = false;
+            Game::shot();
         }
     }
 //    if(joys->getButton(1) > 0) { //B

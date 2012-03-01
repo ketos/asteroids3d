@@ -9,6 +9,8 @@
 #include "rendering/Fighter.hpp"
 #include "io/Read3DS.hpp"
 #include "math/Global.hpp"
+#include "control/control.hpp"
+#include <cmath>
 
 int damage = 0;
 int score  = 0;
@@ -109,71 +111,7 @@ void Fighter::changeSpeed(float change)
         }
     }
 }
-void Fighter::changeAngle(int axis, float change)
-{
-    switch(axis){
-    case PITCH: // up-down
-        if(m_anglepitch <= MAXANGLE && m_anglepitch >=-MAXANGLE)
-        {
-            m_anglepitch += change;
-            if(m_anglepitch > MAXANGLE)
-            {
-                m_anglepitch = MAXANGLE;
-            }
-            //if(abs(m_anglepitch) <= DEADANGLE))
-            //{
-            //    m_anglepitch = 0;
-            //}
-            if(m_anglepitch < -MAXANGLE)
-            {
-                m_anglepitch = -MAXANGLE;
-            }
-            std::cout << "pitch: " << m_anglepitch << std::endl; 
-        }
-        break;
 
-    case YAW: // left-right
-        if(m_angleyaw <= MAXANGLE && m_angleyaw >=-MAXANGLE)
-        {
-            m_angleyaw += change;
-            if(m_angleyaw > MAXANGLE)
-            {
-                m_angleyaw = MAXANGLE;
-            }
-            //if(abs(m_angleyaw) <= DEADANGLE))
-            //{
-            //    m_angleyaw = 0;
-            //}
-            if(m_angleyaw < -MAXANGLE)
-            {
-                m_angleyaw = -MAXANGLE;
-            }
-            std::cout << "yaw: " << m_angleyaw << std::endl; 
-        }
-        break;
-
-    case ROLL: // rollen
-        if(m_angleroll <= MAXANGLE && m_angleroll >=-MAXANGLE)
-        {
-            m_angleroll += change;
-            if(m_angleroll > MAXANGLE)
-            {
-                m_angleroll = MAXANGLE;
-            }
-            //if(abs(m_angleroll) <= DEADANGLE))
-            //{
-            //    m_angleroll = 0;
-            //}
-            if(m_angleroll < -MAXANGLE)
-            {
-                m_angleroll = -MAXANGLE;
-            }
-            
-            std::cout << "roll: " << m_angleroll << std::endl; 
-        }
-        break;
-    }
-}
 
 int Fighter::getDamage()
 {
@@ -188,7 +126,6 @@ int Fighter::getScore()
     return score;
 }
 
-
 bool Fighter::wasShot()
 {
 	if (shot)
@@ -199,7 +136,6 @@ bool Fighter::wasShot()
 	return false;
 }
 
-
 void Fighter::resetDamage()
 {
     damage = 0;
@@ -209,5 +145,111 @@ void Fighter::reset_position()
 {
 	glVector<float> temp (0.0,0.0,0.0);
 	m_position = temp;
+}
+
+void Fighter::changeAngle(int axis, float change)
+{
+    switch(axis){
+        case PITCH: // up-down
+            m_anglepitch += change;
+            if(m_anglepitch >= MAXANGLE)
+            {
+                m_anglepitch = MAXANGLE;
+            }
+            else if(m_anglepitch <= -MAXANGLE)
+            {
+                m_anglepitch = -MAXANGLE;
+            } 
+            std::cout << "pitch: " << m_anglepitch << std::endl;               
+            break;
+
+        case YAW: // left-right
+            m_angleyaw += change;
+            if(m_angleyaw >= MAXANGLE)
+            {
+                m_angleyaw = MAXANGLE;
+            }
+            else if(m_angleyaw <= -MAXANGLE)
+            {
+                m_angleyaw = -MAXANGLE;
+            } 
+            std::cout << "yaw: " << m_angleyaw << std::endl;               
+            break;
+
+        case ROLL: // rollen
+            m_angleroll += change;
+            if(m_angleroll >= MAXANGLE)
+            {
+                m_angleroll = MAXANGLE;
+            }
+            else if(m_angleroll <= -MAXANGLE)
+            {
+                m_angleroll = -MAXANGLE;
+            } 
+            std::cout << "roll: " << m_angleroll << std::endl;            
+            break;
+    }
+}
+
+void Fighter::reduceAngle()
+{
+    changeSpeed(BRAKE);
+    if(m_anglepitch != 0)
+    {
+        if(m_anglepitch > 0)
+        {
+            changeAngle(PITCH, -REDUCE);
+        }
+        else if(m_anglepitch < 0)
+        {
+            changeAngle(PITCH, REDUCE);
+        }
+        if(m_anglepitch > 0 && m_anglepitch < REDUCE)
+        {
+            m_anglepitch = 0;
+        }
+        else if(m_anglepitch < 0 &&m_anglepitch > -REDUCE)
+        {
+            m_anglepitch = 0;
+        }
+    } 
+    if(m_angleyaw != 0)
+    {
+        if(m_angleyaw > 0)
+        {
+            changeAngle(YAW, -REDUCE);
+        }
+        else if(m_angleyaw < 0)
+        {
+            changeAngle(YAW, REDUCE);
+        }
+        if(m_angleyaw > 0 && m_angleyaw < REDUCE)
+        {
+            m_angleyaw = 0;
+        }
+        else if(m_angleyaw < 0 &&m_angleyaw > -REDUCE)
+        {
+            m_angleyaw = 0;
+        }
+    }      
+    if(m_angleroll != 0)
+    {
+        if(m_angleroll > 0)
+        {
+            changeAngle(ROLL, -REDUCE);
+        }
+        else if(m_angleroll < 0)
+        {
+            changeAngle(ROLL, REDUCE);
+        }
+        if(m_angleroll > 0 && m_angleroll < REDUCE)
+        {
+            m_angleroll = 0;
+        }
+        else if(m_angleroll < 0 &&m_angleroll > -REDUCE)
+        {
+            m_angleroll = 0;
+        }
+    }              
 }
 

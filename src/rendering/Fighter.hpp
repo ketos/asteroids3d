@@ -13,9 +13,6 @@
 #include <vector>	
 #include "Bullet.hpp"
 
-#define MAXANGLE 0.2
-#define DEADANGLE 0.1
-
 /**
  * @brief   Represents a fighter that can shoot bullets.
  */
@@ -75,20 +72,23 @@ public:
      *@brief returns the actual score
      *@return actual score
      */
-	 int getScore();
+	int getScore();
 
-	 /*
+	/*
      * @brief if the fighter has shot
      * @return true if the fighter shot
      */ 
-	 bool wasShot();
+	bool wasShot();
 
-	 /**
+	/**
 	 *@brief resets Damage
 	 *
 	 */
-	 void resetDamage();
-	 void reset_position();
+	void resetDamage();
+    
+	void reset_position();
+    
+    void reduceAngle();
 
 private:
      //bool for shot
