@@ -193,7 +193,11 @@ void Fighter::changeAngle(int axis, float change)
 
 void Fighter::reduceAngle()
 {
-    changeSpeed(BRAKE);
+    if(m_speed != 0)
+    {
+        changeSpeed(BRAKE);
+    }
+
     if(m_anglepitch != 0)
     {
         if(m_anglepitch > 0)
@@ -213,6 +217,7 @@ void Fighter::reduceAngle()
             m_anglepitch = 0;
         }
     } 
+
     if(m_angleyaw != 0)
     {
         if(m_angleyaw > 0)
@@ -231,7 +236,8 @@ void Fighter::reduceAngle()
         {
             m_angleyaw = 0;
         }
-    }      
+    }
+   
     if(m_angleroll != 0)
     {
         if(m_angleroll > 0)
