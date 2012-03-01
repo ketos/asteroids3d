@@ -73,7 +73,7 @@ void Collision::run()
          	{	
             	float diffX = ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] ;
             	float diffY = ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] ;
-				float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
+					float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
 			
 				int diff = sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));               
             
@@ -107,7 +107,7 @@ void Collision::run()
                		(*asteoridtIt)->changeDirection((*asteoridtIt2)->getFlightAxis());
                		(*asteoridtIt)->set_speed(0.1);	
                		(*asteoridtIt2)->changeDirection(temp); 
-               		(*asteoridtIt2)->set_speed(0.1);	        	
+               		//(*asteoridtIt2)->set_speed(0.1);	        	
                		sleep(1);
             	}
             	asteoridtIt2++;
