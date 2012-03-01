@@ -149,6 +149,7 @@ public:
 	  * @brief draws a greenscreen
 	  */
 	  void drawGreenScreen();
+	  void drawGameover(int breite, int hoehe);
 private:
     //HUD(const HUD&);
     //~HUD();
@@ -182,6 +183,9 @@ private:
     QImage greenScreen;
     //Image for warning cokpit
     QImage WarningcockpitImage;
+    //Image for broken cockpit
+    QImage WarningcockpitBrokenImage;
+    QImage cockpitBrokenImage;
 
  	int durchmesser;
 	int abstand;     

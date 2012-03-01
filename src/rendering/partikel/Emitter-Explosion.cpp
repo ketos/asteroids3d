@@ -46,7 +46,7 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
     glVector<float> speed;
     float angle;
     //float angle2;  
-    int L = 150;
+    int L = 10;
     //int B = 20;
     //float s = 1;
     for(angle = 0; angle < (2 * PI); angle += ( PI / L))
@@ -65,6 +65,12 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
             
             PartikelExplosion p0(pos, speed);
             add(p0);    
+            
+            speed.z = speed.z * -1;
+
+            
+            PartikelExplosion p4(pos, speed);
+            add(p4);    
             
             int rand2 = (rand() % 100 +1);
             float random = (float)rand2 * 0.002 + 0.8;
@@ -89,7 +95,7 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
             speed.z = random * y;
             PartikelExplosion p1(pos, speed);
             add(p1);
-            
+
             rand2 = (rand() % 100 +1);
             random = (float)rand2 * 0.002 + 0.8;
 
@@ -102,7 +108,6 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
             PartikelExplosion p2(pos, speed);
             add(p2);
             
-                
             //speed.x = s * (/*sin(angle2) */ cos(angle));
             //speed.y = s * (/*sin(angle2) */ sin(angle));
             //speed.z = s * (sin(angle ));
