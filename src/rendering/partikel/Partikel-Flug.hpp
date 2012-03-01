@@ -2,8 +2,7 @@
 #define _PARTIKEL_FLUG_H
 
 #include "math/glVector.hpp"
-
-#include "rendering/TexturedMesh.hpp"
+#include <QtOpenGL>
 
 // Partikel für Flug
 
@@ -11,7 +10,7 @@ class PartikelFlug
 {
 public:
     //Konstruktor
-    PartikelFlug(float lifetime, glVector<float> pos, float size, glVector<float> color);
+    PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color);
     //Desructor
     ~PartikelFlug();
     // weitersetzen
