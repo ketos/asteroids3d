@@ -92,7 +92,6 @@ void Galaxis::addLevel(string& filename)
 
 void Galaxis::nextLevel()
 {
-	
 	//loeschen aller asteoriden
 	//asteorids.clear();
 	//naechstes level laden
@@ -105,12 +104,11 @@ void Galaxis::nextLevel()
 		while( levelIt != currentLevel->end() )
 		{
 			pair<glVector<float>*, glVector<float>* >* p = (*levelIt);
-		   glVector<float> p_1(p->first->x, p->first->y, p->first->z);
-		   glVector<float> p_2(p->second->x, p->second->y, p->second->z);
+		   	glVector<float> p_1(p->first->x, p->first->y, p->first->z);
+		   	glVector<float> p_2(p->second->x, p->second->y, p->second->z);
 			addAsteorid(p_1, p_2);
 			levelIt++;
     	}
-    	
     	level++;
     	paintLevel = true;
     }

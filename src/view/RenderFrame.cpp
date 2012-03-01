@@ -261,17 +261,7 @@ void RenderFrame::paintGL()
     {
         ReadTXT *reader = new ReadTXT();
         reader->write(userName.toStdString(), Game::getScore());
-    	std::cout << Game::getScore() << std::endl;
-   		std::cout << "Game Over ... Anfang" << std::endl;
-        Game::getFighter()->resetDamage();
-        std::cout << "Game Over ... Damage resetet" << std::endl;
-        Game::getGalaxis()->reset_level();
-        Game::getGalaxis()->nextLevel();
-        std::cout << "Game Over ... Level resetet" << std::endl;
-        Game::reset_score();
-        std::cout << "Game Over ... Score resetet" << std::endl;
-        Game::getFighter()->reset_position();
-        std::cout << "Game Over ... Position resetet" << std::endl;
+		Game::game_over();
         menu = true;	
     }
 
