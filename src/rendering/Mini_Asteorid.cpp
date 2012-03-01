@@ -18,7 +18,6 @@ Mini_Asteorid::Mini_Asteorid(glVector<float> start_position, glVector<float> fli
 
 void Mini_Asteorid::run()
 {
-	
     // Modify the Asteorid's position until the lifetime is over
 	while(alive){
 	    if(speed > 0.01)

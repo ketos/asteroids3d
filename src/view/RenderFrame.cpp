@@ -208,8 +208,10 @@ void RenderFrame::paintGL()
 	}
 
     //Emitter
-    Game::getEmitterFlug()->createPartikel();
-    Game::getEmitterFlug()->update();
+    //Game::getEmitterFlug()->createPartikel();
+    //Game::getEmitterFlug()->update();
+
+    Game::getEEmit()->update();
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();

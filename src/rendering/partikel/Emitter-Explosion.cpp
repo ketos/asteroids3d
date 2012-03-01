@@ -4,13 +4,8 @@
 
 EmitterExplosion::EmitterExplosion()
 {
-
-}
-
-EmitterExplosion::EmitterExplosion(int Partikelanzahl)
-{
-    m_maxPartikel = Partikelanzahl;
-    m_PartikelZahl = 0;
+        m_PartikelZahl = 0;
+        m_maxPartikel = 6;
 }
 
 EmitterExplosion::~EmitterExplosion()
@@ -20,16 +15,19 @@ EmitterExplosion::~EmitterExplosion()
 
 void EmitterExplosion::update()
 {
+    std::cout << "update mich" << std::endl;
     std::list<PartikelExplosion>::iterator ite = m_partikel.begin();
     //durchgehen
     while((ite) != m_partikel.end())
     {
+        std::cout << "render mich" << std::endl;
         ite->update();
         if(!(*ite).isAlive())
         {
             ite = m_partikel.erase(ite);
         } else
         {
+            
             (*ite).render();
             ++ite;
         }
@@ -62,14 +60,8 @@ void EmitterExplosion::createPartikel(glVector<float> a_pos)
 
 bool EmitterExplosion::add(PartikelExplosion partikel)
 {   
-    //wenn noch Platz
-    if(m_partikel.size() < m_maxPartikel)
-    {   
         //Füge hinzu
         m_partikel.push_back(partikel);
         //gebe erstellt zurück
         return true;
-    }
-    //gebe nicht erstellt zurück
-    return false;
 }
