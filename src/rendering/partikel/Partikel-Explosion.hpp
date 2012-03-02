@@ -26,7 +26,7 @@ private:
     //Lebensdauer
     float m_lifetime;
     //Startzeit
-    float m_birthday;
+    float m_startlife;
     //aktuelle Position
     glVector<float> m_position;
     //grösse

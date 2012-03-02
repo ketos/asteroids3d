@@ -8,7 +8,9 @@ GLuint PartikelExplosion::tex = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    m_lifetime  = 200;
+    int random  = (rand() %30 +1);
+    m_lifetime  = random + 170; //= 200;
+    m_startlife = m_lifetime;
     m_position  = pos;
     m_size      = 10;
     m_color     = glVector<float>(1,0.5,0); //Orange
@@ -47,7 +49,7 @@ void PartikelExplosion::update()
         m_alpha -= 0.05;
 
     //Update Color-Bĺending
-    if(m_lifetime <= 185)
+    if(m_lifetime <= (m_startlife - 15))
     {
         m_color.y += 0.09;
         m_color.z += 0.09;

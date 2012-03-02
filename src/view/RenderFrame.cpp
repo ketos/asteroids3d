@@ -42,6 +42,11 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     joys = new JoystickControl("/dev/input/js0");
     
     joystick = joys->connected();
+    
+    if(joystick)
+    {
+        joys->update();
+    }
 
 	setAutoFillBackground(false);
 
@@ -52,7 +57,7 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     
     
     
-         gameOver = false;
+     gameOver = false;
      bool ok;
      userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
                                           tr("User name:"), QLineEdit::Normal,
@@ -73,7 +78,7 @@ RenderFrame::~RenderFrame()
 {
     if(joystick)
     {
-    //    delete joys;
+        delete joys;
     }
     //delete Game::getFighter();
     delete m_skybox;
@@ -102,6 +107,8 @@ void RenderFrame::start()
     // start Timer
     m_timer->start();
     m_timer2->start();
+    
+    Game::getFighter()->setNULL();
 }
 
 void RenderFrame::initializeGL()
