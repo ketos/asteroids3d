@@ -1,5 +1,5 @@
 /**
-*   @file partikel-Flug.cpp
+*   @file Partikel-Flug.cpp
 *   @author gruppe3
 */
 

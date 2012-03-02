@@ -15,14 +15,14 @@ class Sound{
 public:
     /**
     *   @brief Constructor for loading a wave-file and a Channel.
-    *   @param int c The Audio-Channel
-    *   @param const char* wav The Wave-File
+    *   @param c The Audio-Channel
+    *   @param wav The Wave-File
     */
     Sound(int c, const char *wav);
     
     /**
     *   @brief Constructor to load an mp3-file.
-    *   @param const char* file The Mp3-File
+    *   @param file The Mp3-File
     */
     Sound(const char* file);
     
@@ -33,6 +33,7 @@ public:
     
     /**
     *   @brief Plays the wave-file on given Channel loop + 1 times
+    *   @param loop Defines how often the sound will be played
     */
     void playWAV(int loop);
     
