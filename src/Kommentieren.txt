@@ -1,15 +1,9 @@
-io/Read3DS.cpp
-	io/ReadPPM.cpp
-	io/ReadTGA.cpp
+
 	io/ReadXML.cpp //Daniel
 	io/ReadTXT.cpp //Tim K
-	io/TextureFactory.cpp
-	io/TriangleMeshFactory.cpp
 	io/Sound.cpp    // Tim W
 	io/SoundManager.cpp // TIm W
     io/joystick.cpp //Tim R
-    io/TextureManager.cpp 
-    view/MainWindow.cpp 
     view/Camera.cpp // Tim R
     view/Galaxis.cpp // Henning
 	view/RenderFrame.cpp //Tim R 
@@ -17,11 +11,7 @@ io/Read3DS.cpp
     view/Menu.cpp //Michel
     control/keyboard.cpp // Tim R
     control/joystickcontrol.cpp //Tim R
-    rendering/TriangleMesh.cpp
-	rendering/Texture.cpp 
-	rendering/Skybox.cpp
 	rendering/Transformable.cpp //reinschauen
-	rendering/TexturedMesh.cpp
     rendering/Asteorid.cpp //Henning
     rendering/Mini_Asteorid.cpp //Henning
     rendering/Fighter.cpp //Nils
@@ -30,7 +20,5 @@ io/Read3DS.cpp
     rendering/partikel/Partikel-Flug.cpp // Tim R
     rendering/partikel/Emitter-Explosion.cpp //Tim w
     rendering/partikel/Partikel-Explosion.cpp //Tim W
-    #rendering/Explosion.cpp
     logic/Game.cpp // Tim
-    Main.cpp
     math/Collision.cpp //Henning
