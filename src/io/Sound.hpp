@@ -13,54 +13,57 @@
 
 class Sound{
 public:
-    /*
-    *   Constructor for loading a wave-file and a Channel.
+    /**
+    *   @brief Constructor for loading a wave-file and a Channel.
     *   @param int c The Audio-Channel
     *   @param const char* wav The Wave-File
     */
     Sound(int c, const char *wav);
     
-    /*
-    *   Constructor to load an mp3-file.
+    /**
+    *   @brief Constructor to load an mp3-file.
     *   @param const char* file The Mp3-File
     */
     Sound(const char* file);
     
-    /*
-    *   Default Destructor
+    /**
+    *   @brief Default Destructor
     */
     ~Sound();
     
-    /*
-    *   Plays the wave-file on given Channel loop + 1 times
+    /**
+    *   @brief Plays the wave-file on given Channel loop + 1 times
     */
     void playWAV(int loop);
     
+    /**
+    *   @brief Stops the wave-file
+    */
     void stopWAV();
     
     /*
-    *   Plays the mp3-file unlimited times.
+    *   @brief Plays the mp3-file unlimited times.
     */
     void playMP3();
     
     /*
-    *   Stops the mp3-file.
+    *   @brief Stops the mp3-file.
     */
     void stopMP3();
     
 private:
-    /*
-    *   The Audio-Channel
+    /**
+    *   @brief The Audio-Channel
     */
     int Channel;
     
-    /*
-    *   Mix_Chunk is needed to play wave-file on given Channel.
+    /**
+    *   @brief Mix_Chunk is needed to play wave-file on given Channel.
     */
     Mix_Chunk* sound;
     
-    /*
-    *   Mix_Music is needed to play mp3-file.
+    /**
+    *   @brief Mix_Music is needed to play mp3-file.
     */
     Mix_Music* music; 
 };
