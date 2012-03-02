@@ -12,7 +12,7 @@ Tim W
 Tim R
     io/joystick.cpp erledigt
     view/Camera.cpp erledigt
-    view/RenderFrame.cpp
+    view/RenderFrame.cpp erledigt
     control/Keyboard.cpp
     control/joystickcontrol.cpp
     rendering/partikel/Emitter-Flug.cpp
