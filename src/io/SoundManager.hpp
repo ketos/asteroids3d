@@ -1,8 +1,16 @@
+/**
+*   @file SoundManager.hpp
+*   @author gruppe3
+*/
+
 #ifndef _SOUNDMANAGER_H
 #define _SOUNDMANAGER_H
 
 #include "io/Sound.hpp"
 
+/**
+*   @brief Die SoundManager Klasse organisiert alle Sounds und regelt deren ablauf
+*/
 class SoundManager {
 
     public:
