@@ -9,7 +9,7 @@
 #include <QtOpenGL>
 
 /**
-*   @breif Partikel für Flug
+*   @brief Partikel für Flug
 */
 class PartikelExplosion
 {
@@ -32,57 +32,57 @@ public:
     void update();
     
     /**
-    *   @breif Gibt zurueck, ob Partikel noch am Leben ist.
+    *   @brief Gibt zurueck, ob Partikel noch am Leben ist.
     */
     bool isAlive();
 
     /**
-    *   @breif Zeichnet das Partikel auf dem Bildschirm.
+    *   @brief Zeichnet das Partikel auf dem Bildschirm.
     */
     void render();
 private:
     /**
-    *   @breif Gesundheitstatus
+    *   @brief Gesundheitstatus
     */
     bool m_alive;
 
     /**
-    *   @breif Lebensdauer
+    *   @brief Lebensdauer
     */
     float m_lifetime;
 
     /**
-    *   @breif Startzeit
+    *   @brief Startzeit
     */
     float m_startlife;
 
      /**
-    *   @breif aktuelle Position
+    *   @brief aktuelle Position
     */
     glVector<float> m_position;
 
     /**
-    *   @breif grösse
+    *   @brief grösse
     */
     float m_size;
 
     /**
-    *   @breif Sichtbarkeit
+    *   @brief Sichtbarkeit
     */
     float m_alpha;
 
     /**
-    *   @breif Geschwindigkeit
+    *   @brief Geschwindigkeit
     */
     glVector<float> m_speed;
        
     /**
-    *   @breif Farbe
+    *   @brief Farbe
     */
     glVector<float> m_color;
     
     /**
-    *   @breif Textur fuer alle Partikel
+    *   @brief Textur fuer alle Partikel
     */
     static GLuint tex;
 };

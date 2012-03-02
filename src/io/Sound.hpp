@@ -1,3 +1,6 @@
+/**
+ * @file Sound.hpp
+ */
 #ifndef _SOUND_H
 #define _SOUND_H
 
@@ -10,7 +13,9 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
 
-
+/**
+ * @brief Plays Music
+ */
 class Sound{
 public:
     /**

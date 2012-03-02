@@ -1,6 +1,5 @@
 #include "io/Sound.hpp"
 
-
 Sound::Sound(int c, const char *wav) 
 {
     //define Channel and Audio-Specs
