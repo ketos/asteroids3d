@@ -1,5 +1,5 @@
 /**
- *  @file Vector3f.hpp
+ *  @file glVector.hpp
  *
  *  @date 05.12.2011
  *  @author Thomas Wiemann
