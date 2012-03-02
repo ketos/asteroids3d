@@ -9,7 +9,7 @@ Tim W
     rendering/partikel/Emitter-Explosion.cpp
     rendering/partikel/Partikel-Explosion.cpp
 Tim R
-    io/joystick.cpp
+    io/joystick.cpp erledigt
     view/Camera.cpp
     view/RenderFrame.cpp
     control/Keyboard.cpp
