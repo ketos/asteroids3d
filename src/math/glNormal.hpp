@@ -10,6 +10,10 @@
 
 #include "glVector.hpp"
 
+/**
+ * @brief enthält einen Vektor mit der Länge 1
+ */
+
 template<typename T>
 class glNormal : public glVector<T>
 {
