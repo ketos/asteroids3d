@@ -1,3 +1,8 @@
+/**
+*   @file TextureManager.cpp
+*   @author gruppe3
+*/
+
 #include "io/TextureManager.hpp"
 #include "io/tga.h"
 
