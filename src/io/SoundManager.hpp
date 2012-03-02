@@ -7,49 +7,74 @@ class SoundManager {
 
     public:
     /**
-    *   Plays the fire-sound
+    *   @brief Plays the fire-sound
     */
     static void playFireSound();
       
     /**
-    *   Plays the explosions-sound
+    *   @brief Plays the explosions-sound
     */
     static void playExplosion();
     
     /**
-    *   Plays the menu-sound
+    *   @brief Plays the menu-sound
     */
     static void playMenuSound();
     
     /**
-    *   stops the menu-sound
+    *   @brief stops the menu-sound
     */
     static void stopMenuSound();
     
     /**
-    *   Plays the battle-sound
+    *   @brief Plays the battle-sound
     */
     static void playBattleMusic();
     
     /**
-    *   stops the battle-sound
+    *   @brief stops the battle-sound
     */
     static void stopBattleMusic();
     
+    /**
+    *   @brief Plays the Warning-sound
+    */
     static void playWarningSound();
 
+    /**
+    *   @brief stops the Warning-sound
+    */
     static void stopWarningSound();
 
-    /*
-    * Deletes all Mediafiles
+    /**
+    *   @brief Deletes all Mediafiles
     */
     static void deleteManager();
     
     private:
+    /**
+    *   @brief The Firesound Member
+    */
     static Sound* fire;
+
+    /**
+    *   @brief The Explosionsound Member
+    */
     static Sound* explosion;
+
+    /**
+    *   @brief The Menusound Member  
+    */
     static Sound* menu;
+
+    /**
+    *   @brief The Battlesound Member
+    */
     static Sound* battle;
+
+    /**
+    *   @brief The Warningsound Member
+    */
     static Sound* warning;
 
 };
