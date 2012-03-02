@@ -111,7 +111,6 @@ set(VIEWER_SOURCES
     rendering/partikel/Partikel-Flug.cpp
     rendering/partikel/Emitter-Explosion.cpp
     rendering/partikel/Partikel-Explosion.cpp
-    #rendering/Explosion.cpp
     logic/Game.cpp
     Main.cpp
     math/Collision.cpp
