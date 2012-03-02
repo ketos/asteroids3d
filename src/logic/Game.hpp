@@ -1,3 +1,8 @@
+/**
+*   @file Game.hpp
+*   @author gruppe3
+*/
+
 #ifndef __GAME_H_
 #define __GAME_H_
 
@@ -32,20 +37,52 @@ public:
     static void game_over();
     static int getView();
     static void setView(int view);
+    
     /*
      * @brief if the fighter has shot
-     * @return true if the fighter shot
+     * @return true if the fighter shoots
      */ 
     static bool wasShot();
+
+    /**
+    *   @brief Liefert aktuelle level zurueck
+    *   @return Levelnummer
+    */
     static int getLevel();
+    
+    /**
+    *   @brief Erhoet das level um 1
+    */
     static void incLevel();
+
+    /**
+    *   @brief
+    */
     static void reset_level();
+
+    /**
+    *   @brief
+    */
     static void reset_score();
+
+    /**
+    *   @brief
+    */
     static void shot();
+
+    /**
+    *   @brief
+    */
     static bool getshoot(); 
+
+    /**
+    *   @brief
+    */
     static void update();
     
-
+    /**
+    *   @brief
+    */
     static EmitterExplosion* getEEmit();
 
 private:
