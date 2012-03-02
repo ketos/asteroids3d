@@ -8,13 +8,13 @@ Tim W
     io/SoundManager.cpp +
     rendering/partikel/Emitter-Explosion.cpp +
     rendering/partikel/Partikel-Explosion.cpp +
+    logic/Game.cpp
 Tim R
     io/joystick.cpp erledigt
     view/Camera.cpp erledigt
     view/RenderFrame.cpp
     control/Keyboard.cpp
     control/joystickcontrol.cpp
-    logic/Game.cpp
     rendering/partikel/Emitter-Flug.cpp
     rendering/partikel/Partikel-Flug.cpp
 Henning
