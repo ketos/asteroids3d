@@ -7,6 +7,8 @@
 #define _TEXTURMANAGER_H
 
 #include <QtOpenGL>
+#include "io/ReadTGA.hpp" 
+
 /**
 *   @brief Die Klasse TextureManager ist zum laden eines TGA bildes mit alpha Kanal
 */

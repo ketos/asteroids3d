@@ -4,27 +4,26 @@
 */
 
 #include "io/TextureManager.hpp"
-#include "io/tga.h"
 
 GLuint TextureManager::LoadTexture(const char *TexName)
 {
-   TGAImg Img;        // Image loader
+   ReadTGA Img;        // Image loader
    GLuint Texture;
  
   // Load our Texture
-   if(Img.Load(TexName)!=IMG_OK)
+   if(Img.load(TexName)!=IMG_OK)
     return -1;
  
    glGenTextures(1,&Texture);            // Allocate space for texture
    glBindTexture(GL_TEXTURE_2D,Texture); // Set our Tex handle as current
  
    // Create the texture
-    if(Img.GetBPP()==24)
-     glTexImage2D(GL_TEXTURE_2D,0,3,Img.GetWidth(),Img.GetHeight(),0,
-                  GL_RGB,GL_UNSIGNED_BYTE,Img.GetImg());
-    else if(Img.GetBPP()==32)
-     glTexImage2D(GL_TEXTURE_2D,0,4,Img.GetWidth(),Img.GetHeight(),0,
-                  GL_RGBA,GL_UNSIGNED_BYTE,Img.GetImg());
+    if(Img.getBitsPerPixel()==24)
+     glTexImage2D(GL_TEXTURE_2D,0,3,Img.width(),Img.height(),0,
+                  GL_RGB,GL_UNSIGNED_BYTE,Img.data());
+    else if(Img.getBitsPerPixel()==32)
+     glTexImage2D(GL_TEXTURE_2D,0,4,Img.width(),Img.height(),0,
+                  GL_RGBA,GL_UNSIGNED_BYTE,Img.data());
     else
      return -1;
  
