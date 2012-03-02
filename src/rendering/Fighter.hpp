@@ -89,6 +89,8 @@ public:
 	void reset_position();
     
     void reduceAngle();
+    
+    void setNULL();
 
 private:
      //bool for shot

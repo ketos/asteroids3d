@@ -5,7 +5,7 @@
 /**
  * @brief einige Konstanten für die Steuerung
  */
-#define DEADZONE 5000.0 // Deazone für die Achsen des Joysticks
+#define DEADZONE 8000.0 // Deazone für die Achsen des Joysticks
 #define JOYMAX 32767.0  // Maximalwerte der Joystickachsen
 
 #define ANGLE 0.001      // Änderung des Winkel bei Tastendruck, bzw Maximale Winkeländerung bei Joystick

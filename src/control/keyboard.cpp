@@ -104,6 +104,10 @@ void Keyboard::update()
             {
          	    Game::getHud()->loadCockpit();	
             }
+        }    
+        if (m_pressedKeys.find(Qt::Key_Escape) != m_pressedKeys.end())
+        {
+            Game::getFighter()->setNULL();
         }
     }
 }

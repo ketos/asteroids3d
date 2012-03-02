@@ -258,4 +258,11 @@ void Fighter::reduceAngle()
         }
     }              
 }
+void Fighter::setNULL()
+{
+    m_angleroll = 0;
+    m_anglepitch= 0;
+    m_angleyaw  = 0;
+    m_speed     = 0;
+}
 
