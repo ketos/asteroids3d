@@ -56,32 +56,34 @@ public:
     static void incLevel();
 
     /**
-    *   @brief
+    *   @brief Setze Level auf 1
     */
     static void reset_level();
 
     /**
-    *   @brief
+    *   @brief Setze Punkte auf 0
     */
     static void reset_score();
 
     /**
-    *   @brief
+    *   @brief Teilt der Game mit, dass geschossen wurde
     */
     static void shot();
 
     /**
-    *   @brief
+    *   @brief Fragt ob wieder geschossen werden darf
+    *   @return Ob geschossen werden darf
     */
     static bool getshoot(); 
 
     /**
-    *   @brief
+    *   @brief Updatet reloadtimer und sorgt fuer traegheit des schiffes
     */
     static void update();
     
     /**
-    *   @brief
+    *   @brief  Gibt den Explsionsemitter zurueck
+    *   @return ExplosionsEmitter
     */
     static EmitterExplosion* getEEmit();
 
