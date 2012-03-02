@@ -1,11 +1,14 @@
+/**
+ * @file Emitter-Flug.cpp
+ *
+ * @author gruppe3
+ */
 #include "rendering/partikel/Emitter-Flug.hpp"
-// http://www.codeworx.org/opengl_par1.php
 
 #include <iostream>
 #include "logic/Game.hpp"
 #include <stdlib.h>
 #include <time.h>
-//Emitter für Flug
 
 EmitterFlug::EmitterFlug()
 {
@@ -15,24 +18,23 @@ EmitterFlug::EmitterFlug()
 EmitterFlug::EmitterFlug(int Partikelanzahl)
 {
     m_maxPartikel  = Partikelanzahl;
-    m_PartikelZahl = 0;
 }
 
 EmitterFlug::~EmitterFlug()
 {
-    //TODO alle Partikel löschen
+
 }
 
 void EmitterFlug::setMaxPartikel(int i)
 {
     m_maxPartikel = i;
-    m_PartikelZahl = 0;
 }
 
 void EmitterFlug::update()
 {   
+    //Iterator
     std::list<PartikelFlug>::iterator ite = m_partikel.begin();
-    //durchgehen
+    //Liste durchgehen
     while((ite) != m_partikel.end())
     {   
         //updaten
@@ -52,17 +54,21 @@ void EmitterFlug::update()
 
 void EmitterFlug::createPartikel()
 {   
-    glVector<float> pos;
+    //Position und Ausrichtung des Fliegers holen
+    glVector<float> pos = Game::getFighter()->getPosition();
     glVector<float> front = Game::getFighter()->getFront();
     glVector<float> side = Game::getFighter()->getSide(); 
     glVector<float> up = Game::getFighter()->getUp(); 
 
+    //Koordinatenvektoren normalisieren
     front.normalize();
     side.normalize();
     up.normalize();
-
+    
+    // Grösse für die Breite und Höhe des Emitterrechteck 
     int max = 0;
 
+    // verschiedene Grössen bei den unterschiedlichen Perspektiven
     if(Game::getView() == 0)
     {
         max = 2500;
@@ -76,21 +82,25 @@ void EmitterFlug::createPartikel()
         max = 4500;
     }
 
+    // Entfernung des Emitterrechtecks vor dem Schiff
     int range = 2000;
 
-    pos = Game::getFighter()->getPosition() - front * range;
+    // Berechnet die Position des Partikels innerhalb des Rechtecks
+    // mit Zufallswerten
+    pos = pos - front * range;
     pos = pos + side * ((rand() % max) - (max/2))   + (up * ((rand() % max) - (max/2))) ;
 
-
+    // Farbe
     glVector<float> color(1,0,0); //Red
 
+    // Erstellen und hinzufügen des Partikels
     PartikelFlug p(50, pos, 20, color);
     add(p);
 }
 
 bool EmitterFlug::add(PartikelFlug partikel)
 {   
-    //wenn noch Platz
+    // Wenn die Maximalzahl noch nicht erreicht
     if(m_partikel.size() < m_maxPartikel)
     {   
         //Füge hinzu

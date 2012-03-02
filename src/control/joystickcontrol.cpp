@@ -61,54 +61,57 @@ void JoystickControl::update()
         RenderFrame::m_cam.zoom(15); //Kameraentfernung ändern
     }
     if(joys->getAxis(3) <-4*DEADZONE) { // joystick rechts links-rechts
-        RenderFrame::m_cam.changeside(-15);
+        RenderFrame::m_cam.changeside(-15); // Kamera seitlich ändern
     }
     if(joys->getAxis(3) > 4*DEADZONE) {
-        RenderFrame::m_cam.changeside(15);
+        RenderFrame::m_cam.changeside(15); //Kamera seitlich ändern
     }
     if(joys->getButton(0) > 0) { //A
-        if(Game::getshoot()) {
+        if(Game::getshoot()) { //Schiessen
             Game::getFighter()->shoot();
             Game::shot();
         }
     }
     if(joys->getButton(1) > 0) { //B
+        // Cockpitansicht
         RenderFrame::m_cam.setCockpit();
         Game::setView(0);
-        //Cockpit setzen
+        //Cockpit anzeigen
         if(Game::getHud())
         {
             Game::getHud()->loadCockpit();
         }
     }
     if(joys->getButton(2) > 0) { //X
+        // First-Person-perspektive
         RenderFrame::m_cam.setEgo();
         Game::setView(1);
-        //Cockpit löschen
+        //Cockpit nicht anzeigen
         if(Game::getHud())
         {
             Game::getHud()->deleteCockpit();
         }
     }
     if(joys->getButton(3) > 0) { //Y
+        // Third-Person-perspektive
         RenderFrame::m_cam.setThird();
         Game::setView(2);
-        //Cockpit löschen
+        //Cockpit nicht anzeigen
         if(Game::getHud())
         {
             Game::getHud()->deleteCockpit();
         }
     }
     if(joys->getButton(4) > 0) { //LB
-        //RenderFrame::m_cam.changeheight(5);
+        RenderFrame::m_cam.changeheight(5); //Kamerahoehe ändern
     }
     if(joys->getButton(5) > 0) { //RB
-        //RenderFrame::m_cam.changeheight(-5);
+        RenderFrame::m_cam.changeheight(-5); //Kamerahoehe ändern
     }/*
     if(joys->getButton(6) > 0) { //Back
     }*/
     if(joys->getButton(7) > 0) { //Start
-        Game::getFighter()->setNULL();    
+        Game::getFighter()->setNULL(); // Bewegung auf 0 setzen
     }/*
     if(joys->getButton(8) > 0) { //BIG
     }

@@ -17,12 +17,12 @@ class PartikelFlug
 public:
     /**
     *   @brief  Construct an new particle
-    *   @param  float Lebenszeit eines Partikels
-    *   @param  glvector<float> Startposition des partikels
-    *   @param  int Groesse des Partikels
-    *   @param  glVector<float> Farbe des Partikels
+    *   @param  lifetime Lebenszeit eines Partikels
+    *   @param  pos Startposition des partikels
+    *   @param  size Groesse des Partikels
+    *   @param  color Farbe des Partikels
     */
-    PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color);
+    PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color);
     
     /**
     *   @brief Desructor
@@ -35,47 +35,52 @@ public:
     void update();
     
     /**
-    *   @breif Gibt zurueck, ob Partikel noch am Leben ist.
+    *   @brief Gibt zurueck, ob Partikel noch am Leben ist.
     */
     bool isAlive();
 
     /**
-    *   @breif Zeichnet das Partikel auf dem Bildschirm.
+    *   @brief Zeichnet das Partikel auf dem Bildschirm.
     */
     void render();
 private:
     /**
-    *   @breif Gesundheitstatus
+    *   @brief Gesundheitstatus
     */
     bool m_alive;
 
     /**
-    *   @breif Lebensdauer
+    *   @brief Lebensdauer
     */
-    float m_lifetime;
+    int m_lifetime;
 
     /**
-    *   @breif aktuelle Position
+    *   @brief Start-Lebensdauer
+    */
+    int m_starttime;
+
+    /**
+    *   @brief aktuelle Position
     */
     glVector<float> m_position;
 
     /**
-    *   @breif grösse
+    *   @brief grösse
     */
     float m_size;
 
     /**
-    *   @breif Sichtbarkeit
+    *   @brief Sichtbarkeit
     */
     float m_alpha;
 
     /**
-    *   @breif Farbe
+    *   @brief Farbe
     */
     glVector<float> m_color;
     
     /**
-    *   @breif Textur fuer alle Partikel
+    *   @brief Textur fuer alle Partikel
     */
     static GLuint TexID1;
 };

@@ -6,17 +6,17 @@ Tim K
 Tim W
     io/Sound.cpp +
     io/SoundManager.cpp +
-    rendering/partikel/Emitter-Explosion.cpp +
+    rendering/partikel/Partikel-Flug.cpp +
     rendering/partikel/Partikel-Explosion.cpp +
     logic/Game.cpp
 Tim R
     io/joystick.cpp erledigt
     view/Camera.cpp erledigt
     view/RenderFrame.cpp erledigt
-    control/Keyboard.cpp
-    control/joystickcontrol.cpp
-    rendering/partikel/Emitter-Flug.cpp
-    rendering/partikel/Partikel-Flug.cpp
+    control/Keyboard.cpp erledigt
+    control/joystickcontrol.cpp erledigt
+    rendering/partikel/Emitter-Flug.cpp erledigt
+    rendering/partikel/Emitter-Explosion.cpp erledigt
 Henning
     view/Galaxis.cpp
     rendering/Asteorid.cpp

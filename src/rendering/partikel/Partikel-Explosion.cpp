@@ -8,17 +8,19 @@
 #include "io/TextureManager.hpp"
 
 //Static Texture-Member
-GLuint PartikelExplosion::tex = 0;
+GLuint PartikelExplosion::TexID2 = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    //Random lifetime
+    //Randomize lifetime
     m_lifetime  = (rand() %30 +1) + 170; //= 200;
     //init all members
-    m_startlife = m_lifetime;
+    m_starttime = m_lifetime;
     m_position  = pos;
     m_size      = 10;
-    m_color     = glVector<float>(1,0.5,0); //Orange
+
+    float y = ((float)rand() / (float)RAND_MAX) - 0.5;
+    m_color     = glVector<float>(1, y, 0); //Orange
     m_alive     = true;
     m_speed     = speed * 4;
     m_alpha     = 1;
@@ -52,10 +54,10 @@ void PartikelExplosion::update()
         m_alpha -= 0.05;
 
     //Update Color-Bĺending
-    if(m_lifetime <= (m_startlife - 15))
+    if(m_lifetime <= (m_starttime - 10))
     {
-        m_color.y += 0.09;
-        m_color.z += 0.09;
+        m_color.y += 0.05;
+        m_color.z += 0.05;
     }
 
 }
@@ -63,9 +65,9 @@ void PartikelExplosion::update()
 void PartikelExplosion::render()
 {
     //Load texture one time
-    if(!tex)
+    if(!TexID2)
     {
-        tex = TextureManager::LoadTexture("res/images/grad.tga");
+        TexID2 = TextureManager::LoadTexture("res/images/grad.tga");
     }
 
     //calculate heading
@@ -82,7 +84,7 @@ void PartikelExplosion::render()
     glDisable ( GL_LIGHTING ) ;
                   
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D,tex);
+    glBindTexture(GL_TEXTURE_2D,TexID2);
     
     //use alphatexture
     glEnable (GL_BLEND); 

@@ -16,7 +16,6 @@
 #define MOUSE_SENSITY 6
 #define PI 3.14159265
 #define PH 1.57079632
-#define PW PI/180  //PI-Winkel, für sinus/cosinus
 
 enum{ YAW, PITCH, ROLL, X, Y, Z};
 enum{ ACCEL, STRAFE, LIFT};

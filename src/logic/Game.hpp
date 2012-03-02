@@ -22,7 +22,7 @@ class Game
 {
 public:
     /**
-    *   @breif Initialisiert alle möglichen Member
+    *   @brief Initialisiert alle möglichen Member
 	*/
     static void Init();
 
@@ -64,7 +64,7 @@ public:
 
     /**
     *   @brief Ändert die Punktezahl um das gegebene Delta
-    *   @param int delta
+    *   @param change Das Delta zum ändern
     */
     static void changeScore(int change);
 
@@ -81,7 +81,7 @@ public:
 
     /**
     *   @brief Setzt die Perspektive
-    *   @param int Perspektivennummer
+    *   @param view Perspektivennummer
     */
     static void setView(int view);
     
@@ -136,7 +136,7 @@ public:
 
 private:
     /**
-    *   @breif Alle Instanz-Member
+    *   @brief Alle Instanz-Member
     */
     static Fighter  m_fighter;
     static Galaxis  m_galaxis;

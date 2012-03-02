@@ -1,5 +1,5 @@
 /**
-*   @file partikel-Flug.cpp
+*   @file Partikel-Flug.cpp
 *   @author gruppe3
 */
 
@@ -11,10 +11,11 @@
 //Static Texture-Member
 GLuint PartikelFlug::TexID1 = 0;
 
-PartikelFlug::PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color)
+PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color)
 {
     //set all members
     m_lifetime  = lifetime;
+    m_starttime = lifetime;
     m_position  = pos;
     m_size      = size;
     m_color     = color;
@@ -50,11 +51,12 @@ void PartikelFlug::update()
     }
 
     //Update Alpha-Bĺending
-    if(m_lifetime >= (m_lifetime-10))
+    if(m_lifetime >= (m_starttime - 10))
     {
         m_alpha += 0.1;
     }
-    else if(m_lifetime <= 10)
+    
+    if(m_lifetime <= 10)
     {
         m_alpha -= 0.1;
     }

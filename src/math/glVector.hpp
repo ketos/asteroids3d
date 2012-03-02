@@ -1,5 +1,5 @@
 /**
- *  @file Vector3f.hpp
+ *  @file glVector.hpp
  *
  *  @date 05.12.2011
  *  @author Thomas Wiemann
@@ -29,9 +29,9 @@ public:
 
 	/**
 	 * @brief   Construcs a glVector object with given values
-	 * @param x x-value
-	 * @param y y-value
-	 * @param z z-value
+	 * @param _x x-value
+	 * @param _y y-value
+	 * @param _z z-value
 	 */
 	glVector(T _x, T _y, T _z);
 

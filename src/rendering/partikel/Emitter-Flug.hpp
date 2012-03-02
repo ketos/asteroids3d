@@ -1,37 +1,75 @@
+/**
+ * @file Emitter-Flug.hpp
+ *
+ * @author gruppe3
+ */
+
 #ifndef _EMITTER_FLUG_H
 #define _EMITTER_FLUG_H
 
 #include "rendering/partikel/Partikel-Flug.hpp"
 #include <list>
-// http://www.codeworx.org/opengl_par1.php
 
-//Emitter für Flug
+/**
+ * @brief Emitter für die Flugklasse
+ *        Verwaltet die Partikel die während des Fluges entstehen
+ *        damit ein Gefühl für die Geschwindigkeit entsteht
+ */
 
 class EmitterFlug
 {
 public:
-    //Konstruktor
+    /**
+     * @brief Konstruktor
+     */
     EmitterFlug();
+    /**
+     * @brief Konstruktor
+     *
+     * @param Partikelanzahl Die Maximale Anzahl an Partikeln
+     */
     EmitterFlug(int Partikelanzahl);
-    //Destruktor
+    
+    /**
+     * @brief Destruktor
+     */
     ~EmitterFlug();
 
-    //returnt aktuelle Zahl an Partikeln
-    int getaktPartikelzahl();
-    //neuer Partikel hinzufügen
+    /**
+     * @brief Fügt ein Partikel zur Liste hinzu, 
+     *        solange die Maximale anzahl noch nicht erreicht ist
+     *
+     * @param partikel  Partikel
+     * @return wurde hinzugefügt oder nicht
+     */
     bool add(PartikelFlug partikel);
-    // alle updaten
+    
+    /**
+     * @brief Partikel werden geupdatet, gerendet oder gelöscht
+     */
     void update();
     
+    /**
+     * @brief erzeugt ein neues Partikel
+     */
     void createPartikel();
     
+    /**
+     * @brief Ändern der Maximalen Partikelanzahl
+     * 
+     * @param i Anzahl
+     */
     void setMaxPartikel(int i);
+
 private:
-    //alle Partikel
+    /**
+     * @brief Liste mit allen Partikeln
+     */
     std::list<PartikelFlug> m_partikel;
-    //aktuelle Anzahl von Partikeln
-    int m_PartikelZahl;
-    //Maximale Anzahl an Partikeln
+    
+    /**
+     * @brief Maximala Anzahl an Partikeln
+     */
     unsigned int m_maxPartikel;
 };
 
