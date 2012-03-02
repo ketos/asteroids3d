@@ -1,24 +1,34 @@
+Daniel
+    io/ReadXML.cpp
+Tim K
+    io/ReadTXT.cpp
+    README.txt
+Tim W
+    io/Sound.cpp
+    io/SoundManager.cpp
+    rendering/partikel/Emitter-Explosion.cpp
+    rendering/partikel/Partikel-Explosion.cpp
+Tim R
+    io/joystick.cpp
+    view/Camera.cpp
+    view/RenderFrame.cpp
+    control/Keyboard.cpp
+    control/joystickcontrol.cpp
+    logic/Game.cpp
+    rendering/partikel/Emitter-Flug.cpp
+    rendering/partikel/Partikel-Flug.cpp
+Henning
+    view/Galaxis.cpp
+    rendering/Asteorid.cpp
+    rendering/Mini_Asteorid.cpp
+    math/Collision.cpp
+Michel
+    view/HUD.cpp
+    view/Menu.cpp
+Nils
+    rendering/Fighter.cpp
+    rendering/Bullet.cpp
 
-	io/ReadXML.cpp //Daniel
-	io/ReadTXT.cpp //Tim K
-	io/Sound.cpp    // Tim W
-	io/SoundManager.cpp // TIm W
-    io/joystick.cpp //Tim R
-    view/Camera.cpp // Tim R
-    view/Galaxis.cpp // Henning
-	view/RenderFrame.cpp //Tim R 
-	view/HUD.cpp //Michel
-    view/Menu.cpp //Michel
-    control/keyboard.cpp // Tim R
-    control/joystickcontrol.cpp //Tim R
-	rendering/Transformable.cpp //reinschauen
-    rendering/Asteorid.cpp //Henning
-    rendering/Mini_Asteorid.cpp //Henning
-    rendering/Fighter.cpp //Nils
-    rendering/Bullet.cpp //Nils
-    rendering/partikel/Emitter-Flug.cpp // Tim R
-    rendering/partikel/Partikel-Flug.cpp // Tim R
-    rendering/partikel/Emitter-Explosion.cpp //Tim w
-    rendering/partikel/Partikel-Explosion.cpp //Tim W
-    logic/Game.cpp // Tim
-    math/Collision.cpp //Henning
+reinschauen
+    rendering/Transformable.cpp
+
