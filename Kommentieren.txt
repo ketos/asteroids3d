@@ -4,10 +4,10 @@ Tim K
     io/ReadTXT.cpp
     README.txt
 Tim W
-    io/Sound.cpp
-    io/SoundManager.cpp
-    rendering/partikel/Emitter-Explosion.cpp
-    rendering/partikel/Partikel-Explosion.cpp
+    io/Sound.cpp +
+    io/SoundManager.cpp +
+    rendering/partikel/Emitter-Explosion.cpp +
+    rendering/partikel/Partikel-Explosion.cpp +
 Tim R
     io/joystick.cpp erledigt
     view/Camera.cpp erledigt

@@ -1,0 +1,1 @@
+rm error.txt ; cppcheck ./src --enable=all 2> error.txt ; cat error.txt
