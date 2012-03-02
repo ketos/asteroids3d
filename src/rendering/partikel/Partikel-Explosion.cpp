@@ -8,8 +8,7 @@ GLuint PartikelExplosion::tex = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
-    int random  = (rand() %30 +1);
-    m_lifetime  = random + 170; //= 200;
+    m_lifetime  = (rand() %30 +1) + 170; //= 200;
     m_startlife = m_lifetime;
     m_position  = pos;
     m_size      = 10;
