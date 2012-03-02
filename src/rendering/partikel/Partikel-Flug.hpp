@@ -16,7 +16,7 @@ class PartikelFlug
 {
 public:
     /**
-    *   @brief
+    *   @brief  Construct an new particle
     *   @param  float Lebenszeit eines Partikels
     *   @param  glvector<float> Startposition des partikels
     *   @param  int Groesse des Partikels
@@ -53,11 +53,6 @@ private:
     *   @breif Lebensdauer
     */
     float m_lifetime;
-
-    /**
-    *   @breif Startzeit
-    */
-    float m_birthday;
 
     /**
     *   @breif aktuelle Position

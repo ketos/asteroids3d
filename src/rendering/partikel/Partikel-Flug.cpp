@@ -1,3 +1,8 @@
+/**
+*   @file partikel-Flug.cpp
+*   @author gruppe3
+*/
+
 #include "rendering/partikel/Partikel-Flug.hpp"
 #include <iostream>
 #include "logic/Game.hpp"
