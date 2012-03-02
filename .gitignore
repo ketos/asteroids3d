@@ -1,7 +1,8 @@
-# Can ignore specific files
+# specific files
 .DS_Store
+res/score/highscore.txt
 
-# Use wildcards as well
+# wildcards
 *~
 *.o
 *.s
@@ -11,5 +12,6 @@
 *.bin
 *.cxx
 
+# folders
 build/
 doc/
