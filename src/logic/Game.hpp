@@ -22,7 +22,7 @@ class Game
 {
 public:
     /**
-    *   @breif Initialisiert alle möglichen Member
+    *   @brief Initialisiert alle möglichen Member
 	*/
     static void Init();
 

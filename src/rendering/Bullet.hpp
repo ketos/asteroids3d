@@ -29,6 +29,7 @@ public:
      *                      position.
      * @param   fighter_position   Position of the fighter that shoots this bullet
      * @param   fighter_axis   Axis the bullet will move on
+     * @param   asteorid    The Asteroid
      */
 	 Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, glVector<float> asteorid);
 
