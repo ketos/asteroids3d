@@ -46,7 +46,7 @@ public:
 
     /**
      * @brief increses the damage
-     * @param int given damage
+     * @param i given damage
      */
     void increaseDamage(int i);
     /**

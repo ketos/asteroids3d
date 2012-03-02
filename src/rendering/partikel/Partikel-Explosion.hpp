@@ -16,8 +16,8 @@ class PartikelExplosion
 public:
     /**
     *   @brief  Constructs a new particle
-    *   @param  glvector<float> Startposition des partikels
-    *   @param  glVector<float> Geschwindigkeit des Partikels
+    *   @param  pos Startposition des partikels
+    *   @param  speed Geschwindigkeit des Partikels
     */
     PartikelExplosion(glVector<float> pos, glVector<float> speed);
     

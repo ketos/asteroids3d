@@ -20,14 +20,14 @@ class Sound{
 public:
     /**
     *   @brief Constructor for loading a wave-file and a Channel.
-    *   @param int c The Audio-Channel
-    *   @param const char* wav The Wave-File
+    *   @param c The Audio-Channel
+    *   @param wav The Wave-File
     */
     Sound(int c, const char *wav);
     
     /**
     *   @brief Constructor to load an mp3-file.
-    *   @param const char* file The Mp3-File
+    *   @param char* file The Mp3-File
     */
     Sound(const char* file);
     
