@@ -49,8 +49,6 @@ Texture* TextureFactory::getTexture(string f) const
         data    = reader.getPixels();
         width   = reader.getWidth();
         height  = reader.getHeight();
-
-
     }
     else if(filename.substr(filename.find_last_of(".") + 1) == "tga")
     {
@@ -59,7 +57,6 @@ Texture* TextureFactory::getTexture(string f) const
         data = reader.data();
         width = reader.width();
         height = reader.height();
-
     }
 
     // Check data and create new texture if possible

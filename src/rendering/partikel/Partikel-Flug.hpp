@@ -22,7 +22,7 @@ public:
     *   @param  size Groesse des Partikels
     *   @param  color Farbe des Partikels
     */
-    PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color);
+    PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color);
     
     /**
     *   @brief Desructor
@@ -52,7 +52,12 @@ private:
     /**
     *   @brief Lebensdauer
     */
-    float m_lifetime;
+    int m_lifetime;
+
+    /**
+    *   @brief Start-Lebensdauer
+    */
+    int m_starttime;
 
     /**
     *   @brief aktuelle Position
