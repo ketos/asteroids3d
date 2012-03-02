@@ -1,8 +1,7 @@
 /**
  *  @file Camera.hpp
  *
- *  @date 27.11.2011
- *  @author Thomas Wiemann
+ *  @author gruppe3
  */
 
 #ifndef CAMERA_HPP_
@@ -38,200 +37,96 @@ public:
 	 * @brief   Deletes the camera
 	 */
 	virtual ~Camera() {};
-
-	/**
-	 * @brief   Moves the camera left by m_speed units
-	 */
-	void moveLeft();
-
-	/**
-	 * @brief   Moves the camera right by m_speed units
-	 */
-	void moveRight();
-
-	/**
-	 * @brief   Moves the camera up by m_speed units
-	 */
-	void moveUp();
-
-	/**
-	 * @brief   Moves the camera down by m_speed units
-	 */
-	void moveDown();
-
-	/**
-	 * @brief   Moves the camera forward by m_speed units
-	 */
-	void moveForward();
-
-	/**
-	 * @brief   Moves the camera backwards by m_speed units
-	 */
-	void moveBackward();
-
-	/**
-	 * @brief   Turns left by m_rotSpeed units
-	 */
-	void turnLeft();
-
-	/**
-	 * @brief   Turns right by m_rotSpeed units
-	 */
-	void turnRight();
-
-	/**
-	 * @brief   Turns up by m_rotSpeed units
-	 */
-	void turnUp();
-
-	/**
-	 * @brief   Turns down by m_rotSpeed units
-	 */
-	void turnDown();
-
-    void rotateLeft();
-    void rotateRight();
-
-	/**
-	 * @brief   Sets the current movement speed
-	 * @param speed Movement speed
-	 */
-	void setSpeed(float _speed){m_speed = _speed;};
-
-	/**
-	 * @brief   Sets the current turn speed
-	 * @param speed turn speed
-	 */
-	void setTurnSpeed(float _speed) {m_turnSpeed = _speed;};
-
-	/**
-	 * @brief   Increases the the current speed by \ref addSpeed units
-	 * @param addSpeed Units to increase
-	 */
-	void incSpeed(float addSpeed){m_speed += addSpeed;};
-
-	/**
-	 * @brief   Increases the the current turn speed by \ref decSpeed units
-	 * @param decSpeed Units to increase
-	 */
-	void incTurnSpeed(float decSpeed){m_turnSpeed += decSpeed;};
-
-	/**
-	 * @brief   Applies the current camera transformation to the OpenGL
-	 *          matrix stack
-	 */
+    
+    /**
+     * @brief setzt die Kamera
+     */
 	void apply();
+    
+    /**
+     * @brief Positioniert die Kamera, je nach gegebenen Koordinaten
+     * 
+     * @param pos   Position des Raumschiffes
+     * @param front Frontvektor des Raumschiffes
+     * @param up    Upvektor des Raumschiffes
+     * @param side  Sidevektor des Raumschiffes
+     */
 
     void setLocation(glVector<float> pos, glVector<float> front, glVector<float> up, glVector<float> side);
+    
+    /**
+     * @brief Positioniert die Kamera für die Skybox
+     */
 
 	void applyRotationOnly();
     
+    /**
+     * @brief ändert die Entfernung der Kamera zum Raumschiff
+     */    
     void zoom(float change);
 
+    /**
+     * @brief ändert die Höhe der Kamera zum Raumschiff
+     */
     void changeheight(float change);
     
+    /**
+     * @brief Kameraänderung nach links/rechts zum Raumschiff
+     */
     void changeside(float change);
     
+    /**
+     * @brief Setzt die DefaultKameraPosition
+     */
     void setDefault();
     
+    /**
+     * @brief Setzt die Kamera für die Egoperspektive
+     */
     void setEgo();
     
+    /**
+     * @brief Setzt die Kamera für die Third-Person-Perspektive
+     */
     void setThird();
     
+    /**
+     * @brief Setzt die Kamera für die CockpitPerspektive
+     */
     void setCockpit();
 
 
 public:
-
-	///The current orientation of the x-axis
-	glVector<float> m_baseX;
-
-	///The current orientation of the y-axis
-	glVector<float> m_baseY;
-
-	///The current orientation of the z-axis
-	glVector<float> m_baseZ;
     
+    /**
+     * @brief Vektor nach Oben
+     */
     glVector<float> up;
     
+    /**
+     * @brief Vektor nach Vorne
+     */
     glVector<float> front;
     
+    /**
+     * @brief Vektor zur Seite
+     */
     glVector<float> side;
-
-	/**
-	 * @brief The current speed
-	 */
-	float m_speed;
-
-	/**
-	 * @brief The current turn speed
-	 */
-	float m_turnSpeed;
-
-	/**
-	 * @brief The current rotation around the y-Axis
-	 */
-	float m_rotY;
-
-	/**
-	 * @brief The current rotation around the x-Axis
-	 */
-	float m_rotX;
-
-	/**
-	 * @brief The current rotation around the z-Axis
-	 */
-	float m_rotZ;
-
-	/**
-	 * @brief The current x position
-	 */
-	float m_px;
-
-	/**
-	 * @brief The current y position
-	 */
-	float m_py;
-
-	/**
-	 * @brief The current z position
-	 */
-	float m_pz;
-
-	/**
-	 * @brief The initial x position
-	 */
-	float m_ix;
-
-	/**
-	 * @brief The initial y position
-	 */
-	float m_iy;
-
-	/**
-	 * @brief The initial z position
-	 */
-	float m_iz;
-
-	/**
-	 * @brief The x component of the "look at" vector
-	 */
-	float m_lx;
-
-	/**
-	 * @brief The y component of the "look at" vector
-	 */
-	float m_ly;
-
-	/**
-	 * @brief The z component of the "look at" vector
-	 */
-	float m_lz;
     
+    /**
+     * @brief Verschiebung nach oben/unten
+     */
     float above;
+    
+    /**
+     * @brief Verschiebung vorne/hinten
+     */
     float behind;
+    
+    /**
+     * @brief Verschiebung links/rechts
+     */
     float beside;
-
 };
 
 #endif

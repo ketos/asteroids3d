@@ -1,3 +1,9 @@
+/**
+ * @file RenderFrame.cpp
+ *
+ * @author gruppe3
+ */
+
 #include "RenderFrame.hpp"
 
 #include <set>
@@ -11,75 +17,79 @@
 #include "io/Read3DS.hpp"
 #include "rendering/Asteorid.hpp"
 #include <stdio.h>
-// sudo apt-get install joystick   ausführen
 #include "io/SoundManager.hpp"
-
 #include <string>
-
 #include "view/Menu.hpp"
 
-
+//statische Variablen
 Camera RenderFrame::m_cam;
-//bool RenderFrame::shoot;
 bool menu = false; 
 bool warning_sound = false;
 
 RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
-{	
-	// Der Drops ist gelutscht!
-    
-    // set up animation timer
+{
+    // setze neuen Timer
     m_timer = new QTimer();
+    // setze Intervall auf 25ms
     m_timer->setInterval(25);
+    // verbinde mit updateGL()
     connect(m_timer, SIGNAL(timeout()), this, SLOT(updateGL()),Qt::QueuedConnection);
     
+    // setze 2.Timer
     m_timer2= new QTimer();
+    // setze Intervall auf 100ms
     m_timer2->setInterval(100);
+    // verbinde mit Gameupdate()
     connect(m_timer2,SIGNAL(timeout()), this, SLOT(Gameupdate()));
     
- //   shoot = true;
-    
+    // erzeugt den Joystick (string: Ort des Joysticks in Linux) gesetzt für Ubuntu
     joys = new JoystickControl("/dev/input/js0");
     
+    // fragt ob verbunden wurde
     joystick = joys->connected();
     
-    if(joystick)
-    {
-        joys->update();
-    }
-
 	setAutoFillBackground(false);
 
     show();
+    
+    // Soll zuerst das Menu darstellen
     menu = true;
-    RenderFrame::paintHighscore = false;
+    // Nicht den Highscore anzeigen
+    paintHighscore = false;
+    // QLabel erzeugen
     textLabel =new QLabel(this);
     
-    
-    
-     gameOver = false;
-     bool ok;
-     userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+    // GamerOver auf false setzen
+    gameOver = false;
+    // Abfrage des Usernames
+    bool ok;
+    userName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
                                           tr("User name:"), QLineEdit::Normal,
                                           QDir::home().dirName(), &ok);
-     if (ok && !userName.isEmpty())
-         textLabel->setText(userName); 
-         string so;
-         so = userName.toStdString();
-         for( unsigned int i=0; i<so.length(); i++)
-     		if(so[i] == ' ') so.erase(i,1);
-         userName= QString::fromStdString(so);
-         
-
-    
+    if (ok && !userName.isEmpty())
+    {
+        textLabel->setText(userName); 
+    }
+    string so;
+    so = userName.toStdString();
+    for( unsigned int i=0; i<so.length(); i++)
+    {
+        if(so[i] == ' ')
+        { 
+            so.erase(i,1);
+        }
+    }
+    userName= QString::fromStdString(so);    
 }
 
 RenderFrame::~RenderFrame()
 {
+    // wenn Joystick vorhanden dann löschen
     if(joystick)
     {
         delete joys;
     }
+    //Fighter niht löschen, erzeugt SegFaults
     //delete Game::getFighter();
     delete m_skybox;
     SoundManager::deleteManager();
@@ -87,13 +97,17 @@ RenderFrame::~RenderFrame()
 
 void RenderFrame::start()
 {
+    // MenüScreen nicht mehr anzeigen
     menu = false;
     Menu::deleteSplash();
     
+    //Game Initialisieren
     Game::Init();
 
+    //Collision starten
     Game::getCollision()->start();
     
+    //Startperspektive setzen
     m_cam.setCockpit();
     Game::setView(0);
     //Cockpit setzen
@@ -102,12 +116,14 @@ void RenderFrame::start()
         Game::getHud()->loadCockpit();	
     }
 
+    //Musik starten
     SoundManager::playBattleMusic();
     
-    // start Timer
+    // starte Timer
     m_timer->start();
     m_timer2->start();
-    
+
+    // Setze Bewegung des Fighters auf Null    
     Game::getFighter()->setNULL();
 }
 
@@ -167,8 +183,6 @@ void RenderFrame::initializeGL()
 	glEnable(GL_MULTISAMPLE);
 	glDepthFunc(GL_LESS);
 	glShadeModel (GL_SMOOTH);
-	
-	
 }
  
 void RenderFrame::resizeGL(int w, int h)
@@ -194,12 +208,15 @@ void RenderFrame::resizeGL(int w, int h)
 }
 void RenderFrame::setCam() 
 {
+    //wenn Fighter vorhanden
     if(Game::getFighter()) 
     {
+        // hole die benötigen Vektoren vom Fighter
         glVector<float> pos = (*(static_cast<Transformable*>(Game::getFighter()))).getPosition();
         glVector<float> front=(*(static_cast<Transformable*>(Game::getFighter()))).getFront();
         glVector<float> up = (*(static_cast<Transformable*>(Game::getFighter()))).getUp();
         glVector<float> side =(*(static_cast<Transformable*>(Game::getFighter()))).getSide();
+        // setze die Kamera
         m_cam.setLocation(pos, front, up, side);
     }
 }
@@ -219,26 +236,29 @@ void RenderFrame::paintGL()
 	// Clear bg color and enable depth test (z-Buffer)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// Render objects
+	// Render Skybox
 	if(m_skybox)
 	{
 	    m_skybox->render();
 	}
-
+    // Render Fighter
 	if(Game::getFighter())
 	{
 		Game::getFighter()->render(!Game::getHud()->getView());
 	}
+    // Render Asteroiden
 	if(Game::getGalaxis()) 
 	{
 		Game::getGalaxis()->render();
 	}
 
-    //Emitter
+    // FlugPartikel erzeugen
     Game::getEmitterFlug()->createPartikel();
 
+    // Explosionspartikel updaten und rendern
     Game::getEEmit()->update();
 
+    // Flugpartikel updaten und rendern
     Game::getEmitterFlug()->update();
 
     glMatrixMode(GL_PROJECTION);
@@ -246,65 +266,52 @@ void RenderFrame::paintGL()
     glPushAttrib(GL_ALL_ATTRIB_BITS);
     glLoadIdentity();
 
+    // Painter erzeugen
     QPainter painter(this);
 	Game::getHud()->setPainter( &painter );
 
+    // HUD updaten
     if(Game::getFighter()) {
        	Game::getHud()->setLevel(Game::getGalaxis()->getLevelnumber());
         Game::getHud()->setIncLevel(Game::getGalaxis()->shouldIncLevel());
-   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), 			Game::getFighter()->wasShot());
+   	    Game::getHud()->setFighterData(Game::getFighter()->getDamage(), Game::getScore(), Game::getFighter()->getSpeed(), Game::getFighter()->wasShot());
    	    Game::getHud()->setAstroidsVector(Game::getCollision()->getCollisionVector());
         Game::getHud()->draw(width(),height(),font());
-
+        
+        // Warning bei zu Nahem Asteoriden
         if(Game::getCollision()->getWarning())
         {
-            if(!warning_sound)
-            {
-          	   //SoundManager::playWarningSound();
-           	   warning_sound = true;
-           	}
             Game::getHud()->drawWarning();
-                
-
-        } else {
-            warning_sound = false;
-            //SoundManager::stopWarningSound();
-        }  
+        }
     }
-
+    
+    // bei zuviel Schaden Gameover
     if(Game::getFighter()->getDamage()>=100)
     {
     	gameOver = true;
         ReadTXT *reader = new ReadTXT();
         reader->write(userName.toStdString(), Game::getScore());
-		//Game::game_over();
         menu = true;	
     }
 
+    // Menü anzeigen
     if(menu)
     {
     	if(gameOver)
     	{
-
     		Menu::drawGameover(width(),height(), Game::getHud());
-    	}else{
-    		std::cout<<"FUCK THIS SHIT!";
-      	    Menu::drawSplash(width(),height(), Game::getHud());
-        }
-        /*if(paintHighscore)
+    	} else
         {
-        	if(!paintHighscore)
-        	{
-        		
-                Menu::drawSplash(width(),height(), Game::getHud());
-			} */           
-            if(paintHighscore)
-            {
-                Game::getHud()->drawHighscore();
-            }
-        //}
+      	    Menu::drawSplash(width(),height(), Game::getHud());
+        }        
+        if(paintHighscore)
+        {
+            Game::getHud()->drawHighscore();
+        }
     }
+    // Keyboard updaten
     Keyboard::update();
+    
     painter.end();
     glPopMatrix();
     glPopAttrib();
@@ -317,18 +324,17 @@ void RenderFrame::paintGL()
 
 void RenderFrame::keyPressEvent (QKeyEvent  *event)
 {
+    // Key an Keyboard übergeben
     Keyboard::keypressed(event);
-
-	
+    
     if(menu) {
-    	
+    	// bei H Highscore anzeigen
     	if (event->key() == Qt::Key_H)
     	{
             paintHighscore = !paintHighscore;
        	    paintGL();
    		}
-    	
-    	
+        // bei Enter Spiel Starten
         if (event->key() == Qt::Key_Return)
         {
         	if(gameOver){
@@ -345,6 +351,7 @@ void RenderFrame::keyPressEvent (QKeyEvent  *event)
 
 void RenderFrame::keyReleaseEvent (QKeyEvent  *event)
 {  
+    // Keyand Keyboard übergeben
     Keyboard::keyrelease(event);
 }
 
@@ -353,6 +360,7 @@ void RenderFrame::setupViewport(int width, int height)
      int side = qMin(width, height);
      glViewport((width - side) / 2, (height - side) / 2, side, side);
 }
+
 void RenderFrame::Gameupdate()
 {
     Game::update();

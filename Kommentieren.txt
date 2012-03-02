@@ -1,0 +1,34 @@
+Daniel
+    io/ReadXML.cpp
+Tim K
+    io/ReadTXT.cpp
+    README.txt
+Tim W
+    io/Sound.cpp +
+    io/SoundManager.cpp +
+    rendering/partikel/Emitter-Explosion.cpp +
+    rendering/partikel/Partikel-Explosion.cpp +
+    logic/Game.cpp
+Tim R
+    io/joystick.cpp erledigt
+    view/Camera.cpp erledigt
+    view/RenderFrame.cpp erledigt
+    control/Keyboard.cpp
+    control/joystickcontrol.cpp
+    rendering/partikel/Emitter-Flug.cpp
+    rendering/partikel/Partikel-Flug.cpp
+Henning
+    view/Galaxis.cpp
+    rendering/Asteorid.cpp
+    rendering/Mini_Asteorid.cpp
+    math/Collision.cpp
+Michel
+    view/HUD.cpp
+    view/Menu.cpp
+Nils
+    rendering/Fighter.cpp
+    rendering/Bullet.cpp
+
+reinschauen
+    rendering/Transformable.cpp
+

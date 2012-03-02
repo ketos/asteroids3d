@@ -1,3 +1,7 @@
+/**
+*   @file Partikel-Explosion.cpp
+*   @author gruppe3
+*/
 #include "rendering/partikel/Partikel-Explosion.hpp"
 #include <iostream>
 #include "logic/Game.hpp"
@@ -8,7 +12,9 @@ GLuint PartikelExplosion::tex = 0;
 
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
+    //Random lifetime
     m_lifetime  = (rand() %30 +1) + 170; //= 200;
+    //init all members
     m_startlife = m_lifetime;
     m_position  = pos;
     m_size      = 10;
@@ -16,18 +22,16 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
     m_alive     = true;
     m_speed     = speed * 4;
     m_alpha     = 1;
-
-    //Load texture one time
-
 }
 
 PartikelExplosion::~PartikelExplosion()
 {
-
+    //nothing to do
 }
 
 bool PartikelExplosion::isAlive()
 {
+    //get alive status
     return m_alive;
 }
 
@@ -58,10 +62,13 @@ void PartikelExplosion::update()
 
 void PartikelExplosion::render()
 {
-        if(!tex)
+    //Load texture one time
+    if(!tex)
     {
         tex = TextureManager::LoadTexture("res/images/grad.tga");
     }
+
+    //calculate heading
     glVector<float> side = Game::getFighter()->getSide();
     side.normalize();
     glVector<float> up = Game::getFighter()->getUp();
@@ -71,17 +78,19 @@ void PartikelExplosion::render()
     glVector<float> vec2 = m_position + up * m_size;
     glVector<float> vec3 = m_position + side * m_size + up * m_size;
     
+    //draw particle quad
     glDisable ( GL_LIGHTING ) ;
                   
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,tex);
-
+    
+    //use alphatexture
     glEnable (GL_BLEND); 
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS); //starts drawing of quad
         glColor4f(m_color[0], m_color[1], m_color[2], m_alpha);
-
+        //draw quad at this four points
         glTexCoord2f(1.0f,1.0f); glVertex3f(m_position[0], m_position[1], m_position[2]);
         glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);
         glTexCoord2f(0.0f,0.0f); glVertex3f(vec3[0], vec3[1], vec3[2]);

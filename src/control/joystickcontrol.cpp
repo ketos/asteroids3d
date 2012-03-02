@@ -1,3 +1,9 @@
+/**
+ * @file joystickcontrol.cpp
+ * 
+ * @author gruppe3
+ */
+
 #include "control/joystickcontrol.hpp"
 #include "view/RenderFrame.hpp"
 #include "logic/Game.hpp"
@@ -7,14 +13,14 @@
 JoystickControl::JoystickControl(std::string input)
 {
     joys = new Joystick();
-    if(joys->init(input.c_str()) > -1) {
+    // Initialisiert den Joystick
+    if(joys->init(input.c_str()) > -1) { //verbunden
         std::cout << "Joystick found" << std::endl;
         connect = true;
-    } else {
+    } else { // nicht verbunden
         std::cout << "no Joystick found" << std::endl;
         connect = false;
     }
-    //m_shoot = &shoot;
 }
 
 JoystickControl::~JoystickControl()
@@ -30,34 +36,35 @@ bool JoystickControl::connected()
 
 void JoystickControl::update() 
 {
+    // Geht die einzelnen Achsen und Buttons durch und führt die Aktionen aus
     if(joys->getAxis(0) <-DEADZONE || joys->getAxis(0) > DEADZONE ) { // joystick links links-rechts
         float angle = joys->getAxis(0) / JOYMAX * 2 * ANGLE;        
-        Game::getFighter()->changeAngle(YAW,  -angle);
+        Game::getFighter()->changeAngle(YAW,  -angle);  // Drehung links/rechts und rollen
         Game::getFighter()->changeAngle(ROLL, -angle);
     }
     if(joys->getAxis(1) <-DEADZONE || joys->getAxis(1) > DEADZONE ) { // joystick links up-down 
         float angle = joys->getAxis(1) / JOYMAX * 2 * ANGLE;
-        Game::getFighter()->changeAngle(PITCH,  angle);
+        Game::getFighter()->changeAngle(PITCH,  angle); // Drehung nach oben/unten
     }
     if(joys->getAxis(2) > -JOYMAX + DEADZONE) { // schulter links
         float speed = (joys->getAxis(2) + JOYMAX) / (2*JOYMAX) * SPEED;
-        Game::getFighter()->changeSpeed(speed);
+        Game::getFighter()->changeSpeed(speed); // beschleunigung
     }
     if(joys->getAxis(5) > -JOYMAX + DEADZONE) { // schulter rechts   
         float speed = (joys->getAxis(5) + JOYMAX) / (2*JOYMAX) * SPEED;
-        Game::getFighter()->changeSpeed(-speed);
+        Game::getFighter()->changeSpeed(-speed); // bremsen
     }
-    if(joys->getAxis(4) <-6*DEADZONE) { // joystick rechts up-down
-        //RenderFrame::m_cam.zoom(-15);
+    if(joys->getAxis(4) <-4*DEADZONE) { // joystick rechts up-down
+        RenderFrame::m_cam.zoom(-15); // Kameraentfernung ändern
     }
-    if(joys->getAxis(4) > 6*DEADZONE) {
-        //RenderFrame::m_cam.zoom(15);
+    if(joys->getAxis(4) > 4*DEADZONE) {
+        RenderFrame::m_cam.zoom(15); //Kameraentfernung ändern
     }
-    if(joys->getAxis(3) <-6*DEADZONE) { // joystick rechts links-rechts
-        //RenderFrame::m_cam.changeside(-15);
+    if(joys->getAxis(3) <-4*DEADZONE) { // joystick rechts links-rechts
+        RenderFrame::m_cam.changeside(-15);
     }
-    if(joys->getAxis(3) > 6*DEADZONE) {
-        //RenderFrame::m_cam.changeside(15);
+    if(joys->getAxis(3) > 4*DEADZONE) {
+        RenderFrame::m_cam.changeside(15);
     }
     if(joys->getButton(0) > 0) { //A
         if(Game::getshoot()) {
