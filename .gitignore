@@ -11,6 +11,5 @@
 *.bin
 *.cxx
 
-src/
 build/
 doc/
