@@ -49,12 +49,12 @@ private:
     /**
     *   @brief Lebensdauer
     */
-    float m_lifetime;
+    int m_lifetime;
 
     /**
-    *   @brief Startzeit
+    *   @brief Start-Lebensdauer
     */
-    float m_startlife;
+    int m_starttime;
 
      /**
     *   @brief aktuelle Position
@@ -84,7 +84,7 @@ private:
     /**
     *   @brief Textur fuer alle Partikel
     */
-    static GLuint tex;
+    static GLuint TexID2;
 };
 
 #endif //_PARTIKEL_FLUG_H
