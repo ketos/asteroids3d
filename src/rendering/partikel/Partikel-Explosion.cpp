@@ -90,7 +90,7 @@ void PartikelExplosion::render()
 
     glBegin(GL_QUADS); //starts drawing of quad
         glColor4f(m_color[0], m_color[1], m_color[2], m_alpha);
-        draw quad at this four points
+        //draw quad at this four points
         glTexCoord2f(1.0f,1.0f); glVertex3f(m_position[0], m_position[1], m_position[2]);
         glTexCoord2f(1.0f,0.0f); glVertex3f(vec1[0], vec1[1], vec1[2]);
         glTexCoord2f(0.0f,0.0f); glVertex3f(vec3[0], vec3[1], vec3[2]);

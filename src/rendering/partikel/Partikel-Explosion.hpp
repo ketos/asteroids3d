@@ -84,7 +84,7 @@ private:
     /**
     *   @breif Textur fuer alle Partikel
     */
-    static GLuint TexID1;
+    static GLuint tex;
 };
 
 #endif //_PARTIKEL_FLUG_H
