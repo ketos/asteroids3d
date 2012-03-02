@@ -85,7 +85,7 @@ void Game::game_over()
 	getFighter()->resetDamage();
 	getFighter()->reset_position();
     
-    /reset level and score
+    //reset level and score
     getGalaxis()->reset_level();
 	reset_score();
 }
