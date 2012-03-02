@@ -1,40 +1,87 @@
+/**
+*   @file Partikel-Flug.hpp
+*   @author gruppe3   
+*/
+
 #ifndef _PARTIKEL_FLUG_H
 #define _PARTIKEL_FLUG_H
 
 #include "math/glVector.hpp"
 #include <QtOpenGL>
 
-// Partikel für Flug
-
+/**
+*   @brief Klasse fuer die Flug-Partikel
+*/
 class PartikelFlug
 {
 public:
-    //Konstruktor
+    /**
+    *   @brief
+    *   @param  float Lebenszeit eines Partikels
+    *   @param  glvector<float> Startposition des partikels
+    *   @param  int Groesse des Partikels
+    *   @param  glVector<float> Farbe des Partikels
+    */
     PartikelFlug(float lifetime, glVector<float> pos, int size, glVector<float> color);
-    //Desructor
+    
+    /**
+    *   @brief Desructor
+    */
     ~PartikelFlug();
-    // weitersetzen
+
+    /**
+    *   @brief Aktualisiert Farbe und Lebenszeit.
+    */
     void update();
     
+    /**
+    *   @breif Gibt zurueck, ob Partikel noch am Leben ist.
+    */
     bool isAlive();
 
+    /**
+    *   @breif Zeichnet das Partikel auf dem Bildschirm.
+    */
     void render();
 private:
-    //Gesundheitstatus
+    /**
+    *   @breif Gesundheitstatus
+    */
     bool m_alive;
-    //Lebensdauer
+
+    /**
+    *   @breif Lebensdauer
+    */
     float m_lifetime;
-    //Startzeit
+
+    /**
+    *   @breif Startzeit
+    */
     float m_birthday;
-    //aktuelle Position
+
+    /**
+    *   @breif aktuelle Position
+    */
     glVector<float> m_position;
-    //grösse
+
+    /**
+    *   @breif grösse
+    */
     float m_size;
 
+    /**
+    *   @breif Sichtbarkeit
+    */
     float m_alpha;
-    //Farbe
+
+    /**
+    *   @breif Farbe
+    */
     glVector<float> m_color;
-       
+    
+    /**
+    *   @breif Textur fuer alle Partikel
+    */
     static GLuint TexID1;
 };
 
