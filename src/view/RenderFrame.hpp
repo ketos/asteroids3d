@@ -1,8 +1,7 @@
 /**
  *  @file  RenderFrame.hpp
  *
- *  @date  19.02.2012
- *  @author Thomas Wiemann
+ *  @author gruppe3
  */
 #ifndef RENDER_FRAME_H
 #define RENDER_FRAME_H
@@ -23,7 +22,10 @@
 #include "control/keyboard.hpp"
 #include "control/joystickcontrol.hpp"
 #include "logic/Game.hpp"
-
+ 
+/**
+ * @brief Starten und Render der Objekte
+ */
 class RenderFrame : public QGLWidget
 {
     Q_OBJECT
@@ -31,38 +33,52 @@ class RenderFrame : public QGLWidget
 public:
 
 	/**
-	 * @brief	Ctor.
+	 * @brief	Konstruktor
 	 */
     RenderFrame(QWidget *parent = 0);
 
     /**
-     * @brief	Dtor.
+     * @brief	Destruktor
      */
     ~RenderFrame();
 	
     /**
-     * @brief  NADA
+     * @brief  Initialisiert die Game, startet die Spielmusik und die Timer
      */
     void start();
   
     /**
+     * @brief Initialisierung für den QPainter
      *
+     * @param width Breite des Fensters
+     * @param height Hoehe des Fensters
      */
     void setupViewport(int width, int height);
-   
+
+    /**
+     * @brief QTimer für den ständigen Aufruf der PaintGL (alle 25ms)
+     */
     QTimer* m_timer;
     
+    /**
+     * @brief QTimer für den Reload der Schüsse und die Trägheit der Bewegung
+     */
     QTimer* m_timer2;
 
+    /**
+     * @brief Joystick
+     */
     JoystickControl* joys;
-
-	/// The camera object tot display the scene
+    
+    /**
+     * @brief Kamera
+     */
     static Camera m_cam;
 
 protected:
-    
-    void control();
-
+    /**
+     * @brief updatet die Kameraposition zum Fighter
+     */
     void setCam();
 
 	/**
@@ -95,28 +111,42 @@ protected:
      * @brief	The render function.
      */
     void paintGL();
+
 	/**
 	 * @brief A skybox for the scene
 	 */
 	Skybox* m_skybox;
-
-    static float shootTime;
     
+    /**
+     * @brief gibt an ob ein Joystick angeschlossen ist oder nicht
+     */
     bool joystick;
-
     
-    int reload;
+    /**
+     * @brief gibt an ob der Highscore gezeichnet werden soll
+     */
     bool paintHighscore;
+    
+    /**
+     * @brief Label für die Eingabe des Usernamens
+     */
     QLabel *textLabel;
-
-//public:
-//    static bool shoot;
     
 private slots:
+    /**
+     * @brief wird alle 100ms vom Timer aufgerufen und leitet den Aufruf an die Game weiter
+     */
     void Gameupdate();
     
 private:
+    /**
+     * @brief String für den Username
+     */
     QString userName;
+    
+    /**
+     * @brief wird gesetzt, wenn man GameOver ist (wenn true wird der GameOver bildschirm angezeigt
+     */
     bool gameOver;
 };
 

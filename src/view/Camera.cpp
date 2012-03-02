@@ -1,8 +1,7 @@
 /**
- * Camera.cpp
+ * @file Camera.cpp
  *
- *  @date 27.11.2011
- *  @author Thomas Wiemann
+ *  @author gruppe3
  */
 
 #include "Camera.hpp"
@@ -18,6 +17,7 @@ Camera::Camera()
 void Camera::applyRotationOnly()
 {
     glLoadIdentity();
+    // setzt die Kamera an die passende Stelle
     gluLookAt(front.x, front.y, front.z, 0, 0, 0, up.x, up.y, up.z);
 }
 
@@ -26,6 +26,7 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
     // Clear matrix stack  
     glLoadIdentity();
     
+    //Normalisiert die Vektoren die das Koordinatensystem aufspannen
     front = (front1);
     front.normalize();
     up = (up1);
@@ -33,14 +34,15 @@ void Camera::setLocation(glVector<float> pos, glVector<float> front1, glVector<f
     side = (side1);
     side.normalize();
     
+    //Berechnet die Position des Auges
     glVector<float> cam = pos + side * beside + up * above + front * behind;
+    //berechnet die Position des Centerpunktes der Kamera
     pos = pos + side * beside + up * above;
     
-    // Calc transformation Matrixwf
+    // Setzt die Kamera
     gluLookAt(cam.x, cam.y, cam.z,
               pos.x, pos.y, pos.z,
               up.x , up.y , up.z);
-    
 }
 
 void Camera::zoom(float change) 
@@ -65,10 +67,12 @@ void Camera::setDefault()
 }
 void Camera::setEgo()
 {
+    //Position für First-Person-View
     setDefault();
 }
 void Camera::setThird()
 {
+    //Position für Third-Person-View
     beside = 0;
     above  = 300;
     behind = 1500;
@@ -76,6 +80,7 @@ void Camera::setThird()
 
 void Camera::setCockpit()
 {
+    //Position für Cockpit-View
 	beside = 0;
 	above  = 30;
 	behind = 20;
