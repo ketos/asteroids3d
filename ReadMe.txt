@@ -9,19 +9,19 @@ Ich find die Game lustiger
 
 Steuerung:
     Menü:
-        Enter   : Startet das Spiel
-        H       : Zeigt den Highscore
+        Enter           : Startet das Spiel
+        H               : Zeigt den Highscore
     Spiel:
-        W
-        S
-        Pfeil Hoch
-        Pfeil Runter
-        Pfeil Links
-        Pfeil Rechts
-        1
-        2
-        3
-        
+        W               : Beschleunigt das Schiff
+        S               : Bremst das Schiff
+        Pfeil Hoch      : Nase hoch
+        Pfeil Runter    : Nase runter
+        Pfeil Links     : Nase links
+        Pfeil Rechts    : Nase rechts
+        1               : Ansicht außen 1
+        2               : Ansicht außen 2
+        3               : Ansicht Cokpit
+
         9
         0
         Bild rauf
@@ -36,7 +36,7 @@ Steuerung:
         B
         X
         Y
-        
+
         LB
         RB
         Rechter Analogstick
