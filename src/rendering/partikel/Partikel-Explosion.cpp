@@ -19,6 +19,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
     m_position  = pos;
     m_size      = 10;
 
+    //Randomize Color
     float y = ((float)rand() / (float)RAND_MAX) - 0.5;
     m_color     = glVector<float>(1, y, 0); //Orange
     m_alive     = true;
@@ -40,7 +41,7 @@ bool PartikelExplosion::isAlive()
 void PartikelExplosion::update()
 {
     //Update Lifetime
-    m_lifetime--;
+    --m_lifetime;
     if(!m_lifetime)
     {
         m_alive = false;
@@ -48,7 +49,7 @@ void PartikelExplosion::update()
     }
     //Update Position
     m_position += m_speed;
-    
+
     //Update Alpha-Bĺending
     if(m_lifetime <= 20)
         m_alpha -= 0.05;
@@ -76,18 +77,19 @@ void PartikelExplosion::render()
     glVector<float> up = Game::getFighter()->getUp();
     up.normalize();
 
+    //Calculate Points for Quad
     glVector<float> vec1 = m_position + side * m_size;
     glVector<float> vec2 = m_position + up * m_size;
     glVector<float> vec3 = m_position + side * m_size + up * m_size;
-    
+
     //draw particle quad
     glDisable ( GL_LIGHTING ) ;
-                  
+
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D,TexID2);
-    
+
     //use alphatexture
-    glEnable (GL_BLEND); 
+    glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glBegin(GL_QUADS); //starts drawing of quad

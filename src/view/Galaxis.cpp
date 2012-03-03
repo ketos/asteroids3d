@@ -37,7 +37,7 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	glVector<float> v1 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v2 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v3 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
-	
+
 	addMiniAsteorid(tmp, v1);
 	addMiniAsteorid(tmp, v2);
 	addMiniAsteorid(tmp, v3);
@@ -50,7 +50,7 @@ void Galaxis::mini_astroid_destroyed()
 
 void Galaxis::render()
 {
-    if( asteorids.size() > 0 )
+    if( !asteorids.empty() )
     {
       vector<Asteorid*>::iterator asteoridtIt;
       asteoridtIt = asteorids.begin();
@@ -61,7 +61,7 @@ void Galaxis::render()
 	  if(!(*asteoridtIt)->isAlive()){
 	      asteoridtIt = asteorids.erase(asteoridtIt);
 	      }else{
-	        asteoridtIt++;	
+	        ++asteoridtIt;
 	      }
       }
     }
@@ -123,7 +123,7 @@ bool Galaxis::shouldIncLevel()
 	{
 			paintLevel = true;
 	}
-	
+
    if (paintLevel)
 	{
 	   paintLevelcount++;
@@ -137,7 +137,7 @@ bool Galaxis::shouldIncLevel()
 
 int Galaxis::getLevelnumber()
 {
-	return level;	
+	return level;
 }
 
 void Galaxis::reset_level()

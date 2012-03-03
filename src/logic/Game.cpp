@@ -26,16 +26,16 @@ void Game::Init()
 
     //load all 7 Levels
     std::string file_prefix = "res/config/level";
-	std::string file_postfix = ".xml";	
+	std::string file_postfix = ".xml";
 
     for(;m_level < 8;incLevel())
     {
     	std::stringstream oss;
     	oss << file_prefix << m_level << file_postfix;
 
-    	std::string level = oss.str();    
+    	std::string level = oss.str();
 
-		getGalaxis()->addLevel( level );	
+		getGalaxis()->addLevel( level );
     }
 
     //we can shoot
@@ -84,7 +84,7 @@ void Game::game_over()
     //reset fighter damage, position.
 	getFighter()->resetDamage();
 	getFighter()->reset_position();
-    
+
     //reset level and score
     getGalaxis()->reset_level();
 	reset_score();
@@ -102,7 +102,7 @@ bool Game::wasShot()
 }
 void Game::changeScore(int change)
 {
-    //change score 
+    //change score
     m_points += change;
 }
 
@@ -126,7 +126,7 @@ int Game::getLevel()
 void Game::incLevel()
 {
     //increment levelnumber
-    m_level++;
+    ++m_level;
 }
 int Game::getView()
 {
@@ -161,7 +161,7 @@ void Game::update()
             m_shoot = true;
             i = 0;
         }
-        i++;
+        ++i;
     }
 }
 
@@ -170,4 +170,3 @@ EmitterExplosion* Game::getEEmit()
     //return pointer to ExplosionEmitter
     return &m_eemit;
 }
-
