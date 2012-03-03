@@ -4,14 +4,12 @@
 */
 
 #include "rendering/partikel/Partikel.hpp"
-
-#include "rendering/partikel/Partikel-Explosion.hpp"
 #include <iostream>
 #include "logic/Game.hpp"
 #include "io/TextureManager.hpp"
 
 //Static Texture-Member
-GLuint Partikel::TexID2 = 0;
+GLuint Partikel::tex = 0;
 
 Partikel::Partikel(glVector<float> pos, glVector<float> speed)
 {
@@ -34,22 +32,25 @@ Partikel::Partikel(glVector<float> pos, glVector<float> speed)
 
 Partikel::Partikel(int lifetime, glVector<float> pos, int size, glVector<float> color)
 {
-    //set all members
-    m_lifetime  = lifetime;
-    m_starttime = lifetime;
-    m_position  = pos;
+    m_alive     = true;
     m_size      = size;
 
+    //Set Lifetime
+    m_lifetime  = lifetime;
+    m_starttime = lifetime;
+
+    //Color
     m_color     = color;
-    m_alive     = true;
     m_alpha     = 0;
+
     //No speed
     m_speed     = glVector<float>();
+    m_position  = pos;
 
     //Load texture one time
-    if(!TexID1)
+    if(!tex)
     {
-        TexID1 = TextureManager::LoadTexture("res/images/debris.tga");
+        tex = TextureManager::LoadTexture("res/images/debris.tga");
     }
 }
 
@@ -73,6 +74,7 @@ void Partikel::update()
         m_alive = false;
         return;
     }
+
     //Update Position
     m_position += m_speed;
 
@@ -91,13 +93,7 @@ void Partikel::update()
 
 void Partikel::render()
 {
-    //Load texture one time
-    if(!TexID2)
-    {
-        TexID2 = TextureManager::LoadTexture("res/images/grad.tga");
-    }
-
-    //calculate heading
+    //Calculate heading
     glVector<float> side = Game::getFighter()->getSide();
     side.normalize();
     glVector<float> up = Game::getFighter()->getUp();
