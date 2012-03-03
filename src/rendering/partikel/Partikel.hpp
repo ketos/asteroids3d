@@ -32,7 +32,7 @@ public:
     /**
     *   @brief Desructor
     */
-    ~PartikelFlug();
+    ~Partikel();
 
     /**
     *   @brief Aktualisiert Farbe und Lebenszeit.
@@ -87,7 +87,7 @@ private:
     /**
     *   @brief Textur fuer alle Partikel
     */
-    static GLuint TexID1;
+    static GLuint tex;
 };
 
 #endif //_PARTIKEL_H
