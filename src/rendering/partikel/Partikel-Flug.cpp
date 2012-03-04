@@ -10,7 +10,7 @@
 
 //Static Texture-Member
 GLuint PartikelFlug::tex[3] = {0,0,0};
-int sizes[3] = {18,22,20};
+int sizes[3] = {20,18,22};
 
 PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, glVector<float> color)
 {
