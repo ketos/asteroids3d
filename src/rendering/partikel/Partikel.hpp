@@ -1,5 +1,5 @@
 /**
-*   @file Partikel.hhp
+*   @file Partikel.hpp
 *   @author gruppe3
 */
 #ifndef _PARTIKEL_H
@@ -37,7 +37,7 @@ public:
 protected:
     /**
     *   @brief Zeichnet das Partikel auf dem Bildschirm.
-    *   @param tex Textur die auf das Quad gelegt wird.
+    *   @param texture Textur die auf das Quad gelegt wird.
     */
     void renderQuad(GLuint* texture);
 
@@ -62,7 +62,7 @@ protected:
     glVector<float> m_position;
 
     /**
-    *   @breif Geschwindigkeit
+    *   @brief Geschwindigkeit
     */
     glVector<float> m_speed;
 

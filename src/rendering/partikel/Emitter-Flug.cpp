@@ -94,7 +94,7 @@ void EmitterFlug::createPartikel()
     glVector<float> color(1,1,1); //White
 
     // Erstellen und hinzufügen des Partikels
-    PartikelFlug p(50, pos, 20, color);
+    PartikelFlug p(50, pos, color);
     add(p);
 }
 

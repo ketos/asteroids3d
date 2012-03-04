@@ -10,18 +10,19 @@
 
 //Static Texture-Member
 GLuint PartikelFlug::tex[3] = {0,0,0};
+int sizes[3] = {18,22,20};
 
-PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color)
+PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, glVector<float> color)
 {
     //set all members
     m_lifetime  = lifetime;
     m_starttime = lifetime;
     m_position  = pos;
-    m_size      = size;
     m_color     = color;
     m_alive     = true;
     m_alpha     = 0;
     m_index     = (int)rand() % 3;
+    m_size      = sizes[m_index];
 
     //Load texture one time
     if(!tex[0])
