@@ -25,8 +25,8 @@ void Mini_Asteorid::run()
     		speed -= 0.002;
     	}
 		m_position = m_position + flight_axis * speed;
+		rotate(ROLL,0.0016);
 		usleep(10000);
 	}
 	emit hit();
 }
-

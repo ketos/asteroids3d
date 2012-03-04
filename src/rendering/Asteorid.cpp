@@ -15,7 +15,7 @@ Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 
 bool Asteorid::isAlive()
 {
-	return alive;	
+	return alive;
 }
 
 void Asteorid::run()
@@ -27,6 +27,7 @@ void Asteorid::run()
     		speed -= 0.002;
     	}
 		m_position = m_position + flight_axis * speed;
+        rotate(ROLL, 0.002);
 		usleep(10000);
 	}
 	emit destroyed(getPosition().x, getPosition().y, getPosition().z );
@@ -35,9 +36,9 @@ void Asteorid::run()
 void Asteorid::destroy()
 {
     SoundManager::playExplosion();
-    
+
     Game::getEEmit()->createPartikel(m_position);
-    
+
 	alive = false;
 }
 
