@@ -13,7 +13,7 @@ GLuint PartikelExplosion::tex = 0;
 PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 {
     //Randomize lifetime
-    m_lifetime  = (rand() %30 +1) + 170; //= 200;
+    m_lifetime  = (rand() %30 +1) + 100; //= 200;
     //init all members
     m_starttime = m_lifetime;
     m_position  = pos;

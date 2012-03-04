@@ -3,14 +3,18 @@
 
 Asteorid::Asteorid(glVector<float> start_position, glVector<float> flight_axis)
 {
-    alive = true;
-    m_position = start_position;
-    this->flight_axis = flight_axis;
-    speed = 0.02;
-    radius = 350;
-    mini = false;
+    alive   = true;
+    m_position          = start_position;
+    this->flight_axis   = flight_axis;
+    speed   = 0.02;
+    radius  = 350;
+    mini    = false;
     hitable = true;
-    wait = 0;
+    wait    = 0;
+
+    //Randomize Heading
+    rotate(PITCH, rand()%2);
+    rotate(YAW  , rand()%2);
 }
 
 bool Asteorid::isAlive()
