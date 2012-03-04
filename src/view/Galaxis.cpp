@@ -37,7 +37,7 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	glVector<float> v1 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v2 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v3 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
-	
+
 	addMiniAsteorid(tmp, v1);
 	addMiniAsteorid(tmp, v2);
 	addMiniAsteorid(tmp, v3);
@@ -50,27 +50,29 @@ void Galaxis::mini_astroid_destroyed()
 
 void Galaxis::render()
 {
-    if( asteorids.size() > 0 )
+    if( !asteorids.empty() )
     {
-      vector<Asteorid*>::iterator asteoridtIt;
-      asteoridtIt = asteorids.begin();
-      // Iterate over the fighter's bullets and render them
-      // if the bullet's lifetime is over, erase it from the vector.
-      while(asteoridtIt != asteorids.end()){
-	  (*asteoridtIt)->render();
-	  if(!(*asteoridtIt)->isAlive()){
-	      asteoridtIt = asteorids.erase(asteoridtIt);
-	      }else{
-	        asteoridtIt++;	
-	      }
-      }
+        vector<Asteorid*>::iterator asteoridtIt;
+        asteoridtIt = asteorids.begin();
+        // Iterate over the fighter's bullets and render them
+        // if the bullet's lifetime is over, erase it from the vector.
+        while(asteoridtIt != asteorids.end()){
+	        (*asteoridtIt)->render();
+	        if(!(*asteoridtIt)->isAlive()){
+	            asteoridtIt = asteorids.erase(asteoridtIt);
+	        }
+	        else
+	        {
+	            ++asteoridtIt;
+	        }
+        }
     }
     else
     {
     	Game::getFighter()->reset_position();
     	//alle asteoriden gelöscht
     	nextLevel();
-   }
+    }
 }
 
 vector<Asteorid*> Galaxis::getAsteorids()
@@ -107,7 +109,7 @@ void Galaxis::nextLevel()
 		   	glVector<float> p_1(p->first->x, p->first->y, p->first->z);
 		   	glVector<float> p_2(p->second->x, p->second->y, p->second->z);
 			addAsteorid(p_1, p_2);
-			levelIt++;
+			++levelIt;
     	}
     	level++;
     	paintLevel = true;
@@ -123,7 +125,7 @@ bool Galaxis::shouldIncLevel()
 	{
 			paintLevel = true;
 	}
-	
+
    if (paintLevel)
 	{
 	   paintLevelcount++;
@@ -137,7 +139,7 @@ bool Galaxis::shouldIncLevel()
 
 int Galaxis::getLevelnumber()
 {
-	return level;	
+	return level;
 }
 
 void Galaxis::reset_level()

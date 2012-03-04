@@ -43,7 +43,7 @@ void TexturedMesh::render()
     glPushMatrix();
     glMultMatrixf(m_transformation);
 
-    for(matListIt = m_matFaceLists.begin(); matListIt != m_matFaceLists.end(); matListIt++)
+    for(matListIt = m_matFaceLists.begin(); matListIt != m_matFaceLists.end(); ++matListIt)
     {
         // Get list for current material
         MaterialFaceList* matList = *matListIt;
@@ -112,4 +112,3 @@ void TexturedMesh::setColorMaterial(Color &ambient, Color &diffuse, Color &specu
     glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
 
 }
-

@@ -35,16 +35,16 @@ vector<Bullet*> Fighter::get_Bullets()
 {
 	vector<Bullet*> ret;
 	ret = m_bullets;
-  	return ret; 
+  	return ret;
 }
 
 void Fighter::render(bool printFighter)
 {
     rotate(PITCH, m_anglepitch);
     rotate(YAW  , m_angleyaw);
-    rotate(ROLL , m_angleroll); 
+    rotate(ROLL , m_angleroll);
 	m_position = m_position - m_xAxis * m_speed;
-    
+
 	if (printFighter)
 	{
 		// Render the fighter
@@ -64,7 +64,7 @@ void Fighter::renderBullet()
         if(!(*bulletIt)->isAlive()){
             bulletIt = m_bullets.erase(bulletIt);
 	    }else{
-	        bulletIt++;	
+	        ++bulletIt;
 	    }
     }
 }
@@ -79,16 +79,15 @@ void Fighter::killBullet(Bullet* b)
         {
 	        if((*bulletIt) == b)
 	        {
-	                bulletIt = m_bullets.erase(bulletIt);
-                        b->kill();
-                        break;
+                bulletIt = m_bullets.erase(bulletIt);
+                b->kill();
+                break;
 	        }
 	        else
 	        {
-	                bulletIt++;	
+                ++bulletIt;
 	        }
       }
-        
 }
 
 void Fighter::increaseDamage(int i)
@@ -98,10 +97,10 @@ void Fighter::increaseDamage(int i)
 
 void Fighter::changeSpeed(float change)
 {
-    if(m_speed <= 100 && m_speed >= 0)   
+    if(m_speed <= 100 && m_speed >= 0)
     {
         m_speed += change;
-        if(m_speed > 100) 
+        if(m_speed > 100)
         {
             m_speed = 100;
         }
@@ -159,8 +158,8 @@ void Fighter::changeAngle(int axis, float change)
             else if(m_anglepitch <= -MAXANGLE)
             {
                 m_anglepitch = -MAXANGLE;
-            } 
-            //std::cout << "pitch: " << m_anglepitch << std::endl;               
+            }
+            //std::cout << "pitch: " << m_anglepitch << std::endl;
             break;
 
         case YAW: // left-right
@@ -172,8 +171,8 @@ void Fighter::changeAngle(int axis, float change)
             else if(m_angleyaw <= -MAXANGLE)
             {
                 m_angleyaw = -MAXANGLE;
-            } 
-            //std::cout << "yaw: " << m_angleyaw << std::endl;               
+            }
+            //std::cout << "yaw: " << m_angleyaw << std::endl;
             break;
 
         case ROLL: // rollen
@@ -185,8 +184,8 @@ void Fighter::changeAngle(int axis, float change)
             else if(m_angleroll <= -MAXANGLE)
             {
                 m_angleroll = -MAXANGLE;
-            } 
-            //std::cout << "roll: " << m_angleroll << std::endl;            
+            }
+            //std::cout << "roll: " << m_angleroll << std::endl;
             break;
     }
 }
@@ -216,7 +215,7 @@ void Fighter::reduceAngle()
         {
             m_anglepitch = 0;
         }
-    } 
+    }
 
     if(m_angleyaw != 0)
     {
@@ -237,7 +236,7 @@ void Fighter::reduceAngle()
             m_angleyaw = 0;
         }
     }
-   
+
     if(m_angleroll != 0)
     {
         if(m_angleroll > 0)
@@ -256,7 +255,7 @@ void Fighter::reduceAngle()
         {
             m_angleroll = 0;
         }
-    }              
+    }
 }
 void Fighter::setNULL()
 {
@@ -265,4 +264,3 @@ void Fighter::setNULL()
     m_angleyaw  = 0;
     m_speed     = 0;
 }
-

@@ -3,9 +3,7 @@ Um das Programm zu starten run.sh ausführen.
 
 Um das Doxygen zum bauen braucht man graphviz,
 danach nur doxygen doxconf eingeben.
-(meine Lieblingsseite im Doxygen: .doc/html/Asteorid_8cpp.html)
-
-Ich find die Game lustiger
+(meine Lieblingsseite im Doxygen: ./doc/html/Game_8hpp.html)
 
 Steuerung:
     Menü:
@@ -43,4 +41,4 @@ Steuerung:
         Start
 
 benötigte Packages:
-sudo apt-get install joystick
+joystick, libxmu, libxi, libglu, libqt4, libsdl, libsdl-mixer, libopengl
