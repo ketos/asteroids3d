@@ -23,8 +23,14 @@ public:
     */
     PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color);
 
+    /**
+    *   @brief Updates Lifetime and Alpha-Blending
+    */
     void update();
 
+    /**
+    *   @brief Renders the particle as an quad
+    */
     void render();
 
 private:

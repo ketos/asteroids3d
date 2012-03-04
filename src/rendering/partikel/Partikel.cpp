@@ -6,6 +6,7 @@
 #include <iostream>
 #include "logic/Game.hpp"
 #include "io/TextureManager.hpp"
+#include <QtOpenGL>
 
 Partikel::Partikel()
 {
@@ -28,7 +29,7 @@ void Partikel::update()
     //Override it
 }
 
-void Partikel::render(GLunit* tex)
+void Partikel::renderQuad(GLuint* texture)
 {
     //Calculate heading
     glVector<float> side = Game::getFighter()->getSide();
@@ -45,7 +46,7 @@ void Partikel::render(GLunit* tex)
     glDisable ( GL_LIGHTING ) ;
 
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, tex);
+    glBindTexture(GL_TEXTURE_2D, *texture);
 
     //use alphatexture
     glEnable (GL_BLEND);
@@ -61,4 +62,4 @@ void Partikel::render(GLunit* tex)
     glEnd();
 
     glEnable ( GL_LIGHTING ) ;
-}
+} 

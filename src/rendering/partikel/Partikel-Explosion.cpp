@@ -58,5 +58,5 @@ void PartikelExplosion::render()
     {
         tex = TextureManager::LoadTexture("res/images/grad.tga");
     }
-    Partikel::render(&tex);
+    Partikel::renderQuad(&tex);
 }

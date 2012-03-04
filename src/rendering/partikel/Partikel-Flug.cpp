@@ -54,5 +54,5 @@ void PartikelFlug::update()
 
 void PartikelFlug::render()
 {
-    Partikel::render(&tex);
+    Partikel::renderQuad(&tex);
 }

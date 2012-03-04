@@ -14,6 +14,9 @@
 class Partikel
 {
 public:
+    /**
+    *   @brief Constructor
+    */
     Partikel();
 
     /**
@@ -22,7 +25,7 @@ public:
     ~Partikel();
 
     /**
-    *   @brief Aktualisiert Farbe und Lebenszeit.
+    *   @brief Aktualisiert alle Attribute.
     */
     virtual void update();
 
@@ -36,7 +39,7 @@ protected:
     *   @brief Zeichnet das Partikel auf dem Bildschirm.
     *   @param tex Textur die auf das Quad gelegt wird.
     */
-    void render(GLuint* tex);
+    void renderQuad(GLuint* texture);
 
     /**
     *   @brief Gesundheitstatus
