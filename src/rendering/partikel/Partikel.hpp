@@ -1,5 +1,6 @@
 /**
 *   @file Partikel.hhp
+*   @author gruppe3
 */
 #ifndef _PARTIKEL_H
 #define _PARTIKEL_H
@@ -13,21 +14,7 @@
 class Partikel
 {
 public:
-    /**
-    *   @brief  Construct an new particle
-    *   @param  lifetime Lebenszeit eines Partikels
-    *   @param  pos Startposition des partikels
-    *   @param  size Groesse des Partikels
-    *   @param  color Farbe des Partikels
-    */
-    Partikel(int lifetime, glVector<float> pos, int size, glVector<float> color);
-
-    /**
-    *   @brief  Constructs a new particle
-    *   @param  pos Startposition des partikels
-    *   @param  speed Geschwindigkeit des Partikels
-    */
-    Partikel(glVector<float> pos, glVector<float> speed);
+    Partikel();
 
     /**
     *   @brief Desructor
@@ -37,18 +24,20 @@ public:
     /**
     *   @brief Aktualisiert Farbe und Lebenszeit.
     */
-    void update();
+    virtual void update();
 
     /**
     *   @brief Gibt zurueck, ob Partikel noch am Leben ist.
     */
     bool isAlive();
 
+protected:
     /**
     *   @brief Zeichnet das Partikel auf dem Bildschirm.
+    *   @param tex Textur die auf das Quad gelegt wird.
     */
-    void render();
-private:
+    void render(GLuint* tex);
+
     /**
     *   @brief Gesundheitstatus
     */
@@ -70,6 +59,11 @@ private:
     glVector<float> m_position;
 
     /**
+    *   @breif Geschwindigkeit
+    */
+    glVector<float> m_speed;
+
+    /**
     *   @brief grösse
     */
     float m_size;
@@ -83,11 +77,6 @@ private:
     *   @brief Farbe
     */
     glVector<float> m_color;
-
-    /**
-    *   @brief Textur fuer alle Partikel
-    */
-    static GLuint tex;
 };
 
 #endif //_PARTIKEL_H

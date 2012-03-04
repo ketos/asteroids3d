@@ -2,56 +2,14 @@
 *   @file Partikel.cpp
 *   @author gruppe3
 */
-
 #include "rendering/partikel/Partikel.hpp"
 #include <iostream>
 #include "logic/Game.hpp"
 #include "io/TextureManager.hpp"
 
-//Static Texture-Member
-GLuint Partikel::tex = 0;
-
-Partikel::Partikel(glVector<float> pos, glVector<float> speed)
+Partikel::Partikel()
 {
-    m_alive     = true;
-    m_size      = 10;
 
-    //Randomize lifetime
-    m_lifetime  = (rand() %30 +1) + 170; //= 200;
-    m_starttime = m_lifetime;
-
-    //Randomize Color
-    float y = ((float)rand() / (float)RAND_MAX) - 0.5;
-    m_color     = glVector<float>(1, y, 0); //Orange
-    m_alpha     = 1;
-
-    //Position and Speed
-    m_speed     = speed * 4;
-    m_position  = pos;
-}
-
-Partikel::Partikel(int lifetime, glVector<float> pos, int size, glVector<float> color)
-{
-    m_alive     = true;
-    m_size      = size;
-
-    //Set Lifetime
-    m_lifetime  = lifetime;
-    m_starttime = lifetime;
-
-    //Color
-    m_color     = color;
-    m_alpha     = 0;
-
-    //No speed
-    m_speed     = glVector<float>();
-    m_position  = pos;
-
-    //Load texture one time
-    if(!tex)
-    {
-        tex = TextureManager::LoadTexture("res/images/debris.tga");
-    }
 }
 
 Partikel::~Partikel()
@@ -67,31 +25,10 @@ bool Partikel::isAlive()
 
 void Partikel::update()
 {
-    //Update Lifetime
-    --m_lifetime;
-    if(!m_lifetime)
-    {
-        m_alive = false;
-        return;
-    }
-
-    //Update Position
-    m_position += m_speed;
-
-    //Update Alpha-Bĺending
-    if(m_lifetime <= 20)
-        m_alpha -= 0.05;
-
-    //Update Color-Bĺending
-    if(m_lifetime <= (m_starttime - 10))
-    {
-        m_color.y += 0.05;
-        m_color.z += 0.05;
-    }
-
+    //Override it
 }
 
-void Partikel::render()
+void Partikel::render(GLunit* tex)
 {
     //Calculate heading
     glVector<float> side = Game::getFighter()->getSide();
@@ -108,7 +45,7 @@ void Partikel::render()
     glDisable ( GL_LIGHTING ) ;
 
     glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D,TexID2);
+    glBindTexture(GL_TEXTURE_2D, tex);
 
     //use alphatexture
     glEnable (GL_BLEND);
