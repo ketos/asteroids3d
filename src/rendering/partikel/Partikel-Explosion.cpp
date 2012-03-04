@@ -19,6 +19,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
     m_position  = pos;
     m_size      = 10;
 
+    //Randomize Color
     float y = ((float)rand() / (float)RAND_MAX) - 0.5;
     m_color     = glVector<float>(1, y, 0); //Orange
     m_alive     = true;
@@ -29,7 +30,7 @@ PartikelExplosion::PartikelExplosion(glVector<float> pos, glVector<float> speed)
 void PartikelExplosion::update()
 {
     //Update Lifetime
-    m_lifetime--;
+    --m_lifetime;
     if(!m_lifetime)
     {
         m_alive = false;

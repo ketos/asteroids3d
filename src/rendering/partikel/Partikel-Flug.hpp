@@ -37,7 +37,9 @@ private:
     /**
     *   @brief Textur fuer alle Partikel
     */
-    static GLuint tex;
+    static GLuint tex[3];
+
+    int m_index;
 };
 
 #endif //_PARTIKEL_FLUG_H

@@ -9,7 +9,7 @@
 #include "io/TextureManager.hpp"
 
 //Static Texture-Member
-GLuint PartikelFlug::tex = 0;
+GLuint PartikelFlug::tex[3] = {0,0,0};
 
 PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, int size, glVector<float> color)
 {
@@ -21,11 +21,14 @@ PartikelFlug::PartikelFlug(int lifetime, glVector<float> pos, int size, glVector
     m_color     = color;
     m_alive     = true;
     m_alpha     = 0;
+    m_index     = (int)rand() % 3;
 
     //Load texture one time
-    if(!tex)
+    if(!tex[0])
     {
-        tex = TextureManager::LoadTexture("res/images/debris.tga");
+        tex[0] = TextureManager::LoadTexture("res/images/debris.tga");
+        tex[1] = TextureManager::LoadTexture("res/images/debris2.tga");
+        tex[2] = TextureManager::LoadTexture("res/images/debris3.tga");
     }
 
 }
@@ -54,5 +57,5 @@ void PartikelFlug::update()
 
 void PartikelFlug::render()
 {
-    Partikel::renderQuad(&tex);
+    Partikel::renderQuad(&tex[m_index]);
 }
