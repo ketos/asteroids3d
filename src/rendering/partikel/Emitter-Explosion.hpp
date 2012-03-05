@@ -28,12 +28,12 @@ public:
     /**
      * @brief Fügt ein Partikel zur Liste hinzu, solange die maximale Partikelanzahl
      *          noch nicht erreicht ist
-     * 
+     *
      * @param partikel das neue Explosionspartikel
      * @return ob es hinzugefügt werden konnte oder nicht
      */
     bool add(PartikelExplosion partikel);
-    
+
     /**
      *  @brief updatet alle aktuell vorhandenen Partikel
      */
@@ -45,7 +45,7 @@ public:
      * @param a_pos Position der Explosion / des zerstörten Asteoriden
      */
     void createPartikel(glVector<float> a_pos);
-    
+
 private:
     /**
      * @brief Liste mit den Partikel

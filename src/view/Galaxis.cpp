@@ -52,25 +52,27 @@ void Galaxis::render()
 {
     if( !asteorids.empty() )
     {
-      vector<Asteorid*>::iterator asteoridtIt;
-      asteoridtIt = asteorids.begin();
-      // Iterate over the fighter's bullets and render them
-      // if the bullet's lifetime is over, erase it from the vector.
-      while(asteoridtIt != asteorids.end()){
-	  (*asteoridtIt)->render();
-	  if(!(*asteoridtIt)->isAlive()){
-	      asteoridtIt = asteorids.erase(asteoridtIt);
-	      }else{
-	        ++asteoridtIt;
-	      }
-      }
+        vector<Asteorid*>::iterator asteoridtIt;
+        asteoridtIt = asteorids.begin();
+        // Iterate over the fighter's bullets and render them
+        // if the bullet's lifetime is over, erase it from the vector.
+        while(asteoridtIt != asteorids.end()){
+	        (*asteoridtIt)->render();
+	        if(!(*asteoridtIt)->isAlive()){
+	            asteoridtIt = asteorids.erase(asteoridtIt);
+	        }
+	        else
+	        {
+	            ++asteoridtIt;
+	        }
+        }
     }
     else
     {
     	Game::getFighter()->reset_position();
     	//alle asteoriden gelöscht
     	nextLevel();
-   }
+    }
 }
 
 vector<Asteorid*> Galaxis::getAsteorids()
@@ -107,7 +109,7 @@ void Galaxis::nextLevel()
 		   	glVector<float> p_1(p->first->x, p->first->y, p->first->z);
 		   	glVector<float> p_2(p->second->x, p->second->y, p->second->z);
 			addAsteorid(p_1, p_2);
-			levelIt++;
+			++levelIt;
     	}
     	level++;
     	paintLevel = true;

@@ -31,7 +31,7 @@ public:
     *   @return der Fighter
     */
     static Fighter* getFighter();
-
+    
     /**
     *   @brief Liefert die Galaxie zurück
     *   @return die Galaxie
@@ -84,11 +84,11 @@ public:
     *   @param view Perspektivennummer
     */
     static void setView(int view);
-
-    /**
+    
+    /*
      *  @brief if the fighter has shot
      *  @return true if the fighter shoots
-     */
+     */ 
     static bool wasShot();
 
     /**
@@ -96,7 +96,7 @@ public:
     *   @return Levelnummer
     */
     static int getLevel();
-
+    
     /**
     *   @brief Erhoet das level um 1
     */
@@ -121,13 +121,13 @@ public:
     *   @brief Fragt ob wieder geschossen werden darf
     *   @return Ob geschossen werden darf
     */
-    static bool getshoot();
+    static bool getshoot(); 
 
     /**
     *   @brief Updatet reloadtimer und sorgt fuer traegheit des schiffes
     */
     static void update();
-
+    
     /**
     *   @brief  Gibt den Explsionsemitter zurueck
     *   @return ExplosionsEmitter
@@ -144,17 +144,17 @@ private:
     static EmitterFlug m_Femit;
     static HUD m_Hud;
     static EmitterExplosion m_eemit;
-
+    
     static bool m_shoot;
     static int i;
-
+    
     static int m_points;
     static int m_level;
     static int m_view;
 
     /**
     *   @brief Lädt das angegebene Modell für den Fighter
-    *   @param filename Dateiname der Modelldatei
+    *   @param string Dateiname der Modelldatei
     */
     static void loadFighter(string filename);
 };

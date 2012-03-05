@@ -48,6 +48,7 @@ void Collision::run()
 					Game::getFighter()->increaseDamage(20);
 				else
 					Game::getFighter()->increaseDamage(50);
+
 				(*asteoridtIt)->destroy();
 				sleep(1);
 			}
@@ -73,7 +74,7 @@ void Collision::run()
          	{
             	float diffX = ((*bulletIt)->getPosition())[0] - ((*asteoridtIt)->getPosition())[0] ;
             	float diffY = ((*bulletIt)->getPosition())[1] - ((*asteoridtIt)->getPosition())[1] ;
-					float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
+			    float diffZ = ((*bulletIt)->getPosition())[2] - ((*asteoridtIt)->getPosition())[2] ;
 
 				int diff = sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));
 

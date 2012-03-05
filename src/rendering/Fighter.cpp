@@ -79,16 +79,15 @@ void Fighter::killBullet(Bullet* b)
         {
 	        if((*bulletIt) == b)
 	        {
-	                bulletIt = m_bullets.erase(bulletIt);
-                        b->kill();
-                        break;
+                bulletIt = m_bullets.erase(bulletIt);
+                b->kill();
+                break;
 	        }
 	        else
 	        {
-	                ++bulletIt;
+                ++bulletIt;
 	        }
       }
-
 }
 
 void Fighter::increaseDamage(int i)

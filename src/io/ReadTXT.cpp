@@ -11,7 +11,7 @@ vector<string> ReadTXT::read()
     datei.open("res/score/highscore.txt", ios::in);
     while (datei.getline (line, 256))
     {
-        tmp.push_back(line);
+        tmp.push_back(line);        
     }
 
     return tmp;
@@ -36,11 +36,11 @@ void ReadTXT::write(string s, int punkte)
         sstr >> name;
         sstr >> pts;
         pair<int, string> temp(pts, name);
-        vecpair.push_back(temp);
-        ++iter;
-        sstr.clear();
+        vecpair.push_back(temp); 
+        iter++;
+        sstr.clear(); 
     }
-
+    
     vecpair.push_back(make_pair(punkte,s));
 
     sort(vecpair.begin(), vecpair.end());
@@ -48,14 +48,16 @@ void ReadTXT::write(string s, int punkte)
     iters = vecpair.rbegin();
     fstream datei1;
     datei1.open("res/score/highscore.txt", ios::out);
-    int i = 0;
+    int i = 0; 
 
     while(iters != vecpair.rend() && i < 10)
     {
         pair<int,string> pairs = (*iters);
         datei1 << pairs.second << " " << pairs.first << endl;
-        ++iters;
-        ++i;
+        iters++;
+        i++;
     }
-    datei1.close();
+    datei1.close(); 
 }
+
+
