@@ -13,9 +13,12 @@
 
 using std::string;
 using std::vector;
+using std::pair;
 
 /**
- * @brief XML parser für die level.xml's
+ * @brief  XML Reader für die level.xml's
+ *
+ * @author Gruppe 3
  */
 class ReadXML
 {
@@ -28,10 +31,10 @@ public:
      *
      * @return   vector<std::pair<glVector<float>*, glVector<float>* >* >
      
-     *           vector liste, bestehend aus glVector pairs, welche postion und axis (richtung)
-     *           der Asteroiden beinhalten	 
+     *           vector liste, bestehend aus glVector pairs, welche postion und 
+     *           axis (richtung / geschwindigkeit) der Asteroiden beinhalten	 
      */
-    static vector<std::pair<glVector<float>*, glVector<float>* >* >* readConfig(string& filename);
+    static vector<pair<glVector<float>*, glVector<float>* >* >* readConfig(string& filename);
    
 };
 
