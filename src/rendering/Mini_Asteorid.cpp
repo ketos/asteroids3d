@@ -14,6 +14,10 @@ Mini_Asteorid::Mini_Asteorid(glVector<float> start_position, glVector<float> fli
 	mini = true;
 	hitable = true;
 	speed = 0.2;
+
+    //Randomize Heading
+    rotate(PITCH, rand()%2);
+    rotate(YAW  , rand()%2);
 }
 
 void Mini_Asteorid::run()
@@ -25,8 +29,8 @@ void Mini_Asteorid::run()
     		speed -= 0.002;
     	}
 		m_position = m_position + flight_axis * speed;
+		rotate(ROLL,0.0016);
 		usleep(10000);
 	}
 	emit hit();
 }
-

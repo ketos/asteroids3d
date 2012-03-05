@@ -1,5 +1,6 @@
 #include "view/HUD.hpp"
 #include <QDebug>
+
 HUD::HUD()
 {
 	fighterDamage 			= 0;
@@ -83,7 +84,7 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
 	painter->setPen(QColor(0,255,0,255));
     int p = 6;
 	glVector<float> tmp(*vec);
-	if(vec->length()<5000)
+	if(vec->length() < 5000)
 	{
 	   tmp.x/=radarrange;
        tmp.y/=radarrange;
@@ -100,16 +101,17 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
        painter->drawEllipse(radarmidx+y-(p/2), radarmidy+x-z-(p/2),p,p);
    }
    else{
-   	if(tmp.z>=0)
-   	{
-   		painter->setPen(QColor(0,255,0,255));
-   	}else
-   		painter->setPen(QColor(255,0,0,255));
-   	glVector<float> xytmp(tmp.x,tmp.y,0);
-		xytmp.normalize();
+   	    if(tmp.z>=0)
+   	    {
+   		    painter->setPen(QColor(0,255,0,255));
+   	    }
+   	    else
+   		    painter->setPen(QColor(255,0,0,255));
+   	    glVector<float> xytmp(tmp.x,tmp.y,0);
+	    xytmp.normalize();
 		xytmp = xytmp * (durchmesser/2);
 		painter->drawEllipse(radarmidx+(xytmp.y)-(p/2), radarmidy+(xytmp.x)-(p/2),p,p);
-  	}
+    }
 }
 bool HUD::getView()
 {
@@ -195,19 +197,18 @@ void HUD::score(int punkte, int breite)
 
 void HUD::damages(int schaden)
 {
- 	 QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
-     pen.setWidth(9);
- 	 painter->setPen(pen);
+    QPen pen(QColor((2.25)*schaden,255-((2.25)*schaden),0,200));
+    pen.setWidth(9);
+    painter->setPen(pen);
 
-	 QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
- 	 int startAngle = -50 * 16;
- 	 int spanAngle = (100-schaden) * 16;
+    QRectF rectangles(radmidx -(durchmesser/2)-10, radmidy-(durchmesser/2)-10, durchmesser+20, durchmesser+20);
+    int startAngle = -50 * 16;
+    int spanAngle = (100-schaden) * 16;
     painter->drawArc(rectangles, startAngle, spanAngle);
 }
 
 void HUD::Speed(float speed)
 {
-
  	QPen pen(QColor((2.25)*speed,255-((2.25)*speed),0,200));
     //pen.setStyle(Qt::DashDotLine);
     pen.setWidth(9);
@@ -269,9 +270,9 @@ void HUD::drawGreenScreen()
 }
 void HUD::drawSplash(int breite, int hoehe)
 {
-	 painter->setBrush(QColor(0, 0, 0, 255));
-	 QRect rec(0,0,breite,hoehe);
-	 painter->drawRect(rec);
+    painter->setBrush(QColor(0, 0, 0, 255));
+    QRect rec(0,0,breite,hoehe);
+    painter->drawRect(rec);
 
     QImage myImage = QImage("res/images/splash.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);
@@ -340,7 +341,6 @@ void HUD::deleteCockpit()
 }
 void HUD::drawHighscore()
 {
-
 	painter->setBrush(QColor(0, 0, 0, 255));
 	QRect rec(0, 0, breite, hoehe);
     painter->drawRect(rec);
@@ -357,20 +357,20 @@ void HUD::drawHighscore()
     painter->drawText(point, header);
     while(highIt != highscore.end())
     {
-    	++i;
+    	i++;
         tmp =  QString::fromStdString(*highIt);
         ++highIt;
         QPoint point2 = QPoint(100, 100 + 20 * i);
-   	    painter->drawText(point2, tmp);
+        painter->drawText(point2, tmp);
     }
 
 
 }
 void HUD::drawGameover(int breite, int hoehe)
 {
-	 painter->setBrush(QColor(0, 0, 0, 255));
-	 QRect rec(0,0,breite,hoehe);
-	 painter->drawRect(rec);
+    painter->setBrush(QColor(0, 0, 0, 255));
+    QRect rec(0,0,breite,hoehe);
+    painter->drawRect(rec);
 
     QImage myImage = QImage("res/images/gameOver.png");
     QPoint point = QPoint(breite/2 - myImage.width()/2,hoehe/2 - myImage.height()/2);

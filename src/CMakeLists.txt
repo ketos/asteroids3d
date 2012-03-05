@@ -20,7 +20,7 @@ include_directories(${CMAKE_SOURCE_DIR}/ext/load3ds/math3d++)
 link_directories("${CMAKE_SOURCE_DIR}/lib")
 
 ###############################################################################
-# With cmake we can define additional compiler flags for different 
+# With cmake we can define additional compiler flags for different
 # configurations. CMAKE_CXX_FLAGS are for the default case. The debug config
 # can be used to generate debug symbols for gdb. The release option uses
 # special optimization flags
@@ -31,8 +31,8 @@ set( CMAKE_CXX_FLAGS_RELEASE "-O3 -msse3 -Wno-deprecated-declarations -Wno-unuse
 set( CMAKE_CXX_FLAGS_DEBUG   "-g -Wall" )
 
 ###############################################################################
-# Find required libraries.Right now we need glut and OpenGL. The required 
-# options forces this packages to be present. For non-mandatory packages you 
+# Find required libraries.Right now we need glut and OpenGL. The required
+# options forces this packages to be present. For non-mandatory packages you
 # can leave this flag out. The can then check if they were found by using
 # IF(OpenGL_found) etc.
 ###############################################################################
@@ -72,7 +72,7 @@ endif(QT4_FOUND)
 add_subdirectory(ext/load3ds)
 
 ###############################################################################
-# Variable for the sources of the binary. In larger projects it is often a 
+# Variable for the sources of the binary. In larger projects it is often a
 # good idea to use such variables because it is easy to add more source files
 # and you can reuse it for several targets (maybe you want to build a library
 # some day ;-)
@@ -90,7 +90,7 @@ set(VIEWER_SOURCES
 	io/SoundManager.cpp
     io/joystick.cpp
     io/TextureManager.cpp
-    view/MainWindow.cpp 
+    view/MainWindow.cpp
     view/Camera.cpp
     view/Galaxis.cpp
 	view/RenderFrame.cpp
@@ -99,7 +99,7 @@ set(VIEWER_SOURCES
     control/keyboard.cpp
     control/joystickcontrol.cpp
     rendering/TriangleMesh.cpp
-	rendering/Texture.cpp 
+	rendering/Texture.cpp
 	rendering/Skybox.cpp
 	rendering/Transformable.cpp
 	rendering/TexturedMesh.cpp
@@ -111,6 +111,7 @@ set(VIEWER_SOURCES
     rendering/partikel/Partikel-Flug.cpp
     rendering/partikel/Emitter-Explosion.cpp
     rendering/partikel/Partikel-Explosion.cpp
+    rendering/partikel/Partikel.cpp
     logic/Game.cpp
     Main.cpp
     math/Collision.cpp
@@ -121,7 +122,7 @@ set(VIEWER_SOURCES
 # META OBJECTS
 ###############################################################################
 
-set(VIEWER_MOCS 
+set(VIEWER_MOCS
     view/RenderFrame.hpp
 	view/Galaxis.hpp
 	rendering/Asteorid.hpp)
@@ -141,7 +142,7 @@ add_executable(asteroids3D ${VIEWER_SOURCES} ${VIEWER_MOC_SRC} ${C3DSREADER_SOUR
 message(STATUS "SDL_Mixer : " ${SDLMIXER_LIBRARY})
 
 target_link_libraries(asteroids3D ${GLUT_LIBRARY} ${OPENGL_LIBRARY})
-target_link_libraries(asteroids3D c3dsreader) 
+target_link_libraries(asteroids3D c3dsreader)
 target_link_libraries(asteroids3D ${SDL_LIBRARY})
 target_link_libraries(asteroids3D ${SDLMIXER_LIBRARY})
 target_link_libraries(asteroids3D ${QGLVIEWER_LIBRARY_RELEASE})
@@ -149,5 +150,3 @@ target_link_libraries(asteroids3D ${QT_QTCORE_LIBRARIES})
 target_link_libraries(asteroids3D ${QT_QTGUI_LIBRARIES})
 target_link_libraries(asteroids3D ${QT_QTOPENGL_LIBRARIES})
 target_link_libraries(asteroids3D ${QT_QTXML_LIBRARIES})
-
-
