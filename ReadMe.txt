@@ -21,7 +21,7 @@ Steuerung:
         1
         2
         3
-        
+
         9
         0
         Bild rauf
@@ -36,11 +36,10 @@ Steuerung:
         B
         X
         Y
-        
         LB
         RB
         Rechter Analogstick
         Start
 
 benötigte Packages:
-sudo apt-get install joystick
+joystick, libxmu, libxi, libglu, libqt4, libsdl, libsdl-mixer, libopengl
