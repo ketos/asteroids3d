@@ -12,35 +12,36 @@ Steuerung:
         Enter   : Startet das Spiel
         H       : Zeigt den Highscore
     Spiel:
-        W
-        S
-        Pfeil Hoch
-        Pfeil Runter
-        Pfeil Links
-        Pfeil Rechts
-        1
-        2
-        3
+        W       : erhöht die Geschwindigkeit
+        S       : bremst das Raumschiff 
+        Pfeil Hoch  : hebt die Nase des Raumschiffs
+        Pfeil Runter: senkt die Nase des Raumschiffs
+        Pfeil Links : fliegt nach links, und rollt nach links
+        Pfeil Rechts: fliegt nach rechts und rollt nach rehts
+        Space   : Schiessen
+        1       : Ego Perspektive
+        2       : Third-Person
+        3       : Cockpit
         
-        9
-        0
-        Bild rauf
-        Bild runter
-        Escape
+        9       : Kamera von Schiff entfernen
+        0       : Kamera näher zum Schiff
+        Bild rauf   : Kamera höher
+        Bild runter : Kamera niedriger
+        Escape      : Bewegung auf 0 (nur zu Testzwecken)
 
     Joystick (XBox360 Wireless)
-        Linker Analogstick
-        Linker Trigger
-        Rechter Trigger
-        A
-        B
-        X
-        Y
+        Linker Analogstick : Steuern (links/rechts/hoch/runter)
+        Linker Trigger  : Beschleunigen
+        Rechter Trigger : Bremsen
+        A               : Schiessen
+        B               : Perspektive 1
+        X               : Perspektive 2
+        Y               : Perspektive 3
         
-        LB
-        RB
-        Rechter Analogstick
-        Start
+        LB              : Kamera entfernen
+        RB              : Kamera ranholen
+        Rechter Analogstick : Kamera steuern (hoch/runter/rechts/links) (Debugzwecke)
+        Start           : Bewegung auf 0 (nur zu Testzwecken)
 
 benötigte Packages:
 sudo apt-get install joystick
