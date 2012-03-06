@@ -1,31 +1,39 @@
+/**
+ * @file ReadTXT.hpp
+ *
+ * @author gruppe3
+ */
+
 #ifndef READTEXT_
 #define READTEXT_
 
-#include <iostream>
+#include <algorithm>
 #include <fstream>
+#include <iostream>
+#include <sstream>
 #include <stdexcept>
 #include <QFile>
 #include <QString>
-#include <QTextStream>
 #include <QStringList>
+#include <QTextStream>
 #include <vector>
-#include <sstream>
-#include <algorithm>
 
 using namespace std;
 class ReadTXT
 {
 public:
-    /*
+    /**
      * @brief constructs a reader and writer for .txt files
      */
-	ReadTXT();
-    /*
+    ReadTXT();
+
+    /**
      * @brief reads a .txt file
      * @return vector<string> a vector, which contains the text of the file
      */
     vector<string> read();
-    /*
+
+    /**
      * @brief writes the given name and points in the highscore
      * @param string the name of the player
      * @param int points of the player
@@ -37,7 +45,7 @@ private:
     fstream datei;
     QString filename;
     char line[256];
-    stringstream sstr;	   
+    stringstream sstr;
 };
 
 #endif 
