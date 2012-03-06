@@ -35,8 +35,8 @@ public:
 
     /**
      * @brief writes the given name and points in the highscore
-     * @param string the name of the player
-     * @param int points of the player
+     * @param s the name of the player
+     * @param punkte points of the player
      */
     void write(string s,int punkte);
 

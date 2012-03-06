@@ -18,7 +18,6 @@ public:
     *   @brief  Construct an new particle
     *   @param  lifetime Lebenszeit eines Partikels
     *   @param  pos Startposition des partikels
-    *   @param  size Groesse des Partikels
     *   @param  color Farbe des Partikels
     */
     PartikelFlug(int lifetime, glVector<float> pos, glVector<float> color);
