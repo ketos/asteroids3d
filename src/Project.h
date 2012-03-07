@@ -8,6 +8,4 @@
 *   @section sec2 Contributors
 *   Daniel Böß, Henning ?, Nils Bussmann, Michel ?, Tim Wessels, Tim 2, Tim 3
 *
-*
-*
 */
