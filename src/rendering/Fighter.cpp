@@ -1,5 +1,6 @@
 /**
- * Fighter.cpp
+ * @file   Fighter.cpp
+ * @author gruppe3
  *
 */
 
@@ -12,6 +13,7 @@
 #include "control/control.hpp"
 #include <cmath>
 
+// static members
 int damage = 0;
 int score  = 0;
 
@@ -33,6 +35,7 @@ void Fighter::shoot()
 
 vector<Bullet*> Fighter::get_Bullets()
 {
+        //copy vector
 	vector<Bullet*> ret;
 	ret = m_bullets;
   	return ret;
@@ -59,47 +62,55 @@ void Fighter::renderBullet()
     bulletIt = m_bullets.begin();
     // Iterate over the fighter's bullets and render them
     // if the bullet's lifetime is over, erase it from the vector.
-    while(bulletIt != m_bullets.end()){
+    while(bulletIt != m_bullets.end())
+    {
         (*bulletIt)->render();
-        if(!(*bulletIt)->isAlive()){
-            bulletIt = m_bullets.erase(bulletIt);
-	    }else{
+        if(!(*bulletIt)->isAlive())
+        {
+                bulletIt = m_bullets.erase(bulletIt);
+	}
+	else
+	{
 	        ++bulletIt;
-	    }
+	}
     }
 }
 
 // Anmerkung eigentlich zuviel rausnehmen
 void Fighter::killBullet(Bullet* b)
 {
-        //killen der kugel
+        // killen der kugel
         vector<Bullet*>::iterator bulletIt;
         bulletIt = m_bullets.begin();
+        // iterieren des vectors
         while(bulletIt != m_bullets.end())
         {
+                // wenn kugel gefunden diese entfernen
 	        if((*bulletIt) == b)
 	        {
-                bulletIt = m_bullets.erase(bulletIt);
-                b->kill();
-                break;
+                        bulletIt = m_bullets.erase(bulletIt);
+                        b->kill();
+                        break;
 	        }
 	        else
 	        {
-                ++bulletIt;
+                        ++bulletIt;
 	        }
       }
 }
 
 void Fighter::increaseDamage(int i)
 {
-    damage += i;
+        damage += i;
 }
 
 void Fighter::changeSpeed(float change)
 {
+    // wenn kugel im geforderten intervall
     if(m_speed <= 100 && m_speed >= 0)
     {
         m_speed += change;
+        // obere speed grenze
         if(m_speed > 100)
         {
             m_speed = 100;
@@ -192,11 +203,14 @@ void Fighter::changeAngle(int axis, float change)
 
 void Fighter::reduceAngle()
 {
+    // wenn in bewegung -> bremsen
     if(m_speed != 0)
     {
         changeSpeed(BRAKE);
     }
-
+    
+    // verändere angle 
+    
     if(m_anglepitch != 0)
     {
         if(m_anglepitch > 0)

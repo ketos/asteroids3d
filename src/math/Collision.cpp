@@ -38,6 +38,8 @@ void Collision::run()
 
 			if(diffFight > 15000)
 			{
+				// Sollen die Asteoriden nach einer gewissen Distanz zum Schiff zurückgeworfen werden
+				// den Kommentar entfernen
 				//(*asteoridtIt)->changeDirection();
 			}
 

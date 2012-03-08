@@ -1,7 +1,6 @@
 /**
- * @file
- * Asteorid.hpp
- *
+ * @file Mini_Asteorid.hpp
+ * @author gruppe3
  */
 
 #ifndef MINI_ASTEROID_HPP_
@@ -18,12 +17,18 @@
 
 
 /**
- * @brief Renders a Mini_Asteorid
+ * @brief Mini_Asteorid
  */
 class Mini_Asteorid: public Asteorid
 {
 public:
+	/**
+	 * @brief Constructs a little Asteorid
+	 */
     Mini_Asteorid(glVector<float> start_position, glVector<float> flight_axis);
+	/**
+	 * @brief Runs the Thread
+	 */
 	void run();
     
 };

@@ -18,16 +18,16 @@ Tim R
     rendering/partikel/Emitter-Flug.cpp erledigt
     rendering/partikel/Emitter-Explosion.cpp erledigt
 Henning
-    view/Galaxis.cpp
-    rendering/Asteorid.cpp
-    rendering/Mini_Asteorid.cpp
-    math/Collision.cpp
+    view/Galaxis.cpp +
+    rendering/Asteorid.cpp +
+    rendering/Mini_Asteorid.cpp +
+    math/Collision.cpp +
 Michel
     view/HUD.cpp
     view/Menu.cpp
 Nils
-    rendering/Fighter.cpp
-    rendering/Bullet.cpp
+    rendering/Fighter.cpp +
+    rendering/Bullet.cpp +
 
 reinschauen
     rendering/Transformable.cpp

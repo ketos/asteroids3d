@@ -24,7 +24,7 @@ bool Asteorid::isAlive()
 
 void Asteorid::run()
 {
-    // Modify the Asteorid's position until the lifetime is over
+    	// Modify the Asteorid's position until it's over
 	while(alive){
 		if(speed > 0.01)
     	{
@@ -34,15 +34,14 @@ void Asteorid::run()
         rotate(ROLL, 0.002);
 		usleep(10000);
 	}
+	// Destroyed -> Emit Signal
 	emit destroyed(getPosition().x, getPosition().y, getPosition().z );
 }
 
 void Asteorid::destroy()
 {
     SoundManager::playExplosion();
-
     Game::getEEmit()->createPartikel(m_position);
-
 	alive = false;
 }
 

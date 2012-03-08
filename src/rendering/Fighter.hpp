@@ -1,6 +1,6 @@
 /**
- * @file
- * Fighter.hpp
+ * @file   Fighter.hpp
+ * @author gruppe3
  */
 
 
@@ -72,35 +72,43 @@ public:
      *@brief returns the actual score
      *@return actual score
      */
-	int getScore();
+     int getScore();
 
-	/**
+    /**
      * @brief if the fighter has shot
      * @return true if the fighter shot
      */
-	bool wasShot();
+     bool wasShot();
 
-	/**
-	 *@brief resets Damage
-	 *
-	 */
-	void resetDamage();
+    /**
+      *@brief resets Damage of the figher
+      */
+     void resetDamage();
 
-	void reset_position();
-
-    void reduceAngle();
-
-    void setNULL();
+     /**
+      *@brief resets the position of the figher
+      */
+     void reset_position();
+     /**
+      *@brief reduces angle
+      */
+     void reduceAngle();
+     /**
+      *@brief resets angle and speed
+      */
+     void setNULL();
 
 private:
-     //bool for shot
+     // true if shoot
      bool shot;
-    // A vector with the bullets this fighter has shot.
-	vector<Bullet*> m_bullets;
+     
+     // A vector with the bullets this fighter has shot.
+     vector<Bullet*> m_bullets;
 
-    float m_anglepitch;
-    float m_angleyaw;
-    float m_angleroll;
+     // floats for angle
+     float m_anglepitch;
+     float m_angleyaw;
+     float m_angleroll;
 };
 
 #endif /* FIGHTER_HPP_ */

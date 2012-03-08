@@ -14,6 +14,7 @@ void Galaxis::addAsteorid(glVector<float> v1, glVector<float> v2)
     Asteorid* a = new Asteorid(v1,v2);
     Read3DS reader("res/models/asteroid2.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
+	// Connects Signal and Slot with this Asteorid
     QObject::connect(a, SIGNAL( destroyed(float, float, float) ), this, SLOT( big_astroid_destroyed(float, float, float) ));
     a->start();
     asteorids.push_back( a );
@@ -24,6 +25,7 @@ void Galaxis::addMiniAsteorid(glVector<float> v1, glVector<float> v2)
     Mini_Asteorid* a = new Mini_Asteorid(v1,v2);
     Read3DS reader("res/models/asteroid.3ds");
     reader.getMesh(*(static_cast<TexturedMesh*>(a)));
+	// Connects Signal and Slot with this Asteorid
     QObject::connect(a, SIGNAL( hit() ), this, SLOT(mini_astroid_destroyed() ) );
     a->start();
     asteorids.push_back( a );
@@ -37,7 +39,7 @@ void Galaxis::big_astroid_destroyed(float x, float y, float z)
 	glVector<float> v1 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v2 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
 	glVector<float> v3 (  ( (rand() % 200 - 100)), ( (rand() % 200 - 100)), ( (rand() % 200 - 100) ) );
-
+	// Increase Score and create three new little Asteorids instead of the big one.
 	addMiniAsteorid(tmp, v1);
 	addMiniAsteorid(tmp, v2);
 	addMiniAsteorid(tmp, v3);
@@ -54,8 +56,7 @@ void Galaxis::render()
     {
         vector<Asteorid*>::iterator asteoridtIt;
         asteoridtIt = asteorids.begin();
-        // Iterate over the fighter's bullets and render them
-        // if the bullet's lifetime is over, erase it from the vector.
+        // Iterate over Asteorids and render them
         while(asteoridtIt != asteorids.end()){
 	        (*asteoridtIt)->render();
 	        if(!(*asteoridtIt)->isAlive()){
@@ -69,8 +70,8 @@ void Galaxis::render()
     }
     else
     {
+		// All Asteorids destroyed, reset Level and Fighter Position
     	Game::getFighter()->reset_position();
-    	//alle asteoriden gelöscht
     	nextLevel();
     }
 }
@@ -94,17 +95,15 @@ void Galaxis::addLevel(string& filename)
 
 void Galaxis::nextLevel()
 {
-	//loeschen aller asteoriden
-	//asteorids.clear();
-	//naechstes level laden
-	//nächtes level in currentLevel
 	if (level < m_levels.size())
 	{
+		// Get Level Information of current level
 		vector<std::pair<glVector<float>*, glVector<float>* >* >* currentLevel = m_levels[ level ];
 		vector< std::pair<glVector<float>*, glVector<float>* >* >::iterator levelIt;
 		levelIt = currentLevel->begin();
 		while( levelIt != currentLevel->end() )
 		{
+			// Iterate over Levelinformation and add new Asteorids
 			pair<glVector<float>*, glVector<float>* >* p = (*levelIt);
 		   	glVector<float> p_1(p->first->x, p->first->y, p->first->z);
 		   	glVector<float> p_2(p->second->x, p->second->y, p->second->z);
@@ -114,15 +113,13 @@ void Galaxis::nextLevel()
     	level++;
     	paintLevel = true;
     }
-    else
-    {
-    }
 }
 
 bool Galaxis::shouldIncLevel()
 {
 	if ((paintLevelcount < 100) && (paintLevelcount > 0) )
 	{
+			// Draw Level on HUD
 			paintLevel = true;
 	}
 

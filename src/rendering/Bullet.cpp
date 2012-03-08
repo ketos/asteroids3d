@@ -4,8 +4,8 @@
  */
 
 #include "Bullet.hpp"
-#include <stdio.h>
 
+// static speed of all bullets
 float Bullet::b_speed = 3;
 
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, glVector<float> asteroid)
@@ -13,11 +13,11 @@ Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis, g
    	target = asteroid;
 	this->fighter_axis = (fighter_position - target)* - (b_speed);
 	alive = true;
-    // same position as the fighter
+        // same position as the fighter
  	m_position = fighter_position;
-    SoundManager::playFireSound();
-    seeking = true;
-	
+ 	//play sound
+        SoundManager::playFireSound();
+        seeking = true;
 }
 
 Bullet::Bullet(glVector<float> fighter_position, glVector<float> fighter_axis)
@@ -39,13 +39,13 @@ bool Bullet::isAlive()
 
 void Bullet::run()
 {
-	int i = 0;
-    // Modify the Asteorid's position until the lifetime is over
-
-	while(i < lifetime){
+        // Modify the Asteorid's position until the lifetime is over
+        int i = 0;
+	while( (i < lifetime) && (alive) )
+	{
 		m_position = fighter_axis  + m_position;
-		i++;
 		usleep(1000);
+	        i++;
 	}
 	alive = false;
 }
@@ -60,6 +60,7 @@ glVector<float> Bullet::getPosition()
 }
 void Bullet::setAxis(glVector<float> xA, glVector<float> yA, glVector<float> zA)
 {
+        // set axis
         m_xAxis = xA;
         m_yAxis = yA;
         m_zAxis = zA;
