@@ -40,13 +40,12 @@ public:
   void draw(int x ,int y, QFont f);
     
   /**
-   *@brief Draws the given Astroid on the rada
+   *@brief Draws the given Astroid on the radar
    *@param painter used QPainter
    *@param radarraange the max distance for astroids
    *@param durchmesser diameter of the radar
    *@param radarmidx x value of the radarmid
    *@param radarmidy y value of the radarmid
-   *@param QPainter used QPainter
    */
   void drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy);
 
@@ -57,117 +56,128 @@ public:
   void setAstroidsVector(std::vector<glVector<float>* > collvec);
 
   /**
-  	*@brief paint the score
+  	*@brief paints the score
   	*@param points
   	*@param breite width
-  	*@param used Qpainter
   	*/
-  void score(int punkte, int breite);
+  void score(int punkte);
 
   /**
-  	*@brief paint the damage
+  	*@brief paints the damage
   	*@param damage the actual damage
-  	*@param breite width
-  	*@param used Qpainter
   	*/
   void damages(int schaden);
 	
 	/**
 	 *@brief Draws the speed
-	 *@param int speed 
-	 *@param breite width
-	 *@param painter used Painter
+	 *@param int speed
 	 */  
   void Speed(float speed);
   
 	/**
-	 *@briefset Method for fighter Data like Score,damage speed
+	 *@brief set Method for fighter Data like Score,damage speed
 	 *@param damage actual damage
 	 *@param score actual score
 	 *@param speed actual speed
+	 *@param shoot true when fighter shot
 	 */
 	void setFighterData(int damage, int score, float speed, bool shoot); 
 	
 	/**
  	 *@brief renders a Spalshscreen
 	 *@param int breite width of the screen
-	 *@param int hoehe higth of the screen
-	 *@param painter used qpainter 
+	 *@param int hoehe higth of the
+	 *@param breite height of the windows
+	 *@param hoehe width of the windows screen
 	 */   
 	void drawSplash(int breite, int hoehe);
+	
 	/**
 	 *@brief draws radar
-	 *@param breite height of the windows
-	 *@param hoehe width of the windows
 	 */
-	 void drawRadar(int width, int height);
+	 void drawRadar();
 	 
 	/**
 	 *@brief draws current level
-	 *@param breite height of the windows
-	 *@param hoehe width of the windows
-	 *@param actLevel actual level
 	 */
 	 void drawLevelEnd();
 	 
+	 /**
+	  *@brief sets setIncLevel
+	  *@param shouldIpaint true when level accomplished
+	  */
 	 void setIncLevel(bool shouldIPaint);
 	 
+	 /**
+	  *@brief sets the Levelnumber
+	  *@param levelnumber level number
+	  */
 	 void setLevel(int levelnumber) ;
 	
-	 void setPainter(QPainter *paint);
 	/**
-	 *@draws a Warning
+	 *@brief sets the used painter
+	 *@param paint the painter to use
+	 */
+	 void setPainter(QPainter *paint);
+	
+	/**
+	 *@brief draws a Warning
 	 */
 	 void drawWarning();	 
-	 /*
+	
+	 /**
 	  *@brief makes the cockpit to be visible
 	  */
 	 void loadCockpit();
-	 /*
+
+	 /**
 	  *@brief hides the cokpit
 	  */
 	 void deleteCockpit();
-	 /*
+
+	 /**
 	  *@brief return true if cockpitview
 	   @return  true if cockpitview
 	  */
 	 bool getView();
-	 /*
+
+	 /**
 	  *@brief draws the cockpit 
 	  */
 	 void drawCockpit();	
-	 /*
+
+	 /**
 	  * @brief draws a redscreen
 	  */
 	 void drawRedScreen();
-	   /*
-	    *@brief draws the Highscore
-	    */
+
+	/**
+	 *@brief draws the Highscore
+	 */
 	 void drawHighscore();  
 
-	 /*
+	 /**
 	  * @brief draws a greenscreen
 	  */
-	  void drawGreenScreen();
-	  void drawGameover(int breite, int hoehe);
+	 void drawGreenScreen();
+	 /**
+	  * @brief draws a GameOverscreen
+	  */
+	 void drawGameover(int breite, int hoehe);
 private:
-    //HUD(const HUD&);
-    //~HUD();
-    //static HUD* instance;
-    /*used QPainter*/
 
     QPainter *painter;
     bool     paintLevel;
     //decides if the cockpit is shown
     bool     showCockpit;
-    int 	 showWarningCockpit;
+    int 	    showWarningCockpit;
     float    fighterSpeed;
     int      levelNumber;
     int      fighterDamage;
     int      fighterScore;
     //decides wether the redscreen shoul be printed 
     int      ShouldIdrawRedScreen;
-    int 	 ShouldIdrawGreenScreen;
+    int 	    ShouldIdrawGreenScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
 
@@ -187,9 +197,11 @@ private:
     QImage WarningcockpitBrokenImage;
     QImage cockpitBrokenImage;
 
- 	int durchmesser;
-	int abstand;     
+    int durchmesser;
+    int abstand;
+    //radarmitte(breite)     
     int radmidx;
+    //radarmitte(hoehe)
     int radmidy;
     int breite;
     int hoehe; 

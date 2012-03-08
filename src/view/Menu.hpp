@@ -8,14 +8,30 @@
 class Menu {
     
     public:
+        /**
+         *@brief draws the splash 
+         *@param width width of the window
+         *@param heigth height of the windows
+         *@param h used hud
+         */
         static void drawSplash(int width, int height, HUD* h);
+
+        /**
+         *@brief stop menu sound 
+         */
         static void deleteSplash();
-        static void drawMenu();
-        static void drawGameover(int width, int height, HUD* h);
-        static void deleteGameover();
         
-    private:
-        static HUD* hins;
+        /**
+         *@brief draws the Gameover screen 
+         *@param width width of the window
+         *@param heigth height of the windows
+         *param h used hud
+         */
+        static void drawGameover(int width, int height, HUD* h);
+        /**
+         *@brief stop menu sound 
+         */
+        static void deleteGameover();
           
 };
 
