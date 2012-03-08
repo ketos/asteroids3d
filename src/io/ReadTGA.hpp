@@ -3,7 +3,7 @@
  *
  *  @date 13.12.2011
  *  @author Thomas Wiemann
- *  @source http://content.gpwiki.org/index.php/LoadTGACpp
+ *  source http://content.gpwiki.org/index.php/LoadTGACpp
  */
 
 #ifndef READTGA_HPP_

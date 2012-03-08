@@ -1,3 +1,8 @@
+/**
+ * @file HUD.hpp
+ *
+ * @author gruppe3
+ */
 #ifndef _HUD_H
 #define _HUD_H
 
@@ -7,25 +12,25 @@
 #include <QPen>
 #include <QGLWidget>
 #include <QString>
-#include <string.h>
 #include <QFontMetrics>
-#include <vector>
-#include <sstream>
-#include <string>
-#include <iostream> 
 #include <QPushButton>
 #include <QFile>
 #include <QTextStream>
-#include "io/ReadTXT.hpp"
 
+#include <vector>
+#include <sstream>
+#include <string>
+#include <iostream>
+#include <string.h>
+
+#include "io/ReadTXT.hpp"
 #include "math/glVector.hpp"
 
-/**
- * @file HUD.hpp
- *
- * @author gruppe3
- */
 
+/**
+*   @brief Realisiert ein HUD Overlay
+*
+*/
 class HUD
 {
 public:
@@ -38,95 +43,95 @@ public:
 
   /**
    * @brief Draws the HUD
-   * @param int width of the window;
-   * @param int hiegth of the window;
-   * @param QFont Used Font
+   * @param x width of the window;
+   * @param y hiegth of the window;
+   * @param f Used Font
    */
   void draw(int x ,int y, QFont f);
-    
+
   /**
    *@brief Draws the given Astroid on the radar
-   *@param glVector<float>* the Astroid position
-   *@param int the max distance for astroids
-   *@param int diameter of the radar
-   *@param int x value of the radarmid
-   *@param int y value of the radarmid
+   *@param vec the Astroid position
+   *@param radarrange the max distance for astroids
+   *@param durchmesser diameter of the radar
+   *@param radarmidx x value of the radarmid
+   *@param radarmidy y value of the radarmid
    */
   void drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy);
 
   /**
    *@brief sets the collvec which contains the astroids in Radarrange
-   *@param vector<glVector<float>* > vector with astroids in radarrange
+   *@param collvec vector with astroids in radarrange
    */
   void setAstroidsVector(std::vector<glVector<float>* > collvec);
 
   /**
   	*@brief paints the score
-  	*@param int points
+  	*@param punkte points
   	*/
   void score(int punkte);
 
   /**
   	*@brief paints the damage
-  	*@param int the actual damage
+  	*@param schaden the actual damage
   	*/
   void damages(int schaden);
-	
+
 	/**
 	 *@brief Draws the speed
-	 *@param int speed
-	 */  
+	 *@param speed speed
+	 */
   void Speed(float speed);
-  
+
 	/**
 	 *@brief set Method for fighter Data like Score,damage speed
-	 *@param int actual damage
-	 *@param int actual score
-	 *@param float actual speed
-	 *@param bool true when fighter shot
+	 *@param damage actual damage
+	 *@param score actual score
+	 *@param speed actual speed
+	 *@param shoot true when fighter shot
 	 */
-	void setFighterData(int damage, int score, float speed, bool shoot); 
-	
+	void setFighterData(int damage, int score, float speed, bool shoot);
+
 	/**
  	 *@brief renders a Spalshscreen
-	 *@param int height of the windows
-	 *@param int width of the windows screen
-	 */   
+	 *@param breite height of the windows
+	 *@param hoehe width of the windows screen
+	 */
 	void drawSplash(int breite, int hoehe);
-	
+
 	/**
 	 *@brief draws radar
 	 */
 	 void drawRadar();
-	 
+
 	/**
 	 *@brief draws current level
 	 */
 	 void drawLevelEnd();
-	 
+
 	 /**
 	  *@brief sets setIncLevel
-	  *@param bool true when level accomplished
+	  *@param shouldIPaint true when level accomplished
 	  */
 	 void setIncLevel(bool shouldIPaint);
-	 
+
 	 /**
 	  *@brief sets the Levelnumber
-	  *@param int level number
+	  *@param levelnumber level number
 	  */
 	 void setLevel(int levelnumber) ;
-	
+
 	/**
 	 *@brief sets the used painter
-	 *@param Qpainter the painter to use
+	 *@param paint the painter to use
 	 */
 	 void setPainter(QPainter *paint);
-	
+
 	/**
 	 *@brief draws a Warning
 	 */
-	 void drawWarning();	 
-	
+	 void drawWarning();
+
 	 /**
 	  *@brief makes the cockpit to be visible
 	  */
@@ -144,9 +149,9 @@ public:
 	 bool getView();
 
 	 /**
-	  *@brief draws the cockpit 
+	  *@brief draws the cockpit
 	  */
-	 void drawCockpit();	
+	 void drawCockpit();
 
 	 /**
 	  * @brief draws a redscreen
@@ -156,7 +161,7 @@ public:
 	/**
 	 *@brief draws the Highscore
 	 */
-	 void drawHighscore();  
+	 void drawHighscore();
 
 	 /**
 	  * @brief draws a greenscreen
@@ -177,13 +182,13 @@ private:
     int      levelNumber;
     int      fighterDamage;
     int      fighterScore;
-    //decides wether the redscreen shoul be printed 
+    //decides wether the redscreen shoul be printed
     int      ShouldIdrawRedScreen;
     int 	    ShouldIdrawGreenScreen;
     /*vector which contains the astroids in radarrange*/
     std::vector<glVector<float>* > collvec;
 
-    // cockpit bild 
+    // cockpit bild
     QImage cockpitImage;
     //mini raumschiff fuer radar
     QImage miniCraft;
@@ -201,12 +206,12 @@ private:
 
     int durchmesser;
     int abstand;
-    //radarmitte(breite)     
+    //radarmitte(breite)
     int radmidx;
     //radarmitte(hoehe)
     int radmidy;
     int breite;
-    int hoehe; 
+    int hoehe;
 
 };
 

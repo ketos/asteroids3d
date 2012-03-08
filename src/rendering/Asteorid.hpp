@@ -16,8 +16,8 @@
 #include "io/SoundManager.hpp"
 #include "TexturedMesh.hpp"
 
-// We use common cpp threads for this class: 
-// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B 
+// We use common cpp threads for this class:
+// http://www.gnutelephony.org/index.php/GNU_Common_C%2B%2B
 
 /**
  * @brief Asteorid
@@ -39,7 +39,7 @@ public:
      * @brief Moves the Asteorid until it's over.
      */
 	void run();
-    
+
     /**
       * @brief returns position
       */
@@ -50,7 +50,7 @@ public:
      * @return false, if the Asteorid's lifetime is over and true otherwise
      */
 	bool isAlive();
-	
+
     /**
      * @brief destroys the asteorid
      */
@@ -73,11 +73,12 @@ public:
      void set_flight_axis(glVector<float> new_axis);
     /**
      * @brief returns the Radius of the Asteorid
+     * @return float Radius
      */
      float get_radius();
     /**
      * @brief returns true, if this Asteorid is a little one
-	 * @param bool true, if this Asteorid is a little one
+	 * @return bool true, if this Asteorid is a little one
      */
      bool is_mini();
     /**
@@ -86,7 +87,7 @@ public:
      bool is_hitable();
     /**
      * @brief Sets the Hittability of the Asteorid
-	 * @param hit Boolean to set the Hitability 
+	 * @param hit Boolean to set the Hitability
      */
      void set_hitable(bool hit);
     /**
@@ -121,10 +122,10 @@ protected:
      */
 	bool hitable;
     /**
-     * @brief wait 
+     * @brief wait
      */
 	int wait;
-	
+
 signals:
     /**
      * @brief Signal with Position Informations

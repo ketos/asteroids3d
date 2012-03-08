@@ -68,35 +68,35 @@ void Fighter::renderBullet()
         if(!(*bulletIt)->isAlive())
         {
                 bulletIt = m_bullets.erase(bulletIt);
-	}
-	else
-	{
+	    }
+	    else
+	    {
 	        ++bulletIt;
-	}
+	    }
     }
 }
 
 // Anmerkung eigentlich zuviel rausnehmen
 void Fighter::killBullet(Bullet* b)
 {
-        // killen der kugel
-        vector<Bullet*>::iterator bulletIt;
-        bulletIt = m_bullets.begin();
-        // iterieren des vectors
-        while(bulletIt != m_bullets.end())
+    // killen der kugel
+    vector<Bullet*>::iterator bulletIt;
+    bulletIt = m_bullets.begin();
+    // iterieren des vectors
+    while(bulletIt != m_bullets.end())
+    {
+        // wenn kugel gefunden diese entfernen
+        if((*bulletIt) == b)
         {
-                // wenn kugel gefunden diese entfernen
-	        if((*bulletIt) == b)
-	        {
-                        bulletIt = m_bullets.erase(bulletIt);
-                        b->kill();
-                        break;
-	        }
-	        else
-	        {
-                        ++bulletIt;
-	        }
-      }
+            bulletIt = m_bullets.erase(bulletIt);
+            b->kill();
+            break;
+        }
+        else
+        {
+            ++bulletIt;
+        }
+    }
 }
 
 void Fighter::increaseDamage(int i)
@@ -208,9 +208,9 @@ void Fighter::reduceAngle()
     {
         changeSpeed(BRAKE);
     }
-    
-    // verändere angle 
-    
+
+    // verändere angle
+
     if(m_anglepitch != 0)
     {
         if(m_anglepitch > 0)
