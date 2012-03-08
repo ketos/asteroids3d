@@ -20,6 +20,12 @@
 
 #include "math/glVector.hpp"
 
+/**
+ * @file HUD.hpp
+ *
+ * @author gruppe3
+ */
+
 class HUD
 {
 public:
@@ -32,39 +38,37 @@ public:
 
   /**
    * @brief Draws the HUD
-   * @param painter Used QPainter
-   * @param x width of the window;
-   * @param y hiegth of the window;
-   * @param f Used Font
+   * @param int width of the window;
+   * @param int hiegth of the window;
+   * @param QFont Used Font
    */
   void draw(int x ,int y, QFont f);
     
   /**
    *@brief Draws the given Astroid on the radar
-   *@param painter used QPainter
-   *@param radarraange the max distance for astroids
-   *@param durchmesser diameter of the radar
-   *@param radarmidx x value of the radarmid
-   *@param radarmidy y value of the radarmid
+   *@param glVector<float>* the Astroid position
+   *@param int the max distance for astroids
+   *@param int diameter of the radar
+   *@param int x value of the radarmid
+   *@param int y value of the radarmid
    */
   void drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmesser, int radarmidx, int radarmidy);
 
   /**
    *@brief sets the collvec which contains the astroids in Radarrange
-   *@param vector vector with astroids in radarrange
+   *@param vector<glVector<float>* > vector with astroids in radarrange
    */
   void setAstroidsVector(std::vector<glVector<float>* > collvec);
 
   /**
   	*@brief paints the score
-  	*@param points
-  	*@param breite width
+  	*@param int points
   	*/
   void score(int punkte);
 
   /**
   	*@brief paints the damage
-  	*@param damage the actual damage
+  	*@param int the actual damage
   	*/
   void damages(int schaden);
 	
@@ -76,19 +80,17 @@ public:
   
 	/**
 	 *@brief set Method for fighter Data like Score,damage speed
-	 *@param damage actual damage
-	 *@param score actual score
-	 *@param speed actual speed
-	 *@param shoot true when fighter shot
+	 *@param int actual damage
+	 *@param int actual score
+	 *@param float actual speed
+	 *@param bool true when fighter shot
 	 */
 	void setFighterData(int damage, int score, float speed, bool shoot); 
 	
 	/**
  	 *@brief renders a Spalshscreen
-	 *@param int breite width of the screen
-	 *@param int hoehe higth of the
-	 *@param breite height of the windows
-	 *@param hoehe width of the windows screen
+	 *@param int height of the windows
+	 *@param int width of the windows screen
 	 */   
 	void drawSplash(int breite, int hoehe);
 	
@@ -104,19 +106,19 @@ public:
 	 
 	 /**
 	  *@brief sets setIncLevel
-	  *@param shouldIpaint true when level accomplished
+	  *@param bool true when level accomplished
 	  */
 	 void setIncLevel(bool shouldIPaint);
 	 
 	 /**
 	  *@brief sets the Levelnumber
-	  *@param levelnumber level number
+	  *@param int level number
 	  */
 	 void setLevel(int levelnumber) ;
 	
 	/**
 	 *@brief sets the used painter
-	 *@param paint the painter to use
+	 *@param Qpainter the painter to use
 	 */
 	 void setPainter(QPainter *paint);
 	
@@ -137,7 +139,7 @@ public:
 
 	 /**
 	  *@brief return true if cockpitview
-	   @return  true if cockpitview
+	   @return bool true if cockpitview
 	  */
 	 bool getView();
 
