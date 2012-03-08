@@ -8,9 +8,9 @@
 #define FIGHTER_HPP_
 
 #include "TexturedMesh.hpp"
-#include <GL/glu.h>	
-#include <GL/glut.h>	
-#include <vector>	
+#include <GL/glu.h>
+#include <GL/glut.h>
+#include <vector>
 #include "Bullet.hpp"
 
 /**
@@ -19,13 +19,13 @@
 class Fighter : public TexturedMesh
 {
 
-public:   
+public:
 
     /**
      * @brief Adds a bullet to the fighter's vector of bullets.
      */
 	void shoot();
-    
+
     /**
      * @brief Renders the fighter and calls the bullets' render method.
      * @param printFighter decides if the fighter should be painted
@@ -74,10 +74,10 @@ public:
      */
 	int getScore();
 
-	/*
+	/**
      * @brief if the fighter has shot
      * @return true if the fighter shot
-     */ 
+     */
 	bool wasShot();
 
 	/**
@@ -85,11 +85,11 @@ public:
 	 *
 	 */
 	void resetDamage();
-    
+
 	void reset_position();
-    
+
     void reduceAngle();
-    
+
     void setNULL();
 
 private:
@@ -97,7 +97,7 @@ private:
      bool shot;
     // A vector with the bullets this fighter has shot.
 	vector<Bullet*> m_bullets;
-    
+
     float m_anglepitch;
     float m_angleyaw;
     float m_angleroll;
