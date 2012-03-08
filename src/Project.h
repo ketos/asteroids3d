@@ -6,6 +6,6 @@
 *   C++ 2012 programmiert wurde.
 *
 *   @section sec2 Contributors
-*   Daniel Böß, Henning ?, Nils Bussmann, Michel ?, Tim Wessels, Tim 2, Tim 3
+*   Daniel Böß, Henning ?, Nils Bussmann, Michel ?, Tim Wessels, Tim Röwekamp, Tim 3
 *
 */
