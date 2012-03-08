@@ -72,8 +72,8 @@ void HUD::draw(int width, int height, QFont f)
       	drawLevelEnd();
 
     //draws radar, score, speed and damage
-    drawRadar(width,height);
-    score(fighterScore,width/2);
+    drawRadar();
+    score(fighterScore);
     Speed(fighterSpeed);
     damages(fighterDamage);
     
@@ -107,9 +107,9 @@ void HUD::drawRadarAstroid(glVector<float>* vec, float radarrange, int durchmess
     if(vec->length() < 5000)
     {
     	  //scales the radarposition with a "three sentence(3 satz) "
-        tmp.x/ = radarrange;
-        tmp.y/ = radarrange;
-        tmp.z/ = radarrange;
+        tmp.x /= radarrange;
+        tmp.y /= radarrange;
+        tmp.z /= radarrange;
         tmp = tmp * (durchmesser/2);
         
         //converts to int because ints are needed for draw Elipse/line
