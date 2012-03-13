@@ -20,7 +20,9 @@
 #include "rendering/Asteorid.hpp"
 #include "math/Global.hpp"
 #include "control/keyboard.hpp"
+#ifdef LINUX
 #include "control/joystickcontrol.hpp"
+#endif
 #include "logic/Game.hpp"
  
 /**
@@ -65,11 +67,13 @@ public:
      */
     QTimer* m_timer2;
 
+#ifdef LINUX	
     /**
      * @brief Joystick
      */
     JoystickControl* joys;
-    
+#endif
+	
     /**
      * @brief Kamera
      */

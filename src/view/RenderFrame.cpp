@@ -42,11 +42,15 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
     // verbinde mit Gameupdate()
     connect(m_timer2,SIGNAL(timeout()), this, SLOT(Gameupdate()));
     
+#ifdef LINUX
     // erzeugt den Joystick (string: Ort des Joysticks in Linux) gesetzt für Ubuntu
     joys = new JoystickControl("/dev/input/js0");
     
     // fragt ob verbunden wurde
     joystick = joys->connected();
+#else
+	joystick = false;
+#endif
     
 	setAutoFillBackground(false);
 
@@ -85,10 +89,12 @@ RenderFrame::RenderFrame(QWidget* parent) : QGLWidget(parent)
 RenderFrame::~RenderFrame()
 {
     // wenn Joystick vorhanden dann löschen
+#ifdef LINUX
     if(joystick)
     {
         delete joys;
     }
+#endif
     //Fighter niht löschen, erzeugt SegFaults
     //delete Game::getFighter();
     delete m_skybox;
@@ -223,9 +229,11 @@ void RenderFrame::setCam()
 void RenderFrame::paintGL()
 {       
     //Steuerung updaten
+#ifdef LINUX
     if(joystick) {
         joys->update();
     }
+#endif
     Keyboard::update();
 
     setCam();

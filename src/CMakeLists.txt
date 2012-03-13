@@ -88,7 +88,6 @@ set(VIEWER_SOURCES
 	io/TriangleMeshFactory.cpp
 	io/Sound.cpp
 	io/SoundManager.cpp
-    io/joystick.cpp
     io/TextureManager.cpp
     view/MainWindow.cpp
     view/Camera.cpp
@@ -97,7 +96,6 @@ set(VIEWER_SOURCES
 	view/HUD.cpp
     view/Menu.cpp
     control/keyboard.cpp
-    control/joystickcontrol.cpp
     rendering/TriangleMesh.cpp
 	rendering/Texture.cpp
 	rendering/Skybox.cpp
@@ -116,6 +114,10 @@ set(VIEWER_SOURCES
     Main.cpp
     math/Collision.cpp
 )
+
+if(LINUX)
+set(VIEWER_SOURCES ${VIEWER_SOURCES} io/Joystick.cpp control/joystickcontrol.cpp)
+endif(LINUX)
 
 
 ###############################################################################
